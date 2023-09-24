@@ -18,6 +18,9 @@ public class Player : MonoBehaviour
 
     public AudioClip[] drySteps;
     public AudioClip[] wetSteps;
+
+    [SerializeField] private Animator animator;
+    public bool walking;
     
     // Start is called before the first frame update
     void Start()
@@ -34,6 +37,9 @@ public class Player : MonoBehaviour
 
         float cameraRotation = Camera.main.transform.rotation.eulerAngles.y;
         horizVelo = Quaternion.AngleAxis(cameraRotation, Vector3.up) * horizVelo;
+        animator.SetFloat("HorizontalSpeed", horizVelo.x);
+
+        animator.SetBool("walking", horizVelo.x != 0.0 || horizVelo.z != 0.0);
 
         // raycast to see groundedness
         RaycastHit hit;

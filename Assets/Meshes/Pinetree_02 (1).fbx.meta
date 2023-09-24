@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b3e65f117ef4dc849ae657f9c0d0759c
+guid: 0b6769beb7df2154a8f1325c16ccf131
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,13 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: polySurface2534_group1_blockoutMat
-    second: {fileID: 2100000, guid: bf22a38b91709e54384d041446fea490, type: 2}
+      name: leaves_pine_shd
+    second: {fileID: 2100000, guid: 96c5eef7a6b519b49805310715f3f1b3, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: standardSurface3
+    second: {fileID: 2100000, guid: 793b77b5ae891b546b933ce63c0d4985, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
