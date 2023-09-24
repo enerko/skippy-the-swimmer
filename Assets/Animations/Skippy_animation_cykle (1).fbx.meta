@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: b3e65f117ef4dc849ae657f9c0d0759c
+guid: 7dfee73e809b4164aa650526791a5a55
 ModelImporter:
   serializedVersion: 22200
   internalIDToNameTable: []
@@ -7,8 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: polySurface2534_group1_blockoutMat
-    second: {fileID: 2100000, guid: bf22a38b91709e54384d041446fea490, type: 2}
+      name: standardSurface2
+    second: {fileID: 2100000, guid: d886a34618227d0409343497fd60e532, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
