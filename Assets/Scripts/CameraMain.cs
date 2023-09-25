@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class CameraMain : MonoBehaviour
 {
-    private readonly Vector3 Offset = new Vector3(0, 4.25f, -15);
+    private readonly Vector3 Offset = new Vector3(0, 2, -7);
     private float _sensitivity = 15f;
 
     public GameObject player;
