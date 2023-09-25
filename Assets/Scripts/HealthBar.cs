@@ -1,39 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
-    public Material healthHigh;
-    public Material healthMid;
-    public Material healthLow;
-    public GameObject[] healthBoxes;
+    public Slider slider;
+    public Image fill;
 
     // Start is called before the first frame update
     void Start()
     {
+        slider.maxValue = PlayerHealth.s_MaxHealth;
     }
 
     void Update()
     {
-        // see whether each box should be filled
-        for (int i = 0; i < healthBoxes.Length; i++)
-        {
-            GameObject healthBox = healthBoxes[i];
-            float healthPercent = (float)PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
-            healthBox.SetActive(healthPercent > 0.1 * i);
+        slider.value = PlayerHealth.s_Health;
 
-            // colour the box depending on health percentage
-            if (healthPercent <= 0.2)
-            {
-                healthBox.GetComponent<Renderer>().material = healthLow;
-            } else if (healthPercent <= 0.5)
-            {
-                healthBox.GetComponent<Renderer>().material = healthMid;
-            } else
-            {
-                healthBox.GetComponent<Renderer>().material = healthHigh;
-            }
+        
+            float healthPercent = (float)PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
+
+        // colour the box depending on health percentage
+        if (healthPercent <= 0.3)
+        {   
+            fill.color = new Color32(219, 30, 62, 255); // low
+        } else 
+        {
+            fill.color = new Color32(102, 169, 225, 255); // full
         }
+        
     }
 }
