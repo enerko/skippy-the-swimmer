@@ -6,14 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
-    public static int s_MaxHealth = 100;
-    public static int s_Health = s_MaxHealth;
+    public static float s_MaxHealth = 100;
+    public static float s_Health = s_MaxHealth;
 
-    private const float HealthUpdateRate = 0.1f;  // health updates every this many seconds
-    private const int HealingPerUpdate = 50;
-    private const int DamagePerUpdate = 5;
-    private float _timer = 0;
-    private float _lastHealthUpdate = 0;
+    private const float HealingPerSecond = 100;
+    private const float DamagePerSecond = 50;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +20,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        if (_timer - _lastHealthUpdate >= HealthUpdateRate) {
-            _lastHealthUpdate = _timer;
-
-            s_Health = Math.Clamp(Player.s_InWater ? s_Health + HealingPerUpdate : s_Health - DamagePerUpdate, 0, s_MaxHealth);
-        }
+        float healthChange = (Player.s_InWater ? HealingPerSecond : -DamagePerSecond) * Time.deltaTime;
+        s_Health = Math.Clamp(s_Health + healthChange, 0, s_MaxHealth);
 
         // On death...
         if (s_Health <= 0) {
@@ -35,8 +29,6 @@ public class PlayerHealth : MonoBehaviour
             Cursor.visible = true;
             SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
         }
-
-        _timer += Time.deltaTime;
     }
 
     // When Skippy enters a puddle of water
