@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public static float s_Health = s_MaxHealth;
 
     private const float HealingPerSecond = 100;
-    private const float DamagePerSecond = 50;
+    private const float DamagePerSecond = 10;
 
     // Start is called before the first frame update
     void Start()
