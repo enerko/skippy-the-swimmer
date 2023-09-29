@@ -10,15 +10,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 26bd404543df63a4e85e4fd3421c0283, type: 3}
       propertyPath: m_LocalScale.x
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26bd404543df63a4e85e4fd3421c0283, type: 3}
       propertyPath: m_LocalScale.y
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26bd404543df63a4e85e4fd3421c0283, type: 3}
       propertyPath: m_LocalScale.z
-      value: 300
+      value: 500
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 26bd404543df63a4e85e4fd3421c0283, type: 3}
       propertyPath: m_LocalPosition.x
@@ -71,9 +71,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26bd404543df63a4e85e4fd3421c0283, type: 3}
       insertIndex: -1
       addedObject: {fileID: 4630699652353077109}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 26bd404543df63a4e85e4fd3421c0283, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5782539669424841678}
   m_SourcePrefab: {fileID: 100100000, guid: 26bd404543df63a4e85e4fd3421c0283, type: 3}
 --- !u!1 &9193120943838967634 stripped
 GameObject:
@@ -102,24 +99,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 8541031686156894047, guid: 26bd404543df63a4e85e4fd3421c0283, type: 3}
---- !u!65 &5782539669424841678
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9193120943838967634}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.02, y: 0.056347832, z: 0.02}
-  m_Center: {x: 0, y: 0, z: 0}
