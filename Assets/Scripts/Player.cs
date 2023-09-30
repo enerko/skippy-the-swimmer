@@ -127,6 +127,12 @@ public class Player : MonoBehaviour
         foreach (Collider other in collided) {
             Debug.Log(other.gameObject);
             Destroy(other.gameObject);
+
+            IHasLiquid var = other.gameObject.GetComponent<IHasLiquid>();
+            if (var != null) {
+                var.SpawnLiquid();
+            }
+
         }
     }
 }
