@@ -126,6 +126,7 @@ public class Player : MonoBehaviour
 
         foreach (Collider other in collided) {
             Debug.Log(other.gameObject);
+            Destroy(other.gameObject);
         }
     }
 }
