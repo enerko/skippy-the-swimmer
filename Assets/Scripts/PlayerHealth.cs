@@ -11,6 +11,9 @@ public class PlayerHealth : MonoBehaviour
 
     private const float HealingPerSecond = 100;
     private const float DamagePerSecond = 10;
+    
+    private float _timer = 0;
+    private const float InvulTime = 0.75f;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +23,20 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        float healthChange = (Player.s_InWater ? HealingPerSecond : -DamagePerSecond) * Time.deltaTime;
-        s_Health = Math.Clamp(s_Health + healthChange, 0, s_MaxHealth);
+        // delay healthChange on state change (in/out of water)
+        if (Player.s_Invul) {
+            _timer += Time.deltaTime;
+            if (_timer >= InvulTime) {
+                Player.s_Invul = false;
+                _timer = 0;
+            }
+        }
+        else
+        {
+            float healthChange = (Player.s_InWater ? HealingPerSecond : -DamagePerSecond) * Time.deltaTime;
+            s_Health = Math.Clamp(s_Health + healthChange, 0, s_MaxHealth);
+        }
+        
 
         // On death...
         if (s_Health <= 0) {
@@ -35,11 +50,15 @@ public class PlayerHealth : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag != "Puddle") return;
         Player.s_InWater = true;
+        
     }
 
     // When Skippy exits a puddle of water
     void OnTriggerExit(Collider other) {
         if (other.gameObject.tag != "Puddle") return;
         Player.s_InWater = false;
+        Player.s_Invul = true;
     }
+    
+    // When Skippy just leaves water
 }

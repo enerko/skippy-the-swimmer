@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
 {
     public static bool s_Grounded = false;
     public static bool s_InWater = false;
+    public static bool s_Invul = false;
    
     private const float Speed = 8;
     private const float Jump = 6;
