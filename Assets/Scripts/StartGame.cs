@@ -15,7 +15,7 @@ public class StartGame : MonoBehaviour
         _btn.onClick.AddListener(StartMain);
     }
 
-    private void StartMain() {
+    public void StartMain() {
         // reset health
         PlayerHealth.s_Health = PlayerHealth.s_MaxHealth;
 
