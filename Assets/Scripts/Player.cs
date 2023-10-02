@@ -7,9 +7,11 @@ public class Player : MonoBehaviour
 {
     public static bool s_Grounded = false;
     public static bool s_InWater = false;
+    public static bool s_Invul = false;
    
     private const float Speed = 8;
     private const float Jump = 6;
+    private const float Fall = 2.0f;
     private const float StepAudioDelay = 0.3f;
     private Rigidbody _rb;
     private AudioSource _audioSource;
@@ -92,6 +94,11 @@ public class Player : MonoBehaviour
         // Handle jumping
         if (Input.GetKeyDown("space") && s_Grounded) {
             currVelo.y = Jump;
+        }
+
+        if (currVelo.y < 0)
+        {
+            currVelo += Vector3.up * Physics.gravity.y * (Fall - 1) * Time.deltaTime;
         }
 
         // Tail attack

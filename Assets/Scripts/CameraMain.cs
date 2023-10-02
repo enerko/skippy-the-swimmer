@@ -20,11 +20,15 @@ public class CameraMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        gameObject.transform.position = player.transform.position;
+        if (!PauseMenu.GameIsPaused)
+        {
 
-        // moving mouse horizontally
-        gameObject.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * _sensitivity, 0), Space.World);
+            gameObject.transform.position = player.transform.position;
 
-        gameObject.transform.Translate(Offset);
+            // moving mouse horizontally
+            gameObject.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * _sensitivity, 0), Space.World);
+
+            gameObject.transform.Translate(Offset);
+        }
     }
 }
