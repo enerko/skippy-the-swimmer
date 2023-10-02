@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1760,6 +1760,7 @@ Transform:
   - {fileID: 1001876976}
   - {fileID: 1404755771}
   - {fileID: 948976824}
+  - {fileID: 1175995213}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &654080597 stripped
@@ -2886,7 +2887,8 @@ GameObject:
   - component: {fileID: 1175995216}
   - component: {fileID: 1175995215}
   - component: {fileID: 1175995214}
-  m_Layer: 0
+  - component: {fileID: 1175995218}
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2901,13 +2903,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175995212}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.6428142, y: -0, z: -0, w: 0.7660221}
-  m_LocalPosition: {x: 75.4, y: 3.14, z: -15.18}
-  m_LocalScale: {x: 3, y: 10, z: 3}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 19.400002, y: 2.21, z: -21.69}
+  m_LocalScale: {x: 2, y: 10, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 984256184}
-  m_LocalEulerAnglesHint: {x: 80.004, y: 0, z: 0}
+  m_Father: {fileID: 602966244}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &1175995214
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2981,6 +2983,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1175995212}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1175995218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175995212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aee89f24705a53e4b8dd12de3f98a2ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  direction: {x: 0.5, y: 0, z: 2}
 --- !u!1001 &1241182745
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5866,10 +5881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 2192623505513511475, guid: 23f47ab79222c5f4e8a1ca7fe4281870, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1175995213}
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 23f47ab79222c5f4e8a1ca7fe4281870, type: 3}
 --- !u!224 &5466107368325389506
