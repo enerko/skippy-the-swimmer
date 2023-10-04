@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -42,7 +43,11 @@ public class PlayerHealth : MonoBehaviour
         if (s_Health <= 0) {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
-            SceneManager.LoadScene("GameOver", LoadSceneMode.Single);
+
+            // reset health
+            s_Health = s_MaxHealth;
+            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+            SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
         }
     }
 
