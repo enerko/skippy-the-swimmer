@@ -2019,6 +2019,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 667985823}
   m_CullTransparentMesh: 1
+--- !u!114 &682774682 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6868232811576862867, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+  m_PrefabInstance: {fileID: 127282157}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &732422818 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5725187830846381866, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
@@ -4007,7 +4018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3614a695dee29f14880f18a752ceb1ae, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -1.1
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 3614a695dee29f14880f18a752ceb1ae, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4737,6 +4748,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: plrMesh
+      value: 
+      objectReference: {fileID: 127282158}
+    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: lookAtRig
+      value: 
+      objectReference: {fileID: 682774682}
     - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: plrMeshLookAtConstraint
       value: 

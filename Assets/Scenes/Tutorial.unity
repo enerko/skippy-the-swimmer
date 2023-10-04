@@ -4404,15 +4404,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 9ac2e7f00ed64f44889ca4a7ca4e0429, type: 2}
     - target: {fileID: 4834687136033705760, guid: 21af60d0202c54f4cb8e6ff54ef008f6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.7
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4834687136033705760, guid: 21af60d0202c54f4cb8e6ff54ef008f6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4834687136033705760, guid: 21af60d0202c54f4cb8e6ff54ef008f6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.7
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4834687136033705760, guid: 21af60d0202c54f4cb8e6ff54ef008f6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4420,7 +4420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4834687136033705760, guid: 21af60d0202c54f4cb8e6ff54ef008f6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4.35
+      value: -3.37
       objectReference: {fileID: 0}
     - target: {fileID: 4834687136033705760, guid: 21af60d0202c54f4cb8e6ff54ef008f6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -18272,62 +18272,6 @@ PrefabInstance:
       propertyPath: lookAtRig
       value: 
       objectReference: {fileID: 1598041376}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: drySteps.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: wetSteps.Array.size
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: drySteps.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 8629c3f3779a77f45b44fb0b71b5313d, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: drySteps.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 55fc727280db0654eba11479d26e5659, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: drySteps.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: aa3a35aa9978a2646949ddfa4878ea85, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: drySteps.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: da1b9b3c25d2f3241baf17282ff98b0b, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: drySteps.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: f8043ec89f70fb34881f8fd684be7414, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: wetSteps.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 3b27fc7660386c54a94b141971291c9c, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: wetSteps.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: 47710213fc4399043b601a76eb1236e7, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: wetSteps.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: a87b1d23099a9f24fb0588ce06822740, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: wetSteps.Array.data[3]
-      value: 
-      objectReference: {fileID: 8300000, guid: ba9b9aa753373fc4b9f3c1d43e232989, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: wetSteps.Array.data[4]
-      value: 
-      objectReference: {fileID: 8300000, guid: 9f39495c3966dac49870b6e678ad73fb, type: 3}
-    - target: {fileID: 2298427490549697007, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: plrMeshLookAtConstraint
-      value: 
-      objectReference: {fileID: 7374756317694162667}
-    - target: {fileID: 4148309036942602451, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 4.15
-      objectReference: {fileID: 0}
     - target: {fileID: 4453016008178255772, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_Name
       value: SkippyController
@@ -19339,17 +19283,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &7374756317694162667 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 6228636190945738316, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
-  m_PrefabInstance: {fileID: 1440232659303188585}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3c430f382484144e925c097c2d33cfe, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7464682827056938930 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 69207994924511979, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
