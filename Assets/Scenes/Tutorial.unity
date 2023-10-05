@@ -18328,10 +18328,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skippy
       objectReference: {fileID: 0}
+    - target: {fileID: 619640152080918604, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampRotation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 974627314549018383, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 93507324}
+    - target: {fileID: 2596625378442228764, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampRotation
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053294784025468349, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampRotation
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5394127617494865417, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 

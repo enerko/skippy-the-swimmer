@@ -21,7 +21,6 @@ public class Player : MonoBehaviour
     private float _stepAudioTime = 0;
     private const float TailAttackRadius = 1.5f;
     private const float TailAttackDelay = 0.3f;
-    private float _tailAttackTime = 0;
 
     public AudioClip[] drySteps;
     public AudioClip[] wetSteps;
@@ -87,22 +86,8 @@ public class Player : MonoBehaviour
         }
 
         // Tail attack
-        if (Input.GetKeyDown("q") && _timer - _tailAttackTime >= TailAttackDelay && !s_IsAttacking) {
-            TailAttack();
-        }
-
-        // Rotate the mesh if in tail attack
-        if (s_IsAttacking) {
-            lookAtRig.weight = 0;  // stop head from looking at the aim sphere
-            float timeSince = _timer - _tailAttackTime;
-            float rotation = 360 * (Time.deltaTime / TailAttackDelay);
-            plrMesh.transform.Rotate(new Vector3(0, rotation, 0));
-
-            // If the timer runs out, set flag back to false
-            if (timeSince >= TailAttackDelay) {
-                lookAtRig.weight = 1;
-                s_IsAttacking = false;
-            }
+        if (Input.GetKeyDown("q") && !s_IsAttacking) {
+            StartCoroutine(TailAttack());
         }
 
         // Update velocity
@@ -112,13 +97,15 @@ public class Player : MonoBehaviour
         _timer += Time.deltaTime;
     }
 
-    // perform tail attack
-    private void TailAttack() {
-        _tailAttackTime = _timer;
+    // perform tail attack (and spin animation)
+    private IEnumerator TailAttack() {
         s_IsAttacking = true;
         Collider[] collided = Physics.OverlapSphere(transform.position, TailAttackRadius, LayerMask.GetMask("Breakable"));
 
+        // process each object
         foreach (Collider other in collided) {
+
+            // TODO: Refactor this fr fr
             Debug.Log(other.gameObject);
 
             if(other.GetComponent<KnockObject>() != null)
@@ -139,5 +126,22 @@ public class Player : MonoBehaviour
             }
 
         }
+
+        // do the tail attack animation
+        lookAtRig.weight = 0;  // stop head from looking at the aim sphere
+
+        int updates = 25;  // how many times to update
+        float rotation = 360 / updates;  // how many degrees to rotate each time
+
+        // spin the mesh
+        for (int i = 0; i < updates; i++) {
+            plrMesh.transform.Rotate(new Vector3(0, rotation, 0));
+
+            yield return new WaitForSeconds(TailAttackDelay / updates);
+        }
+
+        lookAtRig.weight = 1;
+        s_IsAttacking = false;
+        yield return null;  // coroutine should stop here
     }
 }
