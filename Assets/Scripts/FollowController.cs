@@ -16,10 +16,10 @@ public class FollowController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         Vector3 goalPosition = controller.position + transform.TransformDirection(_offset);
-        transform.position = Vector3.Lerp(transform.position, goalPosition, 0.02f);
+        transform.position = Vector3.Lerp(transform.position, goalPosition, 0.1f);
 
         if (!Player.s_IsAttacking)
             transform.LookAt(controller.position + controller.forward, controller.up);

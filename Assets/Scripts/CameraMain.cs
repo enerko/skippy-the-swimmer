@@ -21,11 +21,11 @@ public class CameraMain : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         if (PauseMenu.GameIsPaused) return;
 
-        focus = Vector3.SmoothDamp(focus, player.transform.position, ref velocity, 0.1f);
+        focus = Vector3.SmoothDamp(focus, player.transform.position, ref velocity, 0.15f);
         transform.position = focus;
 
         // moving mouse horizontally
