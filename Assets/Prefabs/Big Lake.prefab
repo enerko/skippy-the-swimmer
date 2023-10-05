@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8363750692108257867}
   - component: {fileID: 2910462591972840789}
   m_Layer: 0
-  m_Name: rock3 (20)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,11 +28,11 @@ Transform:
   m_GameObject: {fileID: 812272959502482967}
   serializedVersion: 2
   m_LocalRotation: {x: -0.02835115, y: -0.99746233, z: 0.054526985, w: 0.035944376}
-  m_LocalPosition: {x: 2.9961975, y: -0.7182865, z: -1.00576}
-  m_LocalScale: {x: 1.180387, y: 1.4130139, z: 0.856515}
+  m_LocalPosition: {x: 2.996198, y: -0.7182866, z: -1.0057601}
+  m_LocalScale: {x: 1.180387, y: 1.4130138, z: 0.8565149}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 6.127, y: -114.115, z: 3.487}
 --- !u!33 &9023700329603721813
 MeshFilter:
@@ -119,7 +119,7 @@ GameObject:
   - component: {fileID: 370268859051820705}
   - component: {fileID: 3769011115289121343}
   m_Layer: 0
-  m_Name: rock3 (8)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,11 +134,11 @@ Transform:
   m_GameObject: {fileID: 1313858159502473607}
   serializedVersion: 2
   m_LocalRotation: {x: 0.01140699, y: -0.98780656, z: 0.055391178, w: -0.1450519}
-  m_LocalPosition: {x: -4.0735598, y: -1.0898871, z: -0.82902807}
-  m_LocalScale: {x: 0.77764744, y: 1.700327, z: 1.0022837}
+  m_LocalPosition: {x: -4.07356, y: -1.0898873, z: -0.8290281}
+  m_LocalScale: {x: 0.7776474, y: 1.7003272, z: 1.0022837}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 6.092, y: -135.256, z: -2.225}
 --- !u!33 &8903898074333455979
 MeshFilter:
@@ -225,7 +225,7 @@ GameObject:
   - component: {fileID: 3449015151009649573}
   - component: {fileID: 8815078809852530334}
   m_Layer: 0
-  m_Name: rock3 (27)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,11 +240,11 @@ Transform:
   m_GameObject: {fileID: 1423937613946908806}
   serializedVersion: 2
   m_LocalRotation: {x: -0.04096591, y: -0.6191171, z: 0.051559698, w: 0.7825327}
-  m_LocalPosition: {x: 2.423359, y: -0.8079621, z: 6.0678115}
-  m_LocalScale: {x: 0.7847409, y: 1.3091598, z: 0.5945045}
+  m_LocalPosition: {x: 2.4233592, y: -0.8079622, z: 6.067812}
+  m_LocalScale: {x: 0.7847409, y: 1.3091596, z: 0.59450454}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -0.016, y: -15.131, z: 7.552}
 --- !u!33 &2655249735359924429
 MeshFilter:
@@ -331,7 +331,7 @@ GameObject:
   - component: {fileID: 1412995919808540575}
   - component: {fileID: 1576194806708568320}
   m_Layer: 0
-  m_Name: rock3 (7)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -345,12 +345,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588030497957248633}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0020292962, y: -0.99406785, z: 0.05651711, w: 0.092902124}
-  m_LocalPosition: {x: -4.4180684, y: -0.94680315, z: 0.66973907}
-  m_LocalScale: {x: 0.76709455, y: 1.700327, z: 1.0198394}
+  m_LocalRotation: {x: -0.0020292965, y: -0.99406785, z: 0.056517113, w: 0.092902124}
+  m_LocalPosition: {x: -4.418069, y: -0.9468032, z: 0.66973907}
+  m_LocalScale: {x: 0.7670945, y: 1.7003272, z: 1.0198394}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 6.43, y: -107.704, z: 0.838}
 --- !u!33 &5870213918262449557
 MeshFilter:
@@ -424,6 +424,64 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 21906025000962182, guid: 803a7d87807262e4da92e1692cf7f34f, type: 3}
+--- !u!1 &2487537484537057644
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7638944994777607523}
+  m_Layer: 0
+  m_Name: Rocks
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7638944994777607523
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2487537484537057644}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 54930579855221714}
+  - {fileID: 4204193554477376561}
+  - {fileID: 8905322965166020623}
+  - {fileID: 6643933620541732296}
+  - {fileID: 840721575809602412}
+  - {fileID: 6817299853450182379}
+  - {fileID: 769060773880660703}
+  - {fileID: 8687615139068908160}
+  - {fileID: 7248081854392134040}
+  - {fileID: 4578663007179830082}
+  - {fileID: 1834656390220523115}
+  - {fileID: 1717396100729003272}
+  - {fileID: 8268151815152811284}
+  - {fileID: 6547596088812921393}
+  - {fileID: 5468152418459044447}
+  - {fileID: 7276527675881277720}
+  - {fileID: 9061040837149355798}
+  - {fileID: 2749505500171368262}
+  - {fileID: 1617629573284185123}
+  - {fileID: 8511161486638573570}
+  - {fileID: 5807122026832839973}
+  - {fileID: 284202032873016117}
+  - {fileID: 2726394657015968531}
+  - {fileID: 2435890985053723808}
+  - {fileID: 8262456566051135958}
+  - {fileID: 7472174922133836645}
+  - {fileID: 8277902231086040709}
+  m_Father: {fileID: 5789095570769855583}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2721678641988050969
 GameObject:
   m_ObjectHideFlags: 0
@@ -437,7 +495,7 @@ GameObject:
   - component: {fileID: 194924151189224018}
   - component: {fileID: 5491038597841249165}
   m_Layer: 0
-  m_Name: rock3 (16)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -452,11 +510,11 @@ Transform:
   m_GameObject: {fileID: 2721678641988050969}
   serializedVersion: 2
   m_LocalRotation: {x: 0.010326039, y: -0.746838, z: -0.06274161, w: 0.6619592}
-  m_LocalPosition: {x: 2.7398245, y: -0.7256742, z: -3.8055384}
-  m_LocalScale: {x: 1.4157017, y: 2.3440454, z: 1.0614767}
+  m_LocalPosition: {x: 2.7398248, y: -0.7256743, z: -3.8055384}
+  m_LocalScale: {x: 1.4157017, y: 2.3440456, z: 1.0614767}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -4.591, y: -35.098, z: -5.67}
 --- !u!33 &3624690703378670917
 MeshFilter:
@@ -543,7 +601,7 @@ GameObject:
   - component: {fileID: 7829538035906849631}
   - component: {fileID: 8369196827250739367}
   m_Layer: 0
-  m_Name: rock3 (19)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,11 +616,11 @@ Transform:
   m_GameObject: {fileID: 3162426904718003810}
   serializedVersion: 2
   m_LocalRotation: {x: -0.02835115, y: -0.99746233, z: 0.054526985, w: 0.035944376}
-  m_LocalPosition: {x: 3.6857321, y: -0.8817655, z: -2.0776558}
-  m_LocalScale: {x: 0.6360186, y: 1.4130139, z: 0.856515}
+  m_LocalPosition: {x: 3.6857324, y: -0.88176554, z: -2.077656}
+  m_LocalScale: {x: 0.63601846, y: 1.4130138, z: 0.8565149}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 6.127, y: -114.115, z: 3.487}
 --- !u!33 &1122048482469095272
 MeshFilter:
@@ -649,7 +707,7 @@ GameObject:
   - component: {fileID: 3568497501446319647}
   - component: {fileID: 5358608274106402558}
   m_Layer: 0
-  m_Name: rock3 (26)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -664,11 +722,11 @@ Transform:
   m_GameObject: {fileID: 3185787565508197015}
   serializedVersion: 2
   m_LocalRotation: {x: -0.054803617, y: -0.3493114, z: 0.036512636, w: 0.93468976}
-  m_LocalPosition: {x: 3.8088546, y: -0.50454587, z: 5.8961363}
-  m_LocalScale: {x: 0.6653695, y: 1.3091598, z: 0.6895491}
+  m_LocalPosition: {x: 3.8088548, y: -0.5045459, z: 5.8961368}
+  m_LocalScale: {x: 0.6653696, y: 1.3091596, z: 0.68954915}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -4.413, y: 20.351, z: 6.134}
 --- !u!33 &6775371163310133561
 MeshFilter:
@@ -755,7 +813,7 @@ GameObject:
   - component: {fileID: 566468339320639686}
   - component: {fileID: 3521371385552809490}
   m_Layer: 0
-  m_Name: rock3 (14)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -770,11 +828,11 @@ Transform:
   m_GameObject: {fileID: 3683163062826778846}
   serializedVersion: 2
   m_LocalRotation: {x: 0.016403636, y: -0.6786257, z: -0.061433353, w: 0.7317268}
-  m_LocalPosition: {x: -1.3126168, y: -0.85215425, z: -3.2954254}
-  m_LocalScale: {x: 1.9851961, y: 3.268511, z: 1.4729131}
+  m_LocalPosition: {x: -1.312617, y: -0.8521544, z: -3.295426}
+  m_LocalScale: {x: 1.9851965, y: 3.268511, z: 1.4729129}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -3.404, y: -23.925, z: -6.452}
 --- !u!33 &1375242783662656778
 MeshFilter:
@@ -861,7 +919,7 @@ GameObject:
   - component: {fileID: 6324867033329025036}
   - component: {fileID: 6734668585262847357}
   m_Layer: 0
-  m_Name: rock3 (17)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -876,11 +934,11 @@ Transform:
   m_GameObject: {fileID: 3911548509306828180}
   serializedVersion: 2
   m_LocalRotation: {x: -0.019238245, y: -0.96577305, z: -0.060605507, w: 0.25147444}
-  m_LocalPosition: {x: 3.6031926, y: -0.6086067, z: -3.1328266}
-  m_LocalScale: {x: 0.67398965, y: 1.4117012, z: 0.7971319}
+  m_LocalPosition: {x: 3.6031928, y: -0.6086067, z: -3.1328268}
+  m_LocalScale: {x: 0.6739896, y: 1.4117012, z: 0.7971319}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -7.281, y: -89.264, z: 0.386}
 --- !u!33 &6867132574163150681
 MeshFilter:
@@ -967,7 +1025,7 @@ GameObject:
   - component: {fileID: 5343424734904625929}
   - component: {fileID: 4859648539490971989}
   m_Layer: 0
-  m_Name: rock3 (6)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -981,12 +1039,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4583958896953692447}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.0020292962, y: -0.99406785, z: 0.05651711, w: 0.092902124}
-  m_LocalPosition: {x: -4.0552025, y: -0.8557509, z: 2.175858}
-  m_LocalScale: {x: 0.76709455, y: 1.700327, z: 1.0198394}
+  m_LocalRotation: {x: -0.0020292965, y: -0.99406785, z: 0.056517113, w: 0.092902124}
+  m_LocalPosition: {x: -4.055203, y: -0.855751, z: 2.175858}
+  m_LocalScale: {x: 0.7670945, y: 1.7003272, z: 1.0198394}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 6.43, y: -107.704, z: 0.838}
 --- !u!33 &4414887926597929459
 MeshFilter:
@@ -1073,7 +1131,7 @@ GameObject:
   - component: {fileID: 7174753396708908744}
   - component: {fileID: 4329988754601899404}
   m_Layer: 0
-  m_Name: rock3 (10)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1088,11 +1146,11 @@ Transform:
   m_GameObject: {fileID: 4896083961325491969}
   serializedVersion: 2
   m_LocalRotation: {x: -0.0704234, y: -0.9954556, z: 0.0048167505, w: 0.063917674}
-  m_LocalPosition: {x: -4.6381655, y: -0.62161463, z: -3.392066}
-  m_LocalScale: {x: 0.95220876, y: 2.060089, z: 1.2419158}
+  m_LocalPosition: {x: -4.638166, y: -0.6216147, z: -3.3920662}
+  m_LocalScale: {x: 0.9522088, y: 2.060089, z: 1.2419158}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 0.034, y: -111.079, z: 8.095}
 --- !u!33 &2566700080818829426
 MeshFilter:
@@ -1179,7 +1237,7 @@ GameObject:
   - component: {fileID: 5283116819697959221}
   - component: {fileID: 6779032525338270371}
   m_Layer: 0
-  m_Name: rock3 (23)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1194,11 +1252,11 @@ Transform:
   m_GameObject: {fileID: 5331904616087339850}
   serializedVersion: 2
   m_LocalRotation: {x: -0.014695831, y: -0.9778165, z: 0.059674215, w: -0.20024459}
-  m_LocalPosition: {x: 4.429427, y: -1.0118408, z: 2.5324159}
-  m_LocalScale: {x: 0.6589641, y: 1.4130139, z: 0.8177691}
+  m_LocalPosition: {x: 4.4294276, y: -1.0118408, z: 2.532416}
+  m_LocalScale: {x: 0.6589641, y: 1.4130138, z: 0.817769}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 7.041, y: -141.559, z: 0.279}
 --- !u!33 &2435298905855574163
 MeshFilter:
@@ -1285,7 +1343,7 @@ GameObject:
   - component: {fileID: 4268450403979233210}
   - component: {fileID: 7190676114877500407}
   m_Layer: 0
-  m_Name: rock3 (11)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1300,11 +1358,11 @@ Transform:
   m_GameObject: {fileID: 5928551374133501006}
   serializedVersion: 2
   m_LocalRotation: {x: -0.067945115, y: -0.98745275, z: 0.019134216, w: -0.14126065}
-  m_LocalPosition: {x: -4.1960373, y: -0.802198, z: -5.9678197}
+  m_LocalPosition: {x: -4.196038, y: -0.802198, z: -5.96782}
   m_LocalScale: {x: 1.1097616, y: 2.3697205, z: 1.4032584}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 3.267, y: -134.5, z: 7.411}
 --- !u!33 &6870611896023233879
 MeshFilter:
@@ -1391,7 +1449,7 @@ GameObject:
   - component: {fileID: 8596758662356374428}
   - component: {fileID: 1477553767560963016}
   m_Layer: 0
-  m_Name: rock3 (15)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1406,11 +1464,11 @@ Transform:
   m_GameObject: {fileID: 6511736647310183959}
   serializedVersion: 2
   m_LocalRotation: {x: 0.010326039, y: -0.746838, z: -0.06274161, w: 0.6619592}
-  m_LocalPosition: {x: 0.65291274, y: -0.94617265, z: -3.9421422}
-  m_LocalScale: {x: 1.9740388, y: 3.268511, z: 1.4801112}
+  m_LocalPosition: {x: 0.6529128, y: -0.9461727, z: -3.9421422}
+  m_LocalScale: {x: 1.9740388, y: 3.268511, z: 1.4801114}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -4.591, y: -35.098, z: -5.67}
 --- !u!33 &9073356386471444883
 MeshFilter:
@@ -1497,7 +1555,7 @@ GameObject:
   - component: {fileID: 6794529354311805854}
   - component: {fileID: 646028055269478699}
   m_Layer: 0
-  m_Name: rock3 (4)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1512,11 +1570,11 @@ Transform:
   m_GameObject: {fileID: 6803644400396418637}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.9721214, z: -0, w: 0.23447797}
-  m_LocalPosition: {x: -3.579369, y: -0.5819669, z: 4.175078}
-  m_LocalScale: {x: 0.832202, y: 1.7702234, z: 0.98853}
+  m_LocalPosition: {x: -3.5793695, y: -0.58196694, z: 4.1750784}
+  m_LocalScale: {x: 0.83220196, y: 1.7702235, z: 0.98853}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 0, y: -91.308, z: 0}
 --- !u!33 &8647585054157601745
 MeshFilter:
@@ -1603,7 +1661,7 @@ GameObject:
   - component: {fileID: 2596214688592733742}
   - component: {fileID: 889308578361732709}
   m_Layer: 0
-  m_Name: rock3 (25)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1618,11 +1676,11 @@ Transform:
   m_GameObject: {fileID: 7111297165545489305}
   serializedVersion: 2
   m_LocalRotation: {x: -0.047757033, y: -0.5039171, z: 0.045341752, w: 0.86123806}
-  m_LocalPosition: {x: 2.5434601, y: -0.4309507, z: 5.800881}
-  m_LocalScale: {x: 1.3649381, y: 2.4226656, z: 1.1572703}
+  m_LocalPosition: {x: 2.5434604, y: -0.4309507, z: 5.8008814}
+  m_LocalScale: {x: 1.3649381, y: 2.4226656, z: 1.1572704}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -2.095, y: 0.773, z: 7.257}
 --- !u!33 &986405055334377487
 MeshFilter:
@@ -1709,7 +1767,7 @@ GameObject:
   - component: {fileID: 2235835892313831629}
   - component: {fileID: 1154349620131140566}
   m_Layer: 0
-  m_Name: rock3 (18)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1724,11 +1782,11 @@ Transform:
   m_GameObject: {fileID: 7221885254704152907}
   serializedVersion: 2
   m_LocalRotation: {x: -0.019238245, y: -0.96577305, z: -0.060605507, w: 0.25147444}
-  m_LocalPosition: {x: 3.611461, y: -0.4655234, z: -3.112291}
-  m_LocalScale: {x: 0.67398965, y: 1.4117012, z: 0.7971319}
+  m_LocalPosition: {x: 3.6114614, y: -0.46552342, z: -3.1122913}
+  m_LocalScale: {x: 0.6739896, y: 1.4117012, z: 0.7971319}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -7.281, y: -89.264, z: 0.386}
 --- !u!33 &7382503810455643653
 MeshFilter:
@@ -1815,7 +1873,7 @@ GameObject:
   - component: {fileID: 5365388809629777261}
   - component: {fileID: 6438201915012197836}
   m_Layer: 0
-  m_Name: rock3 (5)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1830,11 +1888,11 @@ Transform:
   m_GameObject: {fileID: 7757714675960037973}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.9996515, z: -0, w: 0.02639887}
-  m_LocalPosition: {x: -3.8693817, y: -0.5175538, z: 3.324024}
+  m_LocalPosition: {x: -3.8693821, y: -0.51755387, z: 3.3240242}
   m_LocalScale: {x: 0.7607807, y: 1.7081002, z: 1.0211481}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 0, y: -115.404, z: 0}
 --- !u!33 &686224507249554050
 MeshFilter:
@@ -1921,7 +1979,7 @@ GameObject:
   - component: {fileID: 5362043107757681248}
   - component: {fileID: 8245762941080720186}
   m_Layer: 0
-  m_Name: rock3 (1)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1936,11 +1994,11 @@ Transform:
   m_GameObject: {fileID: 7859332210241315116}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.51182115, z: -0, w: 0.859092}
-  m_LocalPosition: {x: -0.59915125, y: -0.7256742, z: 5.935822}
+  m_LocalPosition: {x: -0.5991513, y: -0.7256743, z: 5.935822}
   m_LocalScale: {x: 1.353422, y: 2.4383242, z: 1.1521525}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &2434458778403048200
 MeshFilter:
@@ -2027,7 +2085,7 @@ GameObject:
   - component: {fileID: 3608344455842858405}
   - component: {fileID: 598316945229484136}
   m_Layer: 0
-  m_Name: rock3 (3)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2042,11 +2100,11 @@ Transform:
   m_GameObject: {fileID: 7900769227332947498}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.71941805, z: -0, w: 0.69457734}
-  m_LocalPosition: {x: -2.5811296, y: -0.7256742, z: 6.2454696}
-  m_LocalScale: {x: 1.4584742, y: 2.4383242, z: 1.0855873}
+  m_LocalPosition: {x: -2.5811298, y: -0.7256743, z: 6.24547}
+  m_LocalScale: {x: 1.4584743, y: 2.4383242, z: 1.0855873}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 0, y: -30.443, z: 0}
 --- !u!33 &1731552176181452147
 MeshFilter:
@@ -2189,7 +2247,7 @@ GameObject:
   - component: {fileID: 3838483529317303233}
   - component: {fileID: 4169912134826053237}
   m_Layer: 0
-  m_Name: rock3 (22)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2204,11 +2262,11 @@ Transform:
   m_GameObject: {fileID: 8470234092548954396}
   serializedVersion: 2
   m_LocalRotation: {x: -0.027740385, y: -0.99780154, z: 0.054840226, w: 0.02480182}
-  m_LocalPosition: {x: 4.0584474, y: -0.7777046, z: 1.3331432}
-  m_LocalScale: {x: 0.63541347, y: 1.4130139, z: 0.8575322}
+  m_LocalPosition: {x: 4.058448, y: -0.7777046, z: 1.3331434}
+  m_LocalScale: {x: 0.63541347, y: 1.4130138, z: 0.85753214}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 6.204, y: -115.4, z: 3.349}
 --- !u!33 &8683222976410122047
 MeshFilter:
@@ -2295,7 +2353,7 @@ GameObject:
   - component: {fileID: 8149275256445724189}
   - component: {fileID: 1859522679880446932}
   m_Layer: 0
-  m_Name: rock3 (9)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2310,11 +2368,11 @@ Transform:
   m_GameObject: {fileID: 8637892485972212839}
   serializedVersion: 2
   m_LocalRotation: {x: 0.029906902, y: -0.9776178, z: 0.10354708, w: -0.18068492}
-  m_LocalPosition: {x: -3.7251637, y: -0.9446226, z: -1.7548734}
-  m_LocalScale: {x: 0.6590412, y: 1.397735, z: 0.8369725}
+  m_LocalPosition: {x: -3.7251642, y: -0.94462264, z: -1.7548735}
+  m_LocalScale: {x: 0.6590412, y: 1.3977351, z: 0.8369725}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 11.049, y: -139.915, z: -5.607}
 --- !u!33 &210496299079090682
 MeshFilter:
@@ -2401,7 +2459,7 @@ GameObject:
   - component: {fileID: 1880834364411036285}
   - component: {fileID: 7497058382292445167}
   m_Layer: 0
-  m_Name: rock3 (24)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2416,11 +2474,11 @@ Transform:
   m_GameObject: {fileID: 8769043926957943489}
   serializedVersion: 2
   m_LocalRotation: {x: -0.040912658, y: -0.61992466, z: 0.051601958, w: 0.78189313}
-  m_LocalPosition: {x: 0.55024076, y: -0.47853065, z: 6.0108967}
-  m_LocalScale: {x: 1.4526498, y: 2.4226654, z: 1.0998989}
+  m_LocalPosition: {x: 0.5502408, y: -0.47853065, z: 6.010897}
+  m_LocalScale: {x: 1.45265, y: 2.422665, z: 1.0998989}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 0, y: -15.248, z: 7.552}
 --- !u!33 &2588697262643501359
 MeshFilter:
@@ -2507,7 +2565,7 @@ GameObject:
   - component: {fileID: 3724105525218305527}
   - component: {fileID: 2841747928091317765}
   m_Layer: 0
-  m_Name: rock3 (21)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2522,11 +2580,11 @@ Transform:
   m_GameObject: {fileID: 8825658877689220331}
   serializedVersion: 2
   m_LocalRotation: {x: -0.040332388, y: -0.961306, z: 0.046371084, w: 0.26854038}
-  m_LocalPosition: {x: 3.373308, y: -0.6086067, z: 0.31827804}
-  m_LocalScale: {x: 0.68605447, y: 1.4130139, z: 0.7810388}
+  m_LocalPosition: {x: 3.3733082, y: -0.6086067, z: 0.31827804}
+  m_LocalScale: {x: 0.6860544, y: 1.4130138, z: 0.78103876}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 3.87, y: -87.015, z: 5.894}
 --- !u!33 &5270008481827446289
 MeshFilter:
@@ -2613,7 +2671,7 @@ GameObject:
   - component: {fileID: 4717298318017719126}
   - component: {fileID: 9065958432539752259}
   m_Layer: 0
-  m_Name: rock3 (2)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2628,11 +2686,11 @@ Transform:
   m_GameObject: {fileID: 8916656942655604436}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.51182115, z: -0, w: 0.859092}
-  m_LocalPosition: {x: -1.1722417, y: -0.6736451, z: 5.804177}
-  m_LocalScale: {x: 0.77358925, y: 1.3936977, z: 0.6585476}
+  m_LocalPosition: {x: -1.1722418, y: -0.67364514, z: 5.8041773}
+  m_LocalScale: {x: 0.77358925, y: 1.3936979, z: 0.6585476}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &1790927691861276246
 MeshFilter:
@@ -2719,7 +2777,7 @@ GameObject:
   - component: {fileID: 6896540166689125414}
   - component: {fileID: 3651617945120355724}
   m_Layer: 0
-  m_Name: rock3 (12)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2734,11 +2792,11 @@ Transform:
   m_GameObject: {fileID: 9035344628472514000}
   serializedVersion: 2
   m_LocalRotation: {x: -0.07039081, y: -0.9761769, z: -0.0052717333, w: 0.20517312}
-  m_LocalPosition: {x: -3.8451016, y: -0.43950817, z: -5.8368998}
-  m_LocalScale: {x: 1.1361043, y: 2.3697205, z: 1.3632429}
+  m_LocalPosition: {x: -3.845102, y: -0.4395082, z: -5.8369}
+  m_LocalScale: {x: 1.1361045, y: 2.3697205, z: 1.3632427}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -2.245, y: -94.843, z: 7.78}
 --- !u!33 &5584510567868485283
 MeshFilter:
@@ -2825,7 +2883,7 @@ GameObject:
   - component: {fileID: 1687998781873621262}
   - component: {fileID: 9021599737908751272}
   m_Layer: 0
-  m_Name: rock3 (13)
+  m_Name: Rock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2840,11 +2898,11 @@ Transform:
   m_GameObject: {fileID: 9107231711299944403}
   serializedVersion: 2
   m_LocalRotation: {x: -0.002452208, y: -0.86430794, z: -0.063538365, w: 0.49892756}
-  m_LocalPosition: {x: -3.3157787, y: -0.7455109, z: -4.913085}
-  m_LocalScale: {x: 1.8173565, y: 3.268511, z: 1.5838335}
+  m_LocalPosition: {x: -3.3157792, y: -0.74551094, z: -4.913085}
+  m_LocalScale: {x: 1.8173563, y: 3.268511, z: 1.5838336}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 5789095570769855583}
+  m_Father: {fileID: 7638944994777607523}
   m_LocalEulerAnglesHint: {x: -6.447, y: -58.245, z: -3.413}
 --- !u!33 &3612517512550471225
 MeshFilter:
@@ -2940,15 +2998,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1.05
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.45
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.27476
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2988,7 +3046,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 02081a64f541f0b4680796c7f46a5c45, type: 2}
     - target: {fileID: 919132149155446097, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
       propertyPath: m_Name
-      value: Water (1)
+      value: Big Lake
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
       propertyPath: m_TagString
@@ -3002,85 +3060,7 @@ PrefabInstance:
       addedObject: {fileID: 1218833865532417569}
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 54930579855221714}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4204193554477376561}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8905322965166020623}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6643933620541732296}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 840721575809602412}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6817299853450182379}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 769060773880660703}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8687615139068908160}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7248081854392134040}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 4578663007179830082}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1834656390220523115}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1717396100729003272}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8268151815152811284}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 6547596088812921393}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5468152418459044447}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7276527675881277720}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 9061040837149355798}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2749505500171368262}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1617629573284185123}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8511161486638573570}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5807122026832839973}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 284202032873016117}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2726394657015968531}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2435890985053723808}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8262456566051135958}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7472174922133836645}
-    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8277902231086040709}
+      addedObject: {fileID: 7638944994777607523}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 95fbfd3e03f5bbe4b9bbefb39f8b8e0f, type: 3}
       insertIndex: -1

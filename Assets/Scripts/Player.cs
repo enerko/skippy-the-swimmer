@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
     // perform tail attack (and spin animation)
     private IEnumerator TailAttack() {
         s_IsAttacking = true;
-        Collider[] collided = Physics.OverlapSphere(transform.position, TailAttackRadius, LayerMask.GetMask("Breakable"));
+        Collider[] collided = Physics.OverlapSphere(transform.position, TailAttackRadius, LayerMask.GetMask("Interactable"));
 
         // process each object
         foreach (Collider other in collided) {

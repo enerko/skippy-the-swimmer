@@ -53,7 +53,7 @@ MonoBehaviour:
   m_UVBias: {x: -3.9213629, y: -3.681324}
   m_DecalLayerMask: 1
   m_ScaleMode: 0
-  m_Offset: {x: -0.14330769, y: 0.3392861, z: 0.5}
+  m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 8.55611, y: 9.04122, z: 1}
   m_FadeFactor: 1
 --- !u!1 &1440385354775987261
@@ -67,7 +67,7 @@ GameObject:
   - component: {fileID: 7654905715659443586}
   - component: {fileID: 1967884514151404338}
   m_Layer: 0
-  m_Name: Decal (5)
+  m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_UVBias: {x: -2.235025, y: -0.62320113}
   m_DecalLayerMask: 1
   m_ScaleMode: 0
-  m_Offset: {x: 0.11870718, y: -0.346688, z: 0.50000215}
+  m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 5.707464, y: 1.5156741, z: 1}
   m_FadeFactor: 1
 --- !u!1 &2413351873581757745
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4448002818905971967}
   - component: {fileID: 213217129460049419}
   m_Layer: 0
-  m_Name: Decal (2)
+  m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -165,7 +165,7 @@ MonoBehaviour:
   m_UVBias: {x: -3.6025853, y: 3.1441364}
   m_DecalLayerMask: 1
   m_ScaleMode: 0
-  m_Offset: {x: -0.5227256, y: 3.2004347, z: 0.5}
+  m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 7.1597195, y: 1.1125965, z: 1}
   m_FadeFactor: 1
 --- !u!1 &3549383440738542662
@@ -179,7 +179,7 @@ GameObject:
   - component: {fileID: 3246317799180662004}
   - component: {fileID: 1028123726066125134}
   m_Layer: 0
-  m_Name: Decal (1)
+  m_Name: Decal
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -221,7 +221,7 @@ MonoBehaviour:
   m_UVBias: {x: -4.123119, y: 3.1441364}
   m_DecalLayerMask: 1
   m_ScaleMode: 0
-  m_Offset: {x: -0.76169014, y: 3.752016, z: 0.5}
+  m_Offset: {x: 0, y: 0, z: 0.5}
   m_Size: {x: 7.7228575, y: 2.2157593, z: 1}
   m_FadeFactor: 1
 --- !u!1 &4826725040406260895
@@ -234,7 +234,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7234588662706270212}
   m_Layer: 0
-  m_Name: mini lake
+  m_Name: Small Lake
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -248,9 +248,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4826725040406260895}
   serializedVersion: 2
-  m_LocalRotation: {x: -1.7269955e-18, y: -0.72106814, z: 1.7269955e-18, w: 0.6928642}
-  m_LocalPosition: {x: -0.12, y: -9.3, z: 106.35}
-  m_LocalScale: {x: 1.8788776, y: 2.8488178, z: 0.98175335}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.878877, y: 1, z: 0.9817535}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7500312145342863358}
@@ -274,8 +274,8 @@ GameObject:
   - component: {fileID: 5890506760953801126}
   - component: {fileID: 7515313191672276154}
   m_Layer: 0
-  m_Name: polySurface35
-  m_TagString: Puddle
+  m_Name: Water
+  m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -379,7 +379,7 @@ GameObject:
   - component: {fileID: 3048166689931541412}
   - component: {fileID: 8193786552818261043}
   m_Layer: 0
-  m_Name: polySurface34
+  m_Name: Rocks
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

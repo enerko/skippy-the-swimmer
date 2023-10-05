@@ -52,14 +52,14 @@ public class PlayerHealth : MonoBehaviour
 
     // When Skippy enters a puddle of water
     void OnTriggerEnter(Collider other) {
-        if (other.gameObject.tag != "Puddle") return;
+        if (other.gameObject.tag != "Water") return;
         Player.s_InWater = true;
         
     }
 
     // When Skippy exits a puddle of water
     void OnTriggerExit(Collider other) {
-        if (other.gameObject.tag != "Puddle") return;
+        if (other.gameObject.tag != "Water") return;
         Player.s_InWater = false;
         Player.s_Invul = true;
     }
