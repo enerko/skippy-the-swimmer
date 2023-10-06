@@ -104,27 +104,29 @@ public class Player : MonoBehaviour
 
         // process each object
         foreach (Collider other in collided) {
-
-            // TODO: Refactor this fr fr
             Debug.Log(other.gameObject);
 
-            if(other.GetComponent<KnockObject>() != null)
-            {
-                KnockObject ko = other.GetComponent<KnockObject>();
-                StartCoroutine(ko.Knock());
-            }
-            else
-            {
-                Destroy(other.gameObject);
+            IInteractable interact = other.GetComponent<IInteractable>();
 
-                IHasLiquid var = other.gameObject.GetComponent<IHasLiquid>();
-                if (var != null)
-                {
-                    var.SpawnLiquid();
-                }
+            if ((bool)!interact?.GetActivated())
+                interact.Activate();
+
+            // if(other.GetComponent<KnockObject>() != null)
+            // {
+            //     KnockObject ko = other.GetComponent<KnockObject>();
+            //     StartCoroutine(ko.Knock());
+            // }
+            // else
+            // {
+            //     Destroy(other.gameObject);
+
+            //     IHasLiquid var = other.gameObject.GetComponent<IHasLiquid>();
+            //     if (var != null)
+            //     {
+            //         var.SpawnLiquid();
+            //     }
             
-            }
-
+            // }
         }
 
         // do the tail attack animation
