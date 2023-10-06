@@ -11,16 +11,17 @@ public class Player : MonoBehaviour
     public static bool s_Invul = false;
     public static bool s_IsAttacking = false;
    
-    private const float Speed = 8;
-    private const float Jump = 6;
-    private const float Fall = 2.0f;
+    private const float Speed = 7;
+    private const float Jump = 7;
+    private const float FallAdjustment = 1.0f;
     private const float StepAudioDelay = 0.3f;
-    private Rigidbody _rb;
-    private AudioSource _audioSource;
-    private float _timer = 0;
-    private float _stepAudioTime = 0;
     private const float TailAttackRadius = 1.5f;
     private const float TailAttackDelay = 0.3f;
+    private float _timer = 0;
+    private float _stepAudioTime = 0;
+    private Rigidbody _rb;
+    private AudioSource _audioSource;
+    private Vector3 _horizInput;
 
     public AudioClip[] drySteps;
     public AudioClip[] wetSteps;
@@ -34,14 +35,39 @@ public class Player : MonoBehaviour
         _audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
+    // Input stuff
+    void Update() {
+        _horizInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+
+        // Handle jumping
+        if (Input.GetKeyDown("space") && s_Grounded) {
+            _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
+        }
+
+        // Tail attack
+        if (Input.GetKeyDown("q") && !s_IsAttacking) {
+            StartCoroutine(TailAttack());
+        }
+
+        // play footsteps
+        if (s_Grounded && _timer - _stepAudioTime >= StepAudioDelay && _horizInput.magnitude > 0.01) {
+            AudioClip[] clips = s_InWater ? wetSteps : drySteps;
+            _stepAudioTime = _timer;
+            _audioSource.clip = clips[UnityEngine.Random.Range(0, clips.Length)];
+            _audioSource.Play();
+        }
+
+        _timer += Time.deltaTime;
+    }
+
+    // Physics stuff
+    void FixedUpdate()
     {
         Vector3 currVelo = _rb.velocity;
-        Vector3 horizVelo = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
+        // apply camera rotation
         float cameraRotation = Camera.main.transform.rotation.eulerAngles.y;
-        horizVelo = Quaternion.AngleAxis(cameraRotation, Vector3.up) * horizVelo;
+        Vector3 horizVelo = Quaternion.AngleAxis(cameraRotation, Vector3.up) * _horizInput;
 
         // raycast to see groundedness
         RaycastHit hit;
@@ -52,7 +78,7 @@ public class Player : MonoBehaviour
         float slopeAngle = s_Grounded ? Vector3.Angle(Vector3.up, hit.normal) : 0;
 
         Vector3 lookDirection;
-        Vector3 goalUpDirection = slopeAngle >= 45 ? Vector3.up : hit.normal;  // can't climb steep things
+        Vector3 goalUpDirection = slopeAngle >= 35 ? Vector3.up : hit.normal;  // can't climb steep things
 
         // Rotate in such a way that Skippy is aligned to the ground (do not rotate further when spinning)
         if (horizVelo.magnitude > 0.01f) {
@@ -65,36 +91,11 @@ public class Player : MonoBehaviour
             transform.LookAt(transform.position + transform.forward, Vector3.Slerp(transform.up, goalUpDirection, 0.25f));
         }
 
-        if (s_Grounded) {
-            // Play random step sound (currently only dry)
-            if (_timer - _stepAudioTime >= StepAudioDelay && horizVelo.magnitude > 0.01) {
-                AudioClip[] clips = s_InWater ? wetSteps : drySteps;
-                _stepAudioTime = _timer;
-                _audioSource.clip = clips[UnityEngine.Random.Range(0, clips.Length)];
-                _audioSource.Play();
-            }
-        }
-
-        // Handle jumping
-        if (Input.GetKeyDown("space") && s_Grounded) {
-            currVelo.y = Jump;
-        }
-
         // fall down faster
-        if (currVelo.y < 0) {
-            currVelo += Vector3.up * Physics.gravity.y * (Fall - 1) * Time.deltaTime;
-        }
-
-        // Tail attack
-        if (Input.GetKeyDown("q") && !s_IsAttacking) {
-            StartCoroutine(TailAttack());
-        }
+        currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
         _rb.velocity = horizVelo * Speed + new Vector3(0, currVelo.y, 0);
-
-        // Update timer
-        _timer += Time.deltaTime;
     }
 
     // perform tail attack (and spin animation)
@@ -132,14 +133,15 @@ public class Player : MonoBehaviour
         // do the tail attack animation
         lookAtRig.weight = 0;  // stop head from looking at the aim sphere
 
-        int updates = 25;  // how many times to update
-        float rotation = 360 / updates;  // how many degrees to rotate each time
+        float degreesPerSecond = 360 / TailAttackDelay;
+        float degreesSoFar = 0;
 
         // spin the mesh
-        for (int i = 0; i < updates; i++) {
+        while (degreesSoFar < 360) {
+            float rotation = degreesPerSecond * Time.deltaTime;
             plrMesh.transform.Rotate(new Vector3(0, rotation, 0));
-
-            yield return new WaitForSeconds(TailAttackDelay / updates);
+            degreesSoFar += rotation;
+            yield return null;
         }
 
         lookAtRig.weight = 1;

@@ -8661,6 +8661,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3587145532396585778, guid: 1fb6ab6c22d7baa448ec27d228f6f35f, type: 3}
   m_PrefabInstance: {fileID: 1812514601}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1945347220 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4148309036942602451, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+  m_PrefabInstance: {fileID: 1317287224828636271}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1946271088 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1726667092108762051, guid: dc6c3117b8311c247a3dde2986b35046, type: 3}
@@ -10085,25 +10090,57 @@ PrefabInstance:
       value: Skippy
       objectReference: {fileID: 0}
     - target: {fileID: 619640152080918604, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampPosition
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 619640152080918604, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
       propertyPath: m_Data.m_DampRotation
-      value: 0
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 827962062954322846, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampPosition
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 827962062954322846, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampRotation
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 974627314549018383, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
       propertyPath: controller
       value: 
       objectReference: {fileID: 93507324}
     - target: {fileID: 2596625378442228764, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampPosition
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2596625378442228764, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
       propertyPath: m_Data.m_DampRotation
-      value: 0
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5053294784025468349, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampPosition
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5053294784025468349, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
       propertyPath: m_Data.m_DampRotation
-      value: 0
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 5394127617494865417, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 799a63e6b369c274895221591004f317, type: 2}
+    - target: {fileID: 6228636190945738316, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_SourceObjects.m_Item0.transform
+      value: 
+      objectReference: {fileID: 1945347220}
+    - target: {fileID: 8167903911811330098, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampPosition
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8167903911811330098, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
+      propertyPath: m_Data.m_DampRotation
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 8629708615840338258, guid: 277561aad3dfecc4f947786cfdd8d6af, type: 3}
       propertyPath: m_LocalPosition.x
       value: -13.96163

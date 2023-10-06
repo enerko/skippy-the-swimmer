@@ -25,7 +25,7 @@ public class CameraMain : MonoBehaviour
     {
         if (PauseMenu.GameIsPaused) return;
 
-        focus = Vector3.SmoothDamp(focus, player.transform.position, ref velocity,  50 * Time.deltaTime);
+        focus = Vector3.SmoothDamp(focus, player.transform.position, ref velocity,  0.25f);
         transform.position = focus;
 
         // moving mouse horizontally

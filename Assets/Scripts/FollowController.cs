@@ -19,7 +19,7 @@ public class FollowController : MonoBehaviour
     void Update()
     {
         Vector3 goalPosition = controller.position + transform.TransformDirection(_offset);
-        transform.position = Vector3.Lerp(transform.position, goalPosition, 5f * Time.deltaTime);
+        transform.position = Vector3.Lerp(transform.position, goalPosition, 10f * Time.deltaTime);
 
         if (!Player.s_IsAttacking)
             transform.LookAt(controller.position + controller.forward, controller.up);
