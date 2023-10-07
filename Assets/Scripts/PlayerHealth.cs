@@ -40,13 +40,9 @@ public class PlayerHealth : MonoBehaviour
 
         // On death...
         if (s_Health <= 0) {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-
-            // reset health
             s_Health = s_MaxHealth;
-            int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-            SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Time.timeScale = 1;
         }
     }
 
