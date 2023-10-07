@@ -20,11 +20,11 @@ public class Player : MonoBehaviour
     private float _timer = 0;
     private float _stepAudioTime = 0;
     private Rigidbody _rb;
-    private AudioSource _audioSource;
     private Vector3 _horizInput;
 
     public AudioClip[] drySteps;
     public AudioClip[] wetSteps;
+    public AudioClip tailSwipeSound;
     public GameObject plrMesh;
     public Rig lookAtRig;
     
@@ -32,7 +32,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _audioSource = GetComponent<AudioSource>();
     }
 
     // Input stuff
@@ -53,8 +52,7 @@ public class Player : MonoBehaviour
         if (s_Grounded && _timer - _stepAudioTime >= StepAudioDelay && _horizInput.magnitude > 0.01) {
             AudioClip[] clips = s_InWater ? wetSteps : drySteps;
             _stepAudioTime = _timer;
-            _audioSource.clip = clips[UnityEngine.Random.Range(0, clips.Length)];
-            _audioSource.Play();
+            AudioSource.PlayClipAtPoint(clips[UnityEngine.Random.Range(0, clips.Length)], transform.position, 0.8f);
         }
 
         _timer += Time.deltaTime;
@@ -101,6 +99,7 @@ public class Player : MonoBehaviour
     // perform tail attack (and spin animation)
     private IEnumerator TailAttack() {
         s_IsAttacking = true;
+        AudioSource.PlayClipAtPoint(tailSwipeSound, transform.position, 0.8f);
         Collider[] collided = Physics.OverlapSphere(transform.position, TailAttackRadius, LayerMask.GetMask("Interactable"));
 
         // process each object

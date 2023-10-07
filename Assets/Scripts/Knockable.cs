@@ -10,19 +10,17 @@ public class Knockable : Interactable
     [SerializeField] private GameObject _impactTarget;
 
     private Rigidbody _rb;
-    private AudioSource _audioSource;
 
     private void Start() {
         _rb = GetComponent<Rigidbody>();
-        _audioSource = GetComponent<AudioSource>();
     }
 
     public override void Activate() {
-        // play activated sound if there is one
         Activated = true;
+
+        // play activated sound if there is one
         if (_activateSound) {
-            _audioSource.clip = _activateSound;
-            _audioSource.Play();
+            AudioSource.PlayClipAtPoint(_activateSound, transform.position);
         }
 
         // knock the object down with the provided force
@@ -38,8 +36,7 @@ public class Knockable : Interactable
         FinishedAction = true;
 
         if (_impactSound) {
-            _audioSource.clip = _impactSound;
-            _audioSource.Play();
+            AudioSource.PlayClipAtPoint(_impactSound, transform.position);
         }
     }
 }
