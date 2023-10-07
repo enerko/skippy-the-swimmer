@@ -105,29 +105,12 @@ public class Player : MonoBehaviour
 
         // process each object
         foreach (Collider other in collided) {
-            Debug.Log(other.gameObject);
+            Interactable interact = other.GetComponent<Interactable>();
 
-            IInteractable interact = other.GetComponent<IInteractable>();
-
-            if ((bool)!interact?.GetActivated())
+            if ((bool)!interact?.Activated)
                 interact.Activate();
 
-            // if(other.GetComponent<KnockObject>() != null)
-            // {
-            //     KnockObject ko = other.GetComponent<KnockObject>();
-            //     StartCoroutine(ko.Knock());
-            // }
-            // else
-            // {
-            //     Destroy(other.gameObject);
-
-            //     IHasLiquid var = other.gameObject.GetComponent<IHasLiquid>();
-            //     if (var != null)
-            //     {
-            //         var.SpawnLiquid();
-            //     }
-            
-            // }
+            Debug.Log(other.gameObject);
         }
 
         // do the tail attack animation
