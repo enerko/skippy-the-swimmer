@@ -39,12 +39,12 @@ public class Player : MonoBehaviour
         _horizInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
 
         // Handle jumping
-        if (Input.GetKeyDown("space") && s_Grounded) {
+        if (Input.GetAxis("Jump") > 0 && s_Grounded) {
             _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
         }
 
         // Tail attack
-        if (Input.GetKeyDown("q") && !s_IsAttacking) {
+        if (Input.GetAxis("Fire1") > 0 && !s_IsAttacking) {
             StartCoroutine(TailAttack());
         }
 
