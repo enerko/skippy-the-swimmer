@@ -22,6 +22,7 @@ public class Win : MonoBehaviour
         if (other.gameObject.tag == "Player") {
             Cursor.lockState = CursorLockMode.None;
             Cursor.visible = true;
+            LevelManager.prevLevel = SceneManager.GetActiveScene().name;
             SceneManager.LoadScene("Win", LoadSceneMode.Single);
         }
     }
