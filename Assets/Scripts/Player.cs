@@ -11,8 +11,11 @@ public class Player : MonoBehaviour
     public static bool s_Invul = false;
     public static bool s_IsAttacking = false;
    
-    private const float Speed = 7;
+    [SerializeField]
+    private float Speed = 7;
     private const float Jump = 7;
+    private bool doubleJump = false;
+    private bool hasUsedDoubleJump = false;
     private const float FallAdjustment = 1.0f;
     private const float StepAudioDelay = 0.3f;
     private const float TailAttackRadius = 1.5f;
@@ -37,10 +40,22 @@ public class Player : MonoBehaviour
     // Input stuff
     void Update() {
         _horizInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        
 
         // Handle jumping
-        if (Input.GetAxis("Jump") > 0 && s_Grounded) {
-            _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
+        if (Input.GetButtonDown("Jump"))
+        {
+            if (s_Grounded)
+            {
+                _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
+                hasUsedDoubleJump = false;
+                
+            }
+            else if(doubleJump && !hasUsedDoubleJump)
+            {
+                _rb.velocity = new Vector3(_rb.velocity.x, Jump * 1.2f, _rb.velocity.z);
+                hasUsedDoubleJump = true;
+            }
         }
 
         // Tail attack
@@ -69,10 +84,11 @@ public class Player : MonoBehaviour
 
         // raycast to see groundedness
         RaycastHit hit;
-        s_Grounded = Physics.Raycast(transform.position, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player")) ||
-        Physics.Raycast(transform.position + transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player")) ||
-        Physics.Raycast(transform.position - transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"));
+        s_Grounded = Physics.Raycast(transform.position, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore) ||
+        Physics.Raycast(transform.position + transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore) ||
+        Physics.Raycast(transform.position - transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore);
 
+        
         float slopeAngle = s_Grounded ? Vector3.Angle(Vector3.up, hit.normal) : 0;
 
         Vector3 lookDirection;
@@ -82,7 +98,7 @@ public class Player : MonoBehaviour
         if (horizVelo.magnitude > 0.01f) {
             Vector3 goalDirection = s_Grounded ? Vector3.ProjectOnPlane(horizVelo, hit.normal).normalized : horizVelo;
             lookDirection = Vector3.Slerp(transform.forward, goalDirection, 0.1f).normalized;
-
+    
             transform.LookAt(transform.position + lookDirection, Vector3.Slerp(transform.up, goalUpDirection, 0.1f));
         } else {
             horizVelo = Vector3.zero;
@@ -129,5 +145,27 @@ public class Player : MonoBehaviour
         lookAtRig.weight = 1;
         s_IsAttacking = false;
         yield return null;  // coroutine should stop here
+    }
+
+    public void EnableDoubleJump()
+    {
+        doubleJump = true;
+        Invoke("DisableDoubleJump", 10.0f);
+    }
+
+    public void DisableDoubleJump()
+    {
+        doubleJump = false;
+    }
+
+    public void EnableSpeedBoost()
+    {
+        Speed = 14;
+        Invoke("DisableSpeedBoost", 10.0f);
+    }
+
+    public void DisableSpeedBoost()
+    {
+        Speed = 7;
     }
 }
