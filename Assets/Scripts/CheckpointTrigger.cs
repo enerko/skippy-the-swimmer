@@ -8,7 +8,7 @@ public class CheckpointTrigger : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            CheckpointManager.Instance.SetCheckpoint(transform.position);
+            CheckpointManager.SetCheckpoint(transform.position);
             Destroy(gameObject);
         }
     }
