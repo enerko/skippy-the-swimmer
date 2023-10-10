@@ -10,11 +10,14 @@ public class Player : MonoBehaviour
     public static bool s_InWater = false;
     public static bool s_Invul = false;
     public static bool s_IsAttacking = false;
+
+    // powerups
+    public static bool s_DoubleJumpEnabled = false;
+    public static bool s_SpeedBoostEnabled = false;
    
     [SerializeField]
-    private float Speed = 7;
+    private float _speed = 7;
     private const float Jump = 7;
-    private bool doubleJump = false;
     private bool hasUsedDoubleJump = false;
     private const float FallAdjustment = 1.0f;
     private const float StepAudioDelay = 0.3f;
@@ -24,12 +27,6 @@ public class Player : MonoBehaviour
     private float _stepAudioTime = 0;
     private Rigidbody _rb;
     private Vector3 _horizInput;
-
-    // gonna be honest, not sure if these should be here
-    private AudioSource _powerupBaseSource;
-    private AudioSource _doubleJumpSource;
-    private AudioSource _speedSource;
-    private AudioSource _mainMusicSource;
 
     public AudioClip[] drySteps;
     public AudioClip[] wetSteps;
@@ -41,10 +38,6 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _mainMusicSource = GameObject.Find("/Main Music").GetComponent<AudioSource>();
-        _powerupBaseSource = GameObject.Find("/Main Music/Powerup Base").GetComponent<AudioSource>();
-        _doubleJumpSource = GameObject.Find("/Main Music/Double Jump").GetComponent<AudioSource>();
-        _speedSource = GameObject.Find("/Main Music/Speed").GetComponent<AudioSource>();
     }
 
     // Input stuff
@@ -61,7 +54,7 @@ public class Player : MonoBehaviour
                 hasUsedDoubleJump = false;
                 
             }
-            else if(doubleJump && !hasUsedDoubleJump)
+            else if(s_DoubleJumpEnabled && !hasUsedDoubleJump)
             {
                 _rb.velocity = new Vector3(_rb.velocity.x, Jump * 1.2f, _rb.velocity.z);
                 hasUsedDoubleJump = true;
@@ -98,7 +91,6 @@ public class Player : MonoBehaviour
         Physics.Raycast(transform.position + transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore) ||
         Physics.Raycast(transform.position - transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore);
 
-        
         float slopeAngle = s_Grounded ? Vector3.Angle(Vector3.up, hit.normal) : 0;
 
         Vector3 lookDirection;
@@ -119,7 +111,8 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-        _rb.velocity = horizVelo * Speed + new Vector3(0, currVelo.y, 0);
+        _speed = s_SpeedBoostEnabled ? 14 : 7;
+        _rb.velocity = horizVelo * _speed + new Vector3(0, currVelo.y, 0);
     }
 
     // perform tail attack (and spin animation)
@@ -155,47 +148,5 @@ public class Player : MonoBehaviour
         lookAtRig.weight = 1;
         s_IsAttacking = false;
         yield return null;  // coroutine should stop here
-    }
-
-    public void EnableDoubleJump()
-    {
-        _powerupBaseSource.volume = 1;
-        _doubleJumpSource.volume = 1;
-        _mainMusicSource.volume = 0;
-        doubleJump = true;
-        Invoke("DisableDoubleJump", 10.0f);
-    }
-
-    public void DisableDoubleJump()
-    {
-        _doubleJumpSource.volume = 0;
-        doubleJump = false;
-
-        // if speed is not active
-        if (Speed == 7) {
-            _powerupBaseSource.volume = 0;
-            _mainMusicSource.volume = 1;
-        }
-    }
-
-    public void EnableSpeedBoost()
-    {
-        _powerupBaseSource.volume = 1;
-        _speedSource.volume = 1;
-        _mainMusicSource.volume = 0;
-        Speed = 14;
-        Invoke("DisableSpeedBoost", 10.0f);
-    }
-
-    public void DisableSpeedBoost()
-    {
-        _speedSource.volume = 0;
-        Speed = 7;
-
-        // if double jump is not active
-        if (!doubleJump) {
-            _powerupBaseSource.volume = 0;
-            _mainMusicSource.volume = 1;
-        }
     }
 }

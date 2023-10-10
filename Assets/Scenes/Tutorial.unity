@@ -498,7 +498,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: need a dispenser here!
-  cooldown: 0
+  cooldown: 10
 --- !u!1 &26628866
 GameObject:
   m_ObjectHideFlags: 0
@@ -4180,7 +4180,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogue: gotta go fast!
-  cooldown: 0
+  cooldown: 10
 --- !u!4 &488001605 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8145878840727453018, guid: fdffa8fe3673bf54e844522e1b7d556b, type: 3}
