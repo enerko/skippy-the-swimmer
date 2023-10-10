@@ -41,7 +41,7 @@ public class PlayerHealth : MonoBehaviour
         // On death...
         if (s_Health <= 0) {
             s_Health = s_MaxHealth;
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            CheckpointManager.RespawnAtLastCheckpoint();
             Time.timeScale = 1;
         }
     }
