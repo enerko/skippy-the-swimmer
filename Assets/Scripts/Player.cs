@@ -150,7 +150,8 @@ public class Player : MonoBehaviour
     public void EnableDoubleJump()
     {
         doubleJump = true;
-        Invoke("DisableDoubleJump", 10.0f);
+        PowerUpUI.ShowUI();
+        Invoke("DisableDoubleJump", Powerup.PowerUpDuration);
     }
 
     public void DisableDoubleJump()
@@ -161,7 +162,8 @@ public class Player : MonoBehaviour
     public void EnableSpeedBoost()
     {
         Speed = 14;
-        Invoke("DisableSpeedBoost", 10.0f);
+        PowerUpUI.ShowUI();
+        Invoke("DisableSpeedBoost", Powerup.PowerUpDuration);
     }
 
     public void DisableSpeedBoost()

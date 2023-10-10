@@ -9,7 +9,9 @@ public class Powerup : Interactable
         DoubleJump,
         SpeedBoost,
     }
-    
+
+    public static float PowerUpDuration = 10.0f;
+
     [SerializeField]
     private PowerupType typeOfPowerup;
 

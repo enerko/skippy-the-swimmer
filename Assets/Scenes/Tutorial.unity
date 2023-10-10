@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.088564835, g: 0.5563363, b: 0.8518685, a: 1}
+  m_IndirectSpecularColor: {r: 0.08856505, g: 0.5563363, b: 0.85186845, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9298,6 +9298,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3056211813670059256, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3056211813670059256, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3818759054830644953, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837065570137006507, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837065570137006507, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6953535070443668577, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
       propertyPath: m_Name
       value: Game UI
@@ -9307,6 +9327,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7622070886970082246, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819688677620594110, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819688677620594110, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
@@ -9321,6 +9349,14 @@ PrefabInstance:
     - target: {fileID: 8355134239551730904, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: SetVolume
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741734278756295073, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741734278756295073, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8938479730985528585, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
       propertyPath: m_Pivot.x
