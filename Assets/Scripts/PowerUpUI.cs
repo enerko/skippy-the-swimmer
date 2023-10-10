@@ -5,29 +5,35 @@ using UnityEngine.UI;
 
 public class PowerUpUI : MonoBehaviour
 {
-    public Slider slider;
-    public Image fill;
-
-    static float time = 0;
+    private Slider _slider;
+    private Image _icon;
+    
+    private float _time = 0;
 
     private void Start()
     {
-        time = 0;
+        _time = 0;
+        _icon = transform.GetChild(1).GetComponent<Image>();
+        _slider = transform.GetComponent<Slider>();
     }
 
     void Update()
     {
-        if (time > 0)
+        if (_time > 0)
         {
-            time -= Time.deltaTime;
-            float normalizedTime = Mathf.Clamp01(time / Powerup.PowerUpDuration);
+            _time -= Time.deltaTime;
+            float normalizedTime = Mathf.Clamp01(_time / PlayerPowerup.PowerUpDuration);
 
-            slider.value = normalizedTime;
+            _slider.value = normalizedTime;
+        } else
+        {
+            _icon.enabled = false;
         }
     }
 
-    public static void ShowUI()
+    public void Show()
     {
-        time = Powerup.PowerUpDuration;
+        _time = PlayerPowerup.PowerUpDuration;
+        _icon.enabled = true;
     }
 }
