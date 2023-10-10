@@ -25,6 +25,12 @@ public class Player : MonoBehaviour
     private Rigidbody _rb;
     private Vector3 _horizInput;
 
+    // gonna be honest, not sure if these should be here
+    private AudioSource _powerupBaseSource;
+    private AudioSource _doubleJumpSource;
+    private AudioSource _speedSource;
+    private AudioSource _mainMusicSource;
+
     public AudioClip[] drySteps;
     public AudioClip[] wetSteps;
     public AudioClip tailSwipeSound;
@@ -35,6 +41,10 @@ public class Player : MonoBehaviour
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _mainMusicSource = GameObject.Find("/Main Music").GetComponent<AudioSource>();
+        _powerupBaseSource = GameObject.Find("/Main Music/Powerup Base").GetComponent<AudioSource>();
+        _doubleJumpSource = GameObject.Find("/Main Music/Double Jump").GetComponent<AudioSource>();
+        _speedSource = GameObject.Find("/Main Music/Speed").GetComponent<AudioSource>();
     }
 
     // Input stuff
@@ -149,23 +159,43 @@ public class Player : MonoBehaviour
 
     public void EnableDoubleJump()
     {
+        _powerupBaseSource.volume = 1;
+        _doubleJumpSource.volume = 1;
+        _mainMusicSource.volume = 0;
         doubleJump = true;
         Invoke("DisableDoubleJump", 10.0f);
     }
 
     public void DisableDoubleJump()
     {
+        _doubleJumpSource.volume = 0;
         doubleJump = false;
+
+        // if speed is not active
+        if (Speed == 7) {
+            _powerupBaseSource.volume = 0;
+            _mainMusicSource.volume = 1;
+        }
     }
 
     public void EnableSpeedBoost()
     {
+        _powerupBaseSource.volume = 1;
+        _speedSource.volume = 1;
+        _mainMusicSource.volume = 0;
         Speed = 14;
         Invoke("DisableSpeedBoost", 10.0f);
     }
 
     public void DisableSpeedBoost()
     {
+        _speedSource.volume = 0;
         Speed = 7;
+
+        // if double jump is not active
+        if (!doubleJump) {
+            _powerupBaseSource.volume = 0;
+            _mainMusicSource.volume = 1;
+        }
     }
 }
