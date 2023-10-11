@@ -36,12 +36,13 @@ public class PlayerHealth : MonoBehaviour
             float healthChange = (Player.s_InWater ? HealingPerSecond : -DamagePerSecond) * Time.deltaTime;
             s_Health = Math.Clamp(s_Health + healthChange, 0, s_MaxHealth);
         }
-        
+    }
 
+    void FixedUpdate() {
         // On death...
         if (s_Health <= 0) {
-            s_Health = s_MaxHealth;
             CheckpointManager.RespawnAtLastCheckpoint();
+            s_Health = s_MaxHealth;
             Time.timeScale = 1;
         }
     }
