@@ -18,6 +18,8 @@ public class CheckpointManager : MonoBehaviour
         {
             player.transform.position = lastCheckpointPosition;
             // reset the player's health, velocity, powerups?
+            // PlayerPowerup.s_DoubleJumpEnabled = false;
+            // PlayerPowerup.s_SpeedBoostEnabled = false;
         }
     }
 }

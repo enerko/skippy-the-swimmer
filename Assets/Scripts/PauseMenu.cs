@@ -54,6 +54,8 @@ public class PauseMenu : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         PlayerHealth.s_Health = PlayerHealth.s_MaxHealth;
+        PlayerPowerup.s_DoubleJumpEnabled = false;
+        PlayerPowerup.s_SpeedBoostEnabled = false;
         Resume();
     }
     

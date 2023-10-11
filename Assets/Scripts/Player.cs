@@ -10,10 +10,6 @@ public class Player : MonoBehaviour
     public static bool s_InWater = false;
     public static bool s_Invul = false;
     public static bool s_IsAttacking = false;
-
-    // powerups
-    public static bool s_DoubleJumpEnabled = false;
-    public static bool s_SpeedBoostEnabled = false;
    
     [SerializeField]
     private float _speed = 7;
@@ -53,7 +49,7 @@ public class Player : MonoBehaviour
                 hasUsedDoubleJump = false;
                 
             }
-            else if(s_DoubleJumpEnabled && !hasUsedDoubleJump)
+            else if(PlayerPowerup.s_DoubleJumpEnabled && !hasUsedDoubleJump)
             {
                 _rb.velocity = new Vector3(_rb.velocity.x, Jump * 1.2f, _rb.velocity.z);
                 hasUsedDoubleJump = true;
@@ -115,7 +111,7 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-        _speed = s_SpeedBoostEnabled ? 14 : 7;
+        _speed = PlayerPowerup.s_SpeedBoostEnabled ? 14 : 7;
         _rb.velocity = horizVelo * _speed + new Vector3(0, currVelo.y, 0);
     }
 

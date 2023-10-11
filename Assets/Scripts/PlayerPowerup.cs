@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class PlayerPowerup : MonoBehaviour
 {
+    public static bool s_DoubleJumpEnabled = false;
+    public static bool s_SpeedBoostEnabled = false;
+    
     private static AudioSource s_PowerupBaseSource;
     private static AudioSource s_DoubleJumpSource;
     private static AudioSource s_SpeedSource;
@@ -27,43 +30,49 @@ public class PlayerPowerup : MonoBehaviour
 
     public static IEnumerator EnableDoubleJump()
     {
-        s_PowerupBaseSource.volume = 1;
-        s_DoubleJumpSource.volume = 1;
-        s_MainMusicSource.volume = 0;
-        Player.s_DoubleJumpEnabled = true;
+        if (!s_DoubleJumpEnabled) {  // temporarily disable replenishing
+            s_PowerupBaseSource.volume = 1;
+            s_DoubleJumpSource.volume = 1;
+            s_MainMusicSource.volume = 0;
+            s_DoubleJumpEnabled = true;
 
-        doubleJumpUI.Show();
+            doubleJumpUI.Show();
 
-        yield return new WaitForSeconds(PowerUpDuration);
+            yield return new WaitForSeconds(PowerUpDuration);
+            // TODO: Because you can replenish this when it's still active, can't use a coroutine
+            // must use an actual timer and keep track of time left
 
-        s_DoubleJumpSource.volume = 0;
-        Player.s_DoubleJumpEnabled = false;
+            s_DoubleJumpSource.volume = 0;
+            s_DoubleJumpEnabled = false;
 
-        // if speed is not active
-        if (!Player.s_SpeedBoostEnabled) {
-            s_PowerupBaseSource.volume = 0;
-            s_MainMusicSource.volume = 1;
+            // if speed is not active
+            if (!s_SpeedBoostEnabled) {
+                s_PowerupBaseSource.volume = 0;
+                s_MainMusicSource.volume = 1;
+            }
         }
     }
 
     public static IEnumerator EnableSpeedBoost()
     {
-        s_PowerupBaseSource.volume = 1;
-        s_SpeedSource.volume = 1;
-        s_MainMusicSource.volume = 0;
-        Player.s_SpeedBoostEnabled = true;
+        if (!s_SpeedBoostEnabled) {
+            s_PowerupBaseSource.volume = 1;
+            s_SpeedSource.volume = 1;
+            s_MainMusicSource.volume = 0;
+            s_SpeedBoostEnabled = true;
 
-        speedBoostUI.Show();
+            speedBoostUI.Show();
 
-        yield return new WaitForSeconds(PowerUpDuration);
+            yield return new WaitForSeconds(PowerUpDuration);
 
-        s_SpeedSource.volume = 0;
-        Player.s_SpeedBoostEnabled = false;
+            s_SpeedSource.volume = 0;
+            s_SpeedBoostEnabled = false;
 
-        // if double jump is not active
-        if (!Player.s_DoubleJumpEnabled) {
-            s_PowerupBaseSource.volume = 0;
-            s_MainMusicSource.volume = 1;
+            // if double jump is not active
+            if (!s_DoubleJumpEnabled) {
+                s_PowerupBaseSource.volume = 0;
+                s_MainMusicSource.volume = 1;
+            }
         }
     }
 
