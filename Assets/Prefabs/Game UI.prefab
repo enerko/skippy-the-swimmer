@@ -989,8 +989,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f466333123e735840ba97f78f769d263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 8910214023257055871}
-  meterType: 0
 --- !u!1 &2727924548443432437
 GameObject:
   m_ObjectHideFlags: 0
@@ -2970,8 +2968,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1213818125769301262}
-  - {fileID: 6478537835660500436}
   - {fileID: 7246175871864939063}
+  - {fileID: 6478537835660500436}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -3837,8 +3835,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f466333123e735840ba97f78f769d263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slider: {fileID: 5994305518743091045}
-  meterType: 1
 --- !u!1 &8832221997574121042
 GameObject:
   m_ObjectHideFlags: 0
