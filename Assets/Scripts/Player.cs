@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
     void Update() {
         _horizInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
         
-
         // Handle jumping
         if (Input.GetButtonDown("Jump"))
         {
@@ -79,7 +78,7 @@ public class Player : MonoBehaviour
     // Physics stuff
     void FixedUpdate()
     {
-        if (PlayerHealth.s_Health <= 0) return;  // otherwise this has a race condition with respawning
+        if (PlayerHealth.s_Health <= 0) return;  // otherwise this has a race condition with respawning??
 
         Vector3 currVelo = _rb.velocity;
 
@@ -103,9 +102,9 @@ public class Player : MonoBehaviour
             _rb.constraints = RigidbodyConstraints.FreezeRotation;
 
             Vector3 goalDirection = s_Grounded ? Vector3.ProjectOnPlane(horizVelo, hit.normal).normalized : horizVelo;
-            lookDirection = Vector3.Slerp(transform.forward, goalDirection, 0.1f).normalized;
+            lookDirection = Vector3.Slerp(transform.forward, goalDirection, 0.5f).normalized;
     
-            transform.LookAt(transform.position + lookDirection, Vector3.Slerp(transform.up, goalUpDirection, 0.1f));
+            transform.LookAt(transform.position + lookDirection, Vector3.Slerp(transform.up, goalUpDirection, 0.25f));
         } else {
             horizVelo = Vector3.zero;
             _rb.constraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
