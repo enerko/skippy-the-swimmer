@@ -15384,16 +15384,20 @@ PrefabInstance:
       value: Long Log
       objectReference: {fileID: 0}
     - target: {fileID: 6378415774607374128, guid: 48b728855dd325a4aaf808e6267ac141, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 16.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6378415774607374128, guid: 48b728855dd325a4aaf808e6267ac141, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.564
+      value: 3.452
       objectReference: {fileID: 0}
     - target: {fileID: 6378415774607374128, guid: 48b728855dd325a4aaf808e6267ac141, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.611
+      value: 0.55
       objectReference: {fileID: 0}
     - target: {fileID: 6378415774607374128, guid: 48b728855dd325a4aaf808e6267ac141, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -12.754
+      value: -12.742
       objectReference: {fileID: 0}
     - target: {fileID: 6378415774607374128, guid: 48b728855dd325a4aaf808e6267ac141, type: 3}
       propertyPath: m_LocalRotation.w

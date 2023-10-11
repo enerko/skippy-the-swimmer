@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class CheckpointManager : MonoBehaviour
 {
-    
-    public static CheckpointManager Instance;
-    
     private static Vector3 lastCheckpointPosition = new Vector3(-13.96f, 1.75f, -3.806f);
 
     public static void SetCheckpoint(Vector3 newCheckpoint)
@@ -16,7 +13,7 @@ public class CheckpointManager : MonoBehaviour
 
     public static void RespawnAtLastCheckpoint()
     {
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        GameObject player = GameObject.Find("/SkippyController");
         if (player)
         {
             player.transform.position = lastCheckpointPosition;
