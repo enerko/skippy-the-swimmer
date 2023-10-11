@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.088564835, g: 0.5563363, b: 0.8518685, a: 1}
+  m_IndirectSpecularColor: {r: 0.08856505, g: 0.5563363, b: 0.85186845, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14773,6 +14773,14 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.95686275
       objectReference: {fileID: 0}
+    - target: {fileID: 1513746251035324615, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1513746251035324615, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1525639772208443969, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
       propertyPath: m_fontAsset
       value: 
@@ -14867,6 +14875,10 @@ PrefabInstance:
       objectReference: {fileID: -7570851222293219972, guid: 2abed972a6536294bae31984114b43c1, type: 2}
     - target: {fileID: 2661123899430282182, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
       propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3295940628678582142, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3649303069441995206, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
@@ -15005,6 +15017,14 @@ PrefabInstance:
       propertyPath: m_Colors.m_HighlightedColor.r
       value: 0.95686275
       objectReference: {fileID: 0}
+    - target: {fileID: 6837065570137006507, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6837065570137006507, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6953535070443668577, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
       propertyPath: m_Name
       value: Game UI
@@ -15062,6 +15082,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7622070886970082246, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819688677620594110, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7819688677620594110, guid: f6a1017547cb9a548bdcd4c9e4a36a36, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}

@@ -9,12 +9,20 @@ public class PlayerPowerup : MonoBehaviour
     private static AudioSource s_SpeedSource;
     private static AudioSource s_MainMusicSource;
 
+    private static PowerUpUI doubleJumpUI;
+    private static PowerUpUI speedBoostUI;
+
+    public static float PowerUpDuration = 10f;
+
     void Start() {
         // do it this way so we dont have to drag and drop all the time i guess
         s_MainMusicSource = GameObject.Find("/Main Music").GetComponent<AudioSource>();
         s_PowerupBaseSource = GameObject.Find("/Main Music/Powerup Base").GetComponent<AudioSource>();
         s_DoubleJumpSource = GameObject.Find("/Main Music/Double Jump").GetComponent<AudioSource>();
         s_SpeedSource = GameObject.Find("/Main Music/Speed").GetComponent<AudioSource>();
+
+        doubleJumpUI = GameObject.Find("DoubleJumpUI").GetComponent<PowerUpUI>();
+        speedBoostUI = GameObject.Find("SpeedBoostUI").GetComponent<PowerUpUI>();
     }
 
     public static IEnumerator EnableDoubleJump()
@@ -24,7 +32,9 @@ public class PlayerPowerup : MonoBehaviour
         s_MainMusicSource.volume = 0;
         Player.s_DoubleJumpEnabled = true;
 
-        yield return new WaitForSeconds(10f);
+        doubleJumpUI.Show();
+
+        yield return new WaitForSeconds(PowerUpDuration);
 
         s_DoubleJumpSource.volume = 0;
         Player.s_DoubleJumpEnabled = false;
@@ -43,7 +53,9 @@ public class PlayerPowerup : MonoBehaviour
         s_MainMusicSource.volume = 0;
         Player.s_SpeedBoostEnabled = true;
 
-        yield return new WaitForSeconds(10f);
+        speedBoostUI.Show();
+
+        yield return new WaitForSeconds(PowerUpDuration);
 
         s_SpeedSource.volume = 0;
         Player.s_SpeedBoostEnabled = false;

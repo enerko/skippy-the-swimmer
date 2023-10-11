@@ -6,7 +6,9 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     public Slider slider;
-    public Image fill;
+    public Image CircleFill;
+    public Image GaugeFill;
+    public Image HurtSkippy;
 
     // Start is called before the first frame update
     void Start()
@@ -19,15 +21,21 @@ public class HealthBar : MonoBehaviour
         slider.value = PlayerHealth.s_Health;
 
         
-            float healthPercent = (float)PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
+        float healthPercent = (float)PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
 
         // colour the box depending on health percentage
         if (healthPercent <= 0.3)
-        {   
-            fill.color = new Color32(219, 30, 62, 255); // low
+        {
+            // low
+            CircleFill.color = new Color32(255, 76, 61, 255);
+            GaugeFill.color = new Color32(255, 76, 61, 255);
+            HurtSkippy.enabled = true;
         } else 
         {
-            fill.color = new Color32(102, 169, 225, 255); // full
+            // full
+            CircleFill.color = new Color32(255, 255, 225, 255); 
+            GaugeFill.color = new Color32(255, 255, 225, 255); 
+            HurtSkippy.enabled = false;
         }
         
     }
