@@ -1,14 +1,16 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class CameraMain : MonoBehaviour
 {
     private readonly Vector3 Offset = new Vector3(0, 2, -7);
     private float _sensitivity = 15f;
-    private Vector3 focus;
-    private Vector3 velocity;
+    private const int MaxPitch = 60;  // max vertical rotation bounds
+    private Vector3 _focus;
+    private Vector3 _velocity;
 
     public GameObject player;
 
@@ -17,7 +19,7 @@ public class CameraMain : MonoBehaviour
     {
         Cursor.lockState = CursorLockMode.Locked;  // so you can still move camera even if mouse is at edge of screen
  	    Cursor.visible = false;
-        focus = player.transform.position;
+        _focus = player.transform.position;
     }
 
     // Update is called once per frame
@@ -25,12 +27,36 @@ public class CameraMain : MonoBehaviour
     {
         if (PauseMenu.GameIsPaused) return;
 
-        focus = Vector3.SmoothDamp(focus, player.transform.position, ref velocity,  0.25f);
-        transform.position = focus;
+        _focus = Vector3.SmoothDamp(_focus, player.transform.position, ref _velocity,  0.25f);
+        transform.position = _focus;
 
-        // moving mouse horizontally
-        gameObject.transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * _sensitivity, 0), Space.World);
+        // moving mouse
+        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * _sensitivity, 0), Space.World);
+        transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y") * _sensitivity, 0, 0));
 
-        gameObject.transform.Translate(Offset);
+        // cap camera's pitch
+        Vector3 currRotation = transform.rotation.eulerAngles;
+
+        // pitch ranges from 0 - 360 even though in the editor it goes into negatives, so can't use Mathf.Clamp here
+        float currPitch = currRotation.x;
+       
+        if (MaxPitch < currPitch && currPitch <= 90) {
+            currPitch = MaxPitch;
+        } else if (270 <= currPitch && currPitch < 360 - MaxPitch) {
+            currPitch = -MaxPitch;
+        }   
+
+        transform.rotation = Quaternion.Euler(currPitch, currRotation.y, 0);
+
+        transform.Translate(Offset);
+
+        // raycast from focus to the camera to see if anything is blocking it
+        Vector3 direction = transform.position - _focus;
+        Ray ray = new Ray(_focus, direction.normalized);
+        RaycastHit hit;
+        
+        if (Physics.Raycast(ray, out hit, Offset.magnitude, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore)) {
+            transform.position = hit.point;
+        }
     }
 }
