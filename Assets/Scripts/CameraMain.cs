@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class CameraMain : MonoBehaviour
 {
     private readonly Vector3 Offset = new Vector3(0, 2, -7);
-    private float _sensitivity = 15f;
+    private float _sensitivity = 5f;
     private const int MaxPitch = 60;  // max vertical rotation bounds
     private Vector3 _focus;
     private Vector3 _velocity;
@@ -25,10 +25,13 @@ public class CameraMain : MonoBehaviour
 
     public void PerformCameraRotate(InputValue inputValue)
     {
+        if (PauseMenu.GameIsPaused) return;
+        
         Vector2 inputX = inputValue.Get<Vector2>();
         transform.Rotate(new Vector3(0, inputX.x * _sensitivity, 0), Space.World);
         transform.Rotate(new Vector3(-inputX.y * _sensitivity, 0, 0));
     }
+
     // Update is called once per frame
     void Update()
     {

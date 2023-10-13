@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
    
     [SerializeField]
     private float _speed = 7;
-    private const float Jump = 7;
+    private const float Jump = 8.4f;
     private bool hasUsedDoubleJump = false;
     private const float FallAdjustment = 1.0f;
     private const float StepAudioDelay = 0.3f;
@@ -39,7 +39,6 @@ public class Player : MonoBehaviour
 
     public void PerformJump()
     {
-        Debug.Log("JUMP");
         if (s_Grounded)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
@@ -48,14 +47,13 @@ public class Player : MonoBehaviour
         }
         else if (PlayerPowerup.s_DoubleJumpEnabled && !hasUsedDoubleJump)
         {
-            _rb.velocity = new Vector3(_rb.velocity.x, Jump * 1.2f, _rb.velocity.z);
+            _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
             hasUsedDoubleJump = true;
         }
     }
 
     public void PerformMove(InputValue inputValue)
     {
-        Debug.Log("MOVE");
         Vector3 inputVector3 = inputValue.Get<Vector3>();
         _horizInput = new Vector3(inputVector3.x, 0, inputVector3.z);
     }
