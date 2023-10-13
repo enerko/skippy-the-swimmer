@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.InputSystem;
 
 public class Player : MonoBehaviour
 {
@@ -29,38 +30,49 @@ public class Player : MonoBehaviour
     public AudioClip tailSwipeSound;
     public GameObject plrMesh;
     public Rig lookAtRig;
+
+    private PlayerControls playerControls;
     
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        playerControls = new PlayerControls();
     }
 
-    // Input stuff
-    void Update() {
-        _horizInput = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        
-        // Handle jumping
-        if (Input.GetButtonDown("Jump"))
+    private void OnJump()
+    {
+        Debug.Log("JUMP");
+        if (s_Grounded)
         {
-            if (s_Grounded)
-            {
-                _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
-                hasUsedDoubleJump = false;
-                
-            }
-            else if(PlayerPowerup.s_DoubleJumpEnabled && !hasUsedDoubleJump)
-            {
-                _rb.velocity = new Vector3(_rb.velocity.x, Jump * 1.2f, _rb.velocity.z);
-                hasUsedDoubleJump = true;
-            }
-        }
+            _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
+            hasUsedDoubleJump = false;
 
-        // Tail attack
-        if (Input.GetAxis("Fire1") > 0 && !s_IsAttacking) {
+        }
+        else if (PlayerPowerup.s_DoubleJumpEnabled && !hasUsedDoubleJump)
+        {
+            _rb.velocity = new Vector3(_rb.velocity.x, Jump * 1.2f, _rb.velocity.z);
+            hasUsedDoubleJump = true;
+        }
+    }
+
+    private void OnMove(InputValue inputValue)
+    {
+        Debug.Log("MOVE");
+        Vector3 inputVector3 = inputValue.Get<Vector3>();
+        _horizInput = new Vector3(inputVector3.x, 0, inputVector3.z);
+    }
+
+    private void OnAttack(InputValue inputValue)
+    {
+        Vector2 attackValue = inputValue.Get<Vector2>();
+        if (attackValue.y > 0 && !s_IsAttacking)
+        {
             StartCoroutine(TailAttack());
         }
+    }
 
+    void Update() {
         // play footsteps
         if (s_Grounded && _timer - _stepAudioTime >= StepAudioDelay && _horizInput.magnitude > 0.01) {
             AudioClip[] clips = s_InWater ? wetSteps : drySteps;

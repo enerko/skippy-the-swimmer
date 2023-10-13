@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CameraMain : MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class CameraMain : MonoBehaviour
     private Vector3 _velocity;
 
     public GameObject player;
+    private PlayerControls cameraControls;
 
     // Start is called before the first frame update
     void Start()
@@ -20,8 +22,15 @@ public class CameraMain : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;  // so you can still move camera even if mouse is at edge of screen
  	    Cursor.visible = false;
         _focus = player.transform.position;
+        cameraControls = new PlayerControls();
     }
 
+    private void OnRotateCamera(InputValue inputValue)
+    {
+        Vector2 inputX = inputValue.Get<Vector2>();
+        transform.Rotate(new Vector3(0, inputX.x * _sensitivity, 0), Space.World);
+        transform.Rotate(new Vector3(-inputX.y * _sensitivity, 0, 0));
+    }
     // Update is called once per frame
     void Update()
     {
@@ -29,10 +38,6 @@ public class CameraMain : MonoBehaviour
 
         _focus = Vector3.SmoothDamp(_focus, player.transform.position, ref _velocity,  0.25f);
         transform.position = _focus;
-
-        // moving mouse
-        transform.Rotate(new Vector3(0, Input.GetAxis("Mouse X") * _sensitivity, 0), Space.World);
-        transform.Rotate(new Vector3(-Input.GetAxis("Mouse Y") * _sensitivity, 0, 0));
 
         // cap camera's pitch
         Vector3 currRotation = transform.rotation.eulerAngles;
