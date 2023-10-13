@@ -30,17 +30,14 @@ public class Player : MonoBehaviour
     public AudioClip tailSwipeSound;
     public GameObject plrMesh;
     public Rig lookAtRig;
-
-    private PlayerControls playerControls;
     
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        playerControls = new PlayerControls();
     }
 
-    private void OnJump()
+    public void PerformJump()
     {
         Debug.Log("JUMP");
         if (s_Grounded)
@@ -56,14 +53,14 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnMove(InputValue inputValue)
+    public void PerformMove(InputValue inputValue)
     {
         Debug.Log("MOVE");
         Vector3 inputVector3 = inputValue.Get<Vector3>();
         _horizInput = new Vector3(inputVector3.x, 0, inputVector3.z);
     }
 
-    private void OnAttack(InputValue inputValue)
+    public void PerformAttack(InputValue inputValue)
     {
         Vector2 attackValue = inputValue.Get<Vector2>();
         if (attackValue.y > 0 && !s_IsAttacking)

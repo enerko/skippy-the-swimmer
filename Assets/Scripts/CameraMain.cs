@@ -14,7 +14,6 @@ public class CameraMain : MonoBehaviour
     private Vector3 _velocity;
 
     public GameObject player;
-    private PlayerControls cameraControls;
 
     // Start is called before the first frame update
     void Start()
@@ -22,10 +21,9 @@ public class CameraMain : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;  // so you can still move camera even if mouse is at edge of screen
  	    Cursor.visible = false;
         _focus = player.transform.position;
-        cameraControls = new PlayerControls();
     }
 
-    private void OnRotateCamera(InputValue inputValue)
+    public void PerformCameraRotate(InputValue inputValue)
     {
         Vector2 inputX = inputValue.Get<Vector2>();
         transform.Rotate(new Vector3(0, inputX.x * _sensitivity, 0), Space.World);
