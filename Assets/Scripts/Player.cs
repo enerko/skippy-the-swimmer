@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     public static bool s_InWater = false;
     public static bool s_Invul = false;
     public static bool s_IsAttacking = false;
+    public static ConversationPrompt s_CurrentConversation;
    
     [SerializeField]
     private float _speed = 7;
@@ -30,8 +31,6 @@ public class Player : MonoBehaviour
     public AudioClip tailSwipeSound;
     public GameObject plrMesh;
     public Rig lookAtRig;
-
-    public ITalkable Talkable { get; set; }
     
     // Start is called before the first frame update
     void Start()
@@ -71,7 +70,7 @@ public class Player : MonoBehaviour
 
     public void PerformTalk()
     {
-        Talkable?.Talk(this);
+        s_CurrentConversation?.Begin();
     }
 
     void Update() {

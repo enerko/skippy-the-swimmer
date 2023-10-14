@@ -2,11 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ConversationPrompt : MonoBehaviour, ITalkable
+public class ConversationPrompt : MonoBehaviour
 {
-    private bool _enabled = false;
-    public string test_string;
-
+    public Conversation conversation;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -19,33 +18,21 @@ public class ConversationPrompt : MonoBehaviour, ITalkable
         
     }
 
-    // When player enters range (collider should be set to ignore everything else)
+    // When player enters range (collider should be set to ignore everything else, so you can assume other is the player)
     void OnTriggerEnter(Collider other) {
-
-        if(other.CompareTag("Player") && other.TryGetComponent(out Player player))
-        {
-            _enabled = true;
-
-            player.Talkable = this;
-        }
+        Player.s_CurrentConversation = this;
     }
 
     void OnTriggerExit(Collider other) {
-        _enabled = false;
-
-        if (other.CompareTag("Player") && other.TryGetComponent(out Player player))
-        {
-            if(player.Talkable is ConversationPrompt conversationPrompt && conversationPrompt == this) {
-                _enabled = false;
-
-                player.Talkable = null;
-            }
-           
+        // don't disable other conversations, if they exist
+        if (Player.s_CurrentConversation == this) {
+            Player.s_CurrentConversation = null;
         }
     }
 
-    public void Talk(Player player)
+    // Begin the conversation assigned to this prompt
+    public void Begin()
     {
-        Debug.Log(test_string);
+        conversation.Begin();
     }
 }
