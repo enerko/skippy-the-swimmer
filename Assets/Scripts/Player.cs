@@ -15,10 +15,10 @@ public class Player : MonoBehaviour
     public static bool s_ConversationActive = false;  // if currently in a convo
    
     [SerializeField]
-    private float _speed = 7;
-    private const float Jump = 8.4f;
+    public static float _speed = 8;
+    private const float Jump = 6.5f;
     private bool hasUsedDoubleJump = false;
-    private const float FallAdjustment = 1.0f;
+    private const float FallAdjustment = 2.5f;
     private const float StepAudioDelay = 0.3f;
     private const float TailAttackRadius = 1.5f;
     private const float TailAttackDelay = 0.3f;
@@ -45,13 +45,13 @@ public class Player : MonoBehaviour
 
         if (s_Grounded)
         {
-            _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
+            _rb.velocity = new Vector3(_rb.velocity.x, Mathf.Sqrt(2 * Jump * Mathf.Abs(Physics.gravity.y)), _rb.velocity.z);
             hasUsedDoubleJump = false;
 
         }
         else if (PlayerPowerup.s_DoubleJumpEnabled && !hasUsedDoubleJump)
         {
-            _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
+            _rb.velocity = new Vector3(_rb.velocity.x, Mathf.Sqrt(2 * Jump * Mathf.Abs(Physics.gravity.y)), _rb.velocity.z);
             hasUsedDoubleJump = true;
         }
     }
@@ -95,8 +95,8 @@ public class Player : MonoBehaviour
     // Physics stuff
     void FixedUpdate()
     {
-        if (PlayerHealth.s_Health <= 0) return;  // otherwise this has a race condition with respawning??
-
+        if (PauseMenu.GameIsPaused) return;
+        
         Vector3 currVelo = _rb.velocity;
 
         // apply camera rotation
@@ -132,7 +132,9 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-        _speed = PlayerPowerup.s_SpeedBoostEnabled ? 14 : 7;
+
+        _speed = PlayerPowerup.s_SpeedBoostEnabled ? 16 : 8;
+        _speed = PlayerHealth.s_Health <= 0 ? 4 : _speed;
         _rb.velocity = horizVelo * _speed + new Vector3(0, currVelo.y, 0);
     }
 

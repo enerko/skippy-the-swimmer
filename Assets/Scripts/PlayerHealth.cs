@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public static float s_Health = s_MaxHealth;
 
     private const float HealingPerSecond = 100;
-    private const float DamagePerSecond = 10;
+    private const float DamagePerSecond = 5;
     
     private float _timer = 0;
     private const float InvulTime = 0.75f;
@@ -39,12 +39,6 @@ public class PlayerHealth : MonoBehaviour
     }
 
     void FixedUpdate() {
-        // On death...
-        if (s_Health <= 0) {
-            CheckpointManager.RespawnAtLastCheckpoint();
-            s_Health = s_MaxHealth;
-            Time.timeScale = 1;
-        }
     }
 
     // When Skippy enters a puddle of water
