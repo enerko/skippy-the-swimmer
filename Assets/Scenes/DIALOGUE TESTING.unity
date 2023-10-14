@@ -3040,6 +3040,8 @@ GameObject:
   - component: {fileID: 4320848777590115262}
   - component: {fileID: 2022760941344554868}
   - component: {fileID: 4320848777590115263}
+  - component: {fileID: 4320848777590115265}
+  - component: {fileID: 4320848777590115264}
   m_Layer: 0
   m_Name: glorbo
   m_TagString: Untagged
@@ -3134,6 +3136,39 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5495902117074765545, guid: 2b3c9cf53e21e314aa4dc7da26b1f889, type: 3}
+--- !u!135 &4320848777590115264
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509670007283637921}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 128
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 127
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.04
+  m_Center: {x: 1.0584901e-15, y: 0.0012164149, z: -0.0029793847}
+--- !u!114 &4320848777590115265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509670007283637921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 792ea44aaf6816b44befed315789263e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
