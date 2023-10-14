@@ -11,7 +11,8 @@ public class Player : MonoBehaviour
     public static bool s_InWater = false;
     public static bool s_Invul = false;
     public static bool s_IsAttacking = false;
-    public static Conversation s_CurrentConversation;
+    public static Conversation s_CurrentConversation;  // if CAN begin a convo
+    public static bool s_ConversationActive = false;  // if currently in a convo
    
     [SerializeField]
     private float _speed = 7;
@@ -40,6 +41,8 @@ public class Player : MonoBehaviour
 
     public void PerformJump()
     {
+        if (s_ConversationActive) return;  // dont jump during a convo
+
         if (s_Grounded)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
@@ -55,12 +58,16 @@ public class Player : MonoBehaviour
 
     public void PerformMove(InputValue inputValue)
     {
+        if (s_ConversationActive) return;  // dont move during a convo
+
         Vector3 inputVector3 = inputValue.Get<Vector3>();
         _horizInput = new Vector3(inputVector3.x, 0, inputVector3.z);
     }
 
     public void PerformAttack(InputValue inputValue)
     {
+        if (s_ConversationActive) return;  // dont attack during a convo
+
         Vector2 attackValue = inputValue.Get<Vector2>();
         if (attackValue.y > 0 && !s_IsAttacking)
         {
@@ -70,7 +77,8 @@ public class Player : MonoBehaviour
 
     public void PerformTalk()
     {
-        s_CurrentConversation?.Advance();
+        if (!s_CurrentConversation) return;  // no conversation to begin
+        s_ConversationActive = s_CurrentConversation.Advance();  // it is active iff Advance returns true (there is more dialogue to see)
     }
 
     void Update() {

@@ -15,7 +15,8 @@ public class Conversation : MonoBehaviour
 
     private int _index = 0;  // index into dialogueChain
 
-    public void Advance() {
+    // Advance the convo and return if there is more
+    public bool Advance() {
         Dialogue dialogue = dialogueChain[_index];
         Debug.Log(dialogue.speaker.name + ": " + dialogue.dialogue);
         _index++;
@@ -23,8 +24,11 @@ public class Conversation : MonoBehaviour
         // you've reached the end
         if (_index == dialogueChain.Length) {
             _index = 0;
-
+            
+            return false;
             // IF WE USE A FLAG SYSTEM, WE CAN SET ANY REQUIRED FLAGS HERE TO CHANGE THE PROMPTER's CONVERSATION
         }
+
+        return true;
     }
 }
