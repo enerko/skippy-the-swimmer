@@ -5,29 +5,26 @@ using UnityEngine;
 
 public class Conversation : MonoBehaviour
 {
-    public GameObject[] speakers;  // store the game object that contains the meshes of speakers
-    public string[] dialogues;  // each dialogue piece, the speaker for dialogues[i] is speakers[i]
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+    [Serializable]
+    public struct Dialogue {
+        public string dialogue;
+        public GameObject speaker;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public Dialogue[] dialogueChain;
 
-    // Begin the conversation
-    public void Begin() {
-        Debug.Assert(dialogues.Length == speakers.Length);
-        for (int i = 0; i < dialogues.Length; i++) {
-            GameObject speaker = speakers[i];
-            string dialogue = dialogues[i];
+    private int _index = 0;  // index into dialogueChain
 
-            Debug.Log(speaker.name + ": " + dialogue);
+    public void Advance() {
+        Dialogue dialogue = dialogueChain[_index];
+        Debug.Log(dialogue.speaker.name + ": " + dialogue.dialogue);
+        _index++;
+
+        // you've reached the end
+        if (_index == dialogueChain.Length) {
+            _index = 0;
+
+            // IF WE USE A FLAG SYSTEM, WE CAN SET ANY REQUIRED FLAGS HERE TO CHANGE THE PROMPTER's CONVERSATION
         }
     }
 }

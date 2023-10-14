@@ -11,7 +11,7 @@ public class Player : MonoBehaviour
     public static bool s_InWater = false;
     public static bool s_Invul = false;
     public static bool s_IsAttacking = false;
-    public static ConversationPrompt s_CurrentConversation;
+    public static Conversation s_CurrentConversation;
    
     [SerializeField]
     private float _speed = 7;
@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
 
     public void PerformTalk()
     {
-        s_CurrentConversation?.Begin();
+        s_CurrentConversation?.Advance();
     }
 
     void Update() {

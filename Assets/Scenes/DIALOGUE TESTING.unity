@@ -630,7 +630,7 @@ GameObject:
   - component: {fileID: 415559631}
   - component: {fileID: 415559630}
   m_Layer: 0
-  m_Name: glorbo_1
+  m_Name: Glorbo2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -669,7 +669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792ea44aaf6816b44befed315789263e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test_string: nice to meet you
+  conversation: {fileID: 666191702}
 --- !u!64 &415559632
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -750,13 +750,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 415559629}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.5000008, y: 0.49999923, z: 0.49999928, w: 0.5000007}
-  m_LocalPosition: {x: -1.14, y: 9.765, z: -12.35}
+  m_LocalRotation: {x: -0.2227363, y: 0.6711099, z: 0.67111003, w: 0.2227363}
+  m_LocalPosition: {x: -7.08, y: 9.46, z: -40.52}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 143.279}
 --- !u!1 &432341777 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2367843497479945448, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
@@ -1165,6 +1165,61 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+--- !u!1 &666191700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 666191701}
+  - component: {fileID: 666191702}
+  m_Layer: 0
+  m_Name: Glorbo2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &666191701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666191700}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1835333157}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &666191702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 666191700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a847eda787f014146b2ddc506c5b3450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueChain:
+  - dialogue: who are you?
+    speaker: {fileID: 906424155}
+  - dialogue: your mom haha
+    speaker: {fileID: 415559629}
+  - dialogue: did you like my funny joke
+    speaker: {fileID: 415559629}
+  - dialogue: i want to die
+    speaker: {fileID: 415559629}
+  - dialogue: L + skill issue
+    speaker: {fileID: 906424155}
 --- !u!1001 &702902825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2584,6 +2639,94 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5093683399538085491, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
+--- !u!1 &1835333156
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1835333157}
+  m_Layer: 0
+  m_Name: Conversations
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1835333157
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1835333156}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.6262698, y: 8.920955, z: -28.416374}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1844818403}
+  - {fileID: 666191701}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1844818402
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1844818403}
+  - component: {fileID: 1844818404}
+  m_Layer: 0
+  m_Name: Glorbo1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1844818403
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844818402}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1835333157}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1844818404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1844818402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a847eda787f014146b2ddc506c5b3450, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dialogueChain:
+  - dialogue: who are you?
+    speaker: {fileID: 906424155}
+  - dialogue: i am an affront to god
+    speaker: {fileID: 509670007283637921}
+  - dialogue: oh ok
+    speaker: {fileID: 906424155}
+  - dialogue: kill me
+    speaker: {fileID: 509670007283637921}
+  - dialogue: nah bye
+    speaker: {fileID: 906424155}
 --- !u!1 &1858804777 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -4545723123663703589, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
@@ -3185,7 +3328,7 @@ GameObject:
   - component: {fileID: 4320848777590115265}
   - component: {fileID: 4320848777590115264}
   m_Layer: 0
-  m_Name: glorbo
+  m_Name: Glorbo1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3311,7 +3454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 792ea44aaf6816b44befed315789263e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  test_string: hi
+  conversation: {fileID: 1844818404}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -3332,3 +3475,4 @@ SceneRoots:
   - {fileID: 1706220921}
   - {fileID: 889855132504654875}
   - {fileID: 415559635}
+  - {fileID: 1835333157}

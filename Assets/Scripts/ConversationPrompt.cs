@@ -20,19 +20,13 @@ public class ConversationPrompt : MonoBehaviour
 
     // When player enters range (collider should be set to ignore everything else, so you can assume other is the player)
     void OnTriggerEnter(Collider other) {
-        Player.s_CurrentConversation = this;
+        Player.s_CurrentConversation = conversation;
     }
 
     void OnTriggerExit(Collider other) {
         // don't disable other conversations, if they exist
-        if (Player.s_CurrentConversation == this) {
+        if (Player.s_CurrentConversation == conversation) {
             Player.s_CurrentConversation = null;
         }
-    }
-
-    // Begin the conversation assigned to this prompt
-    public void Begin()
-    {
-        conversation.Begin();
     }
 }
