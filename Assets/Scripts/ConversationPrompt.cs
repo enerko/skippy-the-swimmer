@@ -5,6 +5,7 @@ using UnityEngine;
 public class ConversationPrompt : MonoBehaviour, ITalkable
 {
     private bool _enabled = false;
+    public string test_string;
 
     // Start is called before the first frame update
     void Start()
@@ -45,6 +46,6 @@ public class ConversationPrompt : MonoBehaviour, ITalkable
 
     public void Talk(Player player)
     {
-        Debug.Log("Talk to me baby!");
+        Debug.Log(test_string);
     }
 }
