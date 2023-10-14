@@ -12,6 +12,7 @@ public class CameraMain : MonoBehaviour
     private const int MaxPitch = 60;  // max vertical rotation bounds
     private Vector3 _focus;
     private Vector3 _velocity;
+    private Vector2 _input;
 
     public GameObject player;
 
@@ -25,11 +26,7 @@ public class CameraMain : MonoBehaviour
 
     public void PerformCameraRotate(InputValue inputValue)
     {
-        if (PauseMenu.GameIsPaused) return;
-        
-        Vector2 inputX = inputValue.Get<Vector2>();
-        transform.Rotate(new Vector3(0, inputX.x * _sensitivity, 0), Space.World);
-        transform.Rotate(new Vector3(-inputX.y * _sensitivity, 0, 0));
+        _input = inputValue.Get<Vector2>();
     }
 
     // Update is called once per frame
@@ -39,6 +36,10 @@ public class CameraMain : MonoBehaviour
 
         _focus = Vector3.SmoothDamp(_focus, player.transform.position, ref _velocity,  0.25f);
         transform.position = _focus;
+
+        // rotate
+        transform.Rotate(new Vector3(0, _input.x * _sensitivity, 0), Space.World);
+        transform.Rotate(new Vector3(-_input.y * _sensitivity, 0, 0));
 
         // cap camera's pitch
         Vector3 currRotation = transform.rotation.eulerAngles;
