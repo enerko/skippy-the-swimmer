@@ -30,6 +30,8 @@ public class Player : MonoBehaviour
     public AudioClip tailSwipeSound;
     public GameObject plrMesh;
     public Rig lookAtRig;
+
+    public ITalkable Talkable { get; set; }
     
     // Start is called before the first frame update
     void Start()
@@ -65,6 +67,11 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(TailAttack());
         }
+    }
+
+    public void PerformTalk()
+    {
+        Talkable?.Talk(this);
     }
 
     void Update() {

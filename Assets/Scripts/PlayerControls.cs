@@ -62,6 +62,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Talk"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5204983-3ab5-4a56-8915-128cd0a0f3be"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -306,6 +315,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""CameraRotate"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6552d7b8-6529-45a0-b63a-5a39f058825f"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Talk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a261687b-48c6-4d7e-bae0-6d952eb0af89"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Talk"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -318,6 +349,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_CharacterMovement_Move = m_CharacterMovement.FindAction("Move", throwIfNotFound: true);
         m_CharacterMovement_Attack = m_CharacterMovement.FindAction("Attack", throwIfNotFound: true);
         m_CharacterMovement_CameraRotate = m_CharacterMovement.FindAction("CameraRotate", throwIfNotFound: true);
+        m_CharacterMovement_Talk = m_CharacterMovement.FindAction("Talk", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -383,6 +415,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterMovement_Move;
     private readonly InputAction m_CharacterMovement_Attack;
     private readonly InputAction m_CharacterMovement_CameraRotate;
+    private readonly InputAction m_CharacterMovement_Talk;
     public struct CharacterMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -391,6 +424,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_CharacterMovement_Move;
         public InputAction @Attack => m_Wrapper.m_CharacterMovement_Attack;
         public InputAction @CameraRotate => m_Wrapper.m_CharacterMovement_CameraRotate;
+        public InputAction @Talk => m_Wrapper.m_CharacterMovement_Talk;
         public InputActionMap Get() { return m_Wrapper.m_CharacterMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -412,6 +446,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @CameraRotate.started += instance.OnCameraRotate;
             @CameraRotate.performed += instance.OnCameraRotate;
             @CameraRotate.canceled += instance.OnCameraRotate;
+            @Talk.started += instance.OnTalk;
+            @Talk.performed += instance.OnTalk;
+            @Talk.canceled += instance.OnTalk;
         }
 
         private void UnregisterCallbacks(ICharacterMovementActions instance)
@@ -428,6 +465,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @CameraRotate.started -= instance.OnCameraRotate;
             @CameraRotate.performed -= instance.OnCameraRotate;
             @CameraRotate.canceled -= instance.OnCameraRotate;
+            @Talk.started -= instance.OnTalk;
+            @Talk.performed -= instance.OnTalk;
+            @Talk.canceled -= instance.OnTalk;
         }
 
         public void RemoveCallbacks(ICharacterMovementActions instance)
@@ -451,5 +491,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnMove(InputAction.CallbackContext context);
         void OnAttack(InputAction.CallbackContext context);
         void OnCameraRotate(InputAction.CallbackContext context);
+        void OnTalk(InputAction.CallbackContext context);
     }
 }

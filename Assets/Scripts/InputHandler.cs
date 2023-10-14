@@ -36,4 +36,9 @@ public class InputHandler : MonoBehaviour
         cameraMain?.PerformCameraRotate(inputValue);
     }
 
+    private void OnTalk()
+    {
+        player.PerformTalk();
+    }
+
 }
