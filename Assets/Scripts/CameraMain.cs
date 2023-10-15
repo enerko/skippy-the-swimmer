@@ -19,8 +19,9 @@ public class CameraMain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Cursor.lockState = CursorLockMode.Locked;  // so you can still move camera even if mouse is at edge of screen
- 	    Cursor.visible = false;
+        // Hide cursor
+        Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
         _focus = player.transform.position;
     }
 
@@ -32,7 +33,7 @@ public class CameraMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (PauseMenu.GameIsPaused) return;
+        if (Globals.GameIsPaused) return;
 
         _focus = Vector3.SmoothDamp(_focus, player.transform.position, ref _velocity,  0.25f);
         transform.position = _focus;

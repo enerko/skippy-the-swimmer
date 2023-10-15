@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.17721736, g: 0.22185579, b: 0.30410385, a: 1}
+  m_IndirectSpecularColor: {r: 0.17721769, g: 0.22185656, b: 0.30410495, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -468,7 +468,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 221190910}
-  - component: {fileID: 221190911}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
@@ -498,19 +497,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &221190911
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 221190909}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f7e1047e5ed310847ad502a77c807900, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  levelName: Tutorial
 --- !u!1001 &237091173
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -661,6 +647,7 @@ GameObject:
   - component: {fileID: 341796920}
   - component: {fileID: 341796919}
   - component: {fileID: 341796918}
+  - component: {fileID: 341796921}
   m_Layer: 5
   m_Name: QuitButton
   m_TagString: Untagged
@@ -732,8 +719,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 221190911}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
+      - m_Target: {fileID: 341796921}
+        m_TargetAssemblyTypeName: QuitGameButton, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
         m_Arguments:
@@ -782,6 +769,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 341796915}
   m_CullTransparentMesh: 1
+--- !u!114 &341796921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 341796915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed19d466c174a4e48bc98979ea743beb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &341960976 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 437370518188765865, guid: 35965f53576a4fd4199f7c4e3f8d5bce, type: 3}
@@ -3275,6 +3274,7 @@ GameObject:
   - component: {fileID: 1549219302}
   - component: {fileID: 1549219301}
   - component: {fileID: 1549219300}
+  - component: {fileID: 1549219303}
   m_Layer: 5
   m_Name: StartButton
   m_TagString: Untagged
@@ -3346,9 +3346,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 221190911}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: StartGame
+      - m_Target: {fileID: 1549219303}
+        m_TargetAssemblyTypeName: LoadSceneButton, Assembly-CSharp
+        m_MethodName: LoadScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3396,6 +3396,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1549219297}
   m_CullTransparentMesh: 1
+--- !u!114 &1549219303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1549219297}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b86460004b9e6dd4aabd813640a376ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Tutorial
 --- !u!1001 &1603321741
 PrefabInstance:
   m_ObjectHideFlags: 0

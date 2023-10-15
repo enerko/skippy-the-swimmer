@@ -12,7 +12,7 @@ public class LevelManager : MonoBehaviour
     public static string prevLevel;
     private List<string> levels = new List<string>
     {
-        "Main","Tutorial", "Level 1"
+        "Main", "Tutorial", "Level 1"
     };
 
     // Start is called before the first frame update
@@ -25,19 +25,14 @@ public class LevelManager : MonoBehaviour
     // Update is called once per frame
     void LoadLevel()
     {
-        PlayerHealth.s_Health = PlayerHealth.s_MaxHealth;
         if (loadPreviousLevel)
         {
-            SceneManager.LoadScene(prevLevel);
+            Globals.LoadScene(prevLevel);
         }
         else if (loadNextLevel)
         {
             string nextLevel = levels[levels.IndexOf(prevLevel) + 1];
-            SceneManager.LoadScene(nextLevel);
-        }
-        
-
-        
-        
+            Globals.LoadScene(nextLevel);
+        }  
     }
 }

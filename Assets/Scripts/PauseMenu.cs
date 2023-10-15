@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
     public GameObject pauseMenuUI;
     public Button resume;
 
@@ -16,7 +15,7 @@ public class PauseMenu : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7"))
         {
-            if (GameIsPaused)
+            if (Globals.GameIsPaused)
             {
                 Resume();
             } else
@@ -33,7 +32,7 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        Globals.GameIsPaused = false;
 
         // reset resume button pressed state
         EventSystem.current.SetSelectedGameObject(null);  
@@ -47,23 +46,6 @@ public class PauseMenu : MonoBehaviour
         resume.Select();
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        GameIsPaused = true;
-    }
-
-    public void RestartLevel()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        PlayerHealth.s_Health = PlayerHealth.s_MaxHealth;
-        PlayerPowerup.s_DoubleJumpEnabled = false;
-        PlayerPowerup.s_SpeedBoostEnabled = false;
-        Resume();
-    }
-    
-    public void ReturnToMainMenu()
-    {
-        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
-
-        Time.timeScale = 1f;
-        GameIsPaused = false;
+        Globals.GameIsPaused = true;
     }
 }

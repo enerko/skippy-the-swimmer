@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
     // Physics stuff
     void FixedUpdate()
     {
-        if (PauseMenu.GameIsPaused) return;
+        if (Globals.GameIsPaused) return;
         
         Vector3 currVelo = _rb.velocity;
 
