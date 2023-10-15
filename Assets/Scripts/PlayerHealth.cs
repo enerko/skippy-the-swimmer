@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public static float s_Health = s_MaxHealth;
 
     private const float HealingPerSecond = 100;
-    private const float DamagePerSecond = 5;
+    private const float DamagePerSecond = 10;
     
     private float _timer = 0;
     private const float InvulTime = 0.75f;
@@ -38,9 +38,6 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    void FixedUpdate() {
-    }
-
     // When Skippy enters a puddle of water
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag != "Water") return;
@@ -54,6 +51,4 @@ public class PlayerHealth : MonoBehaviour
         Player.s_InWater = false;
         Player.s_Invul = true;
     }
-    
-    // When Skippy just leaves water
 }

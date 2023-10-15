@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
     public static bool s_ConversationActive = false;  // if currently in a convo
    
     [SerializeField]
-    public static float _speed = 8;
+    private float _speed = 6;
     private const float Jump = 6.5f;
     private bool hasUsedDoubleJump = false;
     private const float FallAdjustment = 2.5f;
@@ -66,7 +66,7 @@ public class Player : MonoBehaviour
 
     public void PerformAttack(InputValue inputValue)
     {
-        if (s_ConversationActive) return;  // dont attack during a convo
+        if (s_ConversationActive || PlayerHealth.s_Health <= 0) return;  // dont attack during a convo/no health
 
         Vector2 attackValue = inputValue.Get<Vector2>();
         if (attackValue.y > 0 && !s_IsAttacking)
@@ -133,7 +133,6 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-
         _speed = PlayerPowerup.s_SpeedBoostEnabled ? 16 : 8;
         _speed = PlayerHealth.s_Health <= 0 ? 4 : _speed;
         _rb.velocity = horizVelo * _speed + new Vector3(0, currVelo.y, 0);
