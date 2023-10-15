@@ -78,7 +78,8 @@ public class Player : MonoBehaviour
     public void PerformTalk()
     {
         if (!s_CurrentConversation) return;  // no conversation to begin
-        s_ConversationActive = s_CurrentConversation.Advance();  // it is active iff Advance returns true (there is more dialogue to see)
+        s_ConversationActive = s_CurrentConversation.index < s_CurrentConversation.dialogueChain.Length;
+        s_CurrentConversation.Advance();
     }
 
     void Update() {

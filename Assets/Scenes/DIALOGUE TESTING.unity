@@ -670,6 +670,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation: {fileID: 666191702}
+  promptGui: {fileID: 1806805695}
 --- !u!64 &415559632
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2551,6 +2552,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 5495181170147995826, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
+--- !u!1 &1806805695 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4593864040450463053, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+  m_PrefabInstance: {fileID: 1722826093}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1824277103
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3455,6 +3461,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation: {fileID: 1844818404}
+  promptGui: {fileID: 1806805695}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
