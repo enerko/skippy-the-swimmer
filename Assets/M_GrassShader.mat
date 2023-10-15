@@ -52,7 +52,7 @@ Material:
     m_Floats:
     - _Blend: 1
     - _BlendMult: 1
-    - _BlendOff: 0.01
+    - _BlendOff: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors: []
