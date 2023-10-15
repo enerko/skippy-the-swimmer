@@ -63,7 +63,7 @@ public class CameraMain : MonoBehaviour
         Ray ray = new Ray(_focus, direction.normalized);
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, Offset.magnitude, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore)) {
+        if (Physics.Raycast(ray, out hit, Offset.magnitude, ~(LayerMask.GetMask("Player") | LayerMask.GetMask("Ignore Raycast")), QueryTriggerInteraction.Ignore)) {
             transform.position = hit.point;
         }
     }
