@@ -8,17 +8,24 @@ public class Settings : MonoBehaviour
 {
     public AudioMixer audioMixer;
     public Slider slider;
+    private static float _volume;
 
     private void Awake()
     {
-        float volume= PlayerPrefs.GetFloat("volume", 0f);
-        slider.value = volume;
-        audioMixer.SetFloat("Volume", volume);
+        _volume = PlayerPrefs.GetFloat("volume", 0f);
+        
+        slider.value = _volume;
+        audioMixer.SetFloat("Volume", _volume == -20 ? -80 : _volume);
     }
 
-    public void SetVolume (float volume)
+    public void SetVolume (float val)
     {
-        audioMixer.SetFloat("Volume", volume);
-        PlayerPrefs.SetFloat("volume", volume);
+        _volume = val;
+        audioMixer.SetFloat("Volume", _volume == -20 ? -80 : _volume);
+        PlayerPrefs.SetFloat("volume", _volume);
+    }
+
+    public static float GetSourceVolume() {
+        return (_volume + 20)/20;
     }
 }
