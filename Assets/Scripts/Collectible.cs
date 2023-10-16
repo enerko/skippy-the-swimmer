@@ -7,10 +7,10 @@ public class Collectible : MonoBehaviour
     private Collectibles _collectibles;
 
     void Start() {
-            _collectibles = FindObjectOfType<Collectibles>();
+        _collectibles = FindObjectOfType<Collectibles>();
     }
 
-    void OnCollisionEnter(Collision collision)
+    void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject.tag == "Player")
         {

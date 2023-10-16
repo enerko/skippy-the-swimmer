@@ -9,7 +9,6 @@ public class Collectibles : MonoBehaviour
     public Sprite collectibleIcon;
 
     private int _numCollected;
-
     private Image _img;
     private TextMeshProUGUI _textUI;
 
