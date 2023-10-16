@@ -6,12 +6,11 @@ using UnityEngine;
 public class ConversationPrompt : MonoBehaviour
 {
     public Conversation conversation;
-    public GameObject promptGui;  // in the future, might change this to a panel or something
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
+
+    private GameObject _promptGui;  // in the future, might change this to a panel or something
+
+    void Start() {
+        _promptGui = GameObject.Find("/Game UI/Prompt");
     }
 
     // Update is called once per frame
@@ -19,14 +18,14 @@ public class ConversationPrompt : MonoBehaviour
     {
         // disable it when the player talks to an npc
         if (Player.s_ConversationActive)
-            promptGui.SetActive(false);
+            _promptGui.SetActive(false);
         else if (Player.s_CurrentConversation == conversation) {  // if this prompt has control over the gui
-            promptGui.SetActive(true);
+            _promptGui.SetActive(true);
 
             // move it with the camera
-            promptGui.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);
+            _promptGui.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);
         } else if (Player.s_CurrentConversation is null) {  // disable it when player is out of any prompt's range
-            promptGui.SetActive(false);
+            _promptGui.SetActive(false);
         }
     }
 

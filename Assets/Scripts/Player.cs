@@ -97,6 +97,10 @@ public class Player : MonoBehaviour
     void FixedUpdate()
     {
         if (Globals.GameIsPaused) return;
+
+        if (s_ConversationActive) {
+            _horizInput = Vector3.zero;  // don't continue walking if you walk into npc and talk at the same time
+        }
         
         Vector3 currVelo = _rb.velocity;
 
