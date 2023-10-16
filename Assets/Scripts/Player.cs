@@ -30,6 +30,9 @@ public class Player : MonoBehaviour
     public AudioClip[] drySteps;
     public AudioClip[] wetSteps;
     public AudioClip tailSwipeSound;
+    public AudioClip dryJump;
+    public AudioClip wetJump;
+    public AudioClip whooshJump;
     public GameObject plrMesh;
     public Rig lookAtRig;
     
@@ -48,11 +51,14 @@ public class Player : MonoBehaviour
             _rb.velocity = new Vector3(_rb.velocity.x, Mathf.Sqrt(2 * Jump * Mathf.Abs(Physics.gravity.y)), _rb.velocity.z);
             hasUsedDoubleJump = false;
 
+            AudioClip jumpNoise = s_InWater ? wetJump : dryJump;
+            AudioSource.PlayClipAtPoint(jumpNoise, transform.position);
         }
         else if (PlayerPowerup.s_DoubleJumpEnabled && !hasUsedDoubleJump)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, Mathf.Sqrt(2 * Jump * Mathf.Abs(Physics.gravity.y)), _rb.velocity.z);
             hasUsedDoubleJump = true;
+            AudioSource.PlayClipAtPoint(whooshJump, transform.position);
         }
     }
 

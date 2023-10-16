@@ -587,6 +587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a045885e31281408879dc3fb23b0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _speed: 6
   drySteps:
   - {fileID: 8300000, guid: 8629c3f3779a77f45b44fb0b71b5313d, type: 3}
   - {fileID: 8300000, guid: 55fc727280db0654eba11479d26e5659, type: 3}
@@ -600,6 +601,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: ba9b9aa753373fc4b9f3c1d43e232989, type: 3}
   - {fileID: 8300000, guid: 9f39495c3966dac49870b6e678ad73fb, type: 3}
   tailSwipeSound: {fileID: 8300000, guid: c960b3c074883c74a82548df15684595, type: 3}
+  dryJump: {fileID: 8300000, guid: d5498755134733c4d9fc88d597f9cac2, type: 3}
+  wetJump: {fileID: 8300000, guid: 773ccffec97c33f4cbb3cfb5785f52af, type: 3}
+  whooshJump: {fileID: 8300000, guid: eba306259470b2148bb1972d54b665ab, type: 3}
   plrMesh: {fileID: 6611993487436670163}
   lookAtRig: {fileID: 8891757489278337343}
 --- !u!114 &6720244862066317785
