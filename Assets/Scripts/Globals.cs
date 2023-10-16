@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 // Some global stuff managing game state and static vars i guess
 public class Globals
 {
-    public static bool GameIsPaused = false;
+    public static bool s_GameIsPaused = false;
+    public static bool s_CanPause = true;  // sometimes dont allow pausing, e.g. fade out at end of tutorial
 
     // Load the given scene and reset the appropriate static vars
     public static void LoadScene(string sceneName) {
@@ -24,8 +25,10 @@ public class Globals
         Player.s_CurrentConversation = null;
         Player.s_Invul = false;
         Player.s_IsAttacking = false;
+        Player.s_CanMove = true;
 
         Time.timeScale = 1f;
-        GameIsPaused = false;
+        s_GameIsPaused = false;
+        s_CanPause = true;
     }
 }

@@ -33,7 +33,7 @@ public class CameraMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Globals.GameIsPaused) return;
+        if (Globals.s_GameIsPaused) return;
 
         _focus = Vector3.SmoothDamp(_focus, player.transform.position, ref _velocity,  0.25f);
         transform.position = _focus;

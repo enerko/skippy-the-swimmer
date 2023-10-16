@@ -39,7 +39,7 @@ public class Conversation : MonoBehaviour
 
     // Advance the convo and return if there is more
     public void Advance() {
-        if (Globals.GameIsPaused) return;  // dont advance dialogue when paused
+        if (Globals.s_GameIsPaused) return;  // dont advance dialogue when paused
 
         // player must press advance in order to end a conversation
         if (index == dialogueChain.Length) {
@@ -78,8 +78,8 @@ public class Conversation : MonoBehaviour
 
         // Typewrite the dialogue
         foreach (char c in dialogue.dialogue.ToCharArray()) {
-            if (Globals.GameIsPaused) {
-                yield return new WaitUntil(() => !Globals.GameIsPaused);
+            if (Globals.s_GameIsPaused) {
+                yield return new WaitUntil(() => !Globals.s_GameIsPaused);
             }
 
             _currentDialogue += c;

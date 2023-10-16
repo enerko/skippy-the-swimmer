@@ -13,9 +13,9 @@ public class PauseMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7"))
+        if (Globals.s_CanPause && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7")))
         {
-            if (Globals.GameIsPaused)
+            if (Globals.s_GameIsPaused)
             {
                 Resume();
             } else
@@ -32,7 +32,7 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
-        Globals.GameIsPaused = false;
+        Globals.s_GameIsPaused = false;
 
         // reset resume button pressed state
         EventSystem.current.SetSelectedGameObject(null);  
@@ -46,6 +46,6 @@ public class PauseMenu : MonoBehaviour
         resume.Select();
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
-        Globals.GameIsPaused = true;
+        Globals.s_GameIsPaused = true;
     }
 }

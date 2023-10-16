@@ -11,8 +11,9 @@ public class Player : MonoBehaviour
     public static bool s_InWater = false;
     public static bool s_Invul = false;
     public static bool s_IsAttacking = false;
-    public static Conversation s_CurrentConversation;  // if CAN begin a convo
+    public static bool s_CanMove = true;  // freeze movement when, for example, fading out at end of tutorial
     public static bool s_ConversationActive = false;  // if currently in a convo
+    public static Conversation s_CurrentConversation;  // if CAN begin a convo
    
     [SerializeField]
     private float _speed = 6;
@@ -44,7 +45,7 @@ public class Player : MonoBehaviour
 
     public void PerformJump()
     {
-        if (s_ConversationActive) return;  // dont jump during a convo
+        if (s_ConversationActive || !s_CanMove) return;  // dont jump during a convo
 
         if (s_Grounded)
         {
@@ -64,7 +65,7 @@ public class Player : MonoBehaviour
 
     public void PerformMove(InputValue inputValue)
     {
-        if (s_ConversationActive) return;  // dont move during a convo
+        if (s_ConversationActive || !s_CanMove) return;
 
         Vector3 inputVector3 = inputValue.Get<Vector3>();
         _horizInput = new Vector3(inputVector3.x, 0, inputVector3.z);
@@ -72,7 +73,7 @@ public class Player : MonoBehaviour
 
     public void PerformAttack(InputValue inputValue)
     {
-        if (s_ConversationActive || PlayerHealth.s_Health <= 0) return;  // dont attack during a convo/no health
+        if (s_ConversationActive || PlayerHealth.s_Health <= 0 || !s_CanMove) return;  // dont attack during a convo/no health
 
         Vector2 attackValue = inputValue.Get<Vector2>();
         if (attackValue.y > 0 && !s_IsAttacking)
@@ -102,9 +103,9 @@ public class Player : MonoBehaviour
     // Physics stuff
     void FixedUpdate()
     {
-        if (Globals.GameIsPaused) return;
+        if (Globals.s_GameIsPaused) return;
 
-        if (s_ConversationActive) {
+        if (s_ConversationActive || !s_CanMove) {
             _horizInput = Vector3.zero;  // don't continue walking if you walk into npc and talk at the same time
         }
         
