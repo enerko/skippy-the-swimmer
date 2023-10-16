@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 using TMPro;
 
 public class Conversation : MonoBehaviour
@@ -15,7 +16,7 @@ public class Conversation : MonoBehaviour
     public Dialogue[] dialogueChain;
     public int index = 0;  // index into dialogueChain
 
-    private float _typeDelay = 0.05f;
+    private float _typeDelay = 0.1f;
     private string _currentDialogue = string.Empty;
     private IEnumerator _typing;
     private GameObject _dialogueBox;
@@ -73,6 +74,8 @@ public class Conversation : MonoBehaviour
 
     // Typewriter coroutine
     private IEnumerator Typewrite(Dialogue dialogue) {
+        AudioClip[] clips = dialogue.speaker.GetComponent<DialogueAudio>().clips;
+
         // Typewrite the dialogue
         foreach (char c in dialogue.dialogue.ToCharArray()) {
             if (Globals.GameIsPaused) {
@@ -81,6 +84,7 @@ public class Conversation : MonoBehaviour
 
             _currentDialogue += c;
             _dialogueSection.text = _currentDialogue;
+            AudioSource.PlayClipAtPoint(clips[Random.Range(0, clips.Length)], dialogue.speaker.transform.position);
             yield return new WaitForSeconds(_typeDelay);
         }
 

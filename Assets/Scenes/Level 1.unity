@@ -1335,7 +1335,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6611993487436670163, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 906424160}
   m_SourcePrefab: {fileID: 100100000, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
 --- !u!1001 &702902825
 PrefabInstance:
@@ -1499,6 +1502,25 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6611993487436670163, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
   m_PrefabInstance: {fileID: 656460955}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &906424160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 906424155}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967ab9b7ada884143a8c04009c942a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: b672d78fe226fbc4eab220d9db17cfc5, type: 3}
+  - {fileID: 8300000, guid: cd07e49eca4489444b29e2351d03662c, type: 3}
+  - {fileID: 8300000, guid: 95f170132e7c9944cb7909992195e821, type: 3}
+  - {fileID: 8300000, guid: 562322cc8ba3f7b4b97b373f0a11fcf7, type: 3}
+  - {fileID: 8300000, guid: 509fdd20ee5ff464c99a982c5e9d3ac9, type: 3}
+  - {fileID: 8300000, guid: 5d45c4fa0289254458eb8ebc4c89f2a0, type: 3}
 --- !u!1 &912302278 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8225555640389892892, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
@@ -1934,6 +1956,7 @@ GameObject:
   - component: {fileID: 1393420196}
   - component: {fileID: 1393420195}
   - component: {fileID: 1393420194}
+  - component: {fileID: 1393420200}
   m_Layer: 0
   m_Name: Magpie
   m_TagString: Untagged
@@ -2062,6 +2085,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: -90}
+--- !u!114 &1393420200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1393420193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 967ab9b7ada884143a8c04009c942a87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clips:
+  - {fileID: 8300000, guid: b672d78fe226fbc4eab220d9db17cfc5, type: 3}
+  - {fileID: 8300000, guid: cd07e49eca4489444b29e2351d03662c, type: 3}
+  - {fileID: 8300000, guid: 95f170132e7c9944cb7909992195e821, type: 3}
+  - {fileID: 8300000, guid: 562322cc8ba3f7b4b97b373f0a11fcf7, type: 3}
+  - {fileID: 8300000, guid: 509fdd20ee5ff464c99a982c5e9d3ac9, type: 3}
+  - {fileID: 8300000, guid: 5d45c4fa0289254458eb8ebc4c89f2a0, type: 3}
 --- !u!1 &1410281738 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -1883726074766132426, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
