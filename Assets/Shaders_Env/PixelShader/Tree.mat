@@ -49,9 +49,9 @@ Material:
     - _SpecularIntensity: 1
     - _SpecularRange: 0.5
     m_Colors:
-    - _Color: {r: 0.25278643, g: 0.4339623, b: 0.17399432, a: 0}
-    - _RimColor: {r: 0.51967853, g: 0.9433962, b: 0.493948, a: 0}
-    - _SpecularColor: {r: 1, g: 1, b: 1, a: 0}
+    - _Color: {r: 0.41782686, g: 0.6603774, b: 0.31461376, a: 0}
+    - _RimColor: {r: 0.6276162, g: 0.8396226, b: 0.61387503, a: 0}
+    - _SpecularColor: {r: 0.6148096, g: 0.8301887, b: 0.6761177, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &7279236719413293163
 MonoBehaviour:
