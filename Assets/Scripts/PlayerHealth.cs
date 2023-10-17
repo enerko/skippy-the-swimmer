@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public static float s_Health = s_MaxHealth;
 
     private const float HealingPerSecond = 100;
-    private const float DamagePerSecond = 10;
+    private float DamagePerSecond = 10;
     
     private float _timer = 0;
     private const float InvulTime = 0.75f;
@@ -30,6 +30,10 @@ public class PlayerHealth : MonoBehaviour
                 Player.s_Invul = false;
                 _timer = 0;
             }
+        }
+        else if (Player.s_ConversationActive)
+        {
+            return;
         }
         else
         {
@@ -51,4 +55,5 @@ public class PlayerHealth : MonoBehaviour
         Player.s_InWater = false;
         Player.s_Invul = true;
     }
+
 }
