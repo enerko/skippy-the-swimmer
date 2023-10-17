@@ -71,6 +71,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""ViewChecklist"",
+                    ""type"": ""Value"",
+                    ""id"": ""87a64561-b0d6-4a57-a9f0-2f06720d3a74"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -337,6 +346,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Talk"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""631b01b0-339d-4263-ab01-b588abf2a873"",
+                    ""path"": ""<Keyboard>/tab"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ViewChecklist"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c0b24bbc-3f89-48a0-9120-3486ca137a9c"",
+                    ""path"": ""<Gamepad>/leftShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""ViewChecklist"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -350,6 +381,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_CharacterMovement_Attack = m_CharacterMovement.FindAction("Attack", throwIfNotFound: true);
         m_CharacterMovement_CameraRotate = m_CharacterMovement.FindAction("CameraRotate", throwIfNotFound: true);
         m_CharacterMovement_Talk = m_CharacterMovement.FindAction("Talk", throwIfNotFound: true);
+        m_CharacterMovement_ViewChecklist = m_CharacterMovement.FindAction("ViewChecklist", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -416,6 +448,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterMovement_Attack;
     private readonly InputAction m_CharacterMovement_CameraRotate;
     private readonly InputAction m_CharacterMovement_Talk;
+    private readonly InputAction m_CharacterMovement_ViewChecklist;
     public struct CharacterMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -425,6 +458,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Attack => m_Wrapper.m_CharacterMovement_Attack;
         public InputAction @CameraRotate => m_Wrapper.m_CharacterMovement_CameraRotate;
         public InputAction @Talk => m_Wrapper.m_CharacterMovement_Talk;
+        public InputAction @ViewChecklist => m_Wrapper.m_CharacterMovement_ViewChecklist;
         public InputActionMap Get() { return m_Wrapper.m_CharacterMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -449,6 +483,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Talk.started += instance.OnTalk;
             @Talk.performed += instance.OnTalk;
             @Talk.canceled += instance.OnTalk;
+            @ViewChecklist.started += instance.OnViewChecklist;
+            @ViewChecklist.performed += instance.OnViewChecklist;
+            @ViewChecklist.canceled += instance.OnViewChecklist;
         }
 
         private void UnregisterCallbacks(ICharacterMovementActions instance)
@@ -468,6 +505,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Talk.started -= instance.OnTalk;
             @Talk.performed -= instance.OnTalk;
             @Talk.canceled -= instance.OnTalk;
+            @ViewChecklist.started -= instance.OnViewChecklist;
+            @ViewChecklist.performed -= instance.OnViewChecklist;
+            @ViewChecklist.canceled -= instance.OnViewChecklist;
         }
 
         public void RemoveCallbacks(ICharacterMovementActions instance)
@@ -492,5 +532,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnAttack(InputAction.CallbackContext context);
         void OnCameraRotate(InputAction.CallbackContext context);
         void OnTalk(InputAction.CallbackContext context);
+        void OnViewChecklist(InputAction.CallbackContext context);
     }
 }

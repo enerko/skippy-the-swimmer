@@ -8,12 +8,14 @@ public class InputHandler : MonoBehaviour
     private Player player;
     private CameraMain cameraMain;
     private PlayerControls playerControls;
+    private Checklist checklist;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
         player = GameObject.FindFirstObjectByType<Player>();
         cameraMain = GameObject.FindFirstObjectByType<CameraMain>();
+        checklist = FindObjectOfType<Checklist>();
     }
 
     private void OnJump()
@@ -39,6 +41,11 @@ public class InputHandler : MonoBehaviour
     private void OnTalk()
     {
         player.PerformTalk();
+    }
+
+    private void OnViewChecklist(InputValue inputValue) 
+    {
+        checklist?.DisplayChecklist(inputValue);
     }
 
 }
