@@ -24,7 +24,7 @@ public class ConversationPrompt : MonoBehaviour
             _promptGui.SetActive(true);
 
             // move it with the camera
-            _promptGui.GetComponent<RectTransform>().position = Camera.main.WorldToScreenPoint(transform.position);
+            _promptGui.GetComponent<RectTransform>().anchoredPosition = Camera.main.WorldToScreenPoint(transform.position);
         } else if (Player.s_CurrentConversation is null) {  // disable it when player is out of any prompt's range
             _promptGui.SetActive(false);
         }
