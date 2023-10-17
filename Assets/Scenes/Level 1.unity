@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028331, g: 0.2257133, b: 0.3069217, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -935,6 +935,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7117617749070932822, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7246080624138708685, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.16668701
+      objectReference: {fileID: 0}
+    - target: {fileID: 7561887676734025396, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7857957613948329026, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
@@ -2526,6 +2534,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1985035612}
     m_Modifications:
+    - target: {fileID: 1451838985452970436, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
+      propertyPath: description
+      value: near the fist tank
+      objectReference: {fileID: 0}
     - target: {fileID: 3671903915491156176, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_Name
       value: Pearl
@@ -3383,6 +3395,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1985035612}
     m_Modifications:
+    - target: {fileID: 1451838985452970436, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
+      propertyPath: description
+      value: the one that was right in front of your face when you left the fish
+        tank
+      objectReference: {fileID: 0}
     - target: {fileID: 3671903915491156176, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_Name
       value: Pearl
