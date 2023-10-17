@@ -14,6 +14,7 @@ public class FadeOutLoadScene : MonoBehaviour
     }
 
     private IEnumerator Fade() {
+        fadeImage.gameObject.SetActive(true);
         Globals.s_CanPause = false;
         Player.s_CanMove = false;
 

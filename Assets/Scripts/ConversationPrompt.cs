@@ -6,6 +6,7 @@ using UnityEngine;
 public class ConversationPrompt : MonoBehaviour
 {
     public Conversation conversation;
+    public bool force = false;  // force the player into a convo when they get in range
 
     private GameObject _promptGui;  // in the future, might change this to a panel or something
 
@@ -32,6 +33,12 @@ public class ConversationPrompt : MonoBehaviour
     // When player enters range (collider should be set to ignore everything else, so you can assume other is the player)
     void OnTriggerEnter(Collider other) {
         Player.s_CurrentConversation = conversation;
+
+        // force without prompting
+        if (force) {
+            Player.s_ConversationActive = true;
+            conversation.Advance();
+        }
     }
 
     void OnTriggerExit(Collider other) {
