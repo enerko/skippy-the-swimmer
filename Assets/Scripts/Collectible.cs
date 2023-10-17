@@ -20,7 +20,7 @@ public class Collectible : MonoBehaviour
         {
             Destroy(gameObject);
             _collectibles.CollectNew();
-            _checklist.UpdateChecklist(description);
+            _checklist?.UpdateChecklist(description);
         }
     }
 
