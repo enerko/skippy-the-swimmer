@@ -2097,7 +2097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   conversation: {fileID: 34003485}
-  force: 0
+  force: 1
 --- !u!135 &1393420195
 SphereCollider:
   m_ObjectHideFlags: 0

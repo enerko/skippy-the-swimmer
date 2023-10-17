@@ -10,10 +10,10 @@ public class ThoughtTrigger : MonoBehaviour
     
     private GameObject _thoughtBubble;
     private TextMeshProUGUI _thoughtText;
-    private bool _showing = false;
     private GameObject _playerMesh;
     private const float Duration = 5;
-    private readonly Vector3 Offset = new Vector3(0, 0, 0);
+    private readonly Vector3 Offset = new Vector3(60, 30, 0);
+    private static GameObject s_CurrentThought;
 
     // Start is called before the first frame update
     void Start()
@@ -26,27 +26,31 @@ public class ThoughtTrigger : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _thoughtBubble.SetActive(_showing);  // set visible or not
+        if (s_CurrentThought != gameObject) return;
+        _thoughtBubble.SetActive(true);
         _thoughtBubble.GetComponent<RectTransform>().anchoredPosition = Camera.main.WorldToScreenPoint(_playerMesh.transform.position) + Offset;
     }
 
+    // May assume that other is the player if include/exclude options are set properly
     void OnTriggerEnter(Collider other) {
-        if (_showing) return;  // do nothing if already showing
+        if (s_CurrentThought == gameObject) return;  // do nothing if already showing
+
+        s_CurrentThought = gameObject;
 
         // show thought
         StartCoroutine(ShowThought());
     }
 
     private IEnumerator ShowThought() {
-        _showing = true;
         _thoughtText.text = thought;
+        _thoughtBubble.SetActive(true);
 
         yield return new WaitForSeconds(Duration);
 
-        _showing = false;
+        s_CurrentThought = null;
+        _thoughtBubble.SetActive(false);
 
         if (!repeatable) {
-            _thoughtBubble.SetActive(false);
             Destroy(gameObject);
         }
     }
