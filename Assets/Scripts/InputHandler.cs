@@ -45,7 +45,7 @@ public class InputHandler : MonoBehaviour
 
     private void OnViewChecklist(InputValue inputValue) 
     {
-        checklist.DisplayChecklist(inputValue);
+        checklist?.DisplayChecklist(inputValue);
     }
 
 }
