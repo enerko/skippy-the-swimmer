@@ -38,6 +38,7 @@ public class ConversationPrompt : MonoBehaviour
         if (force) {
             Player.s_ConversationActive = true;
             conversation.Advance();
+            force = false;
         }
     }
 

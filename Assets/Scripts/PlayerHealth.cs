@@ -31,7 +31,7 @@ public class PlayerHealth : MonoBehaviour
                 _timer = 0;
             }
         }
-        else if (Player.s_ConversationActive)
+        else if (Player.s_ConversationActive || Player.s_ChecklistOpen)
         {
             return;
         }

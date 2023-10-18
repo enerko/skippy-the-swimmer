@@ -8,7 +8,7 @@ public class Collectibles : MonoBehaviour
 {
     public Sprite collectibleIcon;
 
-    private int _numCollected;
+    public int numCollected;
     private Image _img;
     private TextMeshProUGUI _textUI;
 
@@ -19,7 +19,7 @@ public class Collectibles : MonoBehaviour
         _img.sprite = collectibleIcon;
 
         _textUI = gameObject.GetComponentInChildren<TextMeshProUGUI>();
-        _numCollected = 0;
+        numCollected = 0;
         UpdateText();
         
         _img.enabled = false;
@@ -28,15 +28,15 @@ public class Collectibles : MonoBehaviour
     }
 
     void UpdateText() {
-        _textUI.text = "x" + _numCollected;
+        _textUI.text = "x" + numCollected;
     }
 
     public void CollectNew() {
-        if (_numCollected == 0) {  
+        if (numCollected == 0) {  
             _img.enabled = true;
             _textUI.enabled = true;
         }
-        _numCollected += 1;
+        numCollected += 1;
         UpdateText();
     }
 }

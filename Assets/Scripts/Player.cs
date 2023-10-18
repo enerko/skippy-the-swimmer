@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     public static bool s_CanMove = true;  // freeze movement when, for example, fading out at end of tutorial
     public static bool s_ConversationActive = false;  // if currently in a convo
     public static Conversation s_CurrentConversation;  // if CAN begin a convo
-   
+    public static bool s_ChecklistOpen = false;
+
     [SerializeField]
     private float _speed = 6;
     private const float Jump = 6.5f;

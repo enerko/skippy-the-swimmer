@@ -50,9 +50,11 @@ public class Checklist : MonoBehaviour
         {
             _background.enabled = true;
             _text.enabled = true;
+            Player.s_ChecklistOpen = true;
         } else {
             _background.enabled = false;
             _text.enabled = false;
+            Player.s_ChecklistOpen = false;
         }
     }
 }
