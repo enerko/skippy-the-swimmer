@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1614fc811f8f184697d9bee70ab9fe5, type: 3}
   m_Name: DecalRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   m_Settings:
     technique: 0
     maxDrawDistance: 1000
@@ -92,8 +92,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d613f08f173d4dd895bb07b3230baa9, type: 3}
   m_Name: Pixel
   m_EditorClassIdentifier: 
-  m_Active: 0
-  passMaterial: {fileID: 2100000, guid: fec2ba025e8d0b44c8a5122b6d7d94b9, type: 2}
+  m_Active: 1
+  passMaterial: {fileID: 2100000, guid: 2ce2454f73d8112448587091184e9e6d, type: 2}
   injectionPoint: 450
   requirements: 4
   passIndex: 0
