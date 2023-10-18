@@ -451,6 +451,7 @@ GameObject:
   - component: {fileID: 2274315361335784202}
   - component: {fileID: 7919328295043377328}
   - component: {fileID: 6720244862066317785}
+  - component: {fileID: 6318849496650767376}
   m_Layer: 7
   m_Name: SkippyController
   m_TagString: Player
@@ -616,6 +617,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 02e47a820f757224da076da909cccf64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6318849496650767376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3358145577567467760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1242da57d59a495fbaf52199b825641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &3557889980308559421

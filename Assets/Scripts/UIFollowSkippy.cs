@@ -6,20 +6,18 @@ public class UIFollowSkippy : MonoBehaviour
 {
     private Transform player;
     private Camera cam;
+    private RectTransform _rect;
 
     void Start()
     {
         cam = Camera.main;
         player = GameObject.FindWithTag("Player").transform;
+        _rect = GetComponent<RectTransform>();
     }
 
     void Update()
     {
         Vector3 pos = cam.WorldToScreenPoint(player.position);
-
-        if (transform.position != pos)
-        {
-            transform.position = pos;
-        }
+        _rect.anchoredPosition = pos;
     }
 }
