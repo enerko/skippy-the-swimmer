@@ -11,7 +11,7 @@ public class ThoughtTrigger : MonoBehaviour
     private GameObject _thoughtBubble;
     private TextMeshProUGUI _thoughtText;
     private GameObject _playerMesh;
-    private const float Duration = 5;
+    private const float Duration = 3;
     private readonly Vector3 Offset = new Vector3(60, 30, 0);
     private static GameObject s_CurrentThought;
 

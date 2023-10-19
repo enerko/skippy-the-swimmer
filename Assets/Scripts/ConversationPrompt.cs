@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ConversationPrompt : MonoBehaviour
 {
     public Conversation conversation;
     public bool force = false;  // force the player into a convo when they get in range
+    public Conversation actionConversation;  // This prompt can subscribe to a UnityEvent, which will make the prompt switch to this conversation
 
     private GameObject _promptGui;  // in the future, might change this to a panel or something
 
     void Start() {
         _promptGui = GameObject.Find("/Game UI/Prompt");
+        conversation.SetPrompt(this);
     }
 
     // Update is called once per frame
@@ -31,7 +34,7 @@ public class ConversationPrompt : MonoBehaviour
     }
 
     // When player enters range (collider should be set to ignore everything else, so you can assume other is the player)
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerStay(Collider other) {
         Player.s_CurrentConversation = conversation;
 
         // force without prompting
@@ -47,5 +50,9 @@ public class ConversationPrompt : MonoBehaviour
         if (Player.s_CurrentConversation == conversation) {
             Player.s_CurrentConversation = null;
         }
+    }
+
+    public void OnActionChange() {
+        conversation = actionConversation;
     }
 }

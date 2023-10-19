@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
+using UnityEngine.Events;
 
 public class Collectibles : MonoBehaviour
 {
@@ -12,6 +14,8 @@ public class Collectibles : MonoBehaviour
     private Image _img;
     private TextMeshProUGUI _textUI;
 
+    // event for when all collectibles are collected
+    public UnityEvent onAllCollected;
 
     void Start()
     {
@@ -37,6 +41,12 @@ public class Collectibles : MonoBehaviour
             _textUI.enabled = true;
         }
         numCollected += 1;
+
+        if (numCollected == 2) {
+            // Fire event
+            onAllCollected.Invoke();
+        }
+
         UpdateText();
     }
 }

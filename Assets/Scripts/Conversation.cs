@@ -16,12 +16,16 @@ public class Conversation : MonoBehaviour
     public Dialogue[] dialogueChain;
     public int index = 0;  // index into dialogueChain
 
+    // If set, this convo's prompt will switch to nextConversation
+    public Conversation nextConversation;
+
     private float _typeDelay = 0.1f;
     private string _currentDialogue = string.Empty;
     private IEnumerator _typing;
     private GameObject _dialogueBox;
     private TextMeshProUGUI _dialogueSection;
     private TextMeshProUGUI _speakerSection;
+    private ConversationPrompt _conversationPrompt;  // what prompt triggered this conversation?
 
     void Start() {
         _dialogueBox = GameObject.Find("/Game UI/Dialogue Box");
@@ -46,7 +50,13 @@ public class Conversation : MonoBehaviour
             // end the convo
             index = 0;
             Player.s_ConversationActive = false;  // oh god this definitely violates some sort of architecture rules :skull:
+            Player.s_CurrentConversation = null;
             _dialogueBox.SetActive(false);
+
+            if (nextConversation) {
+                _conversationPrompt.conversation = nextConversation;
+            }
+
             return;
         }
 
@@ -70,6 +80,11 @@ public class Conversation : MonoBehaviour
             index++;
             _currentDialogue = string.Empty;
         }
+    }
+
+    // Set which prompt triggers this convo
+    public void SetPrompt(ConversationPrompt prompt) {
+        _conversationPrompt = prompt;
     }
 
     // Typewriter coroutine
