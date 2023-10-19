@@ -8,7 +8,6 @@ public class ConversationPrompt : MonoBehaviour
 {
     public Conversation conversation;
     public bool force = false;  // force the player into a convo when they get in range
-    public Conversation actionConversation;  // This prompt can subscribe to a UnityEvent, which will make the prompt switch to this conversation
 
     private GameObject _promptGui;  // in the future, might change this to a panel or something
 
@@ -52,7 +51,7 @@ public class ConversationPrompt : MonoBehaviour
         }
     }
 
-    public void OnActionChange() {
-        conversation = actionConversation;
+    public void SwitchConversation(Conversation other) {
+        conversation = other;
     }
 }

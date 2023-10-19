@@ -54,7 +54,7 @@ public class Conversation : MonoBehaviour
             _dialogueBox.SetActive(false);
 
             if (nextConversation) {
-                _conversationPrompt.conversation = nextConversation;
+                _conversationPrompt.SwitchConversation(nextConversation);
             }
 
             return;
