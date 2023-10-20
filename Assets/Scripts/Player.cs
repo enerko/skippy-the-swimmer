@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public static bool s_ChecklistOpen = false;
 
     [SerializeField]
-    private float _speed = 6;
+    private float _origSpeed = 50;
     private const float Jump = 6.5f;
     private bool hasUsedDoubleJump = false;
     private const float FallAdjustment = 2.5f;
@@ -145,9 +145,9 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-        _speed = PlayerPowerup.s_SpeedBoostEnabled ? 16 : 8;
-        _speed = PlayerHealth.s_Health <= 0 ? 4 : _speed;
-        _rb.velocity = horizVelo * _speed + new Vector3(0, currVelo.y, 0);
+        float speed = PlayerPowerup.s_SpeedBoostEnabled ? _origSpeed * 2 : _origSpeed;
+        speed = PlayerHealth.s_Health <= 0 ? _origSpeed / 2 : _origSpeed;
+        _rb.velocity = horizVelo * speed + new Vector3(0, currVelo.y, 0);
     }
 
     // perform tail attack (and spin animation)

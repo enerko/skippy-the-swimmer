@@ -588,7 +588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a045885e31281408879dc3fb23b0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 6
+  _origSpeed: 5
   drySteps:
   - {fileID: 8300000, guid: 8629c3f3779a77f45b44fb0b71b5313d, type: 3}
   - {fileID: 8300000, guid: 55fc727280db0654eba11479d26e5659, type: 3}
