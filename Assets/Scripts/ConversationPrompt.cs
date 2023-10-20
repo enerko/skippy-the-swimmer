@@ -37,7 +37,7 @@ public class ConversationPrompt : MonoBehaviour
         Player.s_CurrentConversation = conversation;
 
         // force without prompting
-        if (force) {
+        if (force && Player.s_Grounded) {
             Player.s_ConversationActive = true;
             conversation.Advance();
             force = false;

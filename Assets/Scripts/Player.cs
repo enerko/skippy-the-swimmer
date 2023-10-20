@@ -37,6 +37,7 @@ public class Player : MonoBehaviour
     public AudioClip whooshJump;
     public GameObject plrMesh;
     public Rig lookAtRig;
+    public GameObject aim;
     
     // Start is called before the first frame update
     void Start()
@@ -85,7 +86,7 @@ public class Player : MonoBehaviour
 
     public void PerformTalk()
     {
-        if (!s_CurrentConversation) return;  // no conversation to begin
+        if (!s_CurrentConversation || !s_Grounded) return;  // no conversation to begin, or in air
         s_ConversationActive = s_CurrentConversation.index < s_CurrentConversation.dialogueChain.Length;
         s_CurrentConversation.Advance();
     }
@@ -97,6 +98,9 @@ public class Player : MonoBehaviour
             _stepAudioTime = _timer;
             AudioSource.PlayClipAtPoint(clips[UnityEngine.Random.Range(0, clips.Length)], transform.position, Settings.GetSourceVolume());
         }
+
+        // move the aim object to move the neck, more noticeable when turning
+        aim.transform.localPosition = Vector3.Lerp(aim.transform.localPosition, new Vector3(_horizInput.x * 2, 0.7f, 4.15f), 10 * Time.deltaTime);
 
         _timer += Time.deltaTime;
     }

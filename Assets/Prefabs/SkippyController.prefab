@@ -607,6 +607,7 @@ MonoBehaviour:
   whooshJump: {fileID: 8300000, guid: eba306259470b2148bb1972d54b665ab, type: 3}
   plrMesh: {fileID: 6611993487436670163}
   lookAtRig: {fileID: 8891757489278337343}
+  aim: {fileID: 7705776615583631815}
 --- !u!114 &6720244862066317785
 MonoBehaviour:
   m_ObjectHideFlags: 0
