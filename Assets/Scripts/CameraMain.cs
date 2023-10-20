@@ -7,7 +7,7 @@ using UnityEngine.InputSystem;
 
 public class CameraMain : MonoBehaviour
 {
-    private readonly Vector3 Offset = new Vector3(0, 2, -7);
+    public Vector3 offset = new Vector3(0, 2, -7);
     private float _sensitivity = 5f;
     private const int MaxPitch = 60;  // max vertical rotation bounds
     private Vector3 _focus;
@@ -56,14 +56,14 @@ public class CameraMain : MonoBehaviour
 
         transform.rotation = Quaternion.Euler(currPitch, currRotation.y, 0);
 
-        transform.Translate(Offset);
+        transform.Translate(offset);
 
         // raycast from focus to the camera to see if anything is blocking it
         Vector3 direction = transform.position - _focus;
         Ray ray = new Ray(_focus, direction.normalized);
         RaycastHit hit;
         
-        if (Physics.Raycast(ray, out hit, Offset.magnitude, ~(LayerMask.GetMask("Player") | LayerMask.GetMask("Ignore Raycast")), QueryTriggerInteraction.Ignore)) {
+        if (Physics.Raycast(ray, out hit, offset.magnitude, ~(LayerMask.GetMask("Player") | LayerMask.GetMask("Ignore Raycast")), QueryTriggerInteraction.Ignore)) {
             transform.position = hit.point;
         }
     }
