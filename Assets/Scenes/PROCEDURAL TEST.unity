@@ -399,8 +399,8 @@ MonoBehaviour:
   m_Data:
     m_ConstrainedObject: {fileID: 902103945333171575}
     m_Source: {fileID: 4936246539526805697}
-    m_DampPosition: 0.15
-    m_DampRotation: 0.15
+    m_DampPosition: 0.1
+    m_DampRotation: 0.1
     m_MaintainAim: 1
 --- !u!114 &404595800
 MonoBehaviour:
@@ -709,8 +709,8 @@ MonoBehaviour:
   m_Data:
     m_ConstrainedObject: {fileID: 4936246539526805697}
     m_Source: {fileID: 1551906488108339718}
-    m_DampPosition: 0.15
-    m_DampRotation: 0.15
+    m_DampPosition: 0.1
+    m_DampRotation: 0.1
     m_MaintainAim: 1
 --- !u!114 &1305181417
 MonoBehaviour:
@@ -776,8 +776,8 @@ MonoBehaviour:
   m_Data:
     m_ConstrainedObject: {fileID: 8218253358044218013}
     m_Source: {fileID: 8607879125991624232}
-    m_DampPosition: 0.15
-    m_DampRotation: 0.15
+    m_DampPosition: 0.1
+    m_DampRotation: 0.1
     m_MaintainAim: 1
 --- !u!114 &1381371845
 MonoBehaviour:
@@ -808,7 +808,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3023856690885747575, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_Height
-      value: 1.6024157
+      value: 1.6024158
+      objectReference: {fileID: 0}
+    - target: {fileID: 3023856690885747575, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_Radius
+      value: 0.40833536
       objectReference: {fileID: 0}
     - target: {fileID: 3023856690885747575, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_Enabled
@@ -816,11 +820,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3023856690885747575, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_Center.y
-      value: 0.5
+      value: 0.37388358
       objectReference: {fileID: 0}
     - target: {fileID: 3023856690885747575, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_Center.z
-      value: 0.5532841
+      value: 0.55328405
       objectReference: {fileID: 0}
     - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_LocalScale.x
@@ -888,7 +892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4385670160467358551, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7919328295043377328, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: _speed
@@ -968,8 +972,8 @@ MonoBehaviour:
   m_Data:
     m_ConstrainedObject: {fileID: 1551906488108339718}
     m_Source: {fileID: 8218253358044218013}
-    m_DampPosition: 0.15
-    m_DampRotation: 0.15
+    m_DampPosition: 0.1
+    m_DampRotation: 0.1
     m_MaintainAim: 1
 --- !u!114 &1438907538
 MonoBehaviour:

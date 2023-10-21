@@ -100,7 +100,14 @@ public class Player : MonoBehaviour
         }
 
         // move the aim object to move the neck, more noticeable when turning
-        aim.transform.localPosition = Vector3.Lerp(aim.transform.localPosition, new Vector3(_horizInput.x * 2, 0.7f, 4.15f), 10 * Time.deltaTime);
+        Vector3 aimGoal = new Vector3(_horizInput.x * 2, 0.7f + _rb.velocity.y / 2, 4.15f);
+
+        // if moving only horizontally, Skippy should still look forward
+        if (Mathf.Abs(_horizInput.z) <= 0.1) {
+            aimGoal.x = 0;
+        }
+
+        aim.transform.localPosition = Vector3.Lerp(aim.transform.localPosition, aimGoal, 10 * Time.deltaTime);
 
         _timer += Time.deltaTime;
     }
