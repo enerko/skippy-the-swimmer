@@ -328,11 +328,11 @@ MonoBehaviour:
   - dialogue: Ahh sorry bud, I'm looking for these two pearls around here...
     speaker: {fileID: 1393420193}
   - dialogue: Please, I need to get back to my family!
-    speaker: {fileID: 906424155}
+    speaker: {fileID: 584677874}
   - dialogue: Until I find those pearls, nobody leaves!!
     speaker: {fileID: 1393420193}
   - dialogue: I can help find the pearls for you! Then can I leave?
-    speaker: {fileID: 906424155}
+    speaker: {fileID: 584677874}
   - dialogue: Hmmmmmmmmmmmmmmmmmmmmmmm....
     speaker: {fileID: 1393420193}
   - dialogue: Alright, it's a deal.
@@ -697,7 +697,7 @@ MonoBehaviour:
       then.
     speaker: {fileID: 1393420193}
   - dialogue: Yay!!
-    speaker: {fileID: 906424155}
+    speaker: {fileID: 584677874}
   index: 0
   nextConversation: {fileID: 0}
 --- !u!1 &241977159 stripped
@@ -1528,6 +1528,11 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -3849098013122800504, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
+--- !u!1 &584677874 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5088878516421343409, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+  m_PrefabInstance: {fileID: 909047809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &593295307 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3493608226621816593, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
@@ -1709,70 +1714,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 7203688626665590847, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
---- !u!1001 &656460955
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -1.84
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.47
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -16.46
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3358145577567467760, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_Name
-      value: SkippyController
-      objectReference: {fileID: 0}
-    - target: {fileID: 3873574091325705250, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 799a63e6b369c274895221591004f317, type: 2}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 6611993487436670163, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 906424160}
-  m_SourcePrefab: {fileID: 100100000, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
 --- !u!1001 &702902825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1873,7 +1814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &798192881
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2098,30 +2039,63 @@ MonoBehaviour:
   _activateSound: {fileID: 8300000, guid: 47282be09e0b7dd42b2daaf3018924fa, type: 3}
   _dropsWater: 1
   _puddle: {fileID: 5396454007290880143, guid: 23f47ab79222c5f4e8a1ca7fe4281870, type: 3}
---- !u!1 &906424155 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6611993487436670163, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-  m_PrefabInstance: {fileID: 656460955}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &906424160
-MonoBehaviour:
+--- !u!1001 &909047809
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 906424155}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 967ab9b7ada884143a8c04009c942a87, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  clips:
-  - {fileID: 8300000, guid: b672d78fe226fbc4eab220d9db17cfc5, type: 3}
-  - {fileID: 8300000, guid: cd07e49eca4489444b29e2351d03662c, type: 3}
-  - {fileID: 8300000, guid: 95f170132e7c9944cb7909992195e821, type: 3}
-  - {fileID: 8300000, guid: 562322cc8ba3f7b4b97b373f0a11fcf7, type: 3}
-  - {fileID: 8300000, guid: 509fdd20ee5ff464c99a982c5e9d3ac9, type: 3}
-  - {fileID: 8300000, guid: 5d45c4fa0289254458eb8ebc4c89f2a0, type: 3}
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 12.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -20.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3251509193935698311, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3358145577567467760, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_Name
+      value: SkippyController
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
 --- !u!1 &912302278 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8225555640389892892, guid: dd17ab8bf1414c2469d4ffb4cd6a2ebc, type: 3}
@@ -2384,7 +2358,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 510098c14e5f8fd44ae915954631aa3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 906424155}
+  offset: {x: 0, y: 2, z: -7}
+  player: {fileID: 584677874}
 --- !u!81 &1203214771
 AudioListener:
   m_ObjectHideFlags: 0
@@ -3496,7 +3471,7 @@ MonoBehaviour:
   - dialogue: Well? Do you have my two pearls?
     speaker: {fileID: 1393420193}
   - dialogue: No...
-    speaker: {fileID: 906424155}
+    speaker: {fileID: 584677874}
   - dialogue: Then begone with you!
     speaker: {fileID: 1393420193}
   index: 0
@@ -5868,7 +5843,7 @@ SceneRoots:
   - {fileID: 1203214773}
   - {fileID: 1651180708}
   - {fileID: 1985035612}
-  - {fileID: 656460955}
+  - {fileID: 909047809}
   - {fileID: 1699346672}
   - {fileID: 2104978679}
   - {fileID: 1665777671}
