@@ -127,9 +127,9 @@ public class Player : MonoBehaviour
         float cameraRotation = Camera.main.transform.rotation.eulerAngles.y;
         Vector3 horizVelo = Quaternion.AngleAxis(cameraRotation, Vector3.up) * _horizInput;
 
-        // raycast to see groundedness
+        // raycast to find the normal
         RaycastHit hit;
-        s_Grounded = Physics.Raycast(transform.position, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore) ||
+        bool raycast = Physics.Raycast(transform.position, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore) ||
         Physics.Raycast(transform.position + transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore) ||
         Physics.Raycast(transform.position - transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore);
 
@@ -156,8 +156,7 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-        float speed = PlayerPowerup.s_SpeedBoostEnabled ? _origSpeed * 2 : _origSpeed;
-        speed = PlayerHealth.s_Health <= 0 ? _origSpeed / 2 : _origSpeed;
+        float speed = PlayerPowerup.s_SpeedBoostEnabled ? _origSpeed * 2 : (PlayerHealth.s_Health <= 0 ? _origSpeed / 2 : _origSpeed);
         _rb.velocity = horizVelo * speed + new Vector3(0, currVelo.y, 0);
     }
 
@@ -194,5 +193,16 @@ public class Player : MonoBehaviour
         lookAtRig.weight = 1;
         s_IsAttacking = false;
         yield return null;  // coroutine should stop here
+    }
+
+    // Detect groundedness
+    void OnTriggerStay(Collider other) {
+        if (other.isTrigger) return;  // other must not be another trigger, must be collideable
+        s_Grounded = true;
+    }
+
+    void OnTriggerExit(Collider other) {
+        if (other.isTrigger) return;  // other must not be another trigger, must be collideable
+        s_Grounded = false;
     }
 }

@@ -46,7 +46,8 @@ public class ConversationPrompt : MonoBehaviour
 
     void OnTriggerExit(Collider other) {
         // don't disable other conversations, if they exist
-        if (Player.s_CurrentConversation == conversation) {
+        // also don't disable while a convo is active, in case you fall out of range while in a convo which is unlikely
+        if (Player.s_CurrentConversation == conversation && !Player.s_ConversationActive) {
             Player.s_CurrentConversation = null;
         }
     }
