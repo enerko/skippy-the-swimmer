@@ -11,10 +11,10 @@ public class Powerup : Interactable
     {
         switch (typeOfPowerup) {
             case PowerupType.DoubleJump:
-                StartCoroutine(PlayerPowerup.EnableDoubleJump());
+                PlayerPowerup.EnableDoubleJump();
                 break;
             case PowerupType.SpeedBoost:
-                StartCoroutine(PlayerPowerup.EnableSpeedBoost());
+                PlayerPowerup.EnableSpeedBoost();
                 break;
             default:
                 Debug.LogWarning($"Unhandled power-up type: {typeOfPowerup}");

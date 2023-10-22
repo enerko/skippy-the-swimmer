@@ -16,6 +16,8 @@ public class PlayerPowerup : MonoBehaviour
     private static PowerUpUI speedBoostUI;
 
     public static float PowerUpDuration = 10f;
+    private static float doubleJumpTimeLeft = 0f;
+    private static float speedBoostTimeLeft = 0f;
 
     void Start() {
         // do it this way so we dont have to drag and drop all the time i guess
@@ -27,56 +29,75 @@ public class PlayerPowerup : MonoBehaviour
         doubleJumpUI = GameObject.Find("DoubleJumpUI").GetComponent<PowerUpUI>();
         speedBoostUI = GameObject.Find("SpeedBoostUI").GetComponent<PowerUpUI>();
     }
-
-    public static IEnumerator EnableDoubleJump()
+    
+    void Update()
     {
-        if (!s_DoubleJumpEnabled) {  // temporarily disable replenishing
-            s_PowerupBaseSource.volume = 1;
-            s_DoubleJumpSource.volume = 1;
-            s_MainMusicSource.volume = 0;
-            s_DoubleJumpEnabled = true;
+        if (s_DoubleJumpEnabled)
+        {
+            doubleJumpTimeLeft -= Time.deltaTime;
+            if (doubleJumpTimeLeft <= 0)
+            {
+                DeactivateDoubleJump();
+            }
+        }
 
-            doubleJumpUI.Show();
-
-            yield return new WaitForSeconds(PowerUpDuration);
-            // TODO: Because you can replenish this when it's still active, can't use a coroutine
-            // must use an actual timer and keep track of time left
-
-            s_DoubleJumpSource.volume = 0;
-            s_DoubleJumpEnabled = false;
-
-            // if speed is not active
-            if (!s_SpeedBoostEnabled) {
-                s_PowerupBaseSource.volume = 0;
-                s_MainMusicSource.volume = 1;
+        if (s_SpeedBoostEnabled)
+        {
+            speedBoostTimeLeft -= Time.deltaTime;
+            if (speedBoostTimeLeft <= 0)
+            {
+                DeactivateSpeedBoost();
             }
         }
     }
 
-    public static IEnumerator EnableSpeedBoost()
+    public static void EnableDoubleJump()
     {
-        if (!s_SpeedBoostEnabled) {
-            s_PowerupBaseSource.volume = 1;
-            s_SpeedSource.volume = 1;
-            s_MainMusicSource.volume = 0;
-            s_SpeedBoostEnabled = true;
+        s_PowerupBaseSource.volume = 1;
+        s_DoubleJumpSource.volume = 1;
+        s_MainMusicSource.volume = 0;
+        s_DoubleJumpEnabled = true;
 
-            speedBoostUI.Show();
+        doubleJumpUI.Show();
 
-            yield return new WaitForSeconds(PowerUpDuration);
+        doubleJumpTimeLeft = PowerUpDuration;
+    }
 
-            s_SpeedSource.volume = 0;
-            s_SpeedBoostEnabled = false;
+    public static void EnableSpeedBoost()
+    {
+        s_PowerupBaseSource.volume = 1;
+        s_SpeedSource.volume = 1;
+        s_MainMusicSource.volume = 0;
+        s_SpeedBoostEnabled = true;
 
-            // if double jump is not active
-            if (!s_DoubleJumpEnabled) {
-                s_PowerupBaseSource.volume = 0;
-                s_MainMusicSource.volume = 1;
-            }
+        speedBoostUI.Show();
+
+        speedBoostTimeLeft = PowerUpDuration;
+    }
+    
+    private void DeactivateDoubleJump()
+    {
+        s_DoubleJumpSource.volume = 0;
+        s_DoubleJumpEnabled = false;
+        if (!s_SpeedBoostEnabled)
+        {
+            s_PowerupBaseSource.volume = 0;
+            s_MainMusicSource.volume = 1;
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void DeactivateSpeedBoost()
+    {
+        s_SpeedSource.volume = 0;
+        s_SpeedBoostEnabled = false;
+        if (!s_DoubleJumpEnabled)
+        {
+            s_PowerupBaseSource.volume = 0;
+            s_MainMusicSource.volume = 1;
+        }
+    }
+
+    private void OnTriggerStay(Collider other)
     {
         Powerup powerup = other.GetComponent<Powerup>();
         if (powerup != null)
