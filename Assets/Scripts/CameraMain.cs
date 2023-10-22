@@ -71,7 +71,6 @@ public class CameraMain : MonoBehaviour
     public static Vector3 CustomWorldToScreenPoint(Vector3 position)
     {
         RectTransform gameUI = GameObject.Find("Game UI").GetComponent<RectTransform>();
-        Debug.Log(gameUI.gameObject);
         Vector3 point = Camera.main.WorldToScreenPoint(position);
         Vector3 customPoint = new Vector3((point.x / Camera.main.pixelWidth) * gameUI.rect.width, (point.y / Camera.main.pixelHeight) * gameUI.rect.height,0);
 
