@@ -100,7 +100,7 @@ public class Player : MonoBehaviour
         }
 
         // move the aim object to move the neck, more noticeable when turning
-        Vector3 aimGoal = new Vector3(_horizInput.x * 2, 0.7f + _rb.velocity.y / 2, 4.15f);
+        Vector3 aimGoal = new Vector3(transform.InverseTransformDirection(_rb.velocity).x * 3, 0.7f + _rb.velocity.y / 2, 4.15f);
 
         // if moving only horizontally, Skippy should still look forward
         if (Mathf.Abs(_horizInput.z) <= 0.1) {

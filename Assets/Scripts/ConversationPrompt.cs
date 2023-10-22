@@ -22,7 +22,7 @@ public class ConversationPrompt : MonoBehaviour
         // disable it when the player talks to an npc
         if (Player.s_ConversationActive)
             _promptGui.SetActive(false);
-        else if (Player.s_CurrentConversation == conversation) {  // if this prompt has control over the gui
+        else if (Player.s_CurrentConversation == conversation && !force) {  // if this prompt has control over the gui
             _promptGui.SetActive(true);
 
             // move it with the camera
