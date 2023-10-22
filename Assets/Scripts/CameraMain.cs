@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
@@ -66,5 +67,14 @@ public class CameraMain : MonoBehaviour
         if (Physics.Raycast(ray, out hit, offset.magnitude, ~(LayerMask.GetMask("Player") | LayerMask.GetMask("Ignore Raycast")), QueryTriggerInteraction.Ignore)) {
             transform.position = hit.point;
         }
+    }
+    public static Vector3 CustomWorldToScreenPoint(Vector3 position)
+    {
+        RectTransform gameUI = GameObject.Find("Game UI").GetComponent<RectTransform>();
+        Debug.Log(gameUI.gameObject);
+        Vector3 point = Camera.main.WorldToScreenPoint(position);
+        Vector3 customPoint = new Vector3((point.x / Camera.main.pixelWidth) * gameUI.rect.width, (point.y / Camera.main.pixelHeight) * gameUI.rect.height,0);
+
+        return customPoint;
     }
 }

@@ -28,7 +28,7 @@ public class ThoughtTrigger : MonoBehaviour
     {
         if (s_CurrentThought != gameObject) return;
         _thoughtBubble.SetActive(true);
-        _thoughtBubble.GetComponent<RectTransform>().anchoredPosition = Camera.main.WorldToScreenPoint(_playerMesh.transform.position) + Offset;
+        _thoughtBubble.GetComponent<RectTransform>().anchoredPosition = CameraMain.CustomWorldToScreenPoint(_playerMesh.transform.position) + Offset;
     }
 
     // May assume that other is the player if include/exclude options are set properly

@@ -17,7 +17,7 @@ public class UIFollowSkippy : MonoBehaviour
 
     void Update()
     {
-        Vector3 pos = cam.WorldToScreenPoint(player.position);
+        Vector3 pos = CameraMain.CustomWorldToScreenPoint(player.position);
         _rect.anchoredPosition = pos;
     }
 }
