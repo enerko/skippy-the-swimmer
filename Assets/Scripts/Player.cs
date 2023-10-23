@@ -17,7 +17,7 @@ public class Player : MonoBehaviour
     public static bool s_ChecklistOpen = false;
 
     [SerializeField]
-    private float _origSpeed = 50;
+    private float _baseSpeed = 6;
     private const float Jump = 10f;
     private bool hasUsedDoubleJump = false;
     private const float FallAdjustment = 2.5f;
@@ -144,8 +144,10 @@ public class Player : MonoBehaviour
 
             Vector3 goalDirection = s_Grounded ? Vector3.ProjectOnPlane(horizVelo, hit.normal).normalized : horizVelo;
             lookDirection = Vector3.Slerp(transform.forward, goalDirection, 0.5f).normalized;
+            // project lookDirection as well
+            lookDirection = s_Grounded ? Vector3.ProjectOnPlane(lookDirection, hit.normal).normalized : lookDirection;
     
-            transform.LookAt(transform.position + lookDirection, Vector3.Slerp(transform.up, goalUpDirection, 0.25f));
+            transform.LookAt(transform.position + lookDirection, Vector3.Slerp(transform.up, goalUpDirection, 0.15f));
         } else {
             horizVelo = Vector3.zero;
             _rb.constraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
@@ -156,7 +158,7 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-        float speed = PlayerPowerup.s_SpeedBoostEnabled ? _origSpeed * 2 : (PlayerHealth.s_Health <= 0 ? _origSpeed / 2 : _origSpeed);
+        float speed = PlayerPowerup.s_SpeedBoostEnabled ? _baseSpeed * 2 : (PlayerHealth.s_Health <= 0 ? _baseSpeed / 2 : _baseSpeed);
         _rb.velocity = horizVelo * speed + new Vector3(0, currVelo.y, 0);
     }
 

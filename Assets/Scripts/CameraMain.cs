@@ -9,7 +9,7 @@ using UnityEngine.InputSystem;
 public class CameraMain : MonoBehaviour
 {
     public Vector3 offset = new Vector3(0, 2, -7);
-    private float _sensitivity = 5f;
+    private float _sensitivity = 2f;
     private const int MaxPitch = 60;  // max vertical rotation bounds
     private Vector3 _focus;
     private Vector3 _velocity;
