@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1614fc811f8f184697d9bee70ab9fe5, type: 3}
   m_Name: DecalRendererFeature
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   m_Settings:
     technique: 0
     maxDrawDistance: 1000
@@ -41,7 +41,8 @@ MonoBehaviour:
   m_RendererFeatures:
   - {fileID: -4436064227568377171}
   - {fileID: 9002279510226240297}
-  m_RendererFeatureMap: ad22f89a16ef6fc22903d0b78485ee7c
+  - {fileID: 6844604181452445776}
+  m_RendererFeatureMap: ad22f89a16ef6fc22903d0b78485ee7c5058a01f3debfc5e
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -74,12 +75,54 @@ MonoBehaviour:
     passOperation: 2
     failOperation: 0
     zFailOperation: 0
-  m_ShadowTransparentReceive: 1
+  m_ShadowTransparentReceive: 0
   m_RenderingMode: 0
   m_DepthPrimingMode: 0
   m_CopyDepthMode: 1
   m_AccurateGbufferNormals: 0
   m_IntermediateTextureMode: 1
+--- !u!114 &6844604181452445776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: WaterPixel
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: WaterPixel
+    Event: 300
+    filterSettings:
+      RenderQueueType: 1
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 16
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: 02081a64f541f0b4680796c7f46a5c45, type: 2}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: -6465566751694194690, guid: 216d39bf3817c46479018bee1052fb15, type: 3}
+    overrideShaderPassIndex: 0
+    overrideMode: 1
+    overrideDepthState: 0
+    depthCompareFunction: 8
+    enableWrite: 0
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 0
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
 --- !u!114 &9002279510226240297
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +137,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   passMaterial: {fileID: 2100000, guid: 2ce2454f73d8112448587091184e9e6d, type: 2}
-  injectionPoint: 450
+  injectionPoint: 550
   requirements: 4
   passIndex: 0

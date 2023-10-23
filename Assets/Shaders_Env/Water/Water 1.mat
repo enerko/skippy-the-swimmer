@@ -24,14 +24,18 @@ Material:
   m_Shader: {fileID: -6465566751694194690, guid: 216d39bf3817c46479018bee1052fb15, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _ALPHAPREMULTIPLY_ON
+  - _SURFACE_TYPE_TRANSPARENT
   m_InvalidKeywords: []
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
-  disabledShaderPasses: []
+  m_CustomRenderQueue: 3000
+  stringTagMap:
+    RenderType: Transparent
+  disabledShaderPasses:
+  - DepthOnly
   m_LockedProperties: 
   m_SavedProperties:
     serializedVersion: 3
@@ -58,19 +62,33 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_2E11270D: 0.2
-    - Vector1_39D35881: 0.895
-    - Vector1_3B48FD24: 0.04
-    - Vector1_5AE4170F: 0.1
-    - Vector1_80CAEB23: 0.1
+    - Vector1_2E11270D: 0.1
+    - Vector1_39D35881: 0.903
+    - Vector1_3B48FD24: 0
+    - Vector1_5AE4170F: 0.01
+    - Vector1_80CAEB23: 0.05
     - Vector1_8E5091B8: 0.8
     - Vector1_981A3A67: 0
-    - Vector1_C1C7D298: 0.471
-    - Vector1_ECB3F2B8: 0.565
+    - Vector1_C1C7D298: 1
+    - Vector1_ECB3F2B8: 1
+    - _AlphaClip: 0
+    - _AlphaToMask: 0
+    - _Blend: 0
+    - _BlendModePreserveSpecular: 1
+    - _CastShadows: 1
+    - _Cull: 2
+    - _DstBlend: 10
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _ReceiveShadows: 1
+    - _SrcBlend: 1
+    - _Surface: 1
+    - _WorkflowMode: 1
+    - _ZTest: 4
+    - _ZWrite: 0
+    - _ZWriteControl: 0
     m_Colors:
-    - Color_27D4D743: {r: 0.53306335, g: 0.81997275, b: 0.9339623, a: 1}
-    - Color_51A4B6EC: {r: 0.5938057, g: 0.70119935, b: 0.9056604, a: 1}
-    - Color_C347D0B: {r: 0.7075472, g: 0.7705379, b: 0.9433962, a: 1}
+    - Color_27D4D743: {r: 0.19241722, g: 0.5079629, b: 0.8679245, a: 1}
+    - Color_51A4B6EC: {r: 0.06581523, g: 0.13853459, b: 0.2735849, a: 1}
+    - Color_C347D0B: {r: 0.18009077, g: 0.3085419, b: 0.6698113, a: 1}
   m_BuildTextureStacks: []

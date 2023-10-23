@@ -54,14 +54,14 @@ Material:
     - _DecalMeshDepthBias: 0
     - _DecalMeshViewBias: 0
     - _DrawOrder: 0
-    - _EmissionIntensity: 1.02
+    - _EmissionIntensity: 4
     - _IDK: 0.1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _TextureTilling: 0
-    - _Tilling: 0.1
-    - _Velocity: 0.03
-    - _Velocity2: 0.005
+    - _Tilling: 0.08
+    - _Velocity: 0.01
+    - _Velocity2: 0.02
     - _blend: 1
     m_Colors:
     - _Size: {r: 5.26, g: 1.5, b: 0, a: 0}
