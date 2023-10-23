@@ -47,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag != "Water") return;
         Player.s_InWater = true;
         
+        Debug.Log("SPLASH SOUND");
     }
 
     // When Skippy exits a puddle of water

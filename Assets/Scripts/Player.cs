@@ -198,9 +198,10 @@ public class Player : MonoBehaviour
     }
 
     // Detect groundedness
-    void OnTriggerStay(Collider other) {
+    void OnTriggerEnter(Collider other) {
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
         s_Grounded = true;
+        Debug.Log("LANDING SOUND");
     }
 
     void OnTriggerExit(Collider other) {
