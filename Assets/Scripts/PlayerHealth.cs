@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
 {
     public static float s_MaxHealth = 100;
     public static float s_Health = s_MaxHealth;
+    public AudioClip waterSplash;
 
     private const float HealingPerSecond = 100;
     private float DamagePerSecond = 10;
@@ -47,7 +48,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag != "Water") return;
         Player.s_InWater = true;
         
-        Debug.Log("SPLASH SOUND");
+        AudioSource.PlayClipAtPoint(waterSplash, transform.position);
     }
 
     // When Skippy exits a puddle of water

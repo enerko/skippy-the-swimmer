@@ -704,7 +704,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a045885e31281408879dc3fb23b0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _origSpeed: 6
+  _baseSpeed: 6
   drySteps:
   - {fileID: 8300000, guid: 8629c3f3779a77f45b44fb0b71b5313d, type: 3}
   - {fileID: 8300000, guid: 55fc727280db0654eba11479d26e5659, type: 3}
@@ -721,6 +721,7 @@ MonoBehaviour:
   dryJump: {fileID: 8300000, guid: d5498755134733c4d9fc88d597f9cac2, type: 3}
   wetJump: {fileID: 8300000, guid: 773ccffec97c33f4cbb3cfb5785f52af, type: 3}
   whooshJump: {fileID: 8300000, guid: eba306259470b2148bb1972d54b665ab, type: 3}
+  landing: {fileID: 8300000, guid: 887e5c531b6047d48a53e33160b8be56, type: 3}
   plrMesh: {fileID: 5088878516421343409}
   lookAtRig: {fileID: 5206778043551200831}
   aim: {fileID: 7705776615583631815}
@@ -736,6 +737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 02e47a820f757224da076da909cccf64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  waterSplash: {fileID: 8300000, guid: a8ab6f879d7b80f4988755aa842cae2f, type: 3}
 --- !u!114 &6318849496650767376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -767,8 +769,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 0.13135228, z: 1.1152092}
-  m_Center: {x: 0, y: -0.03437622, z: 0.333868}
+  m_Size: {x: 1, y: 0.27698994, z: 1.1152092}
+  m_Center: {x: 0, y: -0.03737623, z: 0.333868}
 --- !u!1 &3790940035160730871
 GameObject:
   m_ObjectHideFlags: 0

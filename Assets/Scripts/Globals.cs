@@ -26,6 +26,7 @@ public class Globals
         Player.s_Invul = false;
         Player.s_IsAttacking = false;
         Player.s_CanMove = true;
+        Player.s_InWater = false;
 
         Time.timeScale = 1f;
         s_GameIsPaused = false;
