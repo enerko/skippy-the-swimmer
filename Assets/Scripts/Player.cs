@@ -143,11 +143,9 @@ public class Player : MonoBehaviour
             _rb.constraints = RigidbodyConstraints.FreezeRotation;
 
             Vector3 goalDirection = s_Grounded ? Vector3.ProjectOnPlane(horizVelo, hit.normal).normalized : horizVelo;
-            lookDirection = Vector3.Slerp(transform.forward, goalDirection, 0.5f).normalized;
-            // project lookDirection as well
-            lookDirection = s_Grounded ? Vector3.ProjectOnPlane(lookDirection, hit.normal).normalized : lookDirection;
+            lookDirection = Vector3.Slerp(transform.forward, goalDirection, 0.35f).normalized;
     
-            transform.LookAt(transform.position + lookDirection, Vector3.Slerp(transform.up, goalUpDirection, 0.15f));
+            transform.LookAt(transform.position + lookDirection, Vector3.Slerp(transform.up, goalUpDirection, 0.25f));
         } else {
             horizVelo = Vector3.zero;
             _rb.constraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;

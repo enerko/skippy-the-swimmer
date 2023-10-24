@@ -11,6 +11,8 @@ public class Knockable : Interactable
 
     private Rigidbody _rb;
 
+    public Prompt interactPrompt;
+
     private void Start() {
         _rb = GetComponent<Rigidbody>();
     }
@@ -26,6 +28,8 @@ public class Knockable : Interactable
         // knock the object down with the provided force
         _rb.isKinematic = false;
         _rb.AddRelativeForce(_force, ForceMode.Impulse);
+
+        interactPrompt?.Disable();
     }
 
     // Handle impact noise

@@ -8,6 +8,8 @@ public class Breakable : Interactable
     [SerializeField] private bool _dropsWater;
     [SerializeField] private GameObject _puddle;
 
+    public Prompt interactPrompt;
+
     public override void Activate() {
         Activated = true;
         FinishedAction = true;
@@ -27,6 +29,8 @@ public class Breakable : Interactable
                 Instantiate(_puddle, hit.point + new Vector3(0, 0.1f, 0), Quaternion.identity);
             }
         }
+
+        interactPrompt?.Disable();
 
         Destroy(gameObject);
     }
