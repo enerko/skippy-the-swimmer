@@ -5,15 +5,31 @@ using UnityEngine.UI;
 
 public class HealthBar : MonoBehaviour
 {
+    private RectTransform rectTransform;
+    private Vector3 initialPosition;
+
+    private bool isShaking;
+    List<float> offsets = new List<float>();
+    private float lastHealthPercent;
+    
     public Slider slider;
-    public Image CircleFill;
-    public Image GaugeFill;
+    public Image Border;
+    public Image Circle;
     public Image HurtSkippy;
 
     // Start is called before the first frame update
     void Start()
     {
         slider.maxValue = PlayerHealth.s_MaxHealth;
+        rectTransform = GetComponent<RectTransform>();
+        initialPosition = rectTransform.position;
+        
+        offsets.Add(-20);
+        offsets.Add(0);
+        offsets.Add(20);
+        offsets.Add(0);
+
+        lastHealthPercent = 100;
     }
 
     void Update()
@@ -23,20 +39,47 @@ public class HealthBar : MonoBehaviour
         
         float healthPercent = (float)PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
 
-        // colour the box depending on health percentage
-        if (healthPercent <= 0.3)
+        if (healthPercent <= 0)
         {
+            // empty
+            Border.color = new Color32(241, 80, 80, 255);
+            Circle.color = new Color32(241, 80, 80, 150);
+        } else if (healthPercent <= 0.3) {
             // low
-            CircleFill.color = new Color32(255, 76, 61, 255);
-            GaugeFill.color = new Color32(255, 76, 61, 255);
+            if (
+                !isShaking &&
+                !Globals.s_GameIsPaused &&
+                !Player.s_ConversationActive &&
+                !Player.s_ChecklistOpen && 
+                healthPercent < lastHealthPercent
+                ) 
+            { 
+                StartCoroutine(Shake());
+            }
+            Border.color = new Color32(255, 255, 255, 255);
+            Circle.color = new Color32(255, 255, 255, 255);
             HurtSkippy.enabled = true;
         } else 
         {
             // full
-            CircleFill.color = new Color32(255, 255, 225, 255); 
-            GaugeFill.color = new Color32(255, 255, 225, 255); 
             HurtSkippy.enabled = false;
         }
-        
+
+        lastHealthPercent = healthPercent;
+    }
+
+    public IEnumerator Shake() {
+        isShaking = true;
+        foreach (var offset in offsets)
+        {
+            yield return new WaitForSeconds(0.08f);
+            rectTransform.position = new Vector3(1, 0, 0) * offset + initialPosition;
+            yield return null;
+        }
+
+        yield return new WaitForSeconds(1.5f);
+        isShaking = false;
+
+        yield return null;
     }
 }

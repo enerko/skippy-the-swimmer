@@ -97,8 +97,7 @@ public class Prompt : MonoBehaviour
                 text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_WEST.png");
                 break;
             case PromptKey.SOUTH:
-                // TODO: change to south once we get the icon for it
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_WEST.png");
+                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_SOUTH.png");
                 break;
             default:
                 return null;

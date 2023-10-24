@@ -13,7 +13,7 @@ public class PowerUpUI : MonoBehaviour
     private void Start()
     {
         _time = 0;
-        _icon = transform.GetChild(1).GetComponent<Image>();
+        _icon = transform.GetChild(2).GetComponent<Image>();
         _slider = transform.GetComponent<Slider>();
     }
 
@@ -27,13 +27,13 @@ public class PowerUpUI : MonoBehaviour
             _slider.value = normalizedTime;
         } else
         {
-            _icon.enabled = false;
+            _icon.color = new Color32(255, 255, 255, 100);
         }
     }
 
     public void Show()
     {
         _time = PlayerPowerup.PowerUpDuration;
-        _icon.enabled = true;
+        _icon.color = new Color32(255, 255, 255, 255);
     }
 }

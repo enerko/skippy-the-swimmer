@@ -38,11 +38,14 @@ public class Player : MonoBehaviour
     public GameObject plrMesh;
     public Rig lookAtRig;
     public GameObject aim;
+
+    private HealthBar _healthBar;
     
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
+        _healthBar = FindObjectOfType<HealthBar>();
     }
 
     public void PerformJump()
@@ -75,7 +78,13 @@ public class Player : MonoBehaviour
 
     public void PerformAttack(InputValue inputValue)
     {
-        if (s_ConversationActive || PlayerHealth.s_Health <= 0 || !s_CanMove) return;  // dont attack during a convo/no health
+        if (s_ConversationActive || !s_CanMove) return; 
+
+        if (PlayerHealth.s_Health <= 0) 
+        {    
+             StartCoroutine(_healthBar.Shake());
+             return;
+        }
 
         Vector2 attackValue = inputValue.Get<Vector2>();
         if (attackValue.y > 0 && !s_IsAttacking)
