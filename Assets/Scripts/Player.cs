@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     public AudioClip dryJump;
     public AudioClip wetJump;
     public AudioClip whooshJump;
+    public AudioClip landing;
     public GameObject plrMesh;
     public Rig lookAtRig;
     public GameObject aim;
@@ -208,7 +209,13 @@ public class Player : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
         s_Grounded = true;
-        Debug.Log("LANDING SOUND");
+
+        AudioSource.PlayClipAtPoint(landing, transform.position);
+    }
+
+    void OnTriggerStay(Collider other) {
+        if (other.isTrigger) return;  // other must not be another trigger, must be collideable
+        s_Grounded = true;
     }
 
     void OnTriggerExit(Collider other) {
