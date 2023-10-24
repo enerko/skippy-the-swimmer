@@ -2072,6 +2072,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SkippyController
       objectReference: {fileID: 0}
+    - target: {fileID: 6418861774796275279, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: tolerance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7919328295043377328, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: _baseSpeed
       value: 6
