@@ -8,9 +8,7 @@ public class HealthBar : MonoBehaviour
     private RectTransform rectTransform;
     private Vector3 initialPosition;
 
-    private bool isShaking;
     List<float> offsets = new List<float>();
-    private float lastHealthPercent;
     
     public Slider slider;
     public Image Border;
@@ -28,8 +26,6 @@ public class HealthBar : MonoBehaviour
         offsets.Add(0);
         offsets.Add(20);
         offsets.Add(0);
-
-        lastHealthPercent = 100;
     }
 
     void Update()
@@ -46,16 +42,6 @@ public class HealthBar : MonoBehaviour
             Circle.color = new Color32(241, 80, 80, 150);
         } else if (healthPercent <= 0.3) {
             // low
-            if (
-                !isShaking &&
-                !Globals.s_GameIsPaused &&
-                !Player.s_ConversationActive &&
-                !Player.s_ChecklistOpen && 
-                healthPercent < lastHealthPercent
-                ) 
-            { 
-                StartCoroutine(Shake());
-            }
             Border.color = new Color32(255, 255, 255, 255);
             Circle.color = new Color32(255, 255, 255, 255);
             HurtSkippy.enabled = true;
@@ -64,12 +50,9 @@ public class HealthBar : MonoBehaviour
             // full
             HurtSkippy.enabled = false;
         }
-
-        lastHealthPercent = healthPercent;
     }
 
     public IEnumerator Shake() {
-        isShaking = true;
         foreach (var offset in offsets)
         {
             yield return new WaitForSeconds(0.08f);
@@ -78,8 +61,5 @@ public class HealthBar : MonoBehaviour
         }
 
         yield return new WaitForSeconds(1.5f);
-        isShaking = false;
-
-        yield return null;
     }
 }

@@ -27,7 +27,7 @@ public class PowerUpUI : MonoBehaviour
             _slider.value = normalizedTime;
         } else
         {
-            _icon.color = new Color32(255, 255, 255, 100);
+            _icon.color = new Color32(175, 175, 175, 100);
         }
     }
 
