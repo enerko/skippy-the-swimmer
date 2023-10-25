@@ -59,7 +59,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _TextureTilling: 0
-    - _Tilling: 0.08
+    - _Tilling: 0.1
     - _Velocity: 0.01
     - _Velocity2: 0.02
     - _blend: 1
