@@ -20,7 +20,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Energy
+  m_Name: Coffe
   m_Shader: {fileID: -6465566751694194690, guid: 216d39bf3817c46479018bee1052fb15, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -83,13 +83,13 @@ Material:
     - _ReceiveShadows: 1
     - _SrcBlend: 1
     - _Surface: 1
-    - _Transparency: 0.664
+    - _Transparency: 0.988
     - _WorkflowMode: 1
     - _ZTest: 4
     - _ZWrite: 0
     - _ZWriteControl: 0
     m_Colors:
-    - Color_27D4D743: {r: 0.189568, g: 0.9716981, b: 0.0045834924, a: 1}
-    - Color_51A4B6EC: {r: 0.03270737, g: 0.3301887, b: 0.034947325, a: 1}
-    - Color_C347D0B: {r: 0.13657942, g: 0.4528302, b: 0.07903168, a: 1}
+    - Color_27D4D743: {r: 0.5, g: 0.21046579, b: 0.12028301, a: 1}
+    - Color_51A4B6EC: {r: 0.5943396, g: 0.32662463, b: 0.21026166, a: 1}
+    - Color_C347D0B: {r: 0.7924528, g: 0.37734723, b: 0.23549305, a: 1}
   m_BuildTextureStacks: []
