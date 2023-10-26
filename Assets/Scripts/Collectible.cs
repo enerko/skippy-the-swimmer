@@ -5,13 +5,11 @@ using UnityEngine;
 public class Collectible : MonoBehaviour
 {
     private Collectibles _collectibles;
-    private Checklist _checklist;
 
     public string description;
 
     void Start() {
         _collectibles = FindObjectOfType<Collectibles>();
-        _checklist = FindObjectOfType<Checklist>();
     }
 
     void OnTriggerEnter(Collider collision)
@@ -20,7 +18,6 @@ public class Collectible : MonoBehaviour
         {
             Destroy(gameObject);
             _collectibles.CollectNew();
-            _checklist?.UpdateChecklist(description);
         }
     }
 

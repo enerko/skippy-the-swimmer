@@ -8,14 +8,14 @@ public class InputHandler : MonoBehaviour
     private Player player;
     private CameraMain cameraMain;
     private PlayerControls playerControls;
-    private Checklist checklist;
+    private AchievementsManager achievements;
 
     private void Awake()
     {
         playerControls = new PlayerControls();
         player = GameObject.FindFirstObjectByType<Player>();
         cameraMain = GameObject.FindFirstObjectByType<CameraMain>();
-        checklist = FindObjectOfType<Checklist>();
+        achievements = FindObjectOfType<AchievementsManager>();
     }
 
     private void OnJump()
@@ -45,7 +45,7 @@ public class InputHandler : MonoBehaviour
 
     private void OnViewChecklist(InputValue inputValue) 
     {
-        checklist?.DisplayChecklist(inputValue);
+        achievements?.DisplayAchievements(inputValue);
     }
 
 }

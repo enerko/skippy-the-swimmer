@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,7 +11,10 @@ public class Breakable : Interactable
 
     public Prompt interactPrompt;
 
+    public event Action<GameObject> ObjectBrokenEvent;
+
     public override void Activate() {
+        ObjectBrokenEvent?.Invoke(gameObject);
         Activated = true;
         FinishedAction = true;
 
