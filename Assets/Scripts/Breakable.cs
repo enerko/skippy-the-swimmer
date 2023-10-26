@@ -36,6 +36,10 @@ public class Breakable : Interactable
 
         interactPrompt?.Disable();
 
+        foreach (Transform child in transform) {
+	        Destroy(child.gameObject);
+        }
+        
         Destroy(gameObject);
     }
 }

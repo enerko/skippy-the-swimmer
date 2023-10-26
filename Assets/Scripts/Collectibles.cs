@@ -13,9 +13,11 @@ public class Collectibles : MonoBehaviour
     public int numCollected;
     private Image _img;
     private TextMeshProUGUI _textUI;
+    private GameObject _magpie;
 
     // event for when all collectibles are collected
     public UnityEvent onAllCollected;
+    public UnityEvent onAllCollectedPremature;  // if all are collected before talking to magpie
 
     void Start()
     {
@@ -29,6 +31,7 @@ public class Collectibles : MonoBehaviour
         _img.enabled = false;
         _textUI.enabled = false;
 
+        _magpie = GameObject.Find("/Magpie");
     }
 
     void UpdateText() {
@@ -42,9 +45,15 @@ public class Collectibles : MonoBehaviour
         }
         numCollected += 1;
 
-        if (numCollected == 2) {
-            // Fire event
-            onAllCollected.Invoke();
+        if (numCollected == 3) {
+            ConversationPrompt magpiePrompt = _magpie.GetComponent<ConversationPrompt>();
+
+            // If force is still true, you haven't talked to magpie yet
+            if (magpiePrompt.force) {
+                onAllCollectedPremature.Invoke();
+            } else {
+                onAllCollected.Invoke();
+            }
         }
 
         UpdateText();

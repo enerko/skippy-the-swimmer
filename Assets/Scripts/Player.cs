@@ -210,7 +210,8 @@ public class Player : MonoBehaviour
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
         s_Grounded = true;
 
-        AudioSource.PlayClipAtPoint(landing, transform.position);
+        if (_rb.velocity.y < -0.1f)
+            AudioSource.PlayClipAtPoint(landing, transform.position);
     }
 
     void OnTriggerStay(Collider other) {
