@@ -170,18 +170,19 @@ MonoBehaviour:
   dialogueChain:
   - dialogue: STOP THERE!!
     speaker: {fileID: 1393420193}
-  - dialogue: What do you think you're doing in my territory?? You must be the thief
-      who stole my pearls!
+  - dialogue: 'What do you think you''re doing in my territory?? '
     speaker: {fileID: 1393420193}
-  - dialogue: I don't know what you're talking about, I'm just trying to get back
-      to my family...
+  - dialogue: You must be the thief who stole my pearls!
+    speaker: {fileID: 1393420193}
+  - dialogue: I don't know what you're talking about!
     speaker: {fileID: 584677874}
   - dialogue: Until I find those pearls, nobody leaves!!
     speaker: {fileID: 1393420193}
   - dialogue: Please, just let me go! I don't know where your pearls are.
     speaker: {fileID: 584677874}
-  - dialogue: Then you better start looking for my pearls! Bring me 3 pearls if you
-      want to leave.
+  - dialogue: Then you better start looking for my pearls!
+    speaker: {fileID: 1393420193}
+  - dialogue: Bring me 5 pearls if you want to leave.
     speaker: {fileID: 1393420193}
   - dialogue: Okay...
     speaker: {fileID: 584677874}
@@ -12588,7 +12589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3671903915491156176, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_Name
-      value: Pearl7_1
+      value: Pearl8
       objectReference: {fileID: 0}
     - target: {fileID: 8794433192076224947, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_LocalScale.x
@@ -14415,7 +14416,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueChain:
-  - dialogue: Well? Do you have my pearls?
+  - dialogue: Well? Do you have my 5 pearls?
     speaker: {fileID: 1393420193}
   - dialogue: No...
     speaker: {fileID: 584677874}
@@ -14667,11 +14668,14 @@ MonoBehaviour:
     speaker: {fileID: 1393420193}
   - dialogue: You mean these pearls?
     speaker: {fileID: 584677874}
-  - dialogue: Oh sweet, you found them
+  - dialogue: So you were the pearl thief!
     speaker: {fileID: 1393420193}
-  - dialogue: So...can I leave?
+  - dialogue: Hm, how about we make a deal? You give me those pearls, I'll let you
+      pass.
+    speaker: {fileID: 1393420193}
+  - dialogue: Sounds good, the pearls are all yours.
     speaker: {fileID: 584677874}
-  - dialogue: Oh ya sure, just go through this window.
+  - dialogue: Alright, I'll let you pass then.
     speaker: {fileID: 1393420193}
   - dialogue: Yayyyy!
     speaker: {fileID: 584677874}

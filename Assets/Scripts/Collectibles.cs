@@ -14,6 +14,7 @@ public class Collectibles : MonoBehaviour
     private Image _img;
     private TextMeshProUGUI _textUI;
     private GameObject _magpie;
+    private int goalNum = 5;
 
     // event for when all collectibles are collected
     public UnityEvent onAllCollected;
@@ -45,7 +46,7 @@ public class Collectibles : MonoBehaviour
         }
         numCollected += 1;
 
-        if (numCollected == 3) {
+        if (numCollected == goalNum) {
             ConversationPrompt magpiePrompt = _magpie.GetComponent<ConversationPrompt>();
 
             // If force is still true, you haven't talked to magpie yet
