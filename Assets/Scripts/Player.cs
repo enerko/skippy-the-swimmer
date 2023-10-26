@@ -18,9 +18,9 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float _baseSpeed = 6;
-    private const float Jump = 10f;
+    private const float Jump = 17f;  // initial velocity
     private bool hasUsedDoubleJump = false;
-    private const float FallAdjustment = 2.5f;
+    private const float FallAdjustment = 3f;
     private const float StepAudioDelay = 0.3f;
     private const float TailAttackRadius = 1.5f;
     private const float TailAttackDelay = 0.3f;
@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
 
         if (s_Grounded)
         {
-            _rb.velocity = new Vector3(_rb.velocity.x, Mathf.Sqrt(2 * Jump * Mathf.Abs(Physics.gravity.y)), _rb.velocity.z);
+            _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
             hasUsedDoubleJump = false;
 
             AudioClip jumpNoise = s_InWater ? wetJump : dryJump;
@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
         }
         else if (PlayerPowerup.s_DoubleJumpEnabled && !hasUsedDoubleJump)
         {
-            _rb.velocity = new Vector3(_rb.velocity.x, Mathf.Sqrt(2 * Jump * Mathf.Abs(Physics.gravity.y)), _rb.velocity.z);
+            _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
             hasUsedDoubleJump = true;
             AudioSource.PlayClipAtPoint(whooshJump, transform.position);
         }
