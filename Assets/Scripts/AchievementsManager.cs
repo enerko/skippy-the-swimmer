@@ -17,6 +17,7 @@ public class AchievementsManager : MonoBehaviour
     private Achievement breakJar = new Achievement("breakJar", "Find a cookie");
     private Achievement unlockPowerup = new Achievement("unlockPowerup", "Unlock a powerup");
     private Achievement playInstrument = new Achievement("playInstrument", "Play an instrument");
+    private Achievement painter = new Achievement("painter", "Become a painter");
 
     private List<Achievement> achievements;
 
@@ -34,7 +35,7 @@ public class AchievementsManager : MonoBehaviour
             breakable.ObjectBrokenEvent += HandleObjectBroken;
         }
         
-        achievements = new List<Achievement>() { breakOne, breakJar, unlockPowerup, playInstrument };
+        achievements = new List<Achievement>() { breakOne, breakJar, unlockPowerup, playInstrument, painter };
         _text = achievementList.GetComponent<TextMeshProUGUI>();
         _background = gameObject.GetComponentInChildren<Image>();
         UpdateText();
