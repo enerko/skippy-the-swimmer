@@ -11,7 +11,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip waterSplash;
 
     private const float HealingPerSecond = 100;
-    private float DamagePerSecond = 10;
+    private float DamagePerSecond = 5;
     
     private float _timer = 0;
     private const float InvulTime = 0.75f;
