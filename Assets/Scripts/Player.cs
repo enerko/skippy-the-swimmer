@@ -18,7 +18,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float _baseSpeed = 6;
-    private const float Jump = 13f;  // initial velocity
+    private const float Jump = 15f;  // initial velocity
     private bool hasUsedDoubleJump = false;
     private const float FallAdjustment = 3f;
     private const float StepAudioDelay = 0.3f;

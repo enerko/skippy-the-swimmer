@@ -70,34 +70,34 @@ public class Prompt : MonoBehaviour
 
         switch(promptKey) {
             case PromptKey.Q:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_Q.png");
+                text = Resources.Load<Texture2D>("prompt_Q");
                 break;
             case PromptKey.E:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_E.png");
+                text = Resources.Load<Texture2D>("prompt_E");
                 break;
             case PromptKey.SPACE:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_SPACE.png");
+                text = Resources.Load<Texture2D>("prompt_SPACE");
                 break;
             case PromptKey.TAB:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_TAB.png");
+                text = Resources.Load<Texture2D>("prompt_TAB");
                 break;
             case PromptKey.WASD:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_WASD.png");
+                text = Resources.Load<Texture2D>("prompt_WASD");
                 break;
             case PromptKey.MOUSE:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_MOUSE.png");
+                text = Resources.Load<Texture2D>("prompt_MOUSE");
                 break;
             case PromptKey.LEFT:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_LEFT.png");
+                text = Resources.Load<Texture2D>("prompt_LEFT");
                 break;
             case PromptKey.EAST:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_EAST.png");
+                text = Resources.Load<Texture2D>("prompt_EAST");
                 break;
             case PromptKey.WEST:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_WEST.png");
+                text = Resources.Load<Texture2D>("prompt_WEST");
                 break;
             case PromptKey.SOUTH:
-                text = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/Images/prompt_SOUTH.png");
+                text = Resources.Load<Texture2D>("prompt_SOUTH");
                 break;
             default:
                 return null;
