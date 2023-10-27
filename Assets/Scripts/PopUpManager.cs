@@ -1,10 +1,11 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PopUpManager : MonoBehaviour
 {
-    public Text popupText;
+    public TextMeshProUGUI popupText;
     public float popupDuration = 3.0f;
 
     private void Start()
@@ -15,7 +16,7 @@ public class PopUpManager : MonoBehaviour
 
     public void ShowPopup(string achievementName)
     {
-        popupText.text = "New achievement unlocked! " + achievementName;
+        popupText.text =  achievementName ;
         gameObject.SetActive(true);
         StartCoroutine(ShowAndHidePopup());
     }
