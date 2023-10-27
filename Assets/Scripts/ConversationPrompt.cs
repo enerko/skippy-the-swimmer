@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UIElements;
 
 public class ConversationPrompt : Prompt
 {
@@ -37,6 +38,7 @@ public class ConversationPrompt : Prompt
         if (force && Player.s_Grounded) {
             Player.s_ConversationActive = true;
             conversation.Advance();
+            conversation.SetPrompt(this);  // just in case
             force = false;
         }
     }

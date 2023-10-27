@@ -26,8 +26,8 @@ public class PlayerPowerup : MonoBehaviour
         s_DoubleJumpSource = GameObject.Find("/Main Music/Double Jump").GetComponent<AudioSource>();
         s_SpeedSource = GameObject.Find("/Main Music/Speed").GetComponent<AudioSource>();
 
-        doubleJumpUI = GameObject.Find("DoubleJumpUI").GetComponent<PowerUpUI>();
-        speedBoostUI = GameObject.Find("SpeedBoostUI").GetComponent<PowerUpUI>();
+        doubleJumpUI = GameObject.Find("DoubleJumpUI")?.GetComponent<PowerUpUI>();
+        speedBoostUI = GameObject.Find("SpeedBoostUI")?.GetComponent<PowerUpUI>();
     }
     
     void Update()
