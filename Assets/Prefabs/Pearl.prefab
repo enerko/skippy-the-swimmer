@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 65258954799857458}
   - component: {fileID: 2406528699881580686}
   - component: {fileID: 1451838985452970436}
-  m_Layer: 7
+  m_Layer: 2
   m_Name: Pearl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -118,4 +118,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf5cc98124435f648b50af524ccc503a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: 

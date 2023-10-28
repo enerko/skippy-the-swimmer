@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _activateSound: {fileID: 8300000, guid: 47282be09e0b7dd42b2daaf3018924fa, type: 3}
   _dropsWater: 1
-  _puddle: {fileID: 5396454007290880143, guid: 23f47ab79222c5f4e8a1ca7fe4281870, type: 3}
+  _puddle: {fileID: 7279655908207665868, guid: 87ada699a43776745b02a6d7cb8bf9ac, type: 3}
   interactPrompt: {fileID: 4665763760203252096}
 --- !u!64 &2519385820292779131
 MeshCollider:
