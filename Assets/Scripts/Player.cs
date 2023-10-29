@@ -41,6 +41,7 @@ public class Player : MonoBehaviour
     public GameObject aim;
 
     private HealthBar _healthBar;
+    private Quaternion _relativeRotation;
     
     // Start is called before the first frame update
     void Start()
@@ -73,6 +74,8 @@ public class Player : MonoBehaviour
     {
         if (s_ConversationActive || !s_CanMove) return;
 
+        // Always change frame of reference when input is changed
+        _relativeRotation = Camera.main.transform.rotation;
         Vector3 inputVector3 = inputValue.Get<Vector3>();
         _horizInput = new Vector3(inputVector3.x, 0, inputVector3.z);
     }
@@ -133,8 +136,15 @@ public class Player : MonoBehaviour
         
         Vector3 currVelo = _rb.velocity;
 
+        // Prevent controls from suddenly changing when camera is moved to forced angle
+        // If in override mode, the frame of reference auto updates when input is changed
+        if (!CameraMain.s_CameraOverride) {
+            // it's okay if transitioning to freeform camera
+            _relativeRotation = Camera.main.transform.rotation;
+        }
+
         // apply camera rotation
-        float cameraRotation = Camera.main.transform.rotation.eulerAngles.y;
+        float cameraRotation = _relativeRotation.eulerAngles.y;
         Vector3 horizVelo = Quaternion.AngleAxis(cameraRotation, Vector3.up) * _horizInput;
 
         // raycast to find the normal

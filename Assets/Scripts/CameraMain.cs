@@ -1,14 +1,19 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class CameraMain : MonoBehaviour
 {
+    public static Transform s_CameraOverride;  // set this to force camera transform (in override mode iff this is non-null)
+    public static bool s_OverrideTransitioning = false;  // if transitioning between free mode and override
+    public const float OverrideTime = 0.75f;
+
+    public Transform goalTransform;
     public Vector3 offset = new Vector3(0, 2, -7);
+
     private float _sensitivity = 3f;
     private const int MaxPitch = 60;  // max vertical rotation bounds
     private Vector3 _focus;
@@ -36,15 +41,26 @@ public class CameraMain : MonoBehaviour
     {
         if (Globals.s_GameIsPaused) return;
 
-        _focus = Vector3.SmoothDamp(_focus, player.transform.position, ref _velocity,  0.25f);
-        transform.position = _focus;
+        // If camera angle is forced...
+        if (s_CameraOverride) {
+            goalTransform.position = s_CameraOverride.position;
+            goalTransform.rotation = s_CameraOverride.rotation;
+
+            transform.position = Vector3.SmoothDamp(transform.position, goalTransform.position, ref _velocity, OverrideTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, goalTransform.rotation, 6f * Time.deltaTime);
+
+            return;
+        }
+
+        _focus = Vector3.SmoothDamp(_focus, player.transform.position, ref _velocity, 0.25f);
+        goalTransform.position = _focus;
 
         // rotate
-        transform.Rotate(new Vector3(0, _input.x * _sensitivity, 0), Space.World);
-        transform.Rotate(new Vector3(-_input.y * _sensitivity, 0, 0));
+        goalTransform.Rotate(new Vector3(0, _input.x * _sensitivity, 0), Space.World);
+        goalTransform.Rotate(new Vector3(-_input.y * _sensitivity, 0, 0));
 
         // cap camera's pitch
-        Vector3 currRotation = transform.rotation.eulerAngles;
+        Vector3 currRotation = goalTransform.rotation.eulerAngles;
 
         // pitch ranges from 0 - 360 even though in the editor it goes into negatives, so can't use Mathf.Clamp here
         float currPitch = currRotation.x;
@@ -55,18 +71,27 @@ public class CameraMain : MonoBehaviour
             currPitch = -MaxPitch;
         }   
 
-        transform.rotation = Quaternion.Euler(currPitch, currRotation.y, 0);
+        goalTransform.rotation = Quaternion.Euler(currPitch, currRotation.y, 0);
 
-        transform.Translate(offset);
+        goalTransform.Translate(offset);
 
         // raycast from focus to the camera to see if anything is blocking it
-        Vector3 direction = transform.position - _focus;
+        Vector3 direction = goalTransform.position - _focus;
         Ray ray = new Ray(_focus, direction.normalized);
         RaycastHit hit;
         LayerMask ignore = ~(LayerMask.GetMask("Player") | LayerMask.GetMask("Ignore Raycast") | LayerMask.GetMask("Interactable"));
 
         if (Physics.Raycast(ray, out hit, offset.magnitude, ignore, QueryTriggerInteraction.Ignore)) {
-            transform.position = hit.point;
+            goalTransform.position = hit.point;
+        }
+
+        // If transitioning out of override...
+        if (s_OverrideTransitioning) {
+            transform.position = Vector3.Lerp(transform.position, goalTransform.position, 10f * Time.deltaTime);
+            transform.rotation = Quaternion.Lerp(transform.rotation, goalTransform.rotation, 20f * Time.deltaTime);
+        } else {
+            transform.position = goalTransform.position;
+            transform.rotation = goalTransform.rotation;   
         }
     }
     public static Vector3 CustomWorldToScreenPoint(Vector3 position)
