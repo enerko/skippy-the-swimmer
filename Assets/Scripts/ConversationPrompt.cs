@@ -4,13 +4,23 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class ConversationPrompt : Prompt
 {
     public Conversation conversation;
     public bool force = false;  // force the player into a convo when they get in range
+    private bool firstConvo = true;
+
+    private Collectible[] pearls;
 
     new void Start() {
+        pearls = FindObjectsOfType<Collectible>();
+        foreach (Collectible collectible in pearls)
+        {
+            collectible.gameObject.SetActive(false);
+        }
+
         conversation.SetPrompt(this);
         base.Start();
     }
@@ -41,6 +51,14 @@ public class ConversationPrompt : Prompt
             conversation.SetPrompt(this);  // just in case
             force = false;
         }
+        if (firstConvo)
+        {
+            foreach (Collectible collectible in pearls)
+            {
+                collectible.gameObject.SetActive(true);
+            }
+            firstConvo = false;
+        }
     }
 
     void OnTriggerExit(Collider other) {
@@ -49,6 +67,7 @@ public class ConversationPrompt : Prompt
         if (Player.s_CurrentConversation == conversation && !Player.s_ConversationActive) {
             Player.s_CurrentConversation = null;
         }
+        
     }
 
     public void SwitchConversation(Conversation other) {

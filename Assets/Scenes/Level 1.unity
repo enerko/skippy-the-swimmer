@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -170,22 +170,12 @@ MonoBehaviour:
   dialogueChain:
   - dialogue: STOP THERE!!
     speaker: {fileID: 1393420193}
-  - dialogue: 'What do you think you''re doing in my territory?? '
+  - dialogue: You must be the pearl thief!
     speaker: {fileID: 1393420193}
-  - dialogue: You must be the thief who stole my pearls!
-    speaker: {fileID: 1393420193}
-  - dialogue: I don't know what you're talking about!
+  - dialogue: What are you talking about?
     speaker: {fileID: 584677874}
-  - dialogue: Until I find those pearls, nobody leaves!!
+  - dialogue: You better find me 5 pearls if you want to leave!
     speaker: {fileID: 1393420193}
-  - dialogue: Please, just let me go! I don't know where your pearls are.
-    speaker: {fileID: 584677874}
-  - dialogue: Then you better start looking for my pearls!
-    speaker: {fileID: 1393420193}
-  - dialogue: Bring me 5 pearls if you want to leave.
-    speaker: {fileID: 1393420193}
-  - dialogue: Okay...
-    speaker: {fileID: 584677874}
   index: 0
   nextConversation: {fileID: 1823655506}
 --- !u!64 &59530069
@@ -372,9 +362,10 @@ MonoBehaviour:
   dialogueChain:
   - dialogue: '!!!'
     speaker: {fileID: 1393420193}
-  - dialogue: Well I'll be, you found the pearls! Guess I'll have to let you go,
-      then.
+  - dialogue: 'Well I''ll be, you found the pearls! '
     speaker: {fileID: 1393420193}
+  - dialogue: You're free to go then.
+    speaker: {fileID: 584677874}
   - dialogue: Yay!!
     speaker: {fileID: 584677874}
   index: 0
@@ -583,7 +574,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 34003484}
-  - {fileID: 1940429216}
   - {fileID: 1823655505}
   - {fileID: 176308558}
   m_Father: {fileID: 0}
@@ -1018,7 +1008,7 @@ PrefabInstance:
     - target: {fileID: 2188114043390974181, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: onAllCollectedPremature.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgument
       value: 
-      objectReference: {fileID: 1940429217}
+      objectReference: {fileID: 0}
     - target: {fileID: 2659081692729693260, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1037,7 +1027,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6673524782154643979, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.9998474
+      value: 4.999893
       objectReference: {fileID: 0}
     - target: {fileID: 7857957613948329026, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_Pivot.x
@@ -4384,70 +4374,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
---- !u!1 &1940429215
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1940429216}
-  - component: {fileID: 1940429217}
-  m_Layer: 0
-  m_Name: Magpie Let Pass Premature
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1940429216
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940429215}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 313229576}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1940429217
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1940429215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a847eda787f014146b2ddc506c5b3450, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dialogueChain:
-  - dialogue: STOP THERE!! Someone stole my pearls!
-    speaker: {fileID: 1393420193}
-  - dialogue: I can't let anyone leave until I find them!!
-    speaker: {fileID: 1393420193}
-  - dialogue: You mean these pearls?
-    speaker: {fileID: 584677874}
-  - dialogue: So you were the pearl thief!
-    speaker: {fileID: 1393420193}
-  - dialogue: Hm, how about we make a deal? You give me those pearls, I'll let you
-      pass.
-    speaker: {fileID: 1393420193}
-  - dialogue: Sounds good, the pearls are all yours.
-    speaker: {fileID: 584677874}
-  - dialogue: Alright, I'll let you pass then.
-    speaker: {fileID: 1393420193}
-  - dialogue: Yayyyy!
-    speaker: {fileID: 584677874}
-  index: 0
-  nextConversation: {fileID: 0}
 --- !u!1 &1943653515
 GameObject:
   m_ObjectHideFlags: 0
