@@ -10,17 +10,11 @@ public class ConversationPrompt : Prompt
 {
     public Conversation conversation;
     public bool force = false;  // force the player into a convo when they get in range
-    private bool firstConvo = true;
+    public UnityEvent finishedFirstConvo;  // fires when you finish this prompt's first conversation
 
-    private Collectible[] pearls;
+    private bool _firstConvo = true;
 
     new void Start() {
-        pearls = FindObjectsOfType<Collectible>();
-        foreach (Collectible collectible in pearls)
-        {
-            collectible.gameObject.SetActive(false);
-        }
-
         conversation.SetPrompt(this);
         base.Start();
     }
@@ -51,14 +45,6 @@ public class ConversationPrompt : Prompt
             conversation.SetPrompt(this);  // just in case
             force = false;
         }
-        if (firstConvo)
-        {
-            foreach (Collectible collectible in pearls)
-            {
-                collectible.gameObject.SetActive(true);
-            }
-            firstConvo = false;
-        }
     }
 
     void OnTriggerExit(Collider other) {
@@ -67,10 +53,16 @@ public class ConversationPrompt : Prompt
         if (Player.s_CurrentConversation == conversation && !Player.s_ConversationActive) {
             Player.s_CurrentConversation = null;
         }
-        
     }
 
     public void SwitchConversation(Conversation other) {
         conversation = other;
+    }
+    
+    public void SignalConversationFinished() {
+        if (_firstConvo) {
+            _firstConvo = false;
+            finishedFirstConvo.Invoke();
+        }
     }
 }

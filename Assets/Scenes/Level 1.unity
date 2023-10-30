@@ -2824,6 +2824,21 @@ MonoBehaviour:
   active: 0
   conversation: {fileID: 34003485}
   force: 1
+  finishedFirstConvo:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1582042309}
+        m_TargetAssemblyTypeName: Collectibles, Assembly-CSharp
+        m_MethodName: SetPearlsActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
 --- !u!135 &1393420195
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -3237,6 +3252,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8794433192076224947, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
   m_PrefabInstance: {fileID: 1532414110}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1582042309 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2188114043390974181, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+  m_PrefabInstance: {fileID: 485014160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e41fe51805132ea4199411694e18151e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &1583000858
 MeshCollider:
   m_ObjectHideFlags: 0

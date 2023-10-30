@@ -16,6 +16,7 @@ public class Collectibles : MonoBehaviour
     private TextMeshProUGUI _textUI;
     private GameObject _magpie;
     private const int GoalNum = 5;
+    private Collectible[] pearls;  // manage all the pearls spawning
 
     void Start()
     {
@@ -30,6 +31,9 @@ public class Collectibles : MonoBehaviour
         _textUI.enabled = false;
 
         _magpie = GameObject.Find("/Magpie");
+
+        pearls = FindObjectsOfType<Collectible>();
+        SetPearlsActive(false);  // initially inactive
     }
 
     void UpdateText() {
@@ -49,5 +53,12 @@ public class Collectibles : MonoBehaviour
         }
 
         UpdateText();
+    }
+
+    public void SetPearlsActive(bool active) {
+        foreach (Collectible collectible in pearls)
+        {
+            collectible.gameObject.SetActive(active);
+        }
     }
 }

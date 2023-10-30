@@ -57,6 +57,9 @@ public class Conversation : MonoBehaviour
                 _conversationPrompt.SwitchConversation(nextConversation);
             }
 
+            // Signal to the prompt that it's finished
+            _conversationPrompt.SignalConversationFinished();
+
             return;
         }
 
