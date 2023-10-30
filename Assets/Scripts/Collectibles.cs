@@ -9,12 +9,13 @@ using UnityEngine.Events;
 public class Collectibles : MonoBehaviour
 {
     public Sprite collectibleIcon;
-
     public int numCollected;
+    public UnityEvent allCollected;
+
     private Image _img;
     private TextMeshProUGUI _textUI;
     private GameObject _magpie;
-    private int goalNum = 5;
+    private const int GoalNum = 5;
 
     void Start()
     {
@@ -40,7 +41,12 @@ public class Collectibles : MonoBehaviour
             _img.enabled = true;
             _textUI.enabled = true;
         }
+
         numCollected += 1;
+
+        if (numCollected == GoalNum) {
+            allCollected.Invoke();
+        }
 
         UpdateText();
     }
