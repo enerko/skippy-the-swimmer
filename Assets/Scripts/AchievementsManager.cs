@@ -18,12 +18,17 @@ public class AchievementsManager : MonoBehaviour
     private Achievement unlockPowerup = new Achievement("unlockPowerup", "Unlock a powerup");
     private Achievement playInstrument = new Achievement("playInstrument", "Play an instrument");
     private Achievement painter = new Achievement("painter", "Become a painter");
+    private Achievement pearlOne = new Achievement("pearlOne", "Collect a pearl");
+    private Achievement pearlAll = new Achievement("pearlAll", "Collect all the pearls");
 
     private List<Achievement> achievements;
 
     public GameObject achievementList;
     private TextMeshProUGUI _text;
     private Image _background;
+    private int objectCollectedCount;
+
+    private int totalPearls;
 
 
     // Start is called before the first frame update
@@ -34,8 +39,14 @@ public class AchievementsManager : MonoBehaviour
         {
             breakable.ObjectBrokenEvent += HandleObjectBroken;
         }
+
+        foreach(var collectible in FindObjectsOfType<Collectible>())
+        {
+            collectible.ObjectCollectedEvent += HandleObjectCollected;
+            totalPearls += 1;
+        }
         
-        achievements = new List<Achievement>() { breakOne, breakJar, unlockPowerup, playInstrument, painter };
+        achievements = new List<Achievement>() { breakOne, breakJar, unlockPowerup, playInstrument, painter, pearlOne };
         _text = achievementList.GetComponent<TextMeshProUGUI>();
         _background = gameObject.GetComponentInChildren<Image>();
         UpdateText();
@@ -60,13 +71,19 @@ public class AchievementsManager : MonoBehaviour
 
     private void UpdateText()
     {
-        string text = "Achievements: <br><br>";
+        string text = "";
+        int completed = 0;
+        int total = 0;
         foreach (var achievement in achievements)
         {
             text += achievement.achievementLocked ? "[ ]" : "[x]";
             text += " " + achievement.achievementDescription + "<br><br>";
+            completed += achievement.achievementLocked ? 0 : 1;
+            total += 1;
+
         }
-        _text.text = text;
+        string title = $"Achievements ({completed} / {total}  complete): <br><br> ";
+        _text.text = title + text;
     }
 
     private void HandleObjectBroken(GameObject brokenObject)
@@ -84,6 +101,20 @@ public class AchievementsManager : MonoBehaviour
         if (brokenObject.name == "Cookie_Jar")
         {
             UnlockAchievement(breakJar);
+        }
+    }
+
+    private void HandleObjectCollected(GameObject collectedObject)
+    {
+        objectCollectedCount++;
+        if(objectCollectedCount == 1)
+        {
+            UnlockAchievement(pearlOne);
+        }
+
+        if (objectCollectedCount == totalPearls)
+        {
+            UnlockAchievement(pearlAll);
         }
     }
 

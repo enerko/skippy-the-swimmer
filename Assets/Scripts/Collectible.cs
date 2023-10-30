@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
@@ -7,7 +8,7 @@ public class Collectible : MonoBehaviour
 {
     private Collectibles _collectibles;
     private AudioClip collectibleSound;
-
+    public event Action<GameObject> ObjectCollectedEvent;
 
     void Start() {
         _collectibles = FindObjectOfType<Collectibles>();
@@ -18,6 +19,7 @@ public class Collectible : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            ObjectCollectedEvent?.Invoke(gameObject);
             Vector3 pos = gameObject.transform.position;
             AudioSource.PlayClipAtPoint(collectibleSound, pos);
             Destroy(gameObject);
