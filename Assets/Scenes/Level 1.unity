@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276788, g: 0.21589147, b: 0.29782534, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -173,7 +173,7 @@ MonoBehaviour:
   - dialogue: You must be the pearl thief!
     speaker: {fileID: 1393420193}
   - dialogue: What are you talking about?
-    speaker: {fileID: 584677874}
+    speaker: {fileID: 0}
   - dialogue: You better find me 5 pearls if you want to leave!
     speaker: {fileID: 1393420193}
   index: 0
@@ -365,9 +365,9 @@ MonoBehaviour:
   - dialogue: 'Well I''ll be, you found the pearls! '
     speaker: {fileID: 1393420193}
   - dialogue: You're free to go then.
-    speaker: {fileID: 584677874}
+    speaker: {fileID: 0}
   - dialogue: Yay!!
-    speaker: {fileID: 584677874}
+    speaker: {fileID: 0}
   index: 0
   nextConversation: {fileID: 0}
 --- !u!4 &186584241 stripped
@@ -980,7 +980,7 @@ PrefabInstance:
     - target: {fileID: 44156120055904447, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 584677879}
+      objectReference: {fileID: 0}
     - target: {fileID: 304037042939182562, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1271,16 +1271,6 @@ Transform:
   - {fileID: 543450652159520205}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &584677874 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5088878516421343409, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-  m_PrefabInstance: {fileID: 909047809}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &584677879 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8221685748813875232, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-  m_PrefabInstance: {fileID: 909047809}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &627711548
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1763,6 +1753,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+--- !u!1 &909047810 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2199066190179655703, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+  m_PrefabInstance: {fileID: 909047809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &956297125 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 578500a73ae71764f90c4eb3df206fa7, type: 3}
@@ -4204,7 +4199,7 @@ MonoBehaviour:
   - dialogue: Well? Do you have my 5 pearls?
     speaker: {fileID: 1393420193}
   - dialogue: No...
-    speaker: {fileID: 584677874}
+    speaker: {fileID: 0}
   - dialogue: Then begone with you!
     speaker: {fileID: 1393420193}
   index: 0
@@ -6628,7 +6623,7 @@ PrefabInstance:
     - target: {fileID: 70686798847507854, guid: f9bf15b43ac037840adcade0a8ab3820, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 584677874}
+      objectReference: {fileID: 909047810}
     - target: {fileID: 7771194338510258297, guid: f9bf15b43ac037840adcade0a8ab3820, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
