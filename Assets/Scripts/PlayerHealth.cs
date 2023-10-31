@@ -48,7 +48,8 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag != "Water") return;
         Player.s_InWater = true;
         
-        AudioSource.PlayClipAtPoint(waterSplash, transform.position);
+        float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
+        AudioSource.PlayClipAtPoint(waterSplash, transform.position, volume);
     }
 
     // When Skippy exits a puddle of water

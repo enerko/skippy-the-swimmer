@@ -54,19 +54,20 @@ public class Player : MonoBehaviour
     {
         if (s_ConversationActive || !s_CanMove) return;  // dont jump during a convo
 
+        float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
         if (s_Grounded)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
             hasUsedDoubleJump = false;
 
             AudioClip jumpNoise = s_InWater ? wetJump : dryJump;
-            AudioSource.PlayClipAtPoint(jumpNoise, transform.position);
+            AudioSource.PlayClipAtPoint(jumpNoise, transform.position, volume);
         }
         else if (PlayerPowerup.s_DoubleJumpEnabled && !hasUsedDoubleJump)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
             hasUsedDoubleJump = true;
-            AudioSource.PlayClipAtPoint(whooshJump, transform.position);
+            AudioSource.PlayClipAtPoint(whooshJump, transform.position, volume);
         }
     }
 
@@ -109,7 +110,9 @@ public class Player : MonoBehaviour
         if (s_Grounded && _timer - _stepAudioTime >= StepAudioDelay && _horizInput.magnitude > 0.01) {
             AudioClip[] clips = s_InWater ? wetSteps : drySteps;
             _stepAudioTime = _timer;
-            AudioSource.PlayClipAtPoint(clips[UnityEngine.Random.Range(0, clips.Length)], transform.position, Settings.GetSourceVolume());
+
+            float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
+            AudioSource.PlayClipAtPoint(clips[UnityEngine.Random.Range(0, clips.Length)], transform.position, volume);
         }
 
         // move the aim object to move the neck, more noticeable when turning
@@ -183,7 +186,10 @@ public class Player : MonoBehaviour
     // perform tail attack (and spin animation)
     private IEnumerator TailAttack() {
         s_IsAttacking = true;
-        AudioSource.PlayClipAtPoint(tailSwipeSound, transform.position, Settings.GetSourceVolume());
+
+        float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
+        AudioSource.PlayClipAtPoint(tailSwipeSound, transform.position, volume);
+
         Collider[] collided = Physics.OverlapSphere(transform.position, TailAttackRadius, LayerMask.GetMask("Interactable"));
 
         // process each object
@@ -220,8 +226,10 @@ public class Player : MonoBehaviour
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
         s_Grounded = true;
 
-        if (_rb.velocity.y < -0.1f)
-            AudioSource.PlayClipAtPoint(landing, transform.position);
+        if (_rb.velocity.y < -0.1f) {
+            float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
+            AudioSource.PlayClipAtPoint(landing, transform.position, volume);
+        }
     }
 
     void OnTriggerStay(Collider other) {

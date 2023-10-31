@@ -14,7 +14,6 @@ public class CameraMain : MonoBehaviour
     public Transform goalTransform;
     public Vector3 offset = new Vector3(0, 2, -7);
 
-    private float _sensitivity = 3f;
     private const int MaxPitch = 60;  // max vertical rotation bounds
     private Vector3 _focus;
     private Vector3 _velocity;
@@ -56,8 +55,9 @@ public class CameraMain : MonoBehaviour
         goalTransform.position = _focus;
 
         // rotate
-        goalTransform.Rotate(new Vector3(0, _input.x * _sensitivity, 0), Space.World);
-        goalTransform.Rotate(new Vector3(-_input.y * _sensitivity, 0, 0));
+        float sensitivity = PlayerPrefs.GetFloat("Sensitivity", 4);
+        goalTransform.Rotate(new Vector3(0, _input.x * sensitivity, 0), Space.World);
+        goalTransform.Rotate(new Vector3(-_input.y * sensitivity, 0, 0));
 
         // cap camera's pitch
         Vector3 currRotation = goalTransform.rotation.eulerAngles;

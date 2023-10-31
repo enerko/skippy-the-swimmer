@@ -22,7 +22,8 @@ public class Knockable : Interactable
 
         // play activated sound if there is one
         if (_activateSound) {
-            AudioSource.PlayClipAtPoint(_activateSound, transform.position);
+            float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
+            AudioSource.PlayClipAtPoint(_activateSound, transform.position, volume);
         }
 
         // knock the object down with the provided force
@@ -40,7 +41,8 @@ public class Knockable : Interactable
         FinishedAction = true;
 
         if (_impactSound) {
-            AudioSource.PlayClipAtPoint(_impactSound, transform.position);
+            float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
+            AudioSource.PlayClipAtPoint(_impactSound, transform.position, volume);
         }
     }
 }

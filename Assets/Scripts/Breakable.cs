@@ -20,7 +20,8 @@ public class Breakable : Interactable
 
         // play activated sound if there is one
         if (_activateSound) {
-            AudioSource.PlayClipAtPoint(_activateSound, transform.position);
+            float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
+            AudioSource.PlayClipAtPoint(_activateSound, transform.position, volume);
         }
 
         if (_dropsWater) {

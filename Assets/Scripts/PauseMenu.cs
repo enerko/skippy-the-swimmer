@@ -8,6 +8,8 @@ using UnityEngine.UI;
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenuUI;
+    public GameObject settingsMenu;
+    public GameObject mainPauseMenu;
     public Button resume;
 
     // Update is called once per frame
@@ -30,6 +32,7 @@ public class PauseMenu : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
 
+        settingsMenu.SetActive(false);
         pauseMenuUI.SetActive(false);
         Time.timeScale = 1f;
         Globals.s_GameIsPaused = false;
@@ -45,6 +48,7 @@ public class PauseMenu : MonoBehaviour
 
         resume.Select();
         pauseMenuUI.SetActive(true);
+        mainPauseMenu.SetActive(true);
         Time.timeScale = 0f;
         Globals.s_GameIsPaused = true;
     }
