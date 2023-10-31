@@ -6,25 +6,32 @@ using UnityEngine.UI;
 public class HealthBar : MonoBehaviour
 {
     private RectTransform rectTransform;
-    private Vector3 initialPosition;
+    public Transform player; // Reference to the player's transform
+    private List<float> offsets = new List<float>();
 
-    List<float> offsets = new List<float>();
-    
     public Slider slider;
     public Image Border;
     public Image Circle;
     public Image HurtSkippy;
+    private bool isShaking = false;
+
+    private Vector3 healthBarOffset = new Vector3(55.5f, 70.0f, 0); // Offset of the health bar above the player
 
     // Start is called before the first frame update
     void Start()
     {
         slider.maxValue = PlayerHealth.s_MaxHealth;
         rectTransform = GetComponent<RectTransform>();
-        initialPosition = rectTransform.position;
+
+        // Set initial position relative to player
+        if (player != null)
+        {
+            rectTransform.position = player.position + healthBarOffset;
+        }
         
-        offsets.Add(-20);
+        offsets.Add(-5);
         offsets.Add(0);
-        offsets.Add(20);
+        offsets.Add(5);
         offsets.Add(0);
     }
 
@@ -32,7 +39,22 @@ public class HealthBar : MonoBehaviour
     {
         slider.value = PlayerHealth.s_Health;
 
-        
+        if (player != null && !isShaking)
+        {
+            // Get the player's position on the screen
+            Vector3 playerScreenPosition = Camera.main.WorldToScreenPoint(player.position);
+
+            // Calculate the desired position for the health bar
+            Vector3 healthBarScreenPosition = new Vector3(
+                playerScreenPosition.x + healthBarOffset.x, // Move it to the right of the player
+                playerScreenPosition.y + healthBarOffset.y, // Move it above the player
+                playerScreenPosition.z
+            );
+
+            // Apply the calculated position to the health bar
+            rectTransform.position = healthBarScreenPosition;
+        }
+
         float healthPercent = (float)PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
 
         if (healthPercent <= 0)
@@ -40,12 +62,15 @@ public class HealthBar : MonoBehaviour
             // empty
             Border.color = new Color32(241, 80, 80, 255);
             Circle.color = new Color32(241, 80, 80, 150);
-        } else if (healthPercent <= 0.3) {
+        } 
+        else if (healthPercent <= 0.3) 
+        {
             // low
             Border.color = new Color32(255, 255, 255, 255);
             Circle.color = new Color32(255, 255, 255, 255);
             HurtSkippy.enabled = true;
-        } else 
+        } 
+        else 
         {
             // full
             HurtSkippy.enabled = false;
@@ -53,13 +78,20 @@ public class HealthBar : MonoBehaviour
     }
 
     public IEnumerator Shake() {
-        foreach (var offset in offsets)
-        {
+        isShaking = true;
+        
+        // Initial position in screen space
+        Vector2 shakeStartPosition = rectTransform.anchoredPosition;
+
+        for (int i = 0; i < offsets.Count; i++) {
             yield return new WaitForSeconds(0.08f);
-            rectTransform.position = new Vector3(1, 0, 0) * offset + initialPosition;
-            yield return null;
+            // Apply the offsets to the x position in screen space
+            rectTransform.anchoredPosition = new Vector2(shakeStartPosition.x + offsets[i], shakeStartPosition.y);
         }
 
+        // Return to the initial position in screen space
+        rectTransform.anchoredPosition = shakeStartPosition;
         yield return new WaitForSeconds(1.5f);
+        isShaking = false;
     }
 }

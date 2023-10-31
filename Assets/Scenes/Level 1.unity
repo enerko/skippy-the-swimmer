@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276788, g: 0.21589147, b: 0.29782534, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -977,6 +977,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 44156120055904447, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 584677879}
     - target: {fileID: 304037042939182562, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.size
       value: 2
@@ -1123,7 +1127,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6673524782154643979, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 4.999878
+      value: 4.999893
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067501984441671048, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7067501984441671048, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 7857957613948329026, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_Pivot.x
@@ -1262,6 +1274,11 @@ Transform:
 --- !u!1 &584677874 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5088878516421343409, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+  m_PrefabInstance: {fileID: 909047809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &584677879 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8221685748813875232, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
   m_PrefabInstance: {fileID: 909047809}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &627711548
