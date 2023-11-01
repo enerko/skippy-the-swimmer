@@ -15,7 +15,7 @@ public class HealthBar : MonoBehaviour
     public Image HurtSkippy;
     private bool isShaking = false;
 
-    private Vector3 healthBarOffset = new Vector3(130, 130, 0); // Offset of the health bar above the player
+    private Vector3 healthBarOffset = new Vector3(30, 50, 0); // Offset of the health bar above the player
 
     // Start is called before the first frame update
     void Start()

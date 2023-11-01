@@ -1,5 +1,4 @@
 public enum PowerupType
 {
-    DoubleJump,
-    SpeedBoost,
+    DoubleJump
 }

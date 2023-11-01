@@ -14,7 +14,7 @@ public class PlayerPowerup : MonoBehaviour
     private static PowerUpUI _doubleJumpUI;
 
     public static float PowerUpDuration = 10f;
-    private static float _doubleJumpTimeLeft = 0f;
+    private static float _doubleJumpTimeLeft = 0;
 
     private void Start() {
         // Assign the audio sources
@@ -28,13 +28,13 @@ public class PlayerPowerup : MonoBehaviour
     
     private void Update()
     {
-        if (DoubleJumpEnabled)
+        if (_doubleJumpTimeLeft > 0)
         {
             _doubleJumpTimeLeft -= Time.deltaTime;
-            if (_doubleJumpTimeLeft <= 0)
-            {
-                DeactivateDoubleJump();
-            }
+        }
+        else if (DoubleJumpEnabled && _doubleJumpTimeLeft <= 0)
+        {
+            DeactivateDoubleJump();
         }
     }
 
