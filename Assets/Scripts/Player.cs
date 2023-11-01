@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
     public GameObject plrMesh;
     public Rig lookAtRig;
     public GameObject aim;
+    public Animator animator;
 
     private HealthBar _healthBar;
     private Quaternion _relativeRotation;
@@ -106,6 +107,10 @@ public class Player : MonoBehaviour
     }
 
     void Update() {
+        // set animator to play walk
+        float inputMagnitude = new Vector2(_horizInput.x, _horizInput.z).magnitude;
+        animator.SetBool("IsWalking", inputMagnitude > 0.1f);
+
         // play footsteps
         if (s_Grounded && _timer - _stepAudioTime >= StepAudioDelay && _horizInput.magnitude > 0.01) {
             AudioClip[] clips = s_InWater ? wetSteps : drySteps;
