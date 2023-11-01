@@ -17,6 +17,7 @@ public class Collectibles : MonoBehaviour
     private GameObject _magpie;
     private const int GoalNum = 5;
     private Collectible[] pearls;  // manage all the pearls spawning
+    private bool _firstFrame = true;
 
     void Start()
     {
@@ -33,7 +34,14 @@ public class Collectibles : MonoBehaviour
         _magpie = GameObject.Find("/Magpie");
 
         pearls = FindObjectsOfType<Collectible>();
+    }
+
+    // on the first frame only, set the pearls to inactive
+    // we can't set them to inactive in Start or else AchievementsManager may not find them
+    void Update() {
+        if (!_firstFrame) return;
         SetPearlsActive(false);  // initially inactive
+        _firstFrame = false;
     }
 
     void UpdateText() {

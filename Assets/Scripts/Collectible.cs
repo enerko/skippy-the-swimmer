@@ -26,8 +26,8 @@ public class Collectible : MonoBehaviour
             Vector3 pos = gameObject.transform.position;
             float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
             AudioSource.PlayClipAtPoint(collectibleSound, pos, volume);
-            Destroy(gameObject);
             _collectibles.CollectNew();
+            Destroy(gameObject);
         }
     }
 

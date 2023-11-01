@@ -46,7 +46,7 @@ public class AchievementsManager : MonoBehaviour
             totalPearls += 1;
         }
         
-        achievements = new List<Achievement>() { pearlOne, pearlAll, breakOne, breakJar, unlockPowerup, playInstrument, painter };
+        achievements = new List<Achievement>() { pearlOne, pearlAll, breakOne, breakJar }; //, unlockPowerup, playInstrument, painter };
         _text = achievementList.GetComponent<TextMeshProUGUI>();
         _background = gameObject.GetComponentInChildren<Image>();
         UpdateText();
@@ -107,6 +107,7 @@ public class AchievementsManager : MonoBehaviour
     private void HandleObjectCollected(GameObject collectedObject)
     {
         objectCollectedCount++;
+
         if(objectCollectedCount == 1)
         {
             UnlockAchievement(pearlOne);

@@ -5,6 +5,7 @@ using UnityEngine;
 using Random = UnityEngine.Random;
 using TMPro;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Conversation : MonoBehaviour
 {
@@ -22,6 +23,7 @@ public class Conversation : MonoBehaviour
     public Conversation nextConversation;
 
     public string newObjective;
+    public UnityEvent convoFinished;  // fired when this particular conversation is finished
 
     private float _typeDelay = 0.1f;
     private string _currentDialogue = string.Empty;
@@ -75,6 +77,7 @@ public class Conversation : MonoBehaviour
             if (newObjective != "") {
                 _objectives.UpdateObjective(newObjective);
             }
+            convoFinished.Invoke();
 
             return;
         }
