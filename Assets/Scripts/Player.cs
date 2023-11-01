@@ -154,6 +154,7 @@ public class Player : MonoBehaviour
         // apply camera rotation
         float cameraRotation = _relativeRotation.eulerAngles.y;
         Vector3 horizVelo = Quaternion.AngleAxis(cameraRotation, Vector3.up) * _horizInput;
+        horizVelo = horizVelo.normalized;
 
         // raycast to find the normal
         RaycastHit hit;
