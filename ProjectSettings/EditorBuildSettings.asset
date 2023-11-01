@@ -7,11 +7,11 @@ EditorBuildSettings:
   m_Scenes:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
-    guid: 9fc0d4010bbf28b4594072e72b8655ab
+    guid: b6d2824b07b8c4046968fad859cb5e90
   - enabled: 1
     path: Assets/Scenes/Tutorial.unity
     guid: 2c3b6d4c6a806df40a842ccbe6c6af5f
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/GameOver.unity
     guid: a7851b222550c974994eee6cdb819745
   - enabled: 1
