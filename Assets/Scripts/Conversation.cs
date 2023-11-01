@@ -19,6 +19,8 @@ public class Conversation : MonoBehaviour
     // If set, this convo's prompt will switch to nextConversation
     public Conversation nextConversation;
 
+    public string newObjective;
+
     private float _typeDelay = 0.1f;
     private string _currentDialogue = string.Empty;
     private IEnumerator _typing;
@@ -26,12 +28,15 @@ public class Conversation : MonoBehaviour
     private TextMeshProUGUI _dialogueSection;
     private TextMeshProUGUI _speakerSection;
     private ConversationPrompt _conversationPrompt;  // what prompt triggered this conversation?
+    private Objectives _objectives;
 
     void Start() {
         _dialogueBox = GameObject.Find("/Game UI/Dialogue Box");
 
         _dialogueSection = _dialogueBox.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
         _speakerSection = _dialogueBox.transform.Find("Speaker Box/Speaker").GetComponent<TextMeshProUGUI>();
+
+        _objectives = GameObject.Find("Game UI/Objective").GetComponent<Objectives>();
     }
 
     void Update() {
@@ -59,6 +64,10 @@ public class Conversation : MonoBehaviour
 
             // Signal to the prompt that it's finished
             _conversationPrompt.SignalConversationFinished();
+
+            if (newObjective != "") {
+                _objectives.UpdateObjective(newObjective);
+            }
 
             return;
         }
