@@ -13,9 +13,6 @@ public class Powerup : Interactable
             case PowerupType.DoubleJump:
                 PlayerPowerup.EnableDoubleJump();
                 break;
-            case PowerupType.SpeedBoost:
-                PlayerPowerup.EnableSpeedBoost();
-                break;
             default:
                 Debug.LogWarning($"Unhandled power-up type: {typeOfPowerup}");
                 break;

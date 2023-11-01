@@ -19,8 +19,7 @@ public class Globals
 
         // Reset the appropriate static vars
         PlayerHealth.s_Health = PlayerHealth.s_MaxHealth;
-        PlayerPowerup.s_DoubleJumpEnabled = false;
-        PlayerPowerup.s_SpeedBoostEnabled = false;
+        PlayerPowerup.DoubleJumpEnabled = false;
         Player.s_ConversationActive = false;
         Player.s_CurrentConversation = null;
         Player.s_Invul = false;
