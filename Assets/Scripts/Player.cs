@@ -63,7 +63,7 @@ public class Player : MonoBehaviour
             AudioClip jumpNoise = s_InWater ? wetJump : dryJump;
             AudioSource.PlayClipAtPoint(jumpNoise, transform.position, volume);
         }
-        else if (PlayerPowerup.s_DoubleJumpEnabled && !hasUsedDoubleJump)
+        else if (PlayerPowerup.DoubleJumpEnabled && !hasUsedDoubleJump)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
             hasUsedDoubleJump = true;
@@ -179,7 +179,7 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-        float speed = PlayerPowerup.s_SpeedBoostEnabled ? _baseSpeed * 2 : (PlayerHealth.s_Health <= 0 ? _baseSpeed / 2 : _baseSpeed);
+        float speed = PlayerHealth.s_Health <= 0 ? _baseSpeed / 2 : _baseSpeed;
         _rb.velocity = horizVelo * speed + new Vector3(0, currVelo.y, 0);
     }
 

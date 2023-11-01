@@ -75,11 +75,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Energy
+  m_Name: GreenWater
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: Energy
+    passTag: GreenWater
     Event: 300
     filterSettings:
       RenderQueueType: 1
@@ -128,8 +128,9 @@ MonoBehaviour:
   - {fileID: 4729171565790061651}
   - {fileID: 6844604181452445776}
   - {fileID: -413441754216546174}
+  - {fileID: 7903033722047295076}
   - {fileID: -8821247714382421197}
-  m_RendererFeatureMap: 2903d0b78485ee7cad22f89a16ef6fc25364cb9c7b64a1415058a01f3debfc5e82c09b40ea2843fa336382d4f0a19485
+  m_RendererFeatureMap: 2903d0b78485ee7cad22f89a16ef6fc25364cb9c7b64a1415058a01f3debfc5e82c09b40ea2843fa64ee8f524c37ad6d336382d4f0a19485
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
@@ -250,6 +251,48 @@ MonoBehaviour:
     cameraSettings:
       overrideCamera: 0
       restoreCamera: 0
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
+--- !u!114 &7903033722047295076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: RedWater
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: RedWater
+    Event: 300
+    filterSettings:
+      RenderQueueType: 1
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 4096
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: 0ad2292f1b0e3164490b62952802febc, type: 2}
+    overrideMaterialPassIndex: 0
+    overrideShader: {fileID: 0}
+    overrideShaderPassIndex: 0
+    overrideMode: 1
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
 --- !u!114 &9002279510226240297
