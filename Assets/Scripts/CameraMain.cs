@@ -79,7 +79,8 @@ public class CameraMain : MonoBehaviour
         Vector3 direction = goalTransform.position - _focus;
         Ray ray = new Ray(_focus, direction.normalized);
         RaycastHit hit;
-        LayerMask ignore = ~(LayerMask.GetMask("Player") | LayerMask.GetMask("Ignore Raycast") | LayerMask.GetMask("Interactable"));
+        LayerMask ignore = ~(LayerMask.GetMask("Player") | LayerMask.GetMask("Ignore Raycast") | LayerMask.GetMask("Interactable") |
+            LayerMask.GetMask("Glass"));
 
         if (Physics.Raycast(ray, out hit, offset.magnitude, ignore, QueryTriggerInteraction.Ignore)) {
             goalTransform.position = hit.point;
