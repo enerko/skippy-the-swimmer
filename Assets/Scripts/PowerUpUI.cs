@@ -6,17 +6,20 @@ using UnityEngine.UI;
 public class PowerUpUI : MonoBehaviour
 {
     private Image _filterImage; // Reference to the Image component on this GameObject
+    private GameObject _prompt;
     private float _time = 0;
 
     private void Start()
     {
         // Get the Image component from this GameObject
         _filterImage = GetComponent<Image>();
-        if (_filterImage != null)
+       if (_filterImage != null)
         {
             // Start with the image disabled
             _filterImage.enabled = false;
         }
+
+       _prompt = gameObject.transform.Find("Prompt").gameObject;
     }
 
     void Update()
@@ -29,6 +32,7 @@ public class PowerUpUI : MonoBehaviour
         {
             // When the power-up duration ends, disable the image
             _filterImage.enabled = false;
+            _prompt.SetActive(false);
         }
     }
 
@@ -40,6 +44,7 @@ public class PowerUpUI : MonoBehaviour
         if (_filterImage != null)
         {
             _filterImage.enabled = true;
+            _prompt.SetActive(true);
         }
     }
 }
