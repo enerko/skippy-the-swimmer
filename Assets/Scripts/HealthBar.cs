@@ -32,6 +32,14 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
+        // only make it visible when below max health
+        // setting active to false would disable the Update function, so gotta do a hacky way to hide it
+        if (PlayerHealth.s_Health < PlayerHealth.s_MaxHealth) {
+            rectTransform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
+        } else {
+            rectTransform.localScale = Vector3.zero;
+        }
+
         slider.value = PlayerHealth.s_Health;
 
         if (player != null)
