@@ -40,8 +40,10 @@ public class PlayerPowerup : MonoBehaviour
 
     public static void EnableDoubleJump()
     {
-        _powerupBaseSource.volume = 1;
-        _doubleJumpSource.volume = 1;
+        float sfxVolume = PlayerPrefs.GetFloat("SFX Volume", 1);
+
+        _powerupBaseSource.volume = sfxVolume;
+        _doubleJumpSource.volume = sfxVolume;
         _mainMusicSource.volume = 0;
         DoubleJumpEnabled = true;
 
@@ -51,10 +53,12 @@ public class PlayerPowerup : MonoBehaviour
     
     private static void DeactivateDoubleJump()
     {
+        float musicVolume = PlayerPrefs.GetFloat("Music Volume", 1);
+
         _doubleJumpSource.volume = 0;
         DoubleJumpEnabled = false;
         _powerupBaseSource.volume = 0;
-        _mainMusicSource.volume = 1;
+        _mainMusicSource.volume = musicVolume;
     }
 
     private void OnTriggerStay(Collider other)
