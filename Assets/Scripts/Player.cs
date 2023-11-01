@@ -23,7 +23,7 @@ public class Player : MonoBehaviour
     private const float FallAdjustment = 3f;
     private const float StepAudioDelay = 0.3f;
     private const float TailAttackRadius = 1.5f;
-    private const float TailAttackDelay = 0.3f;
+    private const float TailAttackDelay = 0.3f;  // how long tail attack lasts for
     private float _timer = 0;
     private float _stepAudioTime = 0;
     private Rigidbody _rb;
@@ -216,8 +216,13 @@ public class Player : MonoBehaviour
         // spin the mesh
         while (degreesSoFar < 360) {
             float rotation = degreesPerSecond * Time.deltaTime;
-            plrMesh.transform.Rotate(new Vector3(0, rotation, 0));
-            degreesSoFar += rotation;
+
+            // in low frame rate, rotation can actually cause it to overshoot
+            // so use math to figure out how much to actually rotate by to not overshoot 360 degrees
+            float trueRotation = Mathf.Min(degreesSoFar + rotation, 360) - degreesSoFar;
+            plrMesh.transform.Rotate(new Vector3(0, trueRotation, 0));
+
+            degreesSoFar += trueRotation;
             yield return null;
         }
 
