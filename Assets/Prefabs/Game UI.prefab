@@ -4448,7 +4448,6 @@ GameObject:
   - component: {fileID: 8798666740044960495}
   - component: {fileID: 413547592195096201}
   - component: {fileID: 5689836542228206536}
-  - component: {fileID: 6533460325391586098}
   m_Layer: 5
   m_Name: RestartButton
   m_TagString: Untagged
@@ -4558,7 +4557,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6533460325391586098}
+      - m_Target: {fileID: 5689836542228206536}
         m_TargetAssemblyTypeName: LoadSceneButton, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 1
@@ -4582,20 +4581,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b86460004b9e6dd4aabd813640a376ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Level 1
---- !u!114 &6533460325391586098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7347411585578025393}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b86460004b9e6dd4aabd813640a376ea, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneName: Tutorial
+  sceneName: 
 --- !u!1 &7516111858119590018
 GameObject:
   m_ObjectHideFlags: 0
