@@ -63,7 +63,9 @@ public class Conversation : MonoBehaviour
             }
 
             // Signal to the prompt that it's finished
-            _conversationPrompt.SignalConversationFinished();
+            if (_conversationPrompt){
+                _conversationPrompt.SignalConversationFinished();
+            }
 
             if (newObjective != "") {
                 _objectives.UpdateObjective(newObjective);
