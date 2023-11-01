@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using TMPro;
+using UnityEngine.UI;
 
 public class Conversation : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Conversation : MonoBehaviour
     public struct Dialogue {
         public string dialogue;
         public GameObject speaker;
+        public Sprite speakerImage;
     }
 
     public Dialogue[] dialogueChain;
@@ -29,12 +31,15 @@ public class Conversation : MonoBehaviour
     private TextMeshProUGUI _speakerSection;
     private ConversationPrompt _conversationPrompt;  // what prompt triggered this conversation?
     private Objectives _objectives;
-
+    private Image _imageSection;
+    
     void Start() {
         _dialogueBox = GameObject.Find("/Game UI/Dialogue Box");
 
         _dialogueSection = _dialogueBox.transform.Find("Dialogue").GetComponent<TextMeshProUGUI>();
-        _speakerSection = _dialogueBox.transform.Find("Speaker Box/Speaker").GetComponent<TextMeshProUGUI>();
+        //_speakerSection = _dialogueBox.transform.Find("Speaker Box/Speaker").GetComponent<TextMeshProUGUI>();
+
+        _imageSection = _dialogueBox.transform.Find("Speaker Portrait").GetComponent<Image>();
 
         _objectives = GameObject.Find("Game UI/Objective").GetComponent<Objectives>();
     }
@@ -76,13 +81,15 @@ public class Conversation : MonoBehaviour
 
         _dialogueBox.SetActive(true);
         Dialogue dialogue = dialogueChain[index];
-        _speakerSection.text = dialogue.speaker.name;
+        // _speakerSection.text = dialogue.speaker.name;
+        _imageSection.sprite = dialogue.speakerImage;
 
         // If starting new dialogue...
         if (_currentDialogue == string.Empty) {
             // Typewrite the dialogue
             _typing = Typewrite(dialogue);
             StartCoroutine(_typing);
+            
         } else {
             // Player is skipping dialogue or type writer effect has ended
             StopCoroutine(_typing);

@@ -168,14 +168,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueChain:
-  - dialogue: STOP THERE!!
+  - dialogue: 'Maggy: STOP THERE!!'
     speaker: {fileID: 1393420193}
-  - dialogue: You must be the pearl thief!
+    speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
+  - dialogue: 'Maggy: You must be the pearl thief!'
     speaker: {fileID: 1393420193}
-  - dialogue: What are you talking about?
+    speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
+  - dialogue: 'Skippy: What are you talking about?'
     speaker: {fileID: 1365963047}
-  - dialogue: You better find me 5 pearls if you want to leave!
+    speakerImage: {fileID: 21300000, guid: efae2182382bbc84da79aea744c4839f, type: 3}
+  - dialogue: 'Maggy: You better find me 5 pearls if you want to leave!'
     speaker: {fileID: 1393420193}
+    speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
   index: 0
   nextConversation: {fileID: 1823655506}
   newObjective: Collect 5 pearls
@@ -229,14 +233,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueChain:
-  - dialogue: '!!!'
+  - dialogue: 'Maggy: !!!'
     speaker: {fileID: 1393420193}
-  - dialogue: 'Well I''ll be, you found the pearls! '
+    speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
+  - dialogue: 'Maggy: Well I''ll be, you found the pearls! '
     speaker: {fileID: 1393420193}
-  - dialogue: You're free to go then.
+    speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
+  - dialogue: 'Maggy: You''re free to go then.'
     speaker: {fileID: 1393420193}
-  - dialogue: Yay!!
+    speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
+  - dialogue: 'Skippy: Yay!!'
     speaker: {fileID: 1365963047}
+    speakerImage: {fileID: 21300000, guid: efae2182382bbc84da79aea744c4839f, type: 3}
   index: 0
   nextConversation: {fileID: 0}
   newObjective: Escape!
@@ -871,7 +879,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3671903915491156176, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_Name
-      value: Pearl6_1
+      value: Pearl9
       objectReference: {fileID: 0}
     - target: {fileID: 8794433192076224947, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_LocalScale.x
@@ -3306,12 +3314,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueChain:
-  - dialogue: Well? Do you have my 5 pearls?
+  - dialogue: 'Maggy: Well? Do you have my 5 pearls?'
     speaker: {fileID: 1393420193}
+    speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
   - dialogue: No...
     speaker: {fileID: 1365963047}
+    speakerImage: {fileID: 21300000, guid: efae2182382bbc84da79aea744c4839f, type: 3}
   - dialogue: Then begone with you!
     speaker: {fileID: 1393420193}
+    speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
   index: 0
   nextConversation: {fileID: 0}
   newObjective: 
@@ -3768,9 +3779,9 @@ Transform:
   - {fileID: 1351136185}
   - {fileID: 1681868477}
   - {fileID: 754326887}
-  - {fileID: 1869752432}
   - {fileID: 1552024347}
   - {fileID: 1139733615}
+  - {fileID: 1869752432}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2074226765
