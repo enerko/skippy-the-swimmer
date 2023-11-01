@@ -748,7 +748,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8324810660250608540, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 37.41
       objectReference: {fileID: 0}
     - target: {fileID: 8324810660250608540, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4523,7 +4523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee3bc12abb8d8e4f914ef9eeeb375dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newObjective: Find an escape route
+  newObjective: It was all a dream! Find an escape route!
 --- !u!135 &1959316962
 SphereCollider:
   m_ObjectHideFlags: 0
