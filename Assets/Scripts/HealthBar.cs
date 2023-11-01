@@ -14,14 +14,16 @@ public class HealthBar : MonoBehaviour
     public Image Circle;
     public Image HurtSkippy;
     private bool isShaking = false;
+    private CanvasScaler canvasScaler;
 
-    private Vector3 healthBarOffset = new Vector3(30, 50, 0); // Offset of the health bar above the player
+    private Vector3 healthBarOffset = new Vector3(20, 30, 0); // Offset of the health bar above the player
 
     // Start is called before the first frame update
     void Start()
     {
         slider.maxValue = PlayerHealth.s_MaxHealth;
         rectTransform = GetComponent<RectTransform>();
+        canvasScaler = GetComponentInParent<CanvasScaler>();
 
         // Set initial position relative to player
         if (player != null)
@@ -41,13 +43,29 @@ public class HealthBar : MonoBehaviour
 
         if (player != null && !isShaking)
         {
+            // Get the reference resolution from the CanvasScaler
+            Vector2 referenceResolution = canvasScaler.referenceResolution;
+            float referenceWidth = referenceResolution.x;
+            float referenceHeight = referenceResolution.y;
+
+            // Calculate the scaling factors based on the current screen size and the reference resolution
+            float widthScale = Screen.width / referenceWidth;
+            float heightScale = Screen.height / referenceHeight;
+
             // Get the player's position on the screen
             Vector3 playerScreenPosition = Camera.main.WorldToScreenPoint(player.position);
 
+            // Scale the health bar offset based on the screen size relative to the reference resolution
+            Vector3 scaledHealthBarOffset = new Vector3(
+                healthBarOffset.x * widthScale,
+                healthBarOffset.y * heightScale,
+                healthBarOffset.z
+            );
+
             // Calculate the desired position for the health bar
             Vector3 healthBarScreenPosition = new Vector3(
-                playerScreenPosition.x + healthBarOffset.x, // Move it to the right of the player
-                playerScreenPosition.y + healthBarOffset.y, // Move it above the player
+                playerScreenPosition.x + scaledHealthBarOffset.x, // Move it to the right of the player
+                playerScreenPosition.y + scaledHealthBarOffset.y, // Move it above the player
                 playerScreenPosition.z
             );
 
