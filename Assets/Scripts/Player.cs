@@ -88,7 +88,7 @@ public class Player : MonoBehaviour
 
         if (PlayerHealth.s_Health <= 0) 
         {    
-             StartCoroutine(_healthBar.Shake());
+             StartCoroutine(_healthBar.TailWhipUnavailable());
              return;
         }
 

@@ -7,13 +7,11 @@ public class HealthBar : MonoBehaviour
 {
     private RectTransform rectTransform;
     public Transform player; // Reference to the player's transform
-    private List<float> offsets = new List<float>();
 
     public Slider slider;
     public Image Border;
     public Image Circle;
     public Image HurtSkippy;
-    private bool isShaking = false;
     private CanvasScaler canvasScaler;
 
     private Vector3 healthBarOffset = new Vector3(20, 30, 0); // Offset of the health bar above the player
@@ -30,18 +28,13 @@ public class HealthBar : MonoBehaviour
         {
             rectTransform.position = player.position + healthBarOffset;
         }
-        
-        offsets.Add(-5);
-        offsets.Add(0);
-        offsets.Add(5);
-        offsets.Add(0);
     }
 
     void Update()
     {
         slider.value = PlayerHealth.s_Health;
 
-        if (player != null && !isShaking)
+        if (player != null)
         {
             // Get the reference resolution from the CanvasScaler
             Vector2 referenceResolution = canvasScaler.referenceResolution;
@@ -95,21 +88,17 @@ public class HealthBar : MonoBehaviour
         }
     }
 
-    public IEnumerator Shake() {
-        isShaking = true;
-        
-        // Initial position in screen space
-        Vector2 shakeStartPosition = rectTransform.anchoredPosition;
+    public IEnumerator TailWhipUnavailable() {
+                
+        // flash 
+        for (int i = 0; i < 5; i++) {
+            Border.color = (i % 2 == 0) ? new Color32(241, 80, 80, 255) : new Color32(255, 255, 255, 255);
+            Circle.color = (i % 2 == 0) ? new Color32(241, 80, 80, 150): new Color32(255, 255, 255, 255);
 
-        for (int i = 0; i < offsets.Count; i++) {
             yield return new WaitForSeconds(0.08f);
-            // Apply the offsets to the x position in screen space
-            rectTransform.anchoredPosition = new Vector2(shakeStartPosition.x + offsets[i], shakeStartPosition.y);
         }
 
-        // Return to the initial position in screen space
-        rectTransform.anchoredPosition = shakeStartPosition;
+        // don't flash for another 1.5 seconds
         yield return new WaitForSeconds(1.5f);
-        isShaking = false;
     }
 }
