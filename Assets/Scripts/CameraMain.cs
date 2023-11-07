@@ -20,6 +20,7 @@ public class CameraMain : MonoBehaviour
     private Vector2 _input;
 
     public GameObject player;
+    private bool cameraAnimated = true;
 
     // Start is called before the first frame update
     void Start()
@@ -39,6 +40,8 @@ public class CameraMain : MonoBehaviour
     void Update()
     {
         if (Globals.s_GameIsPaused) return;
+
+        if (cameraAnimated) return;
 
         // If camera angle is forced...
         if (s_CameraOverride) {
@@ -102,5 +105,11 @@ public class CameraMain : MonoBehaviour
         Vector3 customPoint = new Vector3(point.x / Camera.main.pixelWidth * gameUI.rect.width, point.y / Camera.main.pixelHeight * gameUI.rect.height,0);
 
         return customPoint;
+    }
+
+    public void StartFollowingPlayer()
+    {
+        cameraAnimated = false;
+        gameObject.GetComponent<Animator>().enabled = false;
     }
 }
