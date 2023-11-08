@@ -795,7 +795,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8050817430429928616, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2021024146}
   m_SourcePrefab: {fileID: 100100000, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
 --- !u!1001 &503479891
 PrefabInstance:
@@ -1167,6 +1170,22 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8794433192076224947, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
   m_PrefabInstance: {fileID: 627711548}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &831929209 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2215938216097721959, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+  m_PrefabInstance: {fileID: 485014160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &831929211 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4479814629014697907, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+  m_PrefabInstance: {fileID: 485014160}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831929209}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7d88630952b08147b041c95efa7dd42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &852680100
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2199,6 +2218,11 @@ GameObject:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7744266607601414254, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
   m_PrefabInstance: {fileID: 909047809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1382520733 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3049716202151320902, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+  m_PrefabInstance: {fileID: 485014160}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1386646921
 PrefabInstance:
@@ -4488,7 +4512,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee3bc12abb8d8e4f914ef9eeeb375dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newObjective: It was all a dream! Find an escape route!
+  newObjective: Find an escape route!
+  _objectives: {fileID: 831929211}
 --- !u!135 &1959316962
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4656,6 +4681,25 @@ Transform:
   - {fileID: 1869752432}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2021024139 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8050817430429928616, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+  m_PrefabInstance: {fileID: 485014160}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2021024146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2021024139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c5c28de9d383864180bc14e37c0860d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  achievementsPrompt: {fileID: 1382520733}
+  objectives: {fileID: 831929211}
 --- !u!1 &2026704698
 GameObject:
   m_ObjectHideFlags: 0
@@ -6776,6 +6820,14 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1365963047}
+    - target: {fileID: 70686798847507854, guid: f9bf15b43ac037840adcade0a8ab3820, type: 3}
+      propertyPath: objectives
+      value: 
+      objectReference: {fileID: 831929209}
+    - target: {fileID: 70686798847507854, guid: f9bf15b43ac037840adcade0a8ab3820, type: 3}
+      propertyPath: achievementsIcon
+      value: 
+      objectReference: {fileID: 1382520733}
     - target: {fileID: 7770505922756721380, guid: f9bf15b43ac037840adcade0a8ab3820, type: 3}
       propertyPath: m_IsActive
       value: 1

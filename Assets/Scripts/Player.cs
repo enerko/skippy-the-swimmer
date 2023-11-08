@@ -55,7 +55,7 @@ public class Player : MonoBehaviour
 
     public void PerformJump()
     {
-        if (s_ConversationActive || !s_CanMove) return;  // dont jump during a convo
+        if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) return;  // dont jump during a convo
 
         float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
         if (s_Grounded)
@@ -76,7 +76,7 @@ public class Player : MonoBehaviour
 
     public void PerformMove(InputValue inputValue)
     {
-        if (s_ConversationActive || !s_CanMove) return;
+        if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) return;
 
         // Always change frame of reference when input is changed
         _relativeRotation = Camera.main.transform.rotation;
@@ -86,7 +86,7 @@ public class Player : MonoBehaviour
 
     public void PerformAttack(InputValue inputValue)
     {
-        if (s_ConversationActive || !s_CanMove) return; 
+        if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) return; 
 
         if (PlayerHealth.s_Health <= 0) 
         {    
@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
 
     public void PerformTalk()
     {
-        if (!s_CurrentConversation || !s_Grounded) return;  // no conversation to begin, or in air
+        if (!s_CurrentConversation || !s_Grounded || CameraMain.s_CutSceneActive) return;  // no conversation to begin, or in air
         s_ConversationActive = s_CurrentConversation.index < s_CurrentConversation.dialogueChain.Length;
         s_CurrentConversation.Advance();
     }
@@ -149,7 +149,7 @@ public class Player : MonoBehaviour
     {
         if (Globals.s_GameIsPaused) return;
 
-        if (s_ConversationActive || !s_CanMove) {
+        if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) {
             _horizInput = Vector3.zero;  // don't continue walking if you walk into npc and talk at the same time
         }
         

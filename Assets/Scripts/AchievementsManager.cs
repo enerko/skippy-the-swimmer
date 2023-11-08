@@ -128,6 +128,7 @@ public class AchievementsManager : MonoBehaviour
 
     public void DisplayAchievements(InputValue inputValue)
     {
+        if (CameraMain.s_CutSceneActive) return;
         if (inputValue.isPressed)
         {
             ShowList();

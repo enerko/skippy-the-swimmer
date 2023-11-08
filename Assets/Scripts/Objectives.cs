@@ -84,4 +84,14 @@ public class Objectives : MonoBehaviour
 
         _objective = newObjective;
     }
+
+    public void HideObjectives()
+    {
+        gameObject.transform.localScale = Vector3.zero;
+    }
+
+    public void ShowObjectives()
+    {
+        gameObject.transform.localScale = Vector3.one;
+    }
 }

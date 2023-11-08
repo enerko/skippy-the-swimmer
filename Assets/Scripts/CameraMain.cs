@@ -20,7 +20,10 @@ public class CameraMain : MonoBehaviour
     private Vector2 _input;
 
     public GameObject player;
-    private bool cameraAnimated = true;
+
+    // hide objectives and checklist prompt
+    // disbale input except escape
+    public static bool s_CutSceneActive;
 
     // Start is called before the first frame update
     void Start()
@@ -41,7 +44,7 @@ public class CameraMain : MonoBehaviour
     {
         if (Globals.s_GameIsPaused) return;
 
-        if (cameraAnimated) return;
+        if (s_CutSceneActive) return;
 
         // If camera angle is forced...
         if (s_CameraOverride) {
@@ -107,9 +110,15 @@ public class CameraMain : MonoBehaviour
         return customPoint;
     }
 
-    public void StartFollowingPlayer()
+    public void OnCutSceneStart()
     {
-        cameraAnimated = false;
+        s_CutSceneActive = true;
+    }
+
+    public void OnCutSceneEnd()
+    {
+        s_CutSceneActive = false;
         gameObject.GetComponent<Animator>().enabled = false;
     }
+
 }
