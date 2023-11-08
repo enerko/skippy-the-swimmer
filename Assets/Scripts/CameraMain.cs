@@ -20,6 +20,7 @@ public class CameraMain : MonoBehaviour
     private Vector2 _input;
 
     public GameObject player;
+    public static bool s_CutScenePlayed;
 
     // hide objectives and checklist prompt
     // disbale input except escape
@@ -32,6 +33,11 @@ public class CameraMain : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
         _focus = player.transform.position;
+
+        if (s_CutScenePlayed)
+        {
+            OnCutSceneEnd();
+        }
     }
 
     public void PerformCameraRotate(InputValue inputValue)

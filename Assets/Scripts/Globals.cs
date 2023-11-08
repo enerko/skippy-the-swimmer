@@ -29,6 +29,7 @@ public class Globals
         
         CameraMain.s_CameraOverride = null;
         CameraMain.s_OverrideTransitioning = false;
+        CameraMain.s_CutScenePlayed = true;
 
         Time.timeScale = 1f;
         s_GameIsPaused = false;
