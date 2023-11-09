@@ -8,6 +8,7 @@ public class Globals
 {
     public static bool s_GameIsPaused = false;
     public static bool s_CanPause = true;  // sometimes dont allow pausing, e.g. fade out at end of tutorial
+    public static bool s_Restarted = false;
 
     // Load the given scene and reset the appropriate static vars
     public static void LoadScene(string sceneName) {
@@ -29,7 +30,7 @@ public class Globals
         
         CameraMain.s_CameraOverride = null;
         CameraMain.s_OverrideTransitioning = false;
-        CameraMain.s_CutScenePlayed = true;
+        CameraMain.s_CutScenePlayed = s_Restarted;
 
         Time.timeScale = 1f;
         s_GameIsPaused = false;
