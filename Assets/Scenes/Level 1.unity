@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589246, b: 0.2978263, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6482,6 +6482,10 @@ PrefabInstance:
       propertyPath: objectives
       value: 
       objectReference: {fileID: 831929209}
+    - target: {fileID: 70686798847507854, guid: f9bf15b43ac037840adcade0a8ab3820, type: 3}
+      propertyPath: playCutScene
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 70686798847507854, guid: f9bf15b43ac037840adcade0a8ab3820, type: 3}
       propertyPath: achievementsIcon
       value: 

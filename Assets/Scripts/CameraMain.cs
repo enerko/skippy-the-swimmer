@@ -124,7 +124,11 @@ public class CameraMain : MonoBehaviour
     public void OnCutSceneEnd()
     {
         s_CutSceneActive = false;
-        gameObject.GetComponent<Animator>().enabled = false;
+        if (gameObject.GetComponent<Animator>())
+        {
+            gameObject.GetComponent<Animator>().enabled = false;
+        }
+
     }
 
 }

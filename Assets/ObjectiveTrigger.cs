@@ -6,8 +6,13 @@ public class ObjectiveTrigger : MonoBehaviour
 {
     public string newObjective;
 
-    public Objectives _objectives;
+    private Objectives _objectives;
     private bool _activated;
+
+    void Start()
+    {
+        _objectives = GameObject.Find("/Game UI/Objective").GetComponent<Objectives>();
+    }
 
 
     // May assume that other is the player if include/exclude options are set properly
