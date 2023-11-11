@@ -28,6 +28,8 @@ public class Player : MonoBehaviour
     private float _stepAudioTime = 0;
     private Rigidbody _rb;
     private Vector3 _horizInput;
+    [SerializeField]
+    private Gradient _healthGradient;
 
     public AudioClip[] drySteps;
     public AudioClip[] wetSteps;
@@ -41,9 +43,11 @@ public class Player : MonoBehaviour
     public GameObject aim;
     public Animator animator;
     public GameObject particles;
+    public Renderer plrRenderer;
 
     private HealthBar _healthBar;
     private Quaternion _relativeRotation;
+    private Color _originalColor;
     
     // Start is called before the first frame update
     void Start()
@@ -51,6 +55,11 @@ public class Player : MonoBehaviour
         particles.SetActive(false);
         _rb = GetComponent<Rigidbody>();
         _healthBar = FindObjectOfType<HealthBar>();
+        
+        if (plrRenderer != null)
+        {
+            _originalColor = plrRenderer.material.color;
+        }
     }
 
     public void PerformJump()
@@ -133,7 +142,10 @@ public class Player : MonoBehaviour
 
         // move the aim object to move the neck, more noticeable when turning
         Vector3 aimGoal = new Vector3(transform.InverseTransformDirection(_rb.velocity).x * 3, 0.7f + _rb.velocity.y / 2, 4.15f);
-
+        
+        // update player colour based on hp
+        UpdatePlayerColor();
+        
         // if moving only horizontally, Skippy should still look forward
         if (Mathf.Abs(_horizInput.z) <= 0.1) {
             aimGoal.x = 0;
@@ -263,4 +275,20 @@ public class Player : MonoBehaviour
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
         s_Grounded = false;
     }
-}
+    private void UpdatePlayerColor()
+    {
+        if (plrRenderer != null)
+        {
+            float healthFraction = PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
+
+            // Calculate the grayscale version of the original color
+            float grayScale = (_originalColor.r + _originalColor.g + _originalColor.b) / 3;
+            Color grayColor = new Color(grayScale, grayScale, grayScale);
+
+            // Blend the original color with the grayscale color based on health
+            Color currentColor = Color.Lerp(grayColor, _originalColor, healthFraction);
+
+            plrRenderer.material.color = currentColor;
+        }
+    }
+    }
