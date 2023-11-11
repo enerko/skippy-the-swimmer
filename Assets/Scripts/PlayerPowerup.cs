@@ -37,6 +37,8 @@ public class PlayerPowerup : MonoBehaviour
 
         _skippyBody.material = _normalMaterial;
 
+        _powerupBaseSource.enabled = false;
+        _doubleJumpSource.enabled = false;
     }
     
     private void Update()
@@ -53,11 +55,11 @@ public class PlayerPowerup : MonoBehaviour
 
     public static void EnableDoubleJump()
     {
-        float sfxVolume = PlayerPrefs.GetFloat("SFX Volume", 1);
-
-        _powerupBaseSource.volume = sfxVolume;
-        _doubleJumpSource.volume = sfxVolume;
-        _mainMusicSource.volume = 0;
+        _mainMusicSource.enabled = false;
+        _powerupBaseSource.enabled = true;
+        _doubleJumpSource.enabled = true;
+        _powerupBaseSource.Play();
+        _doubleJumpSource.Play();
         DoubleJumpEnabled = true;
 
         _doubleJumpUI?.Show();
@@ -68,12 +70,14 @@ public class PlayerPowerup : MonoBehaviour
     
     private static void DeactivateDoubleJump()
     {
-        float musicVolume = PlayerPrefs.GetFloat("Music Volume", 1);
-
-        _doubleJumpSource.volume = 0;
         DoubleJumpEnabled = false;
-        _powerupBaseSource.volume = 0;
-        _mainMusicSource.volume = musicVolume;
+
+        _doubleJumpSource.enabled = false;
+        _powerupBaseSource.enabled = false;
+        _powerupBaseSource.Stop();
+        _doubleJumpSource.Stop();
+
+        _mainMusicSource.enabled = true;
 
         _skippyBody.material = _normalMaterial;
     }
