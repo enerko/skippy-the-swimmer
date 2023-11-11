@@ -44,7 +44,6 @@ public class Player : MonoBehaviour
     public Animator animator;
     public Renderer plrRenderer;
     public ParticleSystem particles;
-    public Renderer plrRenderer;
 
     private HealthBar _healthBar;
     private Quaternion _relativeRotation;
