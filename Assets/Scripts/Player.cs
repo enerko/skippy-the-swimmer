@@ -40,7 +40,7 @@ public class Player : MonoBehaviour
     public Rig lookAtRig;
     public GameObject aim;
     public Animator animator;
-    public GameObject particles;
+    public ParticleSystem particles;
 
     private HealthBar _healthBar;
     private Quaternion _relativeRotation;
@@ -48,7 +48,6 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        particles.SetActive(false);
         _rb = GetComponent<Rigidbody>();
         _healthBar = FindObjectOfType<HealthBar>();
     }
@@ -109,15 +108,6 @@ public class Player : MonoBehaviour
     }
 
     void Update() {
-        if (PlayerHealth.s_Health < 40)
-        {
-            particles.SetActive(true);
-        }
-        else
-        {
-            particles.SetActive(false);
-        }
-
         // set animator to play walk
         float inputMagnitude = new Vector2(_horizInput.x, _horizInput.z).magnitude;
         animator.SetBool("IsWalking", inputMagnitude > 0.1f);
@@ -140,6 +130,19 @@ public class Player : MonoBehaviour
         }
 
         aim.transform.localPosition = Vector3.Lerp(aim.transform.localPosition, aimGoal, 10 * Time.deltaTime);
+
+        if((PlayerPowerup.DoubleJumpEnabled && _horizInput.magnitude != 0) || (PlayerPowerup.DoubleJumpEnabled && !s_Grounded) )
+        {
+            if (!particles.isPlaying)
+            {
+                particles.Play();
+            }
+            
+        }
+        else
+        {
+            particles.Stop();
+        }
 
         _timer += Time.deltaTime;
     }
