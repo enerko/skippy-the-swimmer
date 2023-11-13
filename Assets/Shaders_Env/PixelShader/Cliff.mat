@@ -55,6 +55,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Brightness: 0.61
+    - _Color_Texture: 1
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Range: 0.36
