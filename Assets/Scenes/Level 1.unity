@@ -2035,8 +2035,8 @@ GameObject:
   - component: {fileID: 1275792273}
   - component: {fileID: 1275792272}
   - component: {fileID: 1275792271}
-  m_Layer: 11
-  m_Name: Coffe
+  m_Layer: 4
+  m_Name: Water
   m_TagString: Water
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
