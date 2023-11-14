@@ -274,9 +274,10 @@ public class Player : MonoBehaviour
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
         s_Grounded = false;
     }
+
     private void UpdatePlayerColor()
     {
-        if (plrRenderer != null)
+        if (plrRenderer != null && !PlayerPowerup.DoubleJumpEnabled)
         {
             float healthFraction = PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
 
