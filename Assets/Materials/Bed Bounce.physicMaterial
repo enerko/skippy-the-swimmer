@@ -9,6 +9,6 @@ PhysicMaterial:
   m_Name: Bed Bounce
   dynamicFriction: 0
   staticFriction: 0
-  bounciness: 0.99
+  bounciness: 0.95
   frictionCombine: 1
   bounceCombine: 3

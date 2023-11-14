@@ -255,6 +255,18 @@ public class Player : MonoBehaviour
         yield return null;  // coroutine should stop here
     }
 
+    // Detect pillow bounce
+    void OnCollisionEnter(Collision collision) {
+        if (collision.gameObject.name != "PillowCollider") {
+            return;
+        }
+
+        // if double jump is on, you should be able to jump once after bouncing
+        if (PlayerPowerup.DoubleJumpEnabled) {
+            hasUsedDoubleJump = false;
+        }
+    }
+
     // Detect groundedness
     void OnTriggerEnter(Collider other) {
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
