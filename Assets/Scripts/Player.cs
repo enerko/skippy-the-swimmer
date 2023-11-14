@@ -65,20 +65,19 @@ public class Player : MonoBehaviour
     {
         if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) return;  // dont jump during a convo
 
-        float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
         if (s_Grounded)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
             hasUsedDoubleJump = false;
 
             AudioClip jumpNoise = s_InWater ? wetJump : dryJump;
-            AudioSource.PlayClipAtPoint(jumpNoise, transform.position, volume);
+            CameraMain.PlaySFX(jumpNoise);
         }
         else if (PlayerPowerup.DoubleJumpEnabled && !hasUsedDoubleJump)
         {
             _rb.velocity = new Vector3(_rb.velocity.x, Jump, _rb.velocity.z);
             hasUsedDoubleJump = true;
-            AudioSource.PlayClipAtPoint(whooshJump, transform.position, volume);
+            CameraMain.PlaySFX(whooshJump);
         }
     }
 
@@ -126,8 +125,7 @@ public class Player : MonoBehaviour
             AudioClip[] clips = s_InWater ? wetSteps : drySteps;
             _stepAudioTime = _timer;
 
-            float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
-            AudioSource.PlayClipAtPoint(clips[UnityEngine.Random.Range(0, clips.Length)], transform.position, volume);
+            CameraMain.PlaySFX(clips[UnityEngine.Random.Range(0, clips.Length)]);
         }
 
         // move the aim object to move the neck, more noticeable when turning
@@ -219,8 +217,7 @@ public class Player : MonoBehaviour
     private IEnumerator TailAttack() {
         s_IsAttacking = true;
 
-        float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
-        AudioSource.PlayClipAtPoint(tailSwipeSound, transform.position, volume);
+        CameraMain.PlaySFX(tailSwipeSound);
 
         Collider[] collided = Physics.OverlapSphere(transform.position, TailAttackRadius, LayerMask.GetMask("Interactable"));
 
@@ -264,8 +261,7 @@ public class Player : MonoBehaviour
         s_Grounded = true;
 
         if (_rb.velocity.y < -0.1f) {
-            float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
-            AudioSource.PlayClipAtPoint(landing, transform.position, volume);
+            CameraMain.PlaySFX(landing);
         }
     }
 

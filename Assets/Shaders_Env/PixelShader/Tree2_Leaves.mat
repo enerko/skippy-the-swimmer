@@ -41,11 +41,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Brightness: 0.82
+    - _Brightness: 0.68
     - _Color_Texture: 0
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Range: 0.39
+    - _Range: 0.43
     - _RimAmount: 0.78
     - _SpecularIntensity: 1
     - _SpecularRange: 0.5

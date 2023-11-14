@@ -10,6 +10,7 @@ public class CameraMain : MonoBehaviour
     public static Transform s_CameraOverride;  // set this to force camera transform (in override mode iff this is non-null)
     public static bool s_OverrideTransitioning = false;  // if transitioning between free mode and override
     public const float OverrideTime = 0.75f;
+    public static AudioSource s_SfxSource;
 
     public Transform goalTransform;
     public Vector3 offset = new Vector3(0, 2, -7);
@@ -38,6 +39,8 @@ public class CameraMain : MonoBehaviour
         {
             OnCutSceneEnd();
         }
+
+        s_SfxSource = GetComponent<AudioSource>();
     }
 
     public void PerformCameraRotate(InputValue inputValue)
@@ -114,6 +117,10 @@ public class CameraMain : MonoBehaviour
         Vector3 customPoint = new Vector3(point.x / Camera.main.pixelWidth * gameUI.rect.width, point.y / Camera.main.pixelHeight * gameUI.rect.height,0);
 
         return customPoint;
+    }
+
+    public static void PlaySFX(AudioClip clip) {
+        s_SfxSource.PlayOneShot(clip);
     }
 
     public void OnCutSceneStart()

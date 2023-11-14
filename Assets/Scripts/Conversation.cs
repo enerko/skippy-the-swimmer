@@ -123,8 +123,7 @@ public class Conversation : MonoBehaviour
 
             _currentDialogue += c;
             _dialogueSection.text = _currentDialogue;
-            float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
-            AudioSource.PlayClipAtPoint(clips[Random.Range(0, clips.Length)], dialogue.speaker.transform.position, volume);
+            CameraMain.PlaySFX(clips[Random.Range(0, clips.Length)]);
             yield return new WaitForSeconds(_typeDelay);
         }
 

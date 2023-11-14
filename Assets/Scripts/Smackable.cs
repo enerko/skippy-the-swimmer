@@ -9,8 +9,7 @@ public class Smackable : Interactable
 
     public override void Activate() {
         if (_activateSound) {
-            float volume = PlayerPrefs.GetFloat("SFX Volume", 1);
-            AudioSource.PlayClipAtPoint(_activateSound, transform.position, volume);
+            CameraMain.PlaySFX(_activateSound);
         }
     }
 }
