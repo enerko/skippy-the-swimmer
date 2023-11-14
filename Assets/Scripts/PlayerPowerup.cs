@@ -58,8 +58,12 @@ public class PlayerPowerup : MonoBehaviour
         _mainMusicSource.enabled = false;
         _powerupBaseSource.enabled = true;
         _doubleJumpSource.enabled = true;
-        _powerupBaseSource.Play();
-        _doubleJumpSource.Play();
+
+        if (!_powerupBaseSource.isPlaying)
+            _powerupBaseSource.Play();
+        if (!_doubleJumpSource.isPlaying)
+            _doubleJumpSource.Play();
+            
         DoubleJumpEnabled = true;
 
         _doubleJumpUI?.Show();
