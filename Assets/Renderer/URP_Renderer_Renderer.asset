@@ -42,6 +42,48 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
+--- !u!114 &-8559560561993307791
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: RenderObjects
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: RenderObjects
+    Event: 300
+    filterSettings:
+      RenderQueueType: 1
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 16384
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: fc2ef7716bf8ee3409e6927e06edcfd5, type: 2}
+    overrideMaterialPassIndex: 1
+    overrideShader: {fileID: 0}
+    overrideShaderPassIndex: 0
+    overrideMode: 1
+    overrideDepthState: 0
+    depthCompareFunction: 4
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
 --- !u!114 &-4436064227568377171
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -216,7 +258,8 @@ MonoBehaviour:
   - {fileID: -8821247714382421197}
   - {fileID: -2319413975952779229}
   - {fileID: -1783237771363069023}
-  m_RendererFeatureMap: 2903d0b78485ee7cad22f89a16ef6fc25364cb9c7b64a1415058a01f3debfc5e82c09b40ea2843fa64ee8f524c37ad6d336382d4f0a194852318421447c9cfdfa153d8e7b1aa40e7
+  - {fileID: -8559560561993307791}
+  m_RendererFeatureMap: 2903d0b78485ee7cad22f89a16ef6fc25364cb9c7b64a1415058a01f3debfc5e82c09b40ea2843fa64ee8f524c37ad6d336382d4f0a194852318421447c9cfdfa153d8e7b1aa40e77129f2f404553689
   m_UseNativeRenderPass: 0
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
