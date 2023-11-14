@@ -38,6 +38,7 @@ public class Player : MonoBehaviour
     public AudioClip wetJump;
     public AudioClip whooshJump;
     public AudioClip landing;
+    public AudioClip boing;
     public GameObject plrMesh;
     public Rig lookAtRig;
     public GameObject aim;
@@ -260,6 +261,8 @@ public class Player : MonoBehaviour
         if (collision.gameObject.name != "PillowCollider") {
             return;
         }
+
+        CameraMain.PlaySFX(boing);
 
         // if double jump is on, you should be able to jump once after bouncing
         if (PlayerPowerup.DoubleJumpEnabled) {
