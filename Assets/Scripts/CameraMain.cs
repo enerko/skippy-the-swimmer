@@ -98,7 +98,7 @@ public class CameraMain : MonoBehaviour
             LayerMask.GetMask("Glass"));
 
         if (Physics.Raycast(ray, out hit, offset.magnitude, ignore, QueryTriggerInteraction.Ignore)) {
-            goalTransform.position = hit.point + hit.normal * 0.1f;  // small buffer??
+            goalTransform.position = hit.point + hit.normal * 0.1f;  // small buffer to prevent clipping thru nearby walls
         }
 
         // If transitioning out of override...
