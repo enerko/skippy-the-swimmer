@@ -24,7 +24,7 @@ public class ControllerTypeHandler : MonoBehaviour
         LEFT,
         EAST,
         WEST,
-        WEST_DARK,
+        //WEST_DARK,
         SOUTH
     }
 
@@ -61,9 +61,9 @@ public class ControllerTypeHandler : MonoBehaviour
             case PromptKey.WEST:
                 text = Resources.Load<Texture2D>("prompt_WEST");
                 break;
-            case PromptKey.WEST_DARK:
-                text = Resources.Load<Texture2D>("prompt_darkoutline_WEST");
-                break;
+            // case PromptKey.WEST_DARK:
+            //     text = Resources.Load<Texture2D>("prompt_darkoutline_WEST");
+            //     break;
             case PromptKey.SOUTH:
                 text = Resources.Load<Texture2D>("prompt_SOUTH");
                 break;
@@ -83,7 +83,7 @@ public class ControllerTypeHandler : MonoBehaviour
 
     private void OnControlsChanged(PlayerInput obj)
     {
-         foreach (var device in obj.devices)
+        foreach (var device in obj.devices)
         {
             var name = device.description.ToString().ToLower();
             if (!name.Contains("keyboard") && !name.Contains("mouse")) {
