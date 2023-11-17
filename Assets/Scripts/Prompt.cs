@@ -5,6 +5,7 @@ using Unity.Burst.Intrinsics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
 
 public class Prompt : MonoBehaviour
 {
@@ -57,11 +58,8 @@ public class Prompt : MonoBehaviour
         TextMeshProUGUI text = clone.transform.Find("Text").GetComponent<TextMeshProUGUI>();
         text.text = promptText;
 
-        Image controllerIcon = clone.transform.Find("Controller Icon").GetComponent<Image>();
-        controllerIcon.sprite = GetIcon(promptKeyController);
-
-        Image keyboardIcon = clone.transform.Find("Keyboard Icon").GetComponent<Image>();
-        keyboardIcon.sprite = GetIcon(promptKeyKeyboard);
+        Image promptIcon = clone.transform.Find("Prompt Icon").GetComponent<Image>();
+        promptIcon.sprite = InputHandler.currentControlDevice == InputHandler.ControlDeviceType.Gamepad ?  GetIcon(promptKeyController) :  GetIcon(promptKeyKeyboard);
 
         return clone;
     }

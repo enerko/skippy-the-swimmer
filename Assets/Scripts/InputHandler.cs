@@ -5,6 +5,14 @@ using UnityEngine.InputSystem;
 
 public class InputHandler : MonoBehaviour
 {
+    public enum ControlDeviceType
+    {
+        Keyboard,
+        Gamepad,
+    }
+     public static ControlDeviceType currentControlDevice = ControlDeviceType.Keyboard;
+     private PlayerInput _controls;
+        
     private Player player;
     private CameraMain cameraMain;
     private PlayerControls playerControls;
@@ -13,9 +21,27 @@ public class InputHandler : MonoBehaviour
     private void Awake()
     {
         playerControls = new PlayerControls();
+
+         _controls = FindObjectOfType<PlayerInput>();
+        _controls.onControlsChanged += OnControlsChanged;
+        OnControlsChanged(_controls);
+
         player = GameObject.FindFirstObjectByType<Player>();
         cameraMain = GameObject.FindFirstObjectByType<CameraMain>();
         achievements = FindObjectOfType<AchievementsManager>();
+    }
+
+    private void OnControlsChanged(PlayerInput obj)
+    {
+         foreach (var device in obj.devices)
+        {
+            var name = device.description.ToString().ToLower();
+            if (!name.Contains("keyboard") && !name.Contains("mouse")) {
+                currentControlDevice = ControlDeviceType.Gamepad;
+                return;
+            }
+        }
+        currentControlDevice = ControlDeviceType.Keyboard;
     }
 
     private void OnJump()
