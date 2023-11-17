@@ -9,22 +9,9 @@ using UnityEngine.InputSystem;
 
 public class Prompt : MonoBehaviour
 {
-    public enum PromptKey {
-        Q,
-        E,
-        SPACE,
-        TAB,
-        WASD,
-        MOUSE,
-        LEFT,
-        EAST,
-        WEST,
-        SOUTH
-    }
-
     public string promptText;  // what to do?
-    public PromptKey promptKeyController;  // which key to prompt?
-    public PromptKey promptKeyKeyboard;
+    public ControllerTypeHandler.PromptKey promptKeyController;  // which key to prompt?
+    public ControllerTypeHandler.PromptKey promptKeyKeyboard;
     public bool hidden = false;  // use this to override whether the prompt should be shown at all
 
     private GameObject _promptTemplate;
@@ -59,52 +46,13 @@ public class Prompt : MonoBehaviour
         text.text = promptText;
 
         Image promptIcon = clone.transform.Find("Prompt Icon").GetComponent<Image>();
-        promptIcon.sprite = InputHandler.currentControlDevice == InputHandler.ControlDeviceType.Gamepad ?  GetIcon(promptKeyController) :  GetIcon(promptKeyKeyboard);
-
-        return clone;
-    }
-
-    // Use this prompt's promptKey attribute to return the corresponding icon to use
-    // Lord help us
-    Sprite GetIcon(PromptKey promptKey) {
-        Texture2D text;
-
-        switch(promptKey) {
-            case PromptKey.Q:
-                text = Resources.Load<Texture2D>("prompt_Q");
-                break;
-            case PromptKey.E:
-                text = Resources.Load<Texture2D>("prompt_E");
-                break;
-            case PromptKey.SPACE:
-                text = Resources.Load<Texture2D>("prompt_SPACE");
-                break;
-            case PromptKey.TAB:
-                text = Resources.Load<Texture2D>("prompt_TAB");
-                break;
-            case PromptKey.WASD:
-                text = Resources.Load<Texture2D>("prompt_WASD");
-                break;
-            case PromptKey.MOUSE:
-                text = Resources.Load<Texture2D>("prompt_MOUSE");
-                break;
-            case PromptKey.LEFT:
-                text = Resources.Load<Texture2D>("prompt_LEFT");
-                break;
-            case PromptKey.EAST:
-                text = Resources.Load<Texture2D>("prompt_EAST");
-                break;
-            case PromptKey.WEST:
-                text = Resources.Load<Texture2D>("prompt_WEST");
-                break;
-            case PromptKey.SOUTH:
-                text = Resources.Load<Texture2D>("prompt_SOUTH");
-                break;
-            default:
-                return null;
+        if (ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad) {
+            promptIcon.sprite = ControllerTypeHandler.GetIcon(promptKeyController);
+        } else {
+            promptIcon.sprite =  ControllerTypeHandler.GetIcon(promptKeyKeyboard);
         }
-
-        return Sprite.Create(text, new Rect(0.0f, 0.0f, text.width, text.height), new Vector2(0.5f, 0.5f));
+        
+        return clone;
     }
 
     void OnTriggerStay(Collider other) {
