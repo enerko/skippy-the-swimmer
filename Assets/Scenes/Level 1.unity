@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.172768, g: 0.21589167, b: 0.29782546, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3157,7 +3157,7 @@ MonoBehaviour:
   promptText: Talk
   promptKeyController: 8
   promptKeyKeyboard: 1
-  active: 0
+  hidden: 0
   conversation: {fileID: 34003485}
   force: 1
   finishedFirstConvo:
@@ -13579,7 +13579,7 @@ MeshCollider:
   serializedVersion: 5
   m_Convex: 0
   m_CookingOptions: 30
-  m_Mesh: {fileID: 7982474234915689752, guid: aa6ced3c9f5069f4c8120095314f9e9b, type: 3}
+  m_Mesh: {fileID: 6764858414801695576, guid: aa6ced3c9f5069f4c8120095314f9e9b, type: 3}
 --- !u!114 &8616164748809589733
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13711,7 +13711,7 @@ MonoBehaviour:
   promptText: Break
   promptKeyController: 7
   promptKeyKeyboard: 0
-  active: 0
+  hidden: 0
 --- !u!114 &8688841057839664871
 MonoBehaviour:
   m_ObjectHideFlags: 0
