@@ -120,6 +120,8 @@ public class Player : MonoBehaviour
         // set animator to play walk
         float inputMagnitude = new Vector2(_horizInput.x, _horizInput.z).magnitude;
         animator.SetBool("IsWalking", inputMagnitude > 0.1f);
+        animator.SetBool("IsGrounded", s_Grounded);
+        animator.SetFloat("VeloY", _rb.velocity.y);
 
         // play footsteps
         if (s_Grounded && _timer - _stepAudioTime >= StepAudioDelay && _horizInput.magnitude > 0.01) {
