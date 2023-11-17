@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.Burst.Intrinsics;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,12 +24,13 @@ public class Prompt : MonoBehaviour
     public string promptText;  // what to do?
     public PromptKey promptKeyController;  // which key to prompt?
     public PromptKey promptKeyKeyboard;
-    public bool active;  // if prompt should be shown
+    public bool hidden = false;  // use this to override whether the prompt should be shown at all
 
     private GameObject _promptTemplate;
     private GameObject _promptContainer;
     private GameObject _promptGui;
-    private bool _disabled;  // if the Disable method was called
+    private bool _disabled;  // if the Disable method was called, completely ending this prompt
+    protected bool _active;  // if prompt should be shown when not hidden
 
     protected void Start() {
         _promptTemplate = GameObject.Find("/Game UI/Prompt Template");
@@ -43,9 +45,10 @@ public class Prompt : MonoBehaviour
         if (_disabled) {
             return;
         }
+
         // move it with the camera
         _promptGui.GetComponent<RectTransform>().anchoredPosition = CameraMain.CustomWorldToScreenPoint(transform.position);
-        _promptGui.SetActive(active);
+        _promptGui.SetActive(hidden ? false : _active);
     }
 
     // Create the prompt gui for this prompt
@@ -107,17 +110,21 @@ public class Prompt : MonoBehaviour
     }
 
     void OnTriggerStay(Collider other) {
-        active = true;
+        _active = true;
     }
 
     void OnTriggerExit(Collider other) {
-        active = false;
+        _active = false;
     }
 
     // Completely disable this prompt
     public void Disable() {
-        active = false;
+        _active = false;
         _disabled = true;
         Destroy(_promptGui);
+    }
+
+    public void SetHidden(bool v) {
+        hidden = v;
     }
 }

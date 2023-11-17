@@ -22,11 +22,11 @@ public class ConversationPrompt : Prompt
     {
         // disable it when the player talks to an npc
         if (Player.s_ConversationActive) {
-            active = false;
+            _active = false;
         } else if (Player.s_CurrentConversation == conversation && !force) {  // if this prompt has control over the gui
-            active = true;
+            _active = true;
         } else if (Player.s_CurrentConversation is null) {  // disable it when player is out of any prompt's range
-            active = false;
+            _active = false;
         }
 
         base.Update();
