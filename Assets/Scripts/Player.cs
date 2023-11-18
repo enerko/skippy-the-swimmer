@@ -49,7 +49,8 @@ public class Player : MonoBehaviour
     private HealthBar _healthBar;
     private Quaternion _relativeRotation;
     private Color _originalColor;
-    
+    private bool _triggerDetectingGround = false;  // if the attached trigger is in the ground
+
     // Start is called before the first frame update
     void Start()
     {
@@ -166,6 +167,9 @@ public class Player : MonoBehaviour
     {
         if (Globals.s_GameIsPaused) return;
 
+        animator.SetBool("IsGrounded", s_Grounded);
+        animator.SetFloat("VeloY", _rb.velocity.y);
+
         if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) {
             _horizInput = Vector3.zero;  // don't continue walking if you walk into npc and talk at the same time
         }
@@ -190,7 +194,14 @@ public class Player : MonoBehaviour
         Physics.Raycast(transform.position + transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore) ||
         Physics.Raycast(transform.position - transform.forward * 0.5f, -Vector3.up, out hit, 1, ~LayerMask.GetMask("Player"), QueryTriggerInteraction.Ignore);
 
-        float slopeAngle = s_Grounded ? Vector3.Angle(Vector3.up, hit.normal) : 0;
+        float slopeAngle = 0;
+
+        if (raycast) {
+            s_Grounded = true;
+            slopeAngle = Vector3.Angle(Vector3.up, hit.normal);
+        } else {
+            s_Grounded = _triggerDetectingGround;  // the trigger is a failsafe
+        }
 
         Vector3 lookDirection;
         Vector3 goalUpDirection = slopeAngle >= 35 ? Vector3.up : hit.normal;  // can't climb steep things
@@ -274,10 +285,10 @@ public class Player : MonoBehaviour
         }
     }
 
-    // Detect groundedness
+    // Detect groundedness with a collider IN CASE RAYCASTING DOESN'T DETECT IT
     void OnTriggerEnter(Collider other) {
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
-        s_Grounded = true;
+        _triggerDetectingGround = true;
 
         if (_rb.velocity.y < -0.1f) {
             CameraMain.PlaySFX(landing);
@@ -286,12 +297,12 @@ public class Player : MonoBehaviour
 
     void OnTriggerStay(Collider other) {
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
-        s_Grounded = true;
+        _triggerDetectingGround = true;
     }
 
     void OnTriggerExit(Collider other) {
         if (other.isTrigger) return;  // other must not be another trigger, must be collideable
-        s_Grounded = false;
+        _triggerDetectingGround = false;
     }
 
     private void UpdatePlayerColor()
