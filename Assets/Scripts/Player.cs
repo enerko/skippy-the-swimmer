@@ -73,6 +73,7 @@ public class Player : MonoBehaviour
 
             AudioClip jumpNoise = s_InWater ? wetJump : dryJump;
             CameraMain.PlaySFX(jumpNoise);
+
         }
         else if (PlayerPowerup.DoubleJumpEnabled && !hasUsedDoubleJump)
         {
@@ -80,6 +81,7 @@ public class Player : MonoBehaviour
             hasUsedDoubleJump = true;
             CameraMain.PlaySFX(whooshJump);
         }
+        StartCoroutine(OnJump());
     }
 
     public void PerformMove(InputValue inputValue)
@@ -214,6 +216,16 @@ public class Player : MonoBehaviour
         // Update velocity
         float speed = PlayerHealth.s_Health <= 0 ? _baseSpeed / 2 : _baseSpeed;
         _rb.velocity = horizVelo * speed + new Vector3(0, currVelo.y, 0);
+
+    }
+
+    private IEnumerator OnJump()
+    {
+        yield return new WaitUntil(() => s_Grounded == false);
+        lookAtRig.weight = 0;
+
+        yield return new WaitUntil(() => s_Grounded == true);
+        lookAtRig.weight = 1;
     }
 
     // perform tail attack (and spin animation)
