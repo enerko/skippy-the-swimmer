@@ -203,17 +203,20 @@ public class Player : MonoBehaviour
             s_Grounded = _triggerDetectingGround;  // the trigger is a failsafe
         }
 
-        Vector3 lookDirection;
+        //Vector3 lookDirection;
         Vector3 goalUpDirection = slopeAngle >= 35 ? Vector3.up : hit.normal;  // can't climb steep things
 
         // Rotate in such a way that Skippy is aligned to the ground (do not rotate further when spinning)
         if (horizVelo.magnitude > 0.01f) {
             _rb.constraints = RigidbodyConstraints.FreezeRotation;
 
-            Vector3 goalDirection = s_Grounded ? Vector3.ProjectOnPlane(horizVelo, hit.normal).normalized : horizVelo;
-            lookDirection = Vector3.Slerp(transform.forward, goalDirection, 0.5f).normalized;
+            Vector3 goalDirection = s_Grounded ? Vector3.ProjectOnPlane(horizVelo, hit.normal).normalized : horizVelo;  // look towards
+            Quaternion goalRotation = Quaternion.LookRotation(goalDirection, goalUpDirection);
+            transform.rotation = Quaternion.Slerp(transform.rotation, goalRotation, 0.25f);
+
+            // lookDirection = Vector3.Slerp(transform.forward, goalDirection, 0.5f).normalized;
     
-            transform.LookAt(transform.position + lookDirection, Vector3.Slerp(transform.up, goalUpDirection, 0.25f));
+            // transform.LookAt(transform.position + lookDirection, Vector3.Slerp(transform.up, goalUpDirection, 0.25f));
         } else {
             horizVelo = Vector3.zero;
             _rb.constraints |= RigidbodyConstraints.FreezePositionX | RigidbodyConstraints.FreezePositionZ;
