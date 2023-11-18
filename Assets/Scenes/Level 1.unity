@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 3
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: c006999c846611b469c5c10a84ec0617, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17276844, g: 0.21589245, b: 0.2978263, a: 1}
+  m_IndirectSpecularColor: {r: 0.0645927, g: 0.40579355, b: 0.6212224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3329,7 +3329,6 @@ GameObject:
   - component: {fileID: 1360259765}
   - component: {fileID: 1360259769}
   - component: {fileID: 1360259768}
-  - component: {fileID: 1360259767}
   - component: {fileID: 1360259766}
   m_Layer: 0
   m_Name: Energy_1
@@ -3374,19 +3373,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.05, y: 0.0061773285, z: 0.05000001}
   m_Center: {x: -0.000000014937914, y: 0.0002640106, z: -0.000000014906869}
---- !u!114 &1360259767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1360259764}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688bd30e703534c9790c5f3a23520217, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeOfPowerup: 0
 --- !u!23 &1360259768
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -4465,10 +4451,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3510046226438718921, guid: 719e828ea782a4640a5d1aec33c16943, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfa78c1a54da4ac49b5b09db107902e1, type: 2}
     - target: {fileID: 919132149155446097, guid: 719e828ea782a4640a5d1aec33c16943, type: 3}
       propertyPath: m_Name
       value: Bird_Character_model_textured
       objectReference: {fileID: 0}
+    - target: {fileID: 4762339618235258874, guid: 719e828ea782a4640a5d1aec33c16943, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: dfa78c1a54da4ac49b5b09db107902e1, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
