@@ -14,11 +14,13 @@ public class PlayerHealth : MonoBehaviour
     
     private float _timer = 0;
     private const float InvulTime = 0.75f;
+    
+    private HealthBar _healthBar;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        _healthBar = FindObjectOfType<HealthBar>();
     }
 
     void Update()
@@ -51,6 +53,7 @@ public class PlayerHealth : MonoBehaviour
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag != "Water") return;
         Player.s_InWater = true;
+        _healthBar.EnterWater();
         
         CameraMain.PlaySFX(waterSplash);
     }

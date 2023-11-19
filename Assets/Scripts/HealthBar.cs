@@ -16,6 +16,8 @@ public class HealthBar : MonoBehaviour
 
     private Vector3 healthBarOffset = new Vector3(20, 30, 0); // Offset of the health bar above the player
 
+    private float _interpolationValue = 0f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +30,14 @@ public class HealthBar : MonoBehaviour
         {
             rectTransform.position = player.position + healthBarOffset;
         }
+        _interpolationValue = 1f;
     }
 
     void Update()
     {
         // only make it visible when below max health or when power up is enabled
         // setting active to false would disable the Update function, so gotta do a hacky way to hide it
-        if (PlayerHealth.s_Health < PlayerHealth.s_MaxHealth || PlayerPowerup.DoubleJumpEnabled) {
+        if ((slider.value < PlayerHealth.s_MaxHealth || PlayerPowerup.DoubleJumpEnabled) && !CameraMain.s_CutSceneActive) {
             rectTransform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         } else {
             rectTransform.localScale = Vector3.zero;
@@ -43,8 +46,17 @@ public class HealthBar : MonoBehaviour
         if (PlayerPowerup.DoubleJumpEnabled) {
             // hide health bar when showing power up bar
             slider.value = 0;
+            // don't animate bar filling up after power up
+            _interpolationValue = 1f; 
         } else {
-            slider.value = PlayerHealth.s_Health;
+            // increase bar gradually
+            if (slider.value != PlayerHealth.s_Health) {
+                _interpolationValue += 0.75f * Time.deltaTime;
+            }
+            if (_interpolationValue > 1f) {
+                _interpolationValue = 1f;
+            }
+            slider.value = Mathf.Lerp(slider.value, PlayerHealth.s_Health, _interpolationValue);
         }
 
         if (player != null)
@@ -97,6 +109,8 @@ public class HealthBar : MonoBehaviour
         else 
         {
             // full
+            Border.color = new Color32(255, 255, 255, 255);
+            Circle.color = new Color32(255, 255, 255, 255);
             HurtSkippy.enabled = false;
         }
     }
@@ -113,5 +127,11 @@ public class HealthBar : MonoBehaviour
 
         // don't flash for another 1.5 seconds
         yield return new WaitForSeconds(1.5f);
+    }
+
+    public void EnterWater() {
+        Border.color = new Color32(255, 255, 255, 255);
+        Circle.color = new Color32(255, 255, 255, 255);
+        _interpolationValue = 0f;
     }
 }
