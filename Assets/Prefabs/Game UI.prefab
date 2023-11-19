@@ -1390,7 +1390,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ff1278cb09c658428fc4c0a79fc79c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  promptKeyController: 10
+  promptKeyController: 9
   promptKeyKeyboard: 2
 --- !u!1 &2530568905211505365
 GameObject:
