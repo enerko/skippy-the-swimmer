@@ -32,15 +32,20 @@ public class HealthBar : MonoBehaviour
 
     void Update()
     {
-        // only make it visible when below max health
+        // only make it visible when below max health or when power up is enabled
         // setting active to false would disable the Update function, so gotta do a hacky way to hide it
-        if (PlayerHealth.s_Health < PlayerHealth.s_MaxHealth) {
+        if (PlayerHealth.s_Health < PlayerHealth.s_MaxHealth || PlayerPowerup.DoubleJumpEnabled) {
             rectTransform.localScale = new Vector3(0.8f, 0.8f, 0.8f);
         } else {
             rectTransform.localScale = Vector3.zero;
         }
 
-        slider.value = PlayerHealth.s_Health;
+        if (PlayerPowerup.DoubleJumpEnabled) {
+            // hide health bar when showing power up bar
+            slider.value = 0;
+        } else {
+            slider.value = PlayerHealth.s_Health;
+        }
 
         if (player != null)
         {

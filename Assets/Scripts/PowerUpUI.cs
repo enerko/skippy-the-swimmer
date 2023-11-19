@@ -5,19 +5,16 @@ using UnityEngine.UI;
 
 public class PowerUpUI : MonoBehaviour
 {
-    private Image _filterImage; // Reference to the Image component on this GameObject
+    public Slider slider;
+    public Image doubleJumpLogo;
     private GameObject _prompt;
     private float _time = 0;
 
     private void Start()
     {
-        // Get the Image component from this GameObject
-        _filterImage = GetComponent<Image>();
-       if (_filterImage != null)
-        {
-            // Start with the image disabled
-            _filterImage.enabled = false;
-        }
+        slider.maxValue = PlayerPowerup.PowerUpDuration;
+
+        doubleJumpLogo.enabled = false;
 
        _prompt = gameObject.transform.Find("Prompt").gameObject;
     }
@@ -27,24 +24,25 @@ public class PowerUpUI : MonoBehaviour
         if (_time > 0)
         {
             _time -= Time.deltaTime;
+            slider.value = _time;
         }
-        else if (_filterImage != null && _filterImage.enabled)
+        else if (doubleJumpLogo.enabled)
         {
-            // When the power-up duration ends, disable the image
-            _filterImage.enabled = false;
             _prompt.SetActive(false);
+            doubleJumpLogo.enabled = false;
         }
     }
 
     public void Show()
     {
         _time = PlayerPowerup.PowerUpDuration;
+        
 
-        // Enable the image when the power-up is active
-        if (_filterImage != null)
+        // Enable when the power-up becomes active
+        if (!doubleJumpLogo.enabled)
         {
-            _filterImage.enabled = true;
             _prompt.SetActive(true);
+            doubleJumpLogo.enabled = true;
         }
     }
 }
