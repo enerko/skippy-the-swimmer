@@ -6,8 +6,9 @@ public class LoadSceneButton : MonoBehaviour
 {
     public string sceneName;
     public bool hideCursor = true;  // should the next scene hide the cursor?
+    public bool resetTimer = false;
 
     public void LoadScene() {
-        Globals.LoadScene(sceneName, hideCursor);
+        Globals.LoadScene(sceneName, hideCursor, resetTimer);
     }
 }

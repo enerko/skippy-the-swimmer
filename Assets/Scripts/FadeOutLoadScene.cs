@@ -27,6 +27,6 @@ public class FadeOutLoadScene : MonoBehaviour
         fadeImage.CrossFadeAlpha(1, 3, false);
 
         yield return new WaitForSeconds(5);
-        Globals.LoadScene(sceneName, hideCursor);
+        Globals.LoadScene(sceneName, hideCursor, false);
     }
 }

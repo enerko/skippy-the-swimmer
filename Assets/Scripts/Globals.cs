@@ -11,12 +11,15 @@ public class Globals
     public static bool s_Restarted = false;
 
     // Load the given scene and reset the appropriate static vars
-    public static void LoadScene(string sceneName, bool hideCursor) {
+    public static void LoadScene(string sceneName, bool hideCursor, bool resetTimer) {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 
         // Hide cursor
         Cursor.lockState = hideCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !hideCursor;
+
+        if (resetTimer)
+            Timer.ResetTimer();
 
         // Reset the appropriate static vars
         PlayerHealth.s_Health = PlayerHealth.s_MaxHealth;

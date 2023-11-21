@@ -3182,6 +3182,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Tutorial
+  hideCursor: 1
+  resetTimer: 1
 --- !u!1001 &1603321741
 PrefabInstance:
   m_ObjectHideFlags: 0
