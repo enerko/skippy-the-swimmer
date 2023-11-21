@@ -19,7 +19,7 @@ public class AchievementsManager : MonoBehaviour
     private Achievement playInstrument = new Achievement("playInstrument", "Play an instrument");
     private Achievement painter = new Achievement("painter", "Become a painter");
     private Achievement pearlOne = new Achievement("pearlOne", "Collect a pearl");
-    private Achievement pearlAll = new Achievement("pearlAll", "Collect all the pearls");
+    private Achievement pearlAll = new Achievement("pearlAll", "Find every pearl in the room");
 
     private List<Achievement> achievements;
 
@@ -98,7 +98,7 @@ public class AchievementsManager : MonoBehaviour
             UnlockAchievement(breakOne);
         }
 
-        if (brokenObject.name == "Cookie_Jar")
+        if (brokenObject.name == "CookieJar")
         {
             UnlockAchievement(breakJar);
         }
