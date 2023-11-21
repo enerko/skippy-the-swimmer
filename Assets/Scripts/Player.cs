@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 using UnityEngine.InputSystem;
+using UnityEngine.Playables;
 
 public class Player : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class Player : MonoBehaviour
     private const float TailAttackRadius = 1.5f;
     private const float TailAttackDelay = 0.3f;  // how long tail attack lasts for
     private float _timer = 0;
+    private float _idleTimer = 0;
     private float _stepAudioTime = 0;
     private Rigidbody _rb;
     private Vector3 _horizInput;
@@ -61,11 +63,21 @@ public class Player : MonoBehaviour
         {
             _originalColor = plrRenderer.material.color;
         }
+
+        if (CameraMain.s_CutScenePlayed)
+        {
+            gameObject.GetComponent<PlayableDirector>().enabled = false;
+        }
     }
 
     public void PerformJump()
     {
         if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) return;  // dont jump during a convo
+
+        animator.SetBool("IsSleeping", false);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Lay down 0") ||
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Wake up") ||
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Sleep")) return;
 
         if (s_Grounded)
         {
@@ -87,6 +99,10 @@ public class Player : MonoBehaviour
     public void PerformMove(InputValue inputValue)
     {
         if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) return;
+        animator.SetBool("IsSleeping", false);
+        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Lay down 0") ||
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Wake up") ||
+            animator.GetCurrentAnimatorStateInfo(0).IsName("Sleep")) return;
 
         // Always change frame of reference when input is changed
         _relativeRotation = Camera.main.transform.rotation;
@@ -125,6 +141,21 @@ public class Player : MonoBehaviour
         animator.SetBool("IsGrounded", s_Grounded);
         animator.SetFloat("VeloY", _rb.velocity.y);
 
+       if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle 0") && !CameraMain.s_CutSceneActive && s_InWater)
+        {
+            _idleTimer += Time.deltaTime;
+            Debug.Log(_idleTimer.ToString());
+        }
+        else
+        {
+            _idleTimer = 0;
+        }
+
+        if (_idleTimer > 5)
+        {
+            animator.SetBool("IsSleeping", true);
+        }
+
         // play footsteps
         if (s_Grounded && _timer - _stepAudioTime >= StepAudioDelay && _horizInput.magnitude > 0.01) {
             AudioClip[] clips = s_InWater ? wetSteps : drySteps;
@@ -160,6 +191,7 @@ public class Player : MonoBehaviour
         }
 
         _timer += Time.deltaTime;
+        
     }
 
     // Physics stuff
