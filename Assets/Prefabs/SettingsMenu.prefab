@@ -1417,10 +1417,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 6857035392862110276}
   m_HandleRect: {fileID: 6528660268138912579}
   m_Direction: 0
-  m_MinValue: 5
+  m_MinValue: 2
   m_MaxValue: 10
   m_WholeNumbers: 0
-  m_Value: 5
+  m_Value: 4
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:

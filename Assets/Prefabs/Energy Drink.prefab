@@ -5026,7 +5026,7 @@ GameObject:
   - component: {fileID: 9005886920552771691}
   - component: {fileID: 8630258856962344782}
   - component: {fileID: 3928911243914908774}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ed_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5109,7 +5109,7 @@ GameObject:
   - component: {fileID: 4988071796803008055}
   - component: {fileID: 5035154072502268226}
   - component: {fileID: 1470589441347579450}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: ed_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}

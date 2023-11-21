@@ -6298,7 +6298,7 @@ GameObject:
   - component: {fileID: 1506944334}
   - component: {fileID: 1506944333}
   - component: {fileID: 1506944332}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Bottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8563,7 +8563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee3bc12abb8d8e4f914ef9eeeb375dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  newObjective: Find an escape route!
+  newObjective: It was a dream! Find an escape route!
 --- !u!135 &1959316962
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -10597,7 +10597,7 @@ GameObject:
   - component: {fileID: 7763456247117362569}
   - component: {fileID: 4612344297291568147}
   - component: {fileID: 7763456247117362570}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: dressMidRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11523,7 +11523,7 @@ GameObject:
   - component: {fileID: 901878263349204676}
   - component: {fileID: 4839728837871145821}
   - component: {fileID: 7631285798618065121}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: hamper
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11878,7 +11878,7 @@ GameObject:
   - component: {fileID: 1651572235418460345}
   - component: {fileID: 4672219811556301868}
   - component: {fileID: 7987719594440853195}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: dressBottom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12848,7 +12848,7 @@ GameObject:
   - component: {fileID: 2128884262220471281}
   - component: {fileID: 8087070331423836189}
   - component: {fileID: 8087070331423836190}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: dressTopLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13088,7 +13088,7 @@ GameObject:
   - component: {fileID: 3196821130385030465}
   - component: {fileID: 2406163260943430405}
   - component: {fileID: 8938776203768814203}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: dressTopRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
