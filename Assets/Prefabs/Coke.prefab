@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7285470704870832642}
   - component: {fileID: 7085606111329044781}
   - component: {fileID: 5043754939810375672}
-  m_Layer: 11
+  m_Layer: 4
   m_Name: Coke
   m_TagString: Water
   m_Icon: {fileID: 0}

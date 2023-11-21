@@ -161,4 +161,4 @@ MonoBehaviour:
   promptText: Break
   promptKeyController: 7
   promptKeyKeyboard: 0
-  active: 0
+  hidden: 0
