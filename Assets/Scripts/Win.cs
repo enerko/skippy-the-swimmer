@@ -8,8 +8,7 @@ public class Win : MonoBehaviour
 {
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            LevelManager.prevLevel = SceneManager.GetActiveScene().name;
-            Globals.LoadScene("Win");
+            Globals.LoadScene("Win", true);
         }
     }
 }

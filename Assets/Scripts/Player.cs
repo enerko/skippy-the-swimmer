@@ -144,7 +144,7 @@ public class Player : MonoBehaviour
        if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle 0") && !CameraMain.s_CutSceneActive && s_InWater)
         {
             _idleTimer += Time.deltaTime;
-            Debug.Log(_idleTimer.ToString());
+            //Debug.Log(_idleTimer.ToString());
         }
         else
         {

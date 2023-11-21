@@ -5,7 +5,9 @@ using UnityEngine;
 public class LoadSceneButton : MonoBehaviour
 {
     public string sceneName;
+    public bool hideCursor = true;  // should the next scene hide the cursor?
+
     public void LoadScene() {
-        Globals.LoadScene(sceneName);
+        Globals.LoadScene(sceneName, hideCursor);
     }
 }

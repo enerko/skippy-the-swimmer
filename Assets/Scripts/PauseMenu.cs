@@ -43,8 +43,8 @@ public class PauseMenu : MonoBehaviour
 
     void Pause ()
     {
-        // Cursor.lockState = CursorLockMode.None;
-        // Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
 
         resume.Select();
         pauseMenuUI.SetActive(true);

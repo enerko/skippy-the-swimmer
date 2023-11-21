@@ -565,6 +565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: Menu
+  hideCursor: 0
 --- !u!1 &897772630133310871
 GameObject:
   m_ObjectHideFlags: 0
@@ -4206,6 +4207,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneName: 
+  hideCursor: 1
 --- !u!1 &7516111858119590018
 GameObject:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class FadeOutLoadScene : MonoBehaviour
 {
     public string sceneName;
+    public bool hideCursor = true;
     public Image fadeImage;
 
     // The trigger is set so it only registers player collision, you can assume only the player triggers it
@@ -26,6 +27,6 @@ public class FadeOutLoadScene : MonoBehaviour
         fadeImage.CrossFadeAlpha(1, 3, false);
 
         yield return new WaitForSeconds(5);
-        Globals.LoadScene(sceneName);
+        Globals.LoadScene(sceneName, hideCursor);
     }
 }
