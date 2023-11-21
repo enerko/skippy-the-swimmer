@@ -70,7 +70,7 @@ public class CameraMain : MonoBehaviour
         goalTransform.position = _focus;
 
         // rotate
-        float sensitivity = PlayerPrefs.GetFloat("Sensitivity", 4) * 100;
+        float sensitivity = PlayerPrefs.GetFloat("Sensitivity", 4) * 50;
         // interpret it as degrees per second so it's FPS-invariant
         goalTransform.Rotate(new Vector3(0, _input.x * sensitivity * Time.deltaTime, 0), Space.World);
         goalTransform.Rotate(new Vector3(-_input.y * sensitivity * Time.deltaTime, 0, 0));

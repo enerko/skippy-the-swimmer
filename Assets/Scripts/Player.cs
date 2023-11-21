@@ -64,9 +64,11 @@ public class Player : MonoBehaviour
             _originalColor = plrRenderer.material.color;
         }
 
-        if (CameraMain.s_CutScenePlayed)
+        // the director only exists in the bedroom level, not the tutorial
+        PlayableDirector director = gameObject.GetComponent<PlayableDirector>();
+        if (CameraMain.s_CutScenePlayed && (director != null))
         {
-            gameObject.GetComponent<PlayableDirector>().enabled = false;
+            director.enabled = false;
         }
     }
 
