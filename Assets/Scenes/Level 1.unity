@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2669766, g: 0.59301186, b: 0.79907256, a: 1}
+  m_IndirectSpecularColor: {r: 0.26692784, g: 0.59301203, b: 0.7990748, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -7011,7 +7011,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1745524220}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Lid
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14803,7 +14803,7 @@ GameObject:
   - component: {fileID: 1987679676421431107}
   - component: {fileID: 721573112287088861}
   - component: {fileID: 5809505385256745357}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Cookie_Jar_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15274,7 +15274,7 @@ GameObject:
   - component: {fileID: 6317936536455762138}
   - component: {fileID: 6232015942871523822}
   - component: {fileID: 8779343314722465803}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: Cookie_Jar_02
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17125,9 +17125,9 @@ GameObject:
   - component: {fileID: 8688841057839664870}
   - component: {fileID: 8918839189155636438}
   - component: {fileID: 8918839189155636439}
-  m_Layer: 6
+  m_Layer: 13
   m_Name: CookieJar
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

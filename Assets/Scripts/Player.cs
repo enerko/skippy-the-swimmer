@@ -238,16 +238,16 @@ public class Player : MonoBehaviour
 
         CameraMain.PlaySFX(tailSwipeSound);
 
-        Collider[] collided = Physics.OverlapSphere(transform.position, TailAttackRadius, LayerMask.GetMask("Interactable"));
+        Collider[] collided = Physics.OverlapSphere(transform.position, TailAttackRadius);
 
         // process each object
         foreach (Collider other in collided) {
             Interactable interact = other.GetComponent<Interactable>();
 
-            if ((bool)!interact?.Activated)
+            if ((interact != null) && !interact.Activated) {
                 interact.Activate();
-
-            Debug.Log(other.gameObject);
+                Debug.Log(other.gameObject);
+            }
         }
 
         // do the tail attack animation

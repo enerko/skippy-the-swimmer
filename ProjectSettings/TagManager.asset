@@ -8,6 +8,7 @@ TagManager:
   - Impact
   - Puddle
   - Checkpoint
+  - Interactable
   layers:
   - Default
   - TransparentFX

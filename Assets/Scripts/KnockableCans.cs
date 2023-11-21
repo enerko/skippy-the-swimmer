@@ -11,6 +11,7 @@ public class KnockableCans : Interactable
 
     private Rigidbody _rigidbody;
     public Prompt interactPrompt;
+    public event Action<GameObject> ObjectKnockedOverEvent;
 
     private bool _isKnockedOver = false;
 
@@ -77,6 +78,4 @@ public class KnockableCans : Interactable
             Debug.LogError("EnergySpawn is not set or found in KnockableCans");
         }
     }
-    
-    public event Action<GameObject> ObjectKnockedOverEvent;
 }
