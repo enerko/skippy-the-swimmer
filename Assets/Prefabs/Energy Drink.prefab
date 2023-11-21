@@ -4909,7 +4909,7 @@ GameObject:
   - component: {fileID: 349920676162626652}
   - component: {fileID: 8604323644364273265}
   - component: {fileID: 2097637876097428848}
-  m_Layer: 9
+  m_Layer: 12
   m_Name: Energy
   m_TagString: Water
   m_Icon: {fileID: 0}
@@ -5159,7 +5159,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: -7725190479627813757, guid: 1671777250a2acb41a814f3289c546ef, type: 3}
+  - {fileID: 2100000, guid: 59110703cb65f0746bdee1ecab6285ea, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

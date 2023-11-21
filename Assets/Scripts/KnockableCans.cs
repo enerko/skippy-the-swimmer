@@ -11,7 +11,6 @@ public class KnockableCans : Interactable
 
     private Rigidbody _rigidbody;
     public Prompt interactPrompt;
-    public event Action<GameObject> ObjectKnockedOverEvent;
 
     private bool _isKnockedOver = false;
 
