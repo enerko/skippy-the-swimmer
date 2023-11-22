@@ -70,10 +70,10 @@ public class CameraMain : MonoBehaviour
         goalTransform.position = _focus;
 
         // rotate
-        float sensitivity = PlayerPrefs.GetFloat("Sensitivity", 4) * 50;
+        float sensitivity = PlayerPrefs.GetFloat("Sensitivity", 4);
         // interpret it as degrees per second so it's FPS-invariant
-        goalTransform.Rotate(new Vector3(0, _input.x * sensitivity * Time.deltaTime, 0), Space.World);
-        goalTransform.Rotate(new Vector3(-_input.y * sensitivity * Time.deltaTime, 0, 0));
+        goalTransform.Rotate(new Vector3(0, _input.x * sensitivity, 0), Space.World);
+        goalTransform.Rotate(new Vector3(-_input.y * sensitivity, 0, 0));
 
         // cap camera's pitch
         Vector3 currRotation = goalTransform.rotation.eulerAngles;
