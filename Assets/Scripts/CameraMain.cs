@@ -51,7 +51,7 @@ public class CameraMain : MonoBehaviour
     // separate one for the right joystick
     public void PerformCameraRotateJoystick(InputValue inputValue)
     {
-        _input = inputValue.Get<Vector2>() * PlayerPrefs.GetFloat("Sensitivity", 4) * 50 * Time.deltaTime;
+        _input = inputValue.Get<Vector2>() * PlayerPrefs.GetFloat("Sensitivity", 4) * 100 * Time.deltaTime;
     }
 
     // Update is called once per frame
