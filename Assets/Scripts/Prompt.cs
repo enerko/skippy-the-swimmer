@@ -6,12 +6,14 @@ using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
+using System;
 
 public class Prompt : MonoBehaviour
 {
     public string promptText;  // what to do?
     public ControllerTypeHandler.PromptKey promptKeyController;  // which key to prompt?
     public ControllerTypeHandler.PromptKey promptKeyKeyboard;
+    [NonSerialized]
     public bool hidden = false;  // use this to override whether the prompt should be shown at all
 
     private GameObject _promptTemplate;
