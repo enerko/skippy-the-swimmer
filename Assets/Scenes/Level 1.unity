@@ -1223,7 +1223,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8324810660250608540, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 37.41
       objectReference: {fileID: 0}
     - target: {fileID: 8324810660250608540, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -6177,7 +6177,7 @@ MonoBehaviour:
   promptText: Talk
   promptKeyController: 8
   promptKeyKeyboard: 1
-  hidden: 0
+  hidden: 1
   conversation: {fileID: 34003485}
   force: 1
   finishedFirstConvo:
@@ -6251,6 +6251,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 562322cc8ba3f7b4b97b373f0a11fcf7, type: 3}
   - {fileID: 8300000, guid: 509fdd20ee5ff464c99a982c5e9d3ac9, type: 3}
   - {fileID: 8300000, guid: 5d45c4fa0289254458eb8ebc4c89f2a0, type: 3}
+  theme: {fileID: 8300000, guid: 43a618b5079a2f9478dcbcd628f2a6ee, type: 3}
 --- !u!1 &1407141974
 GameObject:
   m_ObjectHideFlags: 0

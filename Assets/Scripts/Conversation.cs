@@ -34,6 +34,7 @@ public class Conversation : MonoBehaviour
     private ConversationPrompt _conversationPrompt;  // what prompt triggered this conversation?
     private Objectives _objectives;
     private Image _imageSection;
+    private bool themePlayed = false;
     
     void Start() {
         _dialogueBox = GameObject.Find("/Game UI/Dialogue Box");
@@ -56,11 +57,12 @@ public class Conversation : MonoBehaviour
     // Advance the convo and return if there is more
     public void Advance() {
         if (Globals.s_GameIsPaused) return;  // dont advance dialogue when paused
-
+        Debug.Log(index);
         // player must press advance in order to end a conversation
         if (index == dialogueChain.Length) {
             // end the convo
             index = 0;
+            themePlayed = false;
             Player.s_ConversationActive = false;  // oh god this definitely violates some sort of architecture rules :skull:
             Player.s_CurrentConversation = null;
             _dialogueBox.SetActive(false);
@@ -84,6 +86,13 @@ public class Conversation : MonoBehaviour
 
         _dialogueBox.SetActive(true);
         Dialogue dialogue = dialogueChain[index];
+        if (index == 0 && !themePlayed)
+        {
+            themePlayed = true;
+            AudioClip theme = dialogue.speaker.GetComponent<DialogueAudio>().theme;
+            CameraMain.PlaySFX(theme);
+        }
+
         // _speakerSection.text = dialogue.speaker.name;
         _imageSection.sprite = dialogue.speakerImage;
 
