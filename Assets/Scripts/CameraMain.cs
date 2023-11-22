@@ -45,7 +45,13 @@ public class CameraMain : MonoBehaviour
 
     public void PerformCameraRotate(InputValue inputValue)
     {
-        _input = inputValue.Get<Vector2>();
+        _input = inputValue.Get<Vector2>() * PlayerPrefs.GetFloat("Sensitivity", 4) * 0.5f;
+    }
+
+    // separate one for the right joystick
+    public void PerformCameraRotateJoystick(InputValue inputValue)
+    {
+        _input = inputValue.Get<Vector2>() * PlayerPrefs.GetFloat("Sensitivity", 4) * 50 * Time.deltaTime;
     }
 
     // Update is called once per frame
@@ -70,10 +76,9 @@ public class CameraMain : MonoBehaviour
         goalTransform.position = _focus;
 
         // rotate
-        float sensitivity = PlayerPrefs.GetFloat("Sensitivity", 4);
-        // interpret it as degrees per second so it's FPS-invariant
-        goalTransform.Rotate(new Vector3(0, _input.x * sensitivity, 0), Space.World);
-        goalTransform.Rotate(new Vector3(-_input.y * sensitivity, 0, 0));
+        // _input is already adjusted for sensitivity
+        goalTransform.Rotate(new Vector3(0, _input.x, 0), Space.World);
+        goalTransform.Rotate(new Vector3(-_input.y, 0, 0));
 
         // cap camera's pitch
         Vector3 currRotation = goalTransform.rotation.eulerAngles;
