@@ -83,12 +83,12 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": ""CameraRotateJoystick"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""250d5a2e-600c-4d6f-8139-b32103cdde4e"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
