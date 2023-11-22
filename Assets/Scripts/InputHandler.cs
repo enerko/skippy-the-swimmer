@@ -38,6 +38,11 @@ public class InputHandler : MonoBehaviour
         cameraMain?.PerformCameraRotate(inputValue);
     }
 
+    private void OnCameraRotateJoystick(InputValue inputValue) 
+    {
+        cameraMain?.PerformCameraRotateJoystick(inputValue);
+    }
+
     private void OnTalk()
     {
         player.PerformTalk();

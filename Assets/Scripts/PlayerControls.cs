@@ -80,6 +80,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""CameraRotateJoystick"",
+                    ""type"": ""Button"",
+                    ""id"": ""250d5a2e-600c-4d6f-8139-b32103cdde4e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -271,61 +280,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 },
                 {
-                    ""name"": ""2D Vector"",
-                    ""id"": ""8332f155-61f1-4b37-bc38-20a0372d5a85"",
-                    ""path"": ""2DVector(mode=2)"",
-                    ""interactions"": """",
-                    ""processors"": ""ScaleVector2(x=0.3,y=0.3)"",
-                    ""groups"": """",
-                    ""action"": ""CameraRotate"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""728048fc-9cc4-4aa1-9057-f4a90e306d5f"",
-                    ""path"": ""<Gamepad>/rightStick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CameraRotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""205d92e4-1365-4ba8-afd8-7c369acf7593"",
-                    ""path"": ""<Gamepad>/rightStick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CameraRotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""6a48ea76-1a77-457b-b96e-53e401305ca9"",
-                    ""path"": ""<Gamepad>/rightStick/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CameraRotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""fb1aaec7-ab9c-4d65-830b-9556ea9061ce"",
-                    ""path"": ""<Gamepad>/rightStick/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""CameraRotate"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
                     ""name"": """",
                     ""id"": ""6552d7b8-6529-45a0-b63a-5a39f058825f"",
                     ""path"": ""<Keyboard>/e"",
@@ -368,6 +322,61 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""ViewChecklist"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""bf2ea7c2-9505-49a3-b500-9c5518a2a0fe"",
+                    ""path"": ""2DVector(mode=2)"",
+                    ""interactions"": """",
+                    ""processors"": ""ScaleVector2(x=0.3,y=0.3)"",
+                    ""groups"": """",
+                    ""action"": ""CameraRotateJoystick"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""f82cc5e0-aa94-4083-b6f8-4069f7b84302"",
+                    ""path"": ""<Gamepad>/rightStick/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraRotateJoystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""98118934-2498-4898-8e1c-68f4a37649e5"",
+                    ""path"": ""<Gamepad>/rightStick/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraRotateJoystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""485218a6-5a56-4c5b-b38a-31c5c0976f8c"",
+                    ""path"": ""<Gamepad>/rightStick/left"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraRotateJoystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""215bc7a0-0aa7-4846-aa3b-e887abcb8415"",
+                    ""path"": ""<Gamepad>/rightStick/right"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CameraRotateJoystick"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -382,6 +391,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_CharacterMovement_CameraRotate = m_CharacterMovement.FindAction("CameraRotate", throwIfNotFound: true);
         m_CharacterMovement_Talk = m_CharacterMovement.FindAction("Talk", throwIfNotFound: true);
         m_CharacterMovement_ViewChecklist = m_CharacterMovement.FindAction("ViewChecklist", throwIfNotFound: true);
+        m_CharacterMovement_CameraRotateJoystick = m_CharacterMovement.FindAction("CameraRotateJoystick", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -449,6 +459,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterMovement_CameraRotate;
     private readonly InputAction m_CharacterMovement_Talk;
     private readonly InputAction m_CharacterMovement_ViewChecklist;
+    private readonly InputAction m_CharacterMovement_CameraRotateJoystick;
     public struct CharacterMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -459,6 +470,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @CameraRotate => m_Wrapper.m_CharacterMovement_CameraRotate;
         public InputAction @Talk => m_Wrapper.m_CharacterMovement_Talk;
         public InputAction @ViewChecklist => m_Wrapper.m_CharacterMovement_ViewChecklist;
+        public InputAction @CameraRotateJoystick => m_Wrapper.m_CharacterMovement_CameraRotateJoystick;
         public InputActionMap Get() { return m_Wrapper.m_CharacterMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -486,6 +498,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ViewChecklist.started += instance.OnViewChecklist;
             @ViewChecklist.performed += instance.OnViewChecklist;
             @ViewChecklist.canceled += instance.OnViewChecklist;
+            @CameraRotateJoystick.started += instance.OnCameraRotateJoystick;
+            @CameraRotateJoystick.performed += instance.OnCameraRotateJoystick;
+            @CameraRotateJoystick.canceled += instance.OnCameraRotateJoystick;
         }
 
         private void UnregisterCallbacks(ICharacterMovementActions instance)
@@ -508,6 +523,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @ViewChecklist.started -= instance.OnViewChecklist;
             @ViewChecklist.performed -= instance.OnViewChecklist;
             @ViewChecklist.canceled -= instance.OnViewChecklist;
+            @CameraRotateJoystick.started -= instance.OnCameraRotateJoystick;
+            @CameraRotateJoystick.performed -= instance.OnCameraRotateJoystick;
+            @CameraRotateJoystick.canceled -= instance.OnCameraRotateJoystick;
         }
 
         public void RemoveCallbacks(ICharacterMovementActions instance)
@@ -533,5 +551,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnCameraRotate(InputAction.CallbackContext context);
         void OnTalk(InputAction.CallbackContext context);
         void OnViewChecklist(InputAction.CallbackContext context);
+        void OnCameraRotateJoystick(InputAction.CallbackContext context);
     }
 }
