@@ -54,7 +54,8 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.tag != "Water") return;
         Player.s_InWater = true;
         _healthBar.EnterWater();
-        
+
+        if (other.gameObject.name == "WaterTank" || other.gameObject.name == "Spawn") return;
         CameraMain.PlaySFX(waterSplash);
     }
 
