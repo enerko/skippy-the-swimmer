@@ -15,7 +15,9 @@ public class CameraMain : MonoBehaviour
     public Transform goalTransform;
     public Vector3 offset = new Vector3(0, 2, -7);
 
-    private const int MaxPitch = 60;  // max vertical rotation bounds
+    // important: pitch is always between 0-360 so this is kinda weird, but look at the calculations below
+    private const int MinPitch = 15;  // cap how much you can look upwards
+    private const int MaxPitch = 60;  // cap how much you can look downwards
     private Vector3 _focus;
     private Vector3 _velocity;
     private Vector2 _input;
@@ -88,8 +90,8 @@ public class CameraMain : MonoBehaviour
        
         if (MaxPitch < currPitch && currPitch <= 90) {
             currPitch = MaxPitch;
-        } else if (270 <= currPitch && currPitch < 360 - MaxPitch) {
-            currPitch = -MaxPitch;
+        } else if (270 <= currPitch && currPitch < 360 - MinPitch) {
+            currPitch = -MinPitch;
         }   
 
         goalTransform.rotation = Quaternion.Euler(currPitch, currRotation.y, 0);
