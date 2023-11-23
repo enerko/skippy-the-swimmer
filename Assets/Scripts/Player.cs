@@ -246,7 +246,7 @@ public class Player : MonoBehaviour
 
             Vector3 goalDirection = s_Grounded ? Vector3.ProjectOnPlane(horizVelo, hit.normal).normalized : horizVelo;  // look towards
             Quaternion goalRotation = Quaternion.LookRotation(goalDirection, goalUpDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, goalRotation, 0.25f);
+            transform.rotation = Quaternion.Slerp(transform.rotation, goalRotation, 0.2f);
 
             // lookDirection = Vector3.Slerp(transform.forward, goalDirection, 0.5f).normalized;
     
@@ -262,8 +262,9 @@ public class Player : MonoBehaviour
 
         // Update velocity
         float speed = PlayerHealth.s_Health <= 0 ? _baseSpeed / 2 : _baseSpeed;
-        _rb.velocity = horizVelo * speed + new Vector3(0, currVelo.y, 0);
-
+        speed *= horizVelo.magnitude;
+        Vector3 newDirection = (Vector3.Scale(transform.forward, new Vector3(1, 0, 1)) * 0.25f + horizVelo * 0.75f).normalized;
+        _rb.velocity = newDirection * speed + new Vector3(0, currVelo.y, 0);
     }
 
     // perform tail attack (and spin animation)
