@@ -17,15 +17,6 @@ public class KnockableCans : Interactable
     void Start() {
         _rigidbody = GetComponent<Rigidbody>();
         playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-        if (_rigidbody == null) {
-            // Add Rigidbody dynamically if it's not attached
-            _rigidbody = gameObject.AddComponent<Rigidbody>();
-            _rigidbody.useGravity = true;
-            _rigidbody.isKinematic = true; // Make the Rigidbody kinematic initially
-        }
-        if (_energySpawn == null) {
-            _energySpawn = transform.Find("energyspawn")?.gameObject;
-        }
     }
 
     public override void Activate() {
@@ -34,7 +25,7 @@ public class KnockableCans : Interactable
             
             Vector3 directionToPlayer = (transform.position - playerTransform.position).normalized;
             
-            // Temporarily disable kinematic to apply physics force
+            // Fisable kinematic to apply physics force
             _rigidbody.isKinematic = false;
             _rigidbody.AddForce(directionToPlayer * _knockOverForce.magnitude, ForceMode.Impulse);
 
@@ -53,11 +44,11 @@ public class KnockableCans : Interactable
         }
     }
 
-    private void MakeRigidbodyKinematicAgain() {
-        if (_rigidbody != null) {
-            _rigidbody.isKinematic = true;
-        }
-    }
+    // private void MakeRigidbodyKinematicAgain() {
+    //     if (_rigidbody != null) {
+    //         _rigidbody.isKinematic = true;
+    //     }
+    // }
 
     private void SpawnLiquid() {
         if (_energySpawn != null) {
@@ -68,10 +59,7 @@ public class KnockableCans : Interactable
             // Raycast downwards from this forward position to find the ground
             RaycastHit hit;
             if (Physics.Raycast(forwardPosition, Vector3.down, out hit, 5, layerMask, QueryTriggerInteraction.Ignore)) {
-                // If hit, set the position of the energy spawn to the hit point
-                _energySpawn.transform.position = hit.point;
-                // Activate the energy spawn GameObject
-                _energySpawn.SetActive(true);
+                Instantiate(_energySpawn, hit.point, Quaternion.identity);
             }
         } else {
             Debug.LogError("EnergySpawn is not set or found in KnockableCans");
