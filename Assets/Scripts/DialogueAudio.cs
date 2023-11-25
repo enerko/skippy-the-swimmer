@@ -6,4 +6,5 @@ public class DialogueAudio : MonoBehaviour
 {
     public AudioClip[] clips;  // storage for audio sounds during dialogue
     public AudioClip theme;
+    public Animator animator;
 }

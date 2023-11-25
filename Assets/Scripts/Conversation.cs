@@ -57,7 +57,6 @@ public class Conversation : MonoBehaviour
     // Advance the convo and return if there is more
     public void Advance() {
         if (Globals.s_GameIsPaused) return;  // dont advance dialogue when paused
-        Debug.Log(index);
         // player must press advance in order to end a conversation
         if (index == dialogueChain.Length) {
             // end the convo
@@ -104,6 +103,13 @@ public class Conversation : MonoBehaviour
             
         } else {
             // Player is skipping dialogue or type writer effect has ended
+            Animator anim = dialogue.speaker.GetComponent<DialogueAudio>().animator;
+
+            if (anim != null)
+            {
+                anim.SetBool("IsTalking", false);
+            }
+
             StopCoroutine(_typing);
             _typing = null;
 
@@ -123,6 +129,7 @@ public class Conversation : MonoBehaviour
     // Typewriter coroutine
     private IEnumerator Typewrite(Dialogue dialogue) {
         AudioClip[] clips = dialogue.speaker.GetComponent<DialogueAudio>().clips;
+        Animator anim = dialogue.speaker.GetComponent<DialogueAudio>().animator;
 
         // Typewrite the dialogue
         foreach (char c in dialogue.dialogue.ToCharArray()) {
@@ -133,6 +140,12 @@ public class Conversation : MonoBehaviour
             _currentDialogue += c;
             _dialogueSection.text = _currentDialogue;
             CameraMain.PlaySFX(clips[Random.Range(0, clips.Length)]);
+
+            if (anim != null)
+            {
+                anim.SetBool("IsTalking", true);
+            }
+
             yield return new WaitForSeconds(_typeDelay);
         }
 
