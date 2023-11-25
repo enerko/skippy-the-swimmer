@@ -148,6 +148,10 @@ public class Conversation : MonoBehaviour
 
             yield return new WaitForSeconds(_typeDelay);
         }
+        if (anim != null)
+        {
+            anim.SetBool("IsTalking", false);
+        }
 
         // Typewriter effect has been completed, reset for the next advancement
         // (i.e. there is nothing to skip, next advancement is when player presses button)

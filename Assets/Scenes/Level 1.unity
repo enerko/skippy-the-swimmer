@@ -6261,6 +6261,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 509fdd20ee5ff464c99a982c5e9d3ac9, type: 3}
   - {fileID: 8300000, guid: 5d45c4fa0289254458eb8ebc4c89f2a0, type: 3}
   theme: {fileID: 8300000, guid: 43a618b5079a2f9478dcbcd628f2a6ee, type: 3}
+  animator: {fileID: 255376798}
 --- !u!1 &1407141974
 GameObject:
   m_ObjectHideFlags: 0
