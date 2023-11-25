@@ -12,18 +12,15 @@ public class PauseMenu : MonoBehaviour
     public GameObject mainPauseMenu;
     public Button resume;
 
-    // Update is called once per frame
-    void Update()
+    public void DisplayPauseMenu()
     {
-        if (Globals.s_CanPause && (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown("joystick button 7")))
+        if (Globals.s_GameIsPaused)
         {
-            if (Globals.s_GameIsPaused)
-            {
-                Resume();
-            } else
-            {
-                Pause();
-            }
+            Resume();
+        }
+        else
+        {
+            Pause();
         }
     }
 

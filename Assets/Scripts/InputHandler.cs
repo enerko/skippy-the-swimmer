@@ -9,6 +9,7 @@ public class InputHandler : MonoBehaviour
     private CameraMain cameraMain;
     private PlayerControls playerControls;
     private AchievementsManager achievements;
+    private PauseMenu pauseMenu;
 
     private void Awake()
     {
@@ -16,6 +17,7 @@ public class InputHandler : MonoBehaviour
         player = GameObject.FindFirstObjectByType<Player>();
         cameraMain = GameObject.FindFirstObjectByType<CameraMain>();
         achievements = FindObjectOfType<AchievementsManager>();
+        pauseMenu = GameObject.FindFirstObjectByType<PauseMenu>();
     }
 
     private void OnJump()
@@ -51,6 +53,11 @@ public class InputHandler : MonoBehaviour
     private void OnViewChecklist(InputValue inputValue) 
     {
         achievements?.DisplayAchievements(inputValue);
+    }
+
+    private void OnPause()
+    {
+        pauseMenu?.DisplayPauseMenu();
     }
 
 }

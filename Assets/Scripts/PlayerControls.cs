@@ -89,6 +89,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""50d3e704-8724-471f-a2b7-98fec126587b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -377,6 +386,28 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""CameraRotateJoystick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7cebd546-6972-42b1-9c3f-491744248ec5"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9e8bcfe4-c57c-4a68-b7fc-6fa5346a50bd"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -392,6 +423,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_CharacterMovement_Talk = m_CharacterMovement.FindAction("Talk", throwIfNotFound: true);
         m_CharacterMovement_ViewChecklist = m_CharacterMovement.FindAction("ViewChecklist", throwIfNotFound: true);
         m_CharacterMovement_CameraRotateJoystick = m_CharacterMovement.FindAction("CameraRotateJoystick", throwIfNotFound: true);
+        m_CharacterMovement_Pause = m_CharacterMovement.FindAction("Pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -460,6 +492,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterMovement_Talk;
     private readonly InputAction m_CharacterMovement_ViewChecklist;
     private readonly InputAction m_CharacterMovement_CameraRotateJoystick;
+    private readonly InputAction m_CharacterMovement_Pause;
     public struct CharacterMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -471,6 +504,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @Talk => m_Wrapper.m_CharacterMovement_Talk;
         public InputAction @ViewChecklist => m_Wrapper.m_CharacterMovement_ViewChecklist;
         public InputAction @CameraRotateJoystick => m_Wrapper.m_CharacterMovement_CameraRotateJoystick;
+        public InputAction @Pause => m_Wrapper.m_CharacterMovement_Pause;
         public InputActionMap Get() { return m_Wrapper.m_CharacterMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -501,6 +535,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @CameraRotateJoystick.started += instance.OnCameraRotateJoystick;
             @CameraRotateJoystick.performed += instance.OnCameraRotateJoystick;
             @CameraRotateJoystick.canceled += instance.OnCameraRotateJoystick;
+            @Pause.started += instance.OnPause;
+            @Pause.performed += instance.OnPause;
+            @Pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(ICharacterMovementActions instance)
@@ -526,6 +563,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @CameraRotateJoystick.started -= instance.OnCameraRotateJoystick;
             @CameraRotateJoystick.performed -= instance.OnCameraRotateJoystick;
             @CameraRotateJoystick.canceled -= instance.OnCameraRotateJoystick;
+            @Pause.started -= instance.OnPause;
+            @Pause.performed -= instance.OnPause;
+            @Pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(ICharacterMovementActions instance)
@@ -552,5 +592,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnTalk(InputAction.CallbackContext context);
         void OnViewChecklist(InputAction.CallbackContext context);
         void OnCameraRotateJoystick(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }
