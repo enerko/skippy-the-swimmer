@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public static bool s_ConversationActive = false;  // if currently in a convo
     public static Conversation s_CurrentConversation;  // if CAN begin a convo
     public static bool s_AchievementsOpen = false;
+    public static bool s_IsDashing;
 
     [SerializeField]
     private float _baseSpeed = 6;
@@ -52,13 +53,15 @@ public class Player : MonoBehaviour
     private Quaternion _relativeRotation;
     private Color _originalColor;
     private bool _triggerDetectingGround = false;  // if the attached trigger is in the ground
+    private float _dashTime = 0.5f;
+    private float _dashSpeed = 15;
 
     // Start is called before the first frame update
     void Start()
     {
         _rb = GetComponent<Rigidbody>();
         _healthBar = FindObjectOfType<HealthBar>();
-        
+
         if (plrRenderer != null)
         {
             _originalColor = plrRenderer.material.color;
@@ -110,6 +113,25 @@ public class Player : MonoBehaviour
         _relativeRotation = Camera.main.transform.rotation;
         Vector3 inputVector3 = inputValue.Get<Vector3>();
         _horizInput = new Vector3(inputVector3.x, 0, inputVector3.z);
+    }
+
+    public void PerformDash()
+    {
+        if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive 
+            || s_IsDashing || PlayerHealth.s_Health == 0) return;
+
+        StartCoroutine(DashCoroutine());
+
+    }
+    private IEnumerator DashCoroutine()
+    {
+        float startTime = Time.time; 
+        while (Time.time < startTime + _dashTime)
+        {
+            s_IsDashing = true;
+            yield return null; 
+        }
+        s_IsDashing = false;
     }
 
     public void PerformAttack(InputValue inputValue)
@@ -241,7 +263,7 @@ public class Player : MonoBehaviour
         Vector3 goalUpDirection = slopeAngle >= 35 ? Vector3.up : hit.normal;  // can't climb steep things
 
         // Rotate in such a way that Skippy is aligned to the ground (do not rotate further when spinning)
-        if (horizVelo.magnitude > 0.01f) {
+        if (horizVelo.magnitude > 0.01f || s_IsDashing) {
             _rb.constraints = RigidbodyConstraints.FreezeRotation;
 
             Vector3 goalDirection = s_Grounded ? Vector3.ProjectOnPlane(horizVelo, hit.normal).normalized : horizVelo;  // look towards
@@ -261,10 +283,12 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-        float speed = PlayerHealth.s_Health <= 0 ? _baseSpeed / 2 : _baseSpeed;
+        float speed = s_IsDashing ? _dashSpeed: _baseSpeed;
         speed *= horizVelo.magnitude;
         Vector3 newDirection = (Vector3.Scale(transform.forward, new Vector3(1, 0, 1)) * 0.25f + horizVelo * 0.75f).normalized;
-        _rb.velocity = newDirection * speed + new Vector3(0, currVelo.y, 0);
+
+         _rb.velocity = newDirection * speed + new Vector3(0, currVelo.y, 0);
+
     }
 
     // perform tail attack (and spin animation)

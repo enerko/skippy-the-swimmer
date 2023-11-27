@@ -98,6 +98,15 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""fa47e1a2-07a8-47b9-b02c-4ea71e5aeed0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -408,6 +417,17 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ae8b80fd-4907-40c2-bb50-b59033cd454f"",
+                    ""path"": ""<Keyboard>/shift"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -424,6 +444,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         m_CharacterMovement_ViewChecklist = m_CharacterMovement.FindAction("ViewChecklist", throwIfNotFound: true);
         m_CharacterMovement_CameraRotateJoystick = m_CharacterMovement.FindAction("CameraRotateJoystick", throwIfNotFound: true);
         m_CharacterMovement_Pause = m_CharacterMovement.FindAction("Pause", throwIfNotFound: true);
+        m_CharacterMovement_Dash = m_CharacterMovement.FindAction("Dash", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -493,6 +514,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
     private readonly InputAction m_CharacterMovement_ViewChecklist;
     private readonly InputAction m_CharacterMovement_CameraRotateJoystick;
     private readonly InputAction m_CharacterMovement_Pause;
+    private readonly InputAction m_CharacterMovement_Dash;
     public struct CharacterMovementActions
     {
         private @PlayerControls m_Wrapper;
@@ -505,6 +527,7 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         public InputAction @ViewChecklist => m_Wrapper.m_CharacterMovement_ViewChecklist;
         public InputAction @CameraRotateJoystick => m_Wrapper.m_CharacterMovement_CameraRotateJoystick;
         public InputAction @Pause => m_Wrapper.m_CharacterMovement_Pause;
+        public InputAction @Dash => m_Wrapper.m_CharacterMovement_Dash;
         public InputActionMap Get() { return m_Wrapper.m_CharacterMovement; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -538,6 +561,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Pause.started += instance.OnPause;
             @Pause.performed += instance.OnPause;
             @Pause.canceled += instance.OnPause;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
         }
 
         private void UnregisterCallbacks(ICharacterMovementActions instance)
@@ -566,6 +592,9 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
             @Pause.started -= instance.OnPause;
             @Pause.performed -= instance.OnPause;
             @Pause.canceled -= instance.OnPause;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
         }
 
         public void RemoveCallbacks(ICharacterMovementActions instance)
@@ -593,5 +622,6 @@ public partial class @PlayerControls: IInputActionCollection2, IDisposable
         void OnViewChecklist(InputAction.CallbackContext context);
         void OnCameraRotateJoystick(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
     }
 }

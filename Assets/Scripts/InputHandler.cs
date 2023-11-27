@@ -60,4 +60,9 @@ public class InputHandler : MonoBehaviour
         pauseMenu?.DisplayPauseMenu();
     }
 
+    private void OnDash()
+    {
+        player.PerformDash();
+    }
+
 }

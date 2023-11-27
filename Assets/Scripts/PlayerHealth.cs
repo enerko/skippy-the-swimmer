@@ -10,7 +10,7 @@ public class PlayerHealth : MonoBehaviour
     public static float s_Health = s_MaxHealth;
     public AudioClip waterSplash;
 
-    private float DamagePerSecond = 5;
+    private float DamagePerSecond = 50;
     
     private float _timer = 0;
     private const float InvulTime = 0.75f;
@@ -25,15 +25,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Update()
     {
-        // delay healthChange on state change (in/out of water)
-        if (Player.s_Invul) {
-            _timer += Time.deltaTime;
-            if (_timer >= InvulTime) {
-                Player.s_Invul = false;
-                _timer = 0;
-            }
-        }
-        else if (Player.s_ConversationActive) //|| Player.s_AchievementsOpen)
+
+        if (Player.s_ConversationActive) //|| Player.s_AchievementsOpen)
         {
             return;
         }
@@ -42,7 +35,9 @@ public class PlayerHealth : MonoBehaviour
             if (Player.s_InWater) {
                 // completely heal so player never runs out of health during power up
                 s_Health = s_MaxHealth;
-            } else {
+            } else if (Player.s_IsDashing)
+            {
+
                 float healthChange = (-DamagePerSecond) * Time.deltaTime;
                 s_Health = Math.Clamp(s_Health + healthChange, 0, s_MaxHealth);
             }
