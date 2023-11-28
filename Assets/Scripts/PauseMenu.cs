@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject mainPauseMenu;
     public Button resume;
+    public EventSystem eventSystem;
 
     public void DisplayPauseMenu()
     {
