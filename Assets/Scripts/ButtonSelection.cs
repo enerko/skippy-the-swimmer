@@ -10,8 +10,10 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
     //private bool isGamepad = false;
     private TextMeshProUGUI button;
     private Color origColor;
-    public Color32 selectedColor;
+    public Color selectedColor;
     public bool highlight;
+
+    private Button _button;
     
     // Start is called before the first frame update
     void Start()
@@ -20,9 +22,9 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
         {
             button = GetComponentInChildren<TextMeshProUGUI>();
             origColor = button.color;
-            return;
         }
         pointer = GameObject.Find("Pointer");
+        _button = GetComponent<Button>();
         // if (ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad)
         // {
         //     isGamepad = true;
@@ -31,14 +33,7 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (highlight)
-        {
-            Debug.Log(button);
-            button.color = selectedColor;
-            return;
-        }
-        pointer.SetActive(true);
-        pointer.transform.position = new Vector2(transform.position.x - (transform.position.x / 3) + xOffset, transform.position.y);
+        _button.Select();
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -61,7 +56,6 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
             button.color = origColor;
             return;
         }
-
     }
 
     public void OnDeselect(BaseEventData eventData)

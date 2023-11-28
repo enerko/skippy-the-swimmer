@@ -580,6 +580,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c102482ec392d04fbf578be6a96ebcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedColor: {r: 0, g: 0, b: 0, a: 0}
+  highlight: 0
 --- !u!1 &897772630133310871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1653,6 +1655,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c102482ec392d04fbf578be6a96ebcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedColor: {r: 0, g: 0, b: 0, a: 0}
+  highlight: 0
 --- !u!1 &2777267565501661890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2395,6 +2399,7 @@ GameObject:
   - component: {fileID: 6003280602323508307}
   - component: {fileID: 2471060689650250937}
   - component: {fileID: 5590101425599566980}
+  - component: {fileID: 2570133431183390204}
   m_Layer: 5
   m_Name: CloseButton
   m_TagString: Untagged
@@ -2516,6 +2521,20 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2570133431183390204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3291328243183201593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c102482ec392d04fbf578be6a96ebcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selectedColor: {r: 1, g: 1, b: 1, a: 1}
+  highlight: 1
 --- !u!1 &3550970033359787362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4533,6 +4552,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c102482ec392d04fbf578be6a96ebcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedColor: {r: 0, g: 0, b: 0, a: 0}
+  highlight: 0
 --- !u!1 &7516111858119590018
 GameObject:
   m_ObjectHideFlags: 0
@@ -5099,6 +5120,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c102482ec392d04fbf578be6a96ebcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selectedColor: {r: 0, g: 0, b: 0, a: 0}
+  highlight: 0
 --- !u!1 &8430594690904582266
 GameObject:
   m_ObjectHideFlags: 0
@@ -5873,6 +5896,22 @@ PrefabInstance:
       propertyPath: m_OnValueChanged.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
       objectReference: {fileID: 5017105490967178171}
+    - target: {fileID: 7182672602437371428, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
+      propertyPath: selectedColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182672602437371428, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
+      propertyPath: selectedColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182672602437371428, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
+      propertyPath: selectedColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7182672602437371428, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
+      propertyPath: selectedColor.r
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9082976096253442867, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
       propertyPath: m_Name
       value: SettingsMenu

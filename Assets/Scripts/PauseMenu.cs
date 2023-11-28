@@ -11,7 +11,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject settingsMenu;
     public GameObject mainPauseMenu;
     public Button resume;
-    public EventSystem eventSystem;
 
     public void DisplayPauseMenu()
     {
@@ -41,10 +40,14 @@ public class PauseMenu : MonoBehaviour
 
     void Pause ()
     {
-        Cursor.lockState = CursorLockMode.None;
-        Cursor.visible = true;
+        // enable or hide cursor based on if controller is plugged in
+        if (ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad) {
+            resume.Select();
+        } else {
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
 
-        resume.Select();
         pauseMenuUI.SetActive(true);
         mainPauseMenu.SetActive(true);
         Time.timeScale = 0f;
