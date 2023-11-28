@@ -6,6 +6,7 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
     private float xOffset = 30;
     private GameObject pointer;
     private bool isGamepad = false;
+    
     // Start is called before the first frame update
     void Start()
     {
