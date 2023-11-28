@@ -7,7 +7,7 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
 {
     private float xOffset = 30;
     private GameObject pointer;
-    private bool isGamepad = false;
+    //private bool isGamepad = false;
     private TextMeshProUGUI button;
     private Color origColor;
     public Color32 selectedColor;
@@ -23,10 +23,10 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
             return;
         }
         pointer = GameObject.Find("Pointer");
-        if (ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad)
-        {
-            isGamepad = true;
-        }
+        // if (ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad)
+        // {
+        //     isGamepad = true;
+        // }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
