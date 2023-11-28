@@ -47,7 +47,7 @@ public class CameraMain : MonoBehaviour
 
     public void PerformCameraRotate(InputValue inputValue)
     {
-        _input = inputValue.Get<Vector2>() * PlayerPrefs.GetFloat("Sensitivity", 4) * 0.5f;
+        _input = inputValue.Get<Vector2>() * PlayerPrefs.GetFloat("Sensitivity", 5) * 0.5f;
 
         if (PlayerPrefs.GetFloat("Invert Camera", 0) == 1) {
             _input *= -1;
@@ -57,7 +57,7 @@ public class CameraMain : MonoBehaviour
     // separate one for the right joystick
     public void PerformCameraRotateJoystick(InputValue inputValue)
     {
-        _input = inputValue.Get<Vector2>() * PlayerPrefs.GetFloat("Sensitivity", 4) * 100 * Time.deltaTime;
+        _input = inputValue.Get<Vector2>() * PlayerPrefs.GetFloat("Sensitivity", 5) * 100 * Time.deltaTime;
 
         if (PlayerPrefs.GetFloat("Invert Camera", 0) == 1) {
             _input *= -1;
