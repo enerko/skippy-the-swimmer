@@ -1189,9 +1189,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c102482ec392d04fbf578be6a96ebcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedColor:
-    serializedVersion: 2
-    rgba: 4292664284
+  selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 1
 --- !u!1 &176308557
 GameObject:
@@ -12809,6 +12807,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Music
       objectReference: {fileID: 0}
+    - target: {fileID: 7474621380442256041, guid: 2d99b6e3aba749341aedc2efed141bc7, type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 5112bdea5f3f19d44af634c186d11045, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -13186,9 +13188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c102482ec392d04fbf578be6a96ebcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedColor:
-    serializedVersion: 2
-    rgba: 4286611648
+  selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 1
 --- !u!1001 &1931681576
 PrefabInstance:
