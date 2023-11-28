@@ -1,34 +1,77 @@
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandler
+public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IPointerExitHandler, IDeselectHandler
 {
     private float xOffset = 30;
-    private GameObject _pointer;
-    private Button _button;
-    
-    //private bool isGamepad = false;
+    private GameObject pointer;
+    private bool isGamepad = false;
+    private TextMeshProUGUI button;
+    private Color origColor;
+    public Color32 selectedColor;
+    public bool highlight;
     
     // Start is called before the first frame update
     void Start()
     {
-        _pointer = GameObject.Find("Pointer");
-        _button = GetComponent<Button>();
-        // if (ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad)
-        // {
-        //     isGamepad = true;
-        // }
+        if (highlight)
+        {
+            button = GetComponentInChildren<TextMeshProUGUI>();
+            origColor = button.color;
+            return;
+        }
+        pointer = GameObject.Find("Pointer");
+        if (ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad)
+        {
+            isGamepad = true;
+        }
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        _button.Select();  // when the pointer enters this button, select it
+        if (highlight)
+        {
+            Debug.Log(button);
+            button.color = selectedColor;
+            return;
+        }
+        pointer.SetActive(true);
+        pointer.transform.position = new Vector2(transform.position.x - (transform.position.x / 3) + xOffset, transform.position.y);
     }
 
     public void OnSelect(BaseEventData eventData)
     {
-        Debug.Log(gameObject.name);
-        _pointer.transform.position = new Vector2(transform.position.x - (transform.position.x / 3) + xOffset, transform.position.y);
+        if (highlight)
+        {
+            button.color = selectedColor;
+            return;
+        }
+        pointer.SetActive(true);
+        pointer.transform.position = new Vector2(transform.position.x - (transform.position.x / 3) + xOffset, transform.position.y);
+    }
+
+    void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
+    {
+        pointer?.SetActive(false);
+        if (highlight)
+        {
+            Debug.Log(button);
+            button.color = origColor;
+            return;
+        }
+
+    }
+
+    public void OnDeselect(BaseEventData eventData)
+    {
+        pointer?.SetActive(false);
+        if (highlight)
+        {
+            Debug.Log(button);
+            button.color = origColor;
+            return;
+        }
     }
 }
