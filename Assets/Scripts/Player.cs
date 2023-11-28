@@ -18,7 +18,8 @@ public class Player : MonoBehaviour
     public static bool s_AchievementsOpen = false;
 
     [SerializeField]
-    private float _baseSpeed = 6;
+    private float _baseSpeed = 7;
+    private float _drySpeed = 4;
     private const float Jump = 14f;  // initial velocity
     private bool hasUsedDoubleJump = false;
     private const float FallAdjustment = 3f;
@@ -261,7 +262,7 @@ public class Player : MonoBehaviour
         currVelo += Vector3.up * Physics.gravity.y * FallAdjustment * Time.deltaTime;
 
         // Update velocity
-        float speed = PlayerHealth.s_Health <= 0 ? _baseSpeed / 2 : _baseSpeed;
+        float speed = PlayerHealth.s_Health <= 0 ? _drySpeed : _baseSpeed;
         speed *= horizVelo.magnitude;
         Vector3 newDirection = (Vector3.Scale(transform.forward, new Vector3(1, 0, 1)) * 0.25f + horizVelo * 0.75f).normalized;
         _rb.velocity = newDirection * speed + new Vector3(0, currVelo.y, 0);
