@@ -42,7 +42,7 @@ public class AchievementsManager : MonoBehaviour
 
         foreach(var collectible in FindObjectsOfType<Collectible>())
         {
-            collectible.ObjectCollectedEvent += HandleObjectCollected;
+            //collectible.ObjectCollectedEvent += HandleObjectCollected;
             totalPearls += 1;
         }
         
@@ -52,7 +52,6 @@ public class AchievementsManager : MonoBehaviour
         UpdateText();
 
         HideList();
-
     }
 
     public void ShowList()

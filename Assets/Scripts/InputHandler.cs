@@ -8,7 +8,7 @@ public class InputHandler : MonoBehaviour
     private Player player;
     private CameraMain cameraMain;
     private PlayerControls playerControls;
-    private AchievementsManager achievements;
+    private HintManager achievements;
     private PauseMenu pauseMenu;
 
     private void Awake()
@@ -16,7 +16,7 @@ public class InputHandler : MonoBehaviour
         playerControls = new PlayerControls();
         player = GameObject.FindFirstObjectByType<Player>();
         cameraMain = GameObject.FindFirstObjectByType<CameraMain>();
-        achievements = FindObjectOfType<AchievementsManager>();
+        achievements = FindObjectOfType<HintManager>();
         pauseMenu = GameObject.FindFirstObjectByType<PauseMenu>();
     }
 
@@ -52,7 +52,7 @@ public class InputHandler : MonoBehaviour
 
     private void OnViewChecklist(InputValue inputValue) 
     {
-        achievements?.DisplayAchievements(inputValue);
+        achievements?.DisplayChecklist(inputValue);
     }
 
     private void OnPause()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEditor;
 using UnityEngine;
 
@@ -9,6 +10,7 @@ public class Collectible : MonoBehaviour
     private Collectibles _collectibles;
     private AudioClip collectibleSound;
     public event Action<GameObject> ObjectCollectedEvent;
+    public string description;
 
     private bool _collected = false;
 
