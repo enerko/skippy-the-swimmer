@@ -2139,7 +2139,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 37a228bebb18f0b4fbc14bc67625cc7d, type: 3}
     - target: {fileID: 5986138896438758701, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_MaxValue
-      value: 0.5
+      value: 0.2
       objectReference: {fileID: 0}
     - target: {fileID: 6003300321082710956, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -2995,7 +2995,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 535604877}
   wakeupMusic: {fileID: 8300000, guid: 6ab527bc5a58fe749ab5b3268c94d3ab, type: 3}
-  level1Music: {fileID: 8300000, guid: ab68ba3dd7186be4c802bd49fc5e11eb, type: 3}
+  level1Music: {fileID: 8300000, guid: 588df91b8e6fe6c45a852780882850cc, type: 3}
   player: {fileID: 1551393326}
 --- !u!82 &535604877 stripped
 AudioSource:
