@@ -46,6 +46,13 @@ public class Conversation : MonoBehaviour
         _imageSection = _dialogueBox.transform.Find("Speaker Portrait").GetComponent<Image>();
 
         _objectives = GameObject.Find("Game UI/Objective").GetComponent<Objectives>();
+
+        // include the speaker's name in dialogue
+        for (int i = 0; i < dialogueChain.Length; i++) {
+            Dialogue dialogue = dialogueChain[i];
+            string adjustedDialogue = string.Format("{0}: {1}", dialogue.speaker.name, dialogue.dialogue);
+            dialogueChain[i].dialogue = adjustedDialogue;
+        }
     }
 
     void Update() {

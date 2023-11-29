@@ -227,16 +227,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueChain:
-  - dialogue: 'Maggy: STOP THERE!!'
+  - dialogue: STOP THERE!!
     speaker: {fileID: 1393420193}
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
-  - dialogue: 'Maggy: You must be the thief who stole my pearls!'
+  - dialogue: You must be the thief who stole my pearls!
     speaker: {fileID: 1393420193}
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
-  - dialogue: 'Skippy: What are you talking about?'
+  - dialogue: What are you talking about?
     speaker: {fileID: 1365963047}
     speakerImage: {fileID: 21300000, guid: efae2182382bbc84da79aea744c4839f, type: 3}
-  - dialogue: 'Maggy: You better find me 5 pearls if you want to leave!'
+  - dialogue: You better find me 5 pearls if you want to leave!
+    speaker: {fileID: 1393420193}
+    speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
+  - dialogue: Here, I wrote the locations on this note! Look at the top left of your
+      screen to read it!
     speaker: {fileID: 1393420193}
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
   index: 0
@@ -967,16 +971,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueChain:
-  - dialogue: 'Maggy: !!!'
+  - dialogue: '!!!'
     speaker: {fileID: 1393420193}
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
-  - dialogue: 'Maggy: Well I''ll be, you found the pearls! '
+  - dialogue: 'Well I''ll be, you found the pearls! '
     speaker: {fileID: 1393420193}
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
-  - dialogue: 'Maggy: You''re free to go then.'
+  - dialogue: You're free to go then.
     speaker: {fileID: 1393420193}
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
-  - dialogue: 'Skippy: Yay!!'
+  - dialogue: Yay!!
     speaker: {fileID: 1365963047}
     speakerImage: {fileID: 21300000, guid: efae2182382bbc84da79aea744c4839f, type: 3}
   index: 0
@@ -9411,7 +9415,7 @@ GameObject:
   - component: {fileID: 1393420194}
   - component: {fileID: 1393420200}
   m_Layer: 0
-  m_Name: Magpie
+  m_Name: Maggy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9471,10 +9475,10 @@ SphereCollider:
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 32639
   m_LayerOverridePriority: 0
   m_IsTrigger: 1
   m_ProvidesContacts: 0
@@ -12492,13 +12496,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueChain:
-  - dialogue: 'Maggy: Well? Do you have my 5 pearls?'
+  - dialogue: Well? Do you have my 5 pearls?
     speaker: {fileID: 1393420193}
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
   - dialogue: No...
     speaker: {fileID: 1365963047}
     speakerImage: {fileID: 21300000, guid: efae2182382bbc84da79aea744c4839f, type: 3}
-  - dialogue: Then begone with you!
+  - dialogue: Then begone with you! Read the hits I wrote in the top left corner!
     speaker: {fileID: 1393420193}
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
   index: 0
