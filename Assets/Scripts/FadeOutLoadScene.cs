@@ -10,7 +10,7 @@ public class FadeOutLoadScene : MonoBehaviour
     public Image fadeImage;
 
     // The trigger is set so it only registers player collision, you can assume only the player triggers it
-    public void OnTriggerEnter(Collider _) {
+    public void CompleteLevel() {
         StartCoroutine(Fade());
     }
 

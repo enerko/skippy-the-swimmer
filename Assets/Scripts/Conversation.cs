@@ -22,6 +22,7 @@ public class Conversation : MonoBehaviour
     // If set, this convo's prompt will switch to nextConversation
     public Conversation nextConversation;
 
+    public bool conversationIsObjective = false;
     public string newObjective;
     public UnityEvent convoFinished;  // fired when this particular conversation is finished
 
@@ -87,6 +88,9 @@ public class Conversation : MonoBehaviour
         Dialogue dialogue = dialogueChain[index];
         if (index == 0 && !themePlayed)
         {
+            if (conversationIsObjective) {
+                _objectives.UpdateObjective("");
+            }
             themePlayed = true;
             AudioClip theme = dialogue.speaker.GetComponent<DialogueAudio>().theme;
             CameraMain.PlaySFX(theme);

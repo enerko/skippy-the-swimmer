@@ -23,6 +23,8 @@ public class ConversationPrompt : Prompt
         // disable it when the player talks to an npc
         if (Player.s_ConversationActive) {
             _active = false;
+        } else if (!Player.s_CanMove) {
+            _active = false;
         } else if (Player.s_CurrentConversation == conversation && !force) {  // if this prompt has control over the gui
             _active = true;
         } else if (Player.s_CurrentConversation is null) {  // disable it when player is out of any prompt's range
