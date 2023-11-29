@@ -18,7 +18,7 @@ public class CameraMain : MonoBehaviour
     // important: pitch is always between 0-360 so this is kinda weird, but look at the calculations below
     private const int MaxPitch = 60;  // cap how much you can look downwards
     private const int MinPitch = -15;  // cap how much you can look upwards
-    private const int AutoRotateIdleTime = 3;  // how many seconds since last camera input to start auto rotating
+    private const int AutoRotateIdleTime = 2;  // how many seconds since last camera input to start auto rotating
     private Vector3 _focus;
     private Vector3 _velocity;
     private Vector2 _input;
@@ -110,7 +110,8 @@ public class CameraMain : MonoBehaviour
         }
 
         // rotate
-        if (_cameraIdleTimer >= AutoRotateIdleTime) {  // auto-rotate the camera, but only if player is moving and not controlling camera
+        if ((_cameraIdleTimer >= AutoRotateIdleTime) && (PlayerPrefs.GetFloat("Autorotate", 1) == 1) &&
+                (playerRB.velocity.magnitude > 1)) {  // auto-rotate the camera, but only if player is moving and not controlling camera
             Vector3 playerAngles = playerRB.gameObject.transform.rotation.eulerAngles;
             Vector3 newAngles = playerAngles + new Vector3(15, 0, 0);
             Quaternion targetRotation = Quaternion.Euler(newAngles);
