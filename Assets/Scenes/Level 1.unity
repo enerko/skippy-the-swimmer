@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26691812, g: 0.59301096, b: 0.7990693, a: 1}
+  m_IndirectSpecularColor: {r: 0.26692784, g: 0.59301203, b: 0.7990748, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5508,7 +5508,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3292998358302555014, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3292998358302555014, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_IsActive
@@ -5898,6 +5898,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6224086078236808862, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_Layer
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 6270652680078945490, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 38.051857
@@ -6086,6 +6090,10 @@ PrefabInstance:
       propertyPath: m_AABB.m_Extent.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7753468655987132386, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: b62eeae5c31ad094ea8d0cffc19b0e52, type: 2}
     - target: {fileID: 7919328295043377328, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: boing
       value: 
@@ -7944,7 +7952,7 @@ GameObject:
   - component: {fileID: 1144401810}
   - component: {fileID: 1144401813}
   - component: {fileID: 1144401812}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: R_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7986,7 +7994,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e64d8596c1b6bb4f9d7799f3a587b16, type: 2}
+  - {fileID: 2100000, guid: 11d1bef63c0c0f84aa9f8ef24b3f3245, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -9272,7 +9280,7 @@ GameObject:
   - component: {fileID: 1386705865}
   - component: {fileID: 1386705868}
   - component: {fileID: 1386705867}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: L_eye
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9314,7 +9322,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e64d8596c1b6bb4f9d7799f3a587b16, type: 2}
+  - {fileID: 2100000, guid: 11d1bef63c0c0f84aa9f8ef24b3f3245, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
