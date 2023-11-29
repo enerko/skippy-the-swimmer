@@ -42,6 +42,7 @@ public class Player : MonoBehaviour
     public AudioClip whooshJump;
     public AudioClip landing;
     public AudioClip boing;
+    public AudioClip whipFail;
     public GameObject plrMesh;
     public Rig lookAtRig;
     public GameObject aim;
@@ -119,8 +120,9 @@ public class Player : MonoBehaviour
 
         if (PlayerHealth.s_Health <= 0) 
         {    
-             StartCoroutine(_healthBar.TailWhipUnavailable());
-             return;
+            CameraMain.PlaySFX(whipFail);
+            StartCoroutine(_healthBar.TailWhipUnavailable());
+            return;
         }
 
         Vector2 attackValue = inputValue.Get<Vector2>();
