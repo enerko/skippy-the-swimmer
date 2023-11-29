@@ -23,6 +23,7 @@ public class CameraMain : MonoBehaviour
     private Vector2 _input;
 
     public GameObject player;
+    public bool isPlayerCamera = true;  // is this the player camera or some random other camera? like in the menu for example
     public static bool s_CutScenePlayed;
 
     // hide objectives and checklist prompt
@@ -32,17 +33,19 @@ public class CameraMain : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // Hide cursor
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
-        _focus = player.transform.position;
-
-        if (s_CutScenePlayed)
-        {
-            OnCutSceneEnd();
-        }
-
         s_SfxSource = GetComponent<AudioSource>();
+
+        if (isPlayerCamera) {
+            // Hide cursor
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            _focus = player.transform.position;
+
+            if (s_CutScenePlayed)
+            {
+                OnCutSceneEnd();
+            }
+        }
     }
 
     public void PerformCameraRotate(InputValue inputValue)
@@ -67,7 +70,7 @@ public class CameraMain : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Globals.s_GameIsPaused) return;
+        if (Globals.s_GameIsPaused || !isPlayerCamera) return;
 
         if (s_CutSceneActive) return;
 

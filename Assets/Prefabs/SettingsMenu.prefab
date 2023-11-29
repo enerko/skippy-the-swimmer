@@ -568,7 +568,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingName: Sensitivity
-  defaultValue: 4
+  defaultValue: 5
 --- !u!1 &931605677259375299
 GameObject:
   m_ObjectHideFlags: 0
@@ -1771,6 +1771,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 1, g: 1, b: 1, a: 1}
   highlight: 1
+  btnSound: {fileID: 8300000, guid: 9dd194138bb7af949a359948d64dc70d, type: 3}
+  showPointer: 0
 --- !u!1 &3775029898952556610
 GameObject:
   m_ObjectHideFlags: 0
@@ -3946,7 +3948,7 @@ MonoBehaviour:
   m_MinValue: 1
   m_MaxValue: 5
   m_WholeNumbers: 1
-  m_Value: 2
+  m_Value: 3
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -3987,7 +3989,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   settingName: Pixel Size
-  defaultValue: 2
+  defaultValue: 3
 --- !u!1 &8333682935181499558
 GameObject:
   m_ObjectHideFlags: 0

@@ -582,6 +582,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 0
+  btnSound: {fileID: 8300000, guid: 9dd194138bb7af949a359948d64dc70d, type: 3}
+  showPointer: 1
 --- !u!1 &897772630133310871
 GameObject:
   m_ObjectHideFlags: 0
@@ -1619,7 +1621,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 5924396909007116211}
+      - m_Target: {fileID: 304037042939182562}
         m_TargetAssemblyTypeName: UnityEngine.UI.Selectable, UnityEngine.UI
         m_MethodName: Select
         m_Mode: 1
@@ -1657,6 +1659,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 0
+  btnSound: {fileID: 8300000, guid: 9dd194138bb7af949a359948d64dc70d, type: 3}
+  showPointer: 1
 --- !u!1 &2777267565501661890
 GameObject:
   m_ObjectHideFlags: 0
@@ -2535,6 +2539,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 1, g: 1, b: 1, a: 1}
   highlight: 1
+  btnSound: {fileID: 8300000, guid: 9dd194138bb7af949a359948d64dc70d, type: 3}
+  showPointer: 1
 --- !u!1 &3550970033359787362
 GameObject:
   m_ObjectHideFlags: 0
@@ -4554,6 +4560,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 0
+  btnSound: {fileID: 8300000, guid: 9dd194138bb7af949a359948d64dc70d, type: 3}
+  showPointer: 1
 --- !u!1 &7516111858119590018
 GameObject:
   m_ObjectHideFlags: 0
@@ -5122,6 +5130,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 0
+  btnSound: {fileID: 8300000, guid: 9dd194138bb7af949a359948d64dc70d, type: 3}
+  showPointer: 1
 --- !u!1 &8430594690904582266
 GameObject:
   m_ObjectHideFlags: 0
@@ -5929,15 +5939,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
---- !u!114 &5924396909007116211 stripped
+--- !u!114 &304037042939182562 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 9209591526996825770, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
+  m_CorrespondingSourceObject: {fileID: 3008559852641221883, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
   m_PrefabInstance: {fileID: 3312579128168628505}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &6049903888248715818 stripped
