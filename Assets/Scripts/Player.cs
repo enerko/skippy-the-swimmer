@@ -43,6 +43,7 @@ public class Player : MonoBehaviour
     public AudioClip landing;
     public AudioClip boing;
     public AudioClip whipFail;
+    public AudioSource snoringSource;
     public GameObject plrMesh;
     public Rig lookAtRig;
     public GameObject aim;
@@ -103,7 +104,12 @@ public class Player : MonoBehaviour
     public void PerformMove(InputValue inputValue)
     {
         if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) return;
+
         animator.SetBool("IsSleeping", false);
+
+        // stop snoring
+        snoringSource.mute = true;
+
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Lay down 0") ||
             animator.GetCurrentAnimatorStateInfo(0).IsName("Wake up") ||
             animator.GetCurrentAnimatorStateInfo(0).IsName("Sleep")) return;
@@ -158,6 +164,9 @@ public class Player : MonoBehaviour
 
         if (_idleTimer > 5)
         {
+            if (!animator.GetBool("IsSleeping")) {  // play snoring once
+                snoringSource.mute = false;
+            }
             animator.SetBool("IsSleeping", true);
         }
 
