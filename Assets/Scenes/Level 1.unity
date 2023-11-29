@@ -241,6 +241,7 @@ MonoBehaviour:
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
   index: 0
   nextConversation: {fileID: 1823655506}
+  conversationIsObjective: 0
   newObjective: Collect 5 pearls
   convoFinished:
     m_PersistentCalls:
@@ -980,6 +981,7 @@ MonoBehaviour:
     speakerImage: {fileID: 21300000, guid: efae2182382bbc84da79aea744c4839f, type: 3}
   index: 0
   nextConversation: {fileID: 0}
+  conversationIsObjective: 0
   newObjective: Escape through the window!
   convoFinished:
     m_PersistentCalls:
@@ -6294,6 +6296,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1551393318}
   m_SourcePrefab: {fileID: 100100000, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+--- !u!54 &909047810 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 2274315361335784202, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+  m_PrefabInstance: {fileID: 909047809}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &909900542 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5735034090781988248, guid: e8de870639b7cf84d87551d39ff66f43, type: 3}
@@ -12496,6 +12503,7 @@ MonoBehaviour:
     speakerImage: {fileID: 21300000, guid: 601241da812da8547b5024f905a657d5, type: 3}
   index: 0
   nextConversation: {fileID: 0}
+  conversationIsObjective: 0
   newObjective: 
   convoFinished:
     m_PersistentCalls:
@@ -16424,6 +16432,10 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1365963047}
+    - target: {fileID: 70686798847507854, guid: f9bf15b43ac037840adcade0a8ab3820, type: 3}
+      propertyPath: playerRB
+      value: 
+      objectReference: {fileID: 909047810}
     - target: {fileID: 70686798847507854, guid: f9bf15b43ac037840adcade0a8ab3820, type: 3}
       propertyPath: objectives
       value: 

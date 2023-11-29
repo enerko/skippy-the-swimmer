@@ -16,13 +16,14 @@ public class CameraMain : MonoBehaviour
     public Vector3 offset = new Vector3(0, 2, -7);
 
     // important: pitch is always between 0-360 so this is kinda weird, but look at the calculations below
-    private const int MinPitch = 15;  // cap how much you can look upwards
     private const int MaxPitch = 60;  // cap how much you can look downwards
+    private const int MinPitch = -15;  // cap how much you can look upwards
     private Vector3 _focus;
     private Vector3 _velocity;
     private Vector2 _input;
 
     public GameObject player;
+    public Rigidbody playerRB;
     public bool isPlayerCamera = true;  // is this the player camera or some random other camera? like in the menu for example
     public static bool s_CutScenePlayed;
 
@@ -67,6 +68,15 @@ public class CameraMain : MonoBehaviour
         }
     }
 
+    // Given pitch angle between 0 and 360, adjust it to make it -180 to 180
+    private float AdjustPitch(float pitch) {
+        if (pitch <= 180) {
+            return pitch;
+        } else {
+            return pitch - 360;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -75,36 +85,36 @@ public class CameraMain : MonoBehaviour
         if (s_CutSceneActive) return;
 
         // If camera angle is forced...
-        if (s_CameraOverride) {
-            goalTransform.position = s_CameraOverride.position;
-            goalTransform.rotation = s_CameraOverride.rotation;
+        // if (s_CameraOverride) {
+        //     goalTransform.position = s_CameraOverride.position;
+        //     goalTransform.rotation = s_CameraOverride.rotation;
 
-            transform.position = Vector3.SmoothDamp(transform.position, goalTransform.position, ref _velocity, OverrideTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, goalTransform.rotation, 6f * Time.deltaTime);
+        //     transform.position = Vector3.SmoothDamp(transform.position, goalTransform.position, ref _velocity, OverrideTime);
+        //     transform.rotation = Quaternion.Lerp(transform.rotation, goalTransform.rotation, 6f * Time.deltaTime);
 
-            return;
-        }
+        //     return;
+        // }
 
         _focus = Vector3.SmoothDamp(_focus, player.transform.position, ref _velocity, 0.25f);
         goalTransform.position = _focus;
 
         // rotate
-        // _input is already adjusted for sensitivity
-        goalTransform.Rotate(new Vector3(0, _input.x, 0), Space.World);
-        goalTransform.Rotate(new Vector3(-_input.y, 0, 0));
+        if ((_input == Vector2.zero) && (playerRB.velocity.magnitude > 0.1)) {  // auto-rotate the camera, but only if player is moving and not controlling camera
+            Debug.Log("Auto rotating!");
+        } else {  // player control
+            // _input is already adjusted for sensitivity
+            goalTransform.Rotate(new Vector3(0, _input.x, 0), Space.World);
+            goalTransform.Rotate(new Vector3(-_input.y, 0, 0));
+        }
 
         // cap camera's pitch
         Vector3 currRotation = goalTransform.rotation.eulerAngles;
 
-        // pitch ranges from 0 - 360 even though in the editor it goes into negatives, so can't use Mathf.Clamp here
-        float currPitch = currRotation.x;
-       
-        if (MaxPitch < currPitch && currPitch <= 90) {
-            currPitch = MaxPitch;
-        } else if (270 <= currPitch && currPitch < 360 - MinPitch) {
-            currPitch = -MinPitch;
-        }   
+        // when reading pitch, it's 0 - 360
+        float currPitch = AdjustPitch(currRotation.x);
 
+        // You can set pitch to anything, it will autonormalize to 0 - 360 internally
+        currPitch = Mathf.Clamp(currPitch, MinPitch, MaxPitch);
         goalTransform.rotation = Quaternion.Euler(currPitch, currRotation.y, 0);
 
         goalTransform.Translate(offset);
@@ -120,15 +130,12 @@ public class CameraMain : MonoBehaviour
             goalTransform.position = hit.point + hit.normal * 0.1f;  // small buffer to prevent clipping thru nearby walls
         }
 
-        // If transitioning out of override...
-        if (s_OverrideTransitioning) {
-            transform.position = Vector3.Lerp(transform.position, goalTransform.position, 10f * Time.deltaTime);
-            transform.rotation = Quaternion.Lerp(transform.rotation, goalTransform.rotation, 20f * Time.deltaTime);
-        } else {
-            transform.position = goalTransform.position;
-            transform.rotation = goalTransform.rotation;   
-        }
+        // smoothly move camera to goal; this may look a bit weird if moving very fast with mouse, but pretend it's not an issue with a controller
+        // mostly makes transitioning between cutting smooth
+        transform.position = Vector3.Lerp(transform.position, goalTransform.position, 40f * Time.deltaTime);
+        transform.rotation = Quaternion.Lerp(transform.rotation, goalTransform.rotation, 40f * Time.deltaTime);
     }
+    
     public static Vector3 CustomWorldToScreenPoint(Vector3 position)
     {
         RectTransform gameUI = GameObject.Find("Game UI").GetComponent<RectTransform>();

@@ -186,6 +186,8 @@ MonoBehaviour:
   goalTransform: {fileID: 6505150899039641343}
   offset: {x: 0, y: 2, z: -7}
   player: {fileID: 0}
+  playerRB: {fileID: 0}
+  isPlayerCamera: 1
 --- !u!82 &3913817200214346051
 AudioSource:
   m_ObjectHideFlags: 0
