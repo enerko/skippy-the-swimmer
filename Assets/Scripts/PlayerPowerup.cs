@@ -12,7 +12,9 @@ public class PlayerPowerup : MonoBehaviour
     private static AudioSource _doubleJumpSource;
     private static AudioSource _mainMusicSource;
     public AudioClip powerupEndingSound;
-    private AudioSource _audioSource;
+    public static AudioClip powerupReceivedSound;
+    [SerializeField] private AudioClip _powerupReceivedSoundInstance;
+    private static AudioSource _audioSource;
     
     private bool _endingSoundPlayed = false;
 
@@ -24,7 +26,12 @@ public class PlayerPowerup : MonoBehaviour
     private static SkinnedMeshRenderer _skippyBody;
     private static Material _normalMaterial;
     private static Material _powerupMaterial;
-
+    
+    void Awake()
+    {
+        PlayerPowerup.powerupReceivedSound = _powerupReceivedSoundInstance;
+    }
+    
     private void Start() {
         // Assign the audio sources
         _mainMusicSource = GameObject.Find("/Main Music").GetComponent<AudioSource>();
@@ -68,6 +75,7 @@ public class PlayerPowerup : MonoBehaviour
 
     public static void EnableDoubleJump()
     {
+        _audioSource.PlayOneShot(powerupReceivedSound);
         _mainMusicSource.enabled = false;
         _powerupBaseSource.enabled = true;
         _doubleJumpSource.enabled = true;
