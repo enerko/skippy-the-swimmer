@@ -11,6 +11,10 @@ public class PlayerPowerup : MonoBehaviour
     private static AudioSource _powerupBaseSource;
     private static AudioSource _doubleJumpSource;
     private static AudioSource _mainMusicSource;
+    public AudioClip powerupEndingSound;
+    private AudioSource _audioSource;
+    
+    private bool _endingSoundPlayed = false;
 
     private static PowerUpUI _doubleJumpUI;
 
@@ -39,6 +43,7 @@ public class PlayerPowerup : MonoBehaviour
 
         _powerupBaseSource.enabled = false;
         _doubleJumpSource.enabled = false;
+        _audioSource = GetComponent<AudioSource>();
     }
     
     private void Update()
@@ -46,10 +51,18 @@ public class PlayerPowerup : MonoBehaviour
         if (_doubleJumpTimeLeft > 0)
         {
             _doubleJumpTimeLeft -= Time.deltaTime;
+
+            // Check if the powerup time is about to end and play the sound once
+            if (_doubleJumpTimeLeft <= 5f && !_endingSoundPlayed)
+            {
+                _audioSource.PlayOneShot(powerupEndingSound);
+                _endingSoundPlayed = true; // Set the flag to true to prevent replaying the sound
+            }
         }
         else if (DoubleJumpEnabled && _doubleJumpTimeLeft <= 0)
         {
             DeactivateDoubleJump();
+            _endingSoundPlayed = false; // Reset the flag for next time the powerup is activated
         }
     }
 
