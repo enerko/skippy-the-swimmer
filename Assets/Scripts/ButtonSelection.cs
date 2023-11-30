@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IPointerExitHandler, IDeselectHandler
 {
-    private float xOffset = 30;
+    public float xOffset = 30;
     private GameObject pointer;
     //private bool isGamepad = false;
     private TextMeshProUGUI button;
