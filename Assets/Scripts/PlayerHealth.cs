@@ -9,6 +9,7 @@ public class PlayerHealth : MonoBehaviour
     public static float s_MaxHealth = 100;
     public static float s_Health = s_MaxHealth;
     public AudioClip waterSplash;
+    public AudioClip healthChargeSound;
 
     private float DamagePerSecond = 5;
     
@@ -16,11 +17,13 @@ public class PlayerHealth : MonoBehaviour
     private const float InvulTime = 0.75f;
     
     private HealthBar _healthBar;
+    private AudioSource _audioSource;
 
     // Start is called before the first frame update
     void Start()
     {
         _healthBar = FindObjectOfType<HealthBar>();
+        _audioSource = GetComponent<AudioSource>();
     }
 
     void Update()
@@ -50,13 +53,17 @@ public class PlayerHealth : MonoBehaviour
     }
 
     // When Skippy enters a puddle of water
-    void OnTriggerEnter(Collider other) {
+    void OnTriggerEnter(Collider other) 
+    {
         if (other.gameObject.tag != "Water") return;
+
         Player.s_InWater = true;
         _healthBar.EnterWater();
 
         if (other.gameObject.name == "WaterTank" || other.gameObject.name == "Spawn") return;
+
         CameraMain.PlaySFX(waterSplash);
+        _audioSource.PlayOneShot(healthChargeSound);
     }
 
     // When Skippy exits a puddle of water
