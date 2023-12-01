@@ -111,9 +111,14 @@ public class CameraMain : MonoBehaviour
 
         // rotate
         if ((_cameraIdleTimer >= AutoRotateIdleTime) && (PlayerPrefs.GetFloat("Autorotate", 1) == 1) &&
-                (playerRB.velocity.magnitude > 1)) {  // auto-rotate the camera, but only if player is moving and not controlling camera
+                (Player.s_HorizInput != Vector3.zero)) {  // auto-rotate the camera, but only if player is moving and not controlling camera
             Vector3 playerAngles = playerRB.gameObject.transform.rotation.eulerAngles;
-            Vector3 newAngles = new Vector3(15 + playerAngles.x, playerAngles.y, 0);
+
+            // behave differently if player is moving away from or towards camera
+            bool towards = Player.s_HorizInput.z < 0;
+            float yAngle = towards ? playerAngles.y + 180 : playerAngles.y;
+
+            Vector3 newAngles = new Vector3(15 + playerAngles.x, yAngle, 0);
             Quaternion targetRotation = Quaternion.Euler(newAngles);
             goalTransform.rotation = Quaternion.Slerp(goalTransform.rotation, targetRotation, Time.deltaTime);
         } else {  // player control

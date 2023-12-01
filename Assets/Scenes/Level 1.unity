@@ -22188,7 +22188,7 @@ GameObject:
   - component: {fileID: 1658003563040234120}
   - component: {fileID: 8616164748809589733}
   - component: {fileID: 8616164748809589732}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Guitar_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
