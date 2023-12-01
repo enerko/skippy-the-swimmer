@@ -62,7 +62,7 @@ public class PlayerPowerup : MonoBehaviour
             // Check if the powerup time is about to end and play the sound once
             if (_doubleJumpTimeLeft <= 5f && !_endingSoundPlayed)
             {
-                _audioSource.PlayOneShot(powerupEndingSound);
+                CameraMain.PlaySFX(powerupEndingSound);
                 _endingSoundPlayed = true; // Set the flag to true to prevent replaying the sound
             }
         }
@@ -75,13 +75,14 @@ public class PlayerPowerup : MonoBehaviour
 
     public static void EnableDoubleJump()
     {
-        _audioSource.PlayOneShot(powerupReceivedSound);
         _mainMusicSource.enabled = false;
         _powerupBaseSource.enabled = true;
         _doubleJumpSource.enabled = true;
 
-        if (!_powerupBaseSource.isPlaying)
+        if (!_powerupBaseSource.isPlaying) {
+            CameraMain.PlaySFX(powerupReceivedSound);
             _powerupBaseSource.Play();
+        }
         if (!_doubleJumpSource.isPlaying)
             _doubleJumpSource.Play();
             

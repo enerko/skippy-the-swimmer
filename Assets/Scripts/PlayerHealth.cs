@@ -63,7 +63,7 @@ public class PlayerHealth : MonoBehaviour
         if (other.gameObject.name == "WaterTank" || other.gameObject.name == "Spawn") return;
 
         CameraMain.PlaySFX(waterSplash);
-        _audioSource.PlayOneShot(healthChargeSound);
+        CameraMain.PlaySFX(healthChargeSound);
     }
 
     // When Skippy exits a puddle of water
