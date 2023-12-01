@@ -6191,7 +6191,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   powerupEndingSound: {fileID: 8300000, guid: ac7a07f6b1abd480d8324714b24aa98f, type: 3}
-  _powerupReceivedSoundInstance: {fileID: 8300000, guid: 54fd46b5581acd243a547d73be40a11b, type: 3}
+  _powerupReceivedSoundInstance: {fileID: 8300000, guid: bd61c6a774f7a9743ae234b8a7fd5ae4, type: 3}
 --- !u!65 &3899639583413070103
 BoxCollider:
   m_ObjectHideFlags: 0
