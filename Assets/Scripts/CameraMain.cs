@@ -19,6 +19,7 @@ public class CameraMain : MonoBehaviour
     private const int MaxPitch = 60;  // cap how much you can look downwards
     private const int MinPitch = -15;  // cap how much you can look upwards
     private const float AutoRotateIdleTime = 1.5f;  // how many seconds since last camera input to start auto rotating
+    private const float AutoRotateSpeed = 45;  // degrees per second
     private Vector3 _focus;
     private Vector3 _velocity;
     private Vector2 _input;
@@ -111,17 +112,16 @@ public class CameraMain : MonoBehaviour
 
         // rotate
         if ((_cameraIdleTimer >= AutoRotateIdleTime) && (PlayerPrefs.GetFloat("Autorotate", 1) == 1) &&
-                (Player.s_HorizInput != Vector3.zero)) {  // auto-rotate the camera, but only if player is moving and not controlling camera
+                (Player.s_HorizInput.x != 0)) {
+            // auto-rotate the camera, but only if player is moving horizontally and not controlling camera
             Vector3 playerAngles = playerRB.gameObject.transform.rotation.eulerAngles;
+            Vector3 currentAngles = goalTransform.rotation.eulerAngles;
 
-            // behave differently if player is moving away from or towards camera
-            bool towards = Player.s_HorizInput.z < 0;
-            float yAngle = towards ? playerAngles.y + 180 : playerAngles.y;
-            // float yAngle = towards ? goalTransform.rotation.eulerAngles.y : playerAngles.y;
-
-            Vector3 newAngles = new Vector3(15 + playerAngles.x, yAngle, 0);
-            Quaternion targetRotation = Quaternion.Euler(newAngles);
-            goalTransform.rotation = Quaternion.Slerp(goalTransform.rotation, targetRotation, Time.deltaTime);
+            // pan the camera depending on how the player is moving horizontally
+            float yAngle = currentAngles.y + Mathf.Sign(Player.s_HorizInput.x) * AutoRotateSpeed * Time.deltaTime;
+            float xAngle = Mathf.LerpAngle(currentAngles.x, 15 + playerAngles.x, Time.deltaTime);  // pitch is smooth
+            Vector3 newAngles = new Vector3(xAngle, yAngle, 0);
+            goalTransform.rotation = Quaternion.Euler(newAngles);
         } else {  // player control
             // _input is already adjusted for sensitivity
             goalTransform.Rotate(new Vector3(0, _input.x, 0), Space.World);
