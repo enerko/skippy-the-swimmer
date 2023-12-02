@@ -6107,7 +6107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 93a045885e31281408879dc3fb23b0f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _baseSpeed: 6
+  _baseSpeed: 7
   _healthGradient:
     serializedVersion: 2
     key0: {r: 1, g: 1, b: 1, a: 1}
@@ -6177,6 +6177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   waterSplash: {fileID: 8300000, guid: a8ab6f879d7b80f4988755aa842cae2f, type: 3}
+  healthChargeSound: {fileID: 8300000, guid: 9f21a86eb43ca4301b1eb925e20c2117, type: 3}
 --- !u!114 &6318849496650767376
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6189,6 +6190,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1242da57d59a495fbaf52199b825641, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerupEndingSound: {fileID: 8300000, guid: ac7a07f6b1abd480d8324714b24aa98f, type: 3}
+  _powerupReceivedSoundInstance: {fileID: 8300000, guid: bd61c6a774f7a9743ae234b8a7fd5ae4, type: 3}
 --- !u!65 &3899639583413070103
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6331,7 +6334,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e64d8596c1b6bb4f9d7799f3a587b16, type: 2}
+  - {fileID: 2100000, guid: 11d1bef63c0c0f84aa9f8ef24b3f3245, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7534,7 +7537,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 55d72feeca427064c9fbc735d516766d, type: 2}
+  - {fileID: 2100000, guid: b62eeae5c31ad094ea8d0cffc19b0e52, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -7663,7 +7666,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 0e64d8596c1b6bb4f9d7799f3a587b16, type: 2}
+  - {fileID: 2100000, guid: 11d1bef63c0c0f84aa9f8ef24b3f3245, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

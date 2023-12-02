@@ -1528,11 +1528,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8313234767661455401, guid: e8de870639b7cf84d87551d39ff66f43, type: 3}
---- !u!198 &335388051 stripped
-ParticleSystem:
-  m_CorrespondingSourceObject: {fileID: 3243932709141609104, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-  m_PrefabInstance: {fileID: 909047809}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &336200127 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 1671f60a6e0954d4d9d6fecf2c275fc7, type: 3}
@@ -2206,6 +2201,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6673524782154643979, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.0099487
+      objectReference: {fileID: 0}
     - target: {fileID: 6951294613355972769, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
@@ -2373,7 +2372,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1671f60a6e0954d4d9d6fecf2c275fc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.86635
+      value: 4.72
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1671f60a6e0954d4d9d6fecf2c275fc7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2699,7 +2698,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1671f60a6e0954d4d9d6fecf2c275fc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.07635
+      value: 4.93
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1671f60a6e0954d4d9d6fecf2c275fc7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5606,10 +5605,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 89.04577
       objectReference: {fileID: 0}
-    - target: {fileID: 6720244862066317785, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: healthChargeSound
-      value: 
-      objectReference: {fileID: 8300000, guid: 9f21a86eb43ca4301b1eb925e20c2117, type: 3}
     - target: {fileID: 6750816178378847342, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: -65.68291
@@ -5762,18 +5757,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b62eeae5c31ad094ea8d0cffc19b0e52, type: 2}
-    - target: {fileID: 7919328295043377328, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: boing
-      value: 
-      objectReference: {fileID: 8300000, guid: ebace9cb7ade86745ab5d7082334b628, type: 3}
-    - target: {fileID: 7919328295043377328, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: particles
-      value: 
-      objectReference: {fileID: 335388051}
-    - target: {fileID: 7919328295043377328, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
-      propertyPath: _baseSpeed
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 7919590131750132178, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
       value: 0.5158808
@@ -6546,7 +6529,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1671f60a6e0954d4d9d6fecf2c275fc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3163505
+      value: 5.17
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1671f60a6e0954d4d9d6fecf2c275fc7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -9362,7 +9345,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8de870639b7cf84d87551d39ff66f43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.36635
+      value: 4.184
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8de870639b7cf84d87551d39ff66f43, type: 3}
       propertyPath: m_LocalPosition.z
@@ -10387,7 +10370,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 24300002, guid: ae266cf3b51380942b0793155f62e4bf, type: 2}
   m_audioClip: {fileID: 8300000, guid: 9f21a86eb43ca4301b1eb925e20c2117, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.2
+  m_Volume: 0.15
   m_Pitch: 1.1
   Loop: 0
   Mute: 0
@@ -11184,7 +11167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1671f60a6e0954d4d9d6fecf2c275fc7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.9363499
+      value: 2.804
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1671f60a6e0954d4d9d6fecf2c275fc7, type: 3}
       propertyPath: m_LocalPosition.z
@@ -12795,7 +12778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8de870639b7cf84d87551d39ff66f43, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.07635
+      value: 4.379
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8de870639b7cf84d87551d39ff66f43, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22205,7 +22188,7 @@ GameObject:
   - component: {fileID: 1658003563040234120}
   - component: {fileID: 8616164748809589733}
   - component: {fileID: 8616164748809589732}
-  m_Layer: 2
+  m_Layer: 0
   m_Name: Guitar_Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}

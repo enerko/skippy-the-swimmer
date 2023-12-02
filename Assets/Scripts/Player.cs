@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
     public static bool s_ConversationActive = false;  // if currently in a convo
     public static Conversation s_CurrentConversation;  // if CAN begin a convo
     public static bool s_AchievementsOpen = false;
+    public static Vector3 s_HorizInput;
 
     [SerializeField]
     private float _baseSpeed = 7;
@@ -30,7 +31,6 @@ public class Player : MonoBehaviour
     private float _idleTimer = 0;
     private float _stepAudioTime = 0;
     private Rigidbody _rb;
-    private Vector3 _horizInput;
     [SerializeField]
     private Gradient _healthGradient;
 
@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
         // Always change frame of reference when input is changed
         _relativeRotation = Camera.main.transform.rotation;
         Vector3 inputVector3 = inputValue.Get<Vector3>();
-        _horizInput = new Vector3(inputVector3.x, 0, inputVector3.z);
+        s_HorizInput = new Vector3(inputVector3.x, 0, inputVector3.z);
     }
 
     public void PerformAttack(InputValue inputValue)
@@ -147,7 +147,7 @@ public class Player : MonoBehaviour
 
     void Update() {
         // set animator to play walk
-        float inputMagnitude = new Vector2(_horizInput.x, _horizInput.z).magnitude;
+        float inputMagnitude = new Vector2(s_HorizInput.x, s_HorizInput.z).magnitude;
         animator.SetBool("IsWalking", inputMagnitude > 0.1f);
         animator.SetBool("IsGrounded", s_Grounded);
         animator.SetFloat("VeloY", _rb.velocity.y);
@@ -171,7 +171,7 @@ public class Player : MonoBehaviour
         }
 
         // play footsteps
-        if (s_Grounded && _timer - _stepAudioTime >= StepAudioDelay && _horizInput.magnitude > 0.01) {
+        if (s_Grounded && _timer - _stepAudioTime >= StepAudioDelay && s_HorizInput.magnitude > 0.01) {
             AudioClip[] clips = s_InWater ? wetSteps : drySteps;
             _stepAudioTime = _timer;
 
@@ -185,13 +185,13 @@ public class Player : MonoBehaviour
         UpdatePlayerColor();
         
         // if moving only horizontally, Skippy should still look forward
-        if (Mathf.Abs(_horizInput.z) <= 0.1) {
+        if (Mathf.Abs(s_HorizInput.z) <= 0.1) {
             aimGoal.x = 0;
         }
 
         aim.transform.localPosition = Vector3.Lerp(aim.transform.localPosition, aimGoal, 10 * Time.deltaTime);
 
-        if((PlayerPowerup.DoubleJumpEnabled && _horizInput.magnitude != 0) || (PlayerPowerup.DoubleJumpEnabled && !s_Grounded) )
+        if((PlayerPowerup.DoubleJumpEnabled && s_HorizInput.magnitude != 0) || (PlayerPowerup.DoubleJumpEnabled && !s_Grounded) )
         {
             if (!particles.isPlaying)
             {
@@ -217,7 +217,7 @@ public class Player : MonoBehaviour
         animator.SetFloat("VeloY", _rb.velocity.y);
 
         if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) {
-            _horizInput = Vector3.zero;  // don't continue walking if you walk into npc and talk at the same time
+            s_HorizInput = Vector3.zero;  // don't continue walking if you walk into npc and talk at the same time
         }
         
         Vector3 currVelo = _rb.velocity;
@@ -231,7 +231,7 @@ public class Player : MonoBehaviour
 
         // apply camera rotation
         float cameraRotation = _relativeRotation.eulerAngles.y;
-        Vector3 horizVelo = Quaternion.AngleAxis(cameraRotation, Vector3.up) * _horizInput;
+        Vector3 horizVelo = Quaternion.AngleAxis(cameraRotation, Vector3.up) * s_HorizInput;
         horizVelo = horizVelo.normalized;
 
         // raycast to find the normal

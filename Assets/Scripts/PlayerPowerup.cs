@@ -11,6 +11,12 @@ public class PlayerPowerup : MonoBehaviour
     private static AudioSource _powerupBaseSource;
     private static AudioSource _doubleJumpSource;
     private static AudioSource _mainMusicSource;
+    public AudioClip powerupEndingSound;
+    public static AudioClip powerupReceivedSound;
+    [SerializeField] private AudioClip _powerupReceivedSoundInstance;
+    private static AudioSource _audioSource;
+    
+    private bool _endingSoundPlayed = false;
 
     private static PowerUpUI _doubleJumpUI;
 
@@ -20,7 +26,12 @@ public class PlayerPowerup : MonoBehaviour
     private static SkinnedMeshRenderer _skippyBody;
     private static Material _normalMaterial;
     private static Material _powerupMaterial;
-
+    
+    void Awake()
+    {
+        PlayerPowerup.powerupReceivedSound = _powerupReceivedSoundInstance;
+    }
+    
     private void Start() {
         // Assign the audio sources
         _mainMusicSource = GameObject.Find("/Main Music").GetComponent<AudioSource>();
@@ -39,6 +50,7 @@ public class PlayerPowerup : MonoBehaviour
 
         _powerupBaseSource.enabled = false;
         _doubleJumpSource.enabled = false;
+        _audioSource = GetComponent<AudioSource>();
     }
     
     private void Update()
@@ -46,10 +58,18 @@ public class PlayerPowerup : MonoBehaviour
         if (_doubleJumpTimeLeft > 0)
         {
             _doubleJumpTimeLeft -= Time.deltaTime;
+
+            // Check if the powerup time is about to end and play the sound once
+            if (_doubleJumpTimeLeft <= 5f && !_endingSoundPlayed)
+            {
+                CameraMain.PlaySFX(powerupEndingSound);
+                _endingSoundPlayed = true; // Set the flag to true to prevent replaying the sound
+            }
         }
         else if (DoubleJumpEnabled && _doubleJumpTimeLeft <= 0)
         {
             DeactivateDoubleJump();
+            _endingSoundPlayed = false; // Reset the flag for next time the powerup is activated
         }
     }
 
@@ -59,8 +79,10 @@ public class PlayerPowerup : MonoBehaviour
         _powerupBaseSource.enabled = true;
         _doubleJumpSource.enabled = true;
 
-        if (!_powerupBaseSource.isPlaying)
+        if (!_powerupBaseSource.isPlaying) {
+            CameraMain.PlaySFX(powerupReceivedSound);
             _powerupBaseSource.Play();
+        }
         if (!_doubleJumpSource.isPlaying)
             _doubleJumpSource.Play();
             

@@ -57,13 +57,15 @@ public class PlayerHealth : MonoBehaviour
     {
         if (other.gameObject.tag != "Water") return;
 
-        Player.s_InWater = true;
-        _healthBar.EnterWater();
+        if (!Player.s_InWater) {
+            Player.s_InWater = true;
+            _healthBar.EnterWater();
 
-        if (other.gameObject.name == "WaterTank" || other.gameObject.name == "Spawn") return;
+            if (other.gameObject.name == "WaterTank" || other.gameObject.name == "Spawn") return;
 
-        CameraMain.PlaySFX(waterSplash);
-        _audioSource.PlayOneShot(healthChargeSound);
+            CameraMain.PlaySFX(waterSplash);
+            CameraMain.PlaySFX(healthChargeSound);
+        }
     }
 
     // When Skippy exits a puddle of water

@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   goalTransform: {fileID: 6505150899039641343}
   offset: {x: 0, y: 2, z: -7}
+  skippyMaterial: {fileID: 2100000, guid: 7f18585771aedf743be466b6c4732b1a, type: 2}
   player: {fileID: 0}
   playerRB: {fileID: 0}
   isPlayerCamera: 1
