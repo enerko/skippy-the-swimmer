@@ -5051,6 +5051,7 @@ GameObject:
   - component: {fileID: 1129756005740669437}
   - component: {fileID: 2312083731940516557}
   - component: {fileID: 6578508020504172531}
+  - component: {fileID: 1211527492996612987}
   m_Layer: 5
   m_Name: Game UI
   m_TagString: Untagged
@@ -5197,6 +5198,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievementsPrompt: {fileID: 3049716202151320902}
   objectives: {fileID: 4479814629014697907}
+--- !u!114 &1211527492996612987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8050817430429928616}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e41a867c10830641ba3f2ce9b225e0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8183763871710046325
 GameObject:
   m_ObjectHideFlags: 0
