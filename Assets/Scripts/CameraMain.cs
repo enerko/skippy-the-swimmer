@@ -117,6 +117,7 @@ public class CameraMain : MonoBehaviour
             // behave differently if player is moving away from or towards camera
             bool towards = Player.s_HorizInput.z < 0;
             float yAngle = towards ? playerAngles.y + 180 : playerAngles.y;
+            // float yAngle = towards ? goalTransform.rotation.eulerAngles.y : playerAngles.y;
 
             Vector3 newAngles = new Vector3(15 + playerAngles.x, yAngle, 0);
             Quaternion targetRotation = Quaternion.Euler(newAngles);
