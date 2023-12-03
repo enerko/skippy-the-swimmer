@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class CreditsUI : MonoBehaviour
@@ -9,6 +10,8 @@ public class CreditsUI : MonoBehaviour
     private RectTransform rc;
     bool imageShown = false;
     public GameObject title;
+    public UnityEvent creditsEnd;
+    private bool fin = false;
 
     public void StartCredits()
     {
@@ -36,8 +39,26 @@ public class CreditsUI : MonoBehaviour
     void Update()
     {
         if (!imageShown) return;
-        if (rc.localPosition.y > 1100) return;
+        if (rc.localPosition.y > 1190)
+        {
+            if (fin)
+            {
+                return;
+            }
+            else
+            {
+                fin = true;
+                LoadMainMenu();
+            }
+            
+        }
 
         rc.localPosition = new Vector3(rc.localPosition.x, rc.localPosition.y + 0.5f, rc.localPosition.z);
     }
+
+    public void LoadMainMenu()
+    {
+        creditsEnd.Invoke();
+    }
+
 }
