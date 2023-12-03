@@ -19,4 +19,10 @@ public class DisplayTimer : MonoBehaviour
     public void UpdateVisibility() {
         gameObject.SetActive(PlayerPrefs.GetFloat("Timer", 1) == 1);
     }
+
+    public void HideTimer()
+    {
+        gameObject.SetActive(false);
+        PlayerPrefs.SetFloat("Timer", 0);
+    }
 }

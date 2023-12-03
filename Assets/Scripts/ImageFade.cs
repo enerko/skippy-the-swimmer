@@ -5,7 +5,6 @@ using System.Collections;
 public class ImageFade : MonoBehaviour
 {
     private Image img;
-    public int fadeTime;
 
     public void ShowCreditsImage(bool show)
     {
@@ -18,7 +17,7 @@ public class ImageFade : MonoBehaviour
         // fade from opaque to transparent
         if (fadeAway)
         {
-            for (float i = fadeTime; i >= 0; i -= Time.deltaTime)
+            for (float i = 30; i >= 0; i -= Time.deltaTime)
             {
                 // set color with i as alpha
                 img.color = new Color(1, 1, 1, i);
@@ -28,7 +27,7 @@ public class ImageFade : MonoBehaviour
         // fade from transparent to opaque
         else
         {
-            for (float i = 0; i <= fadeTime; i += Time.deltaTime)
+            for (float i = 0; i <= 30; i += Time.deltaTime)
             {
                 // set color with i as alpha
                 img.color = new Color(1, 1, 1, i);

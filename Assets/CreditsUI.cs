@@ -15,7 +15,6 @@ public class CreditsUI : MonoBehaviour
         rc = GetComponent<RectTransform>();
         rc.localPosition = new Vector3(195.300003f, -321, 0);
         StartCoroutine(WaitForImage());
-        title.SetActive(true); 
     }
 
     private IEnumerator WaitForImage()
@@ -24,15 +23,20 @@ public class CreditsUI : MonoBehaviour
         {
             yield return null;
         }
+        title.SetActive(true);
+        for (float i = 0; i <= 2; i += Time.deltaTime)
+        {
+            yield return null;
+        }
+        title.SetActive(true);
         imageShown = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(rc.localPosition);
-        Debug.Log(imageShown);
-        if (rc.localPosition.y > 1100 || !imageShown) return;
+        if (!imageShown) return;
+        if (rc.localPosition.y > 1100) return;
 
         rc.localPosition = new Vector3(rc.localPosition.x, rc.localPosition.y + 0.5f, rc.localPosition.z);
     }
