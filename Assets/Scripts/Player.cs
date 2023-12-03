@@ -68,10 +68,10 @@ using System;
          _rb = GetComponent<Rigidbody>();
          _healthBar = FindObjectOfType<HealthBar>();
          
-         if (plrRenderer != null)
-         {
-             _originalColor = plrRenderer.material.color;
-         }
+        //  if (plrRenderer != null)
+        //  {
+        //      _originalColor = plrRenderer.material.color;
+        //  }
  
          // the director only exists in the bedroom level, not the tutorial
          PlayableDirector director = gameObject.GetComponent<PlayableDirector>();
@@ -202,7 +202,7 @@ using System;
          Vector3 aimGoal = new Vector3(transform.InverseTransformDirection(_rb.velocity).x * 3, 0.7f + _rb.velocity.y / 2, 4.15f);
          
          // update player colour based on hp
-         UpdatePlayerColor();
+         // UpdatePlayerColor();
          
          // if moving only horizontally, Skippy should still look forward
          if (Mathf.Abs(s_HorizInput.z) <= 0.1) {
