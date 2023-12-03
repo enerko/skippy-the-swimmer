@@ -13,7 +13,7 @@ public class PlatformStand : MonoBehaviour
             return;
         }
 
-        // manually apply offset and rotation
+        // manually apply offset
         _target.transform.position = transform.position + transform.TransformDirection(_offset);
     }
 
