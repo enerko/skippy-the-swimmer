@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
 public class CameraMain : MonoBehaviour
@@ -29,6 +30,8 @@ public class CameraMain : MonoBehaviour
     public bool isPlayerCamera = true;  // is this the player camera or some random other camera? like in the menu for example
     public static bool s_CutScenePlayed;
 
+    public UnityEvent enterCredits;
+
     // hide objectives and checklist prompt
     // disbale input except escape
     public static bool s_CutSceneActive;
@@ -49,6 +52,11 @@ public class CameraMain : MonoBehaviour
                 OnCutSceneEnd();
             }
         }
+    }
+
+    public void OnFinalCutsceneEnd()
+    {
+        enterCredits.Invoke();
     }
 
     public void PerformCameraRotate(InputValue inputValue)

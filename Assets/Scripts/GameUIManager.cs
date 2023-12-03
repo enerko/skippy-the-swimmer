@@ -18,4 +18,16 @@ public class GameUIManager : MonoBehaviour
             objectives.ShowObjectives();
         }
     }
+
+    public void ShowGameUI(bool show)
+    {
+        if (show)
+        {
+            gameObject.SetActive(true);
+        }
+        else 
+        { 
+            gameObject.SetActive(false);
+        }
+    }
 }
