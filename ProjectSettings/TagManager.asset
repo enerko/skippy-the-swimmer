@@ -9,6 +9,7 @@ TagManager:
   - Puddle
   - Checkpoint
   - Interactable
+  - Paint
   layers:
   - Default
   - TransparentFX
