@@ -19,7 +19,7 @@ using System;
      public static Vector3 s_HorizInput;
  
      [SerializeField]
-     private float _baseSpeed = 7;
+     private float _baseSpeed = 8;
      private float _drySpeed = 4;
      private const float Jump = 15f;  // initial velocity
      private bool hasUsedDoubleJump = false;
