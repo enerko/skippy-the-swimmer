@@ -34,22 +34,24 @@ public class PauseMenu : MonoBehaviour
         Time.timeScale = 1f;
         Globals.s_GameIsPaused = false;
 
-        // reset resume button pressed state
+        // reset resume button pressed state and force deselect the last selected thing
+        GameObject lastSelected = EventSystem.current.currentSelectedGameObject;
+        ButtonSelection lastButtonSelection = lastSelected.GetComponent<ButtonSelection>();
+        lastButtonSelection?.ForceDeselect();
         EventSystem.current.SetSelectedGameObject(null);  
     }
 
     void Pause ()
     {
         // enable or hide cursor based on if controller is plugged in
-        if (ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad) {
-            resume.Select();
-        } else {
-            Cursor.lockState = CursorLockMode.None;
-            Cursor.visible = true;
-        }
+        bool isGamepad = ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad;
+        Cursor.lockState = isGamepad ? CursorLockMode.Locked : CursorLockMode.None;
+        Cursor.visible = !isGamepad;
 
         pauseMenuUI.SetActive(true);
         mainPauseMenu.SetActive(true);
+        resume.Select();
+
         Time.timeScale = 0f;
         Globals.s_GameIsPaused = true;
     }

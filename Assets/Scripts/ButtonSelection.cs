@@ -68,7 +68,7 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
         if (EventSystem.current == null) {
             return;
         }
-        
+
         if (!EventSystem.current.alreadySelecting && (EventSystem.current.currentSelectedGameObject == gameObject))
             EventSystem.current.SetSelectedGameObject(null);
 
@@ -79,5 +79,9 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
             button.color = origColor;
             return;
         }
+    }
+
+    public void ForceDeselect() {
+        OnDeselect(null);
     }
 }
