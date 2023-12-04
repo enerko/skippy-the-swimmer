@@ -15,7 +15,6 @@ public class Collectibles : MonoBehaviour
     private Image _img;
     private TextMeshProUGUI _textUI;
     private GameObject _magpie;
-    private const int GoalNum = 5;
     private Collectible[] pearls;  // manage all the pearls spawning
     private bool _firstFrame = true;
 
@@ -56,7 +55,7 @@ public class Collectibles : MonoBehaviour
 
         numCollected += 1;
 
-        if (numCollected == GoalNum) {
+        if (numCollected == pearls.Length) {
             allCollected.Invoke();
         }
 

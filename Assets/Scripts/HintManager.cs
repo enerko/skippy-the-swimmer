@@ -35,7 +35,7 @@ public class HintManager : MonoBehaviour
 
     private void UpdateText()
     {
-        string text = "Hints: <br><br>";
+        string text = "Pearl Locations: <br><br>";
         foreach (var description in _checklist.Keys)
         {
             text += _checklist[description] ? "[x]" : "[ ]";
