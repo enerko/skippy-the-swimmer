@@ -3889,7 +3889,7 @@ MonoBehaviour:
   sceneName: Tutorial
   hideCursor: 1
   resetTimer: 1
-  resetCutscene: 0
+  resetCutscene: 1
 --- !u!114 &1549219304
 MonoBehaviour:
   m_ObjectHideFlags: 0

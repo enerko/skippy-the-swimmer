@@ -20,7 +20,7 @@ public class CameraMain : MonoBehaviour
     private const int MaxPitch = 60;  // cap how much you can look downwards
     private const int MinPitch = -15;  // cap how much you can look upwards
     private const float AutoRotateIdleTime = 1.5f;  // how many seconds since last camera input to start auto rotating
-    private const float AutoRotateSpeed = 45;  // degrees per second
+    private const float AutoRotateSpeed = 60;  // degrees per second
     private Vector3 _focus;
     private Vector3 _velocity;
     private Vector2 _input;
@@ -120,13 +120,16 @@ public class CameraMain : MonoBehaviour
 
         // rotate
         if ((_cameraIdleTimer >= AutoRotateIdleTime) && (PlayerPrefs.GetFloat("Autorotate", 1) == 1) &&
-                (Player.s_HorizInput.x != 0)) {
+            (Player.s_HorizInput != Vector3.zero)) {
             // auto-rotate the camera, but only if player is moving horizontally and not controlling camera
             Vector3 playerAngles = playerRB.gameObject.transform.rotation.eulerAngles;
             Vector3 currentAngles = goalTransform.rotation.eulerAngles;
 
             // pan the camera depending on how the player is moving horizontally
-            float yAngle = currentAngles.y + Mathf.Sign(Player.s_HorizInput.x) * AutoRotateSpeed * Time.deltaTime;
+            // only tilt if horizontal movement is detected
+            float yAngle = (Player.s_HorizInput.x != 0) ?
+                currentAngles.y + Mathf.Sign(Player.s_HorizInput.x) * AutoRotateSpeed * Time.deltaTime
+                : currentAngles.y;
             float xAngle = Mathf.LerpAngle(currentAngles.x, 15 + playerAngles.x, Time.deltaTime);  // pitch is smooth
             Vector3 newAngles = new Vector3(xAngle, yAngle, 0);
             goalTransform.rotation = Quaternion.Euler(newAngles);

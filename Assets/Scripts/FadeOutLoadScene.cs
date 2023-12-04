@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class FadeOutLoadScene : MonoBehaviour
 {
+    public static bool s_IsFading = false;
     public string sceneName;
     public bool hideCursor = true;
     public Image fadeImage;
@@ -16,6 +17,7 @@ public class FadeOutLoadScene : MonoBehaviour
 
     private IEnumerator Fade() {
         fadeImage.gameObject.SetActive(true);
+        s_IsFading = true;
         Globals.s_CanPause = false;
         Player.s_CanMove = false;
 
@@ -28,5 +30,6 @@ public class FadeOutLoadScene : MonoBehaviour
 
         yield return new WaitForSeconds(5);
         Globals.LoadScene(sceneName, hideCursor, false, false);
+        s_IsFading = false;
     }
 }

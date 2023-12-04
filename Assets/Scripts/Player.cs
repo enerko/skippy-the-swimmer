@@ -148,7 +148,7 @@ public class Player : MonoBehaviour
 
     public void PerformTalk()
     {
-        if (!s_CurrentConversation || !s_Grounded || CameraMain.s_CutSceneActive) return;  // no conversation to begin, or in air
+        if (!s_CurrentConversation || !s_Grounded || CameraMain.s_CutSceneActive || FadeOutLoadScene.s_IsFading) return;  // no conversation to begin, or in air
         s_ConversationActive = s_CurrentConversation.index < s_CurrentConversation.dialogueChain.Length;
         s_CurrentConversation.Advance();
     }
