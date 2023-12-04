@@ -54,7 +54,7 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
             return;
 
         pointer.SetActive(true);
-        pointer.transform.position = new Vector2(transform.position.x - (transform.position.x / 3) + xOffset, transform.position.y);
+        pointer.transform.position = new Vector2(pointer.transform.position.x, transform.position.y);
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
@@ -65,6 +65,10 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
     public void OnDeselect(BaseEventData eventData)
     {
         // wtf???
+        if (EventSystem.current == null) {
+            return;
+        }
+        
         if (!EventSystem.current.alreadySelecting && (EventSystem.current.currentSelectedGameObject == gameObject))
             EventSystem.current.SetSelectedGameObject(null);
 

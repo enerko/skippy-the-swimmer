@@ -643,6 +643,7 @@ MonoBehaviour:
   sceneName: Menu
   hideCursor: 0
   resetTimer: 0
+  resetCutscene: 0
 --- !u!114 &2911605433679003706
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4759,6 +4760,7 @@ MonoBehaviour:
   sceneName: Tutorial
   hideCursor: 1
   resetTimer: 0
+  resetCutscene: 0
 --- !u!114 &9066843843283715236
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5198,6 +5200,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   achievementsPrompt: {fileID: 3049716202151320902}
   objectives: {fileID: 4479814629014697907}
+  timer: {fileID: 0}
+  healthBar: {fileID: 0}
+  promptTemplate: {fileID: 0}
+  promptContainer: {fileID: 0}
 --- !u!114 &1211527492996612987
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6262,33 +6268,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3359686806930167397, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 365533635605844563}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
---- !u!1 &241123394622248828 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3359686806930167397, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
-  m_PrefabInstance: {fileID: 3312579128168628505}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &365533635605844563
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 241123394622248828}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9c102482ec392d04fbf578be6a96ebcc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  xOffset: 30
-  selectedColor: {r: 0, g: 0, b: 0, a: 0}
-  highlight: 1
-  btnSound: {fileID: 0}
-  showPointer: 1
 --- !u!114 &304037042939182562 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3008559852641221883, guid: dc98b6d371fa61547b215786dd19143c, type: 3}

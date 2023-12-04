@@ -11,7 +11,7 @@ public class Globals
     public static bool s_Restarted = false;
 
     // Load the given scene and reset the appropriate static vars
-    public static void LoadScene(string sceneName, bool hideCursor, bool resetTimer) {
+    public static void LoadScene(string sceneName, bool hideCursor, bool resetTimer, bool resetCutscene) {
         SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
 
         // Hide cursor
@@ -20,6 +20,11 @@ public class Globals
 
         if (resetTimer)
             Timer.ResetTimer();
+
+        if (resetCutscene) {
+            CameraMain.s_CutScenePlayed = false;
+            CameraMain.s_CutSceneActive = false;
+        }
 
         // Reset the appropriate static vars
         PlayerHealth.s_Health = PlayerHealth.s_MaxHealth;
