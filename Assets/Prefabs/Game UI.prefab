@@ -657,6 +657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xOffset: 30
+  pointer: {fileID: 2796628815815423843}
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 0
   btnSound: {fileID: 8300000, guid: e8b745fb55c187e4bba37a4acb41fffb, type: 3}
@@ -1735,6 +1736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xOffset: 30
+  pointer: {fileID: 2796628815815423843}
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 0
   btnSound: {fileID: 8300000, guid: e8b745fb55c187e4bba37a4acb41fffb, type: 3}
@@ -1923,7 +1925,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -90.62499, y: 69.99999}
+  m_AnchoredPosition: {x: -90.62501, y: -999}
   m_SizeDelta: {x: 48.2342, y: 49.9663}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8868488549133870327
@@ -2617,6 +2619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xOffset: 30
+  pointer: {fileID: 0}
   selectedColor: {r: 1, g: 1, b: 1, a: 1}
   highlight: 1
   btnSound: {fileID: 8300000, guid: e8b745fb55c187e4bba37a4acb41fffb, type: 3}
@@ -3392,7 +3395,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.0099487, y: -6.98999}
+  m_AnchoredPosition: {x: 4.0099335, y: -6.98999}
   m_SizeDelta: {x: 60, y: 30}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2188114043390974181
@@ -4774,6 +4777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xOffset: 30
+  pointer: {fileID: 2796628815815423843}
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 0
   btnSound: {fileID: 8300000, guid: e8b745fb55c187e4bba37a4acb41fffb, type: 3}
@@ -5173,7 +5177,6 @@ MonoBehaviour:
   settingsMenu: {fileID: 6049903888248715818}
   mainPauseMenu: {fileID: 9097886660246419067}
   resume: {fileID: 7847312873792338927}
-  closeButtonSelection: {fileID: 2570133431183390204}
 --- !u!114 &2312083731940516557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5364,6 +5367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   xOffset: 30
+  pointer: {fileID: 2796628815815423843}
   selectedColor: {r: 0, g: 0, b: 0, a: 0}
   highlight: 0
   btnSound: {fileID: 8300000, guid: e8b745fb55c187e4bba37a4acb41fffb, type: 3}

@@ -36,8 +36,10 @@ public class PauseMenu : MonoBehaviour
 
         // reset resume button pressed state and force deselect the last selected thing
         GameObject lastSelected = EventSystem.current.currentSelectedGameObject;
-        ButtonSelection lastButtonSelection = lastSelected.GetComponent<ButtonSelection>();
-        lastButtonSelection?.ForceDeselect();
+        if (lastSelected != null) {
+            ButtonSelection lastButtonSelection = lastSelected.GetComponent<ButtonSelection>();
+            lastButtonSelection?.ForceDeselect();
+        }
         EventSystem.current.SetSelectedGameObject(null);  
     }
 
@@ -51,6 +53,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         mainPauseMenu.SetActive(true);
         resume.Select();
+        resume.GetComponent<ButtonSelection>().OnSelect(null);  // WHY TF DOES THIS NOT GET CALLED SOMETIMES?????
 
         Time.timeScale = 0f;
         Globals.s_GameIsPaused = true;

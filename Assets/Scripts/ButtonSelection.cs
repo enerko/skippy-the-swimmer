@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandler, IPointerExitHandler, IDeselectHandler
 {
     public float xOffset = 30;
-    private GameObject pointer;
+    public GameObject pointer = null;
     //private bool isGamepad = false;
     private TextMeshProUGUI button;
     private Color origColor;
@@ -25,9 +25,6 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
             button = GetComponentInChildren<TextMeshProUGUI>();
             origColor = button.color;
         }
-
-        if (showPointer)
-            pointer = GameObject.Find("Pointer");
 
         _button = GetComponent<Button>();
         // if (ControllerTypeHandler.currentController == ControllerTypeHandler.ControllerType.Gamepad)
@@ -53,8 +50,10 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
         if (!showPointer)
             return;
 
-        pointer.SetActive(true);
-        pointer.transform.position = new Vector2(pointer.transform.position.x, transform.position.y);
+        if (pointer != null) {
+            pointer.SetActive(true);
+            pointer.transform.position = new Vector2(pointer.transform.position.x, transform.position.y);
+        }
     }
 
     void IPointerExitHandler.OnPointerExit(PointerEventData eventData)
@@ -72,7 +71,9 @@ public class ButtonSelection : MonoBehaviour, IPointerEnterHandler, ISelectHandl
         if (!EventSystem.current.alreadySelecting && (EventSystem.current.currentSelectedGameObject == gameObject))
             EventSystem.current.SetSelectedGameObject(null);
 
-        pointer?.SetActive(false);
+        if (pointer != null)
+            pointer.SetActive(false);
+
         if (highlight)
         {
             //Debug.Log(button);
