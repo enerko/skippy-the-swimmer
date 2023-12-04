@@ -34,9 +34,11 @@ public class Globals
         CameraMain.s_OverrideTransitioning = false;
         CameraMain.s_CutScenePlayed = s_Restarted;  // is overwritten
 
+        // start new game; reset cutscene flags
         if (resetCutscene) {
             CameraMain.s_CutScenePlayed = false;
             CameraMain.s_CutSceneActive = false;
+            s_Restarted = false;
         }
 
         Time.timeScale = 1f;
