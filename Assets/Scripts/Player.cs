@@ -62,7 +62,7 @@ public class Player : MonoBehaviour
     private float timeSincePaint = 0f;  // Timer to track time since last in paint
     private Vector3 lastFootprintPosition;
     private float footprintInterval = 0.7f;  // Adjust this to control the frequency of footprints
-    private const float FootprintDuration = 10f;  // Duration to leave footprints after exiting paint
+    private const float FootprintDuration = 8f;  // Duration to leave footprints after exiting paint
 
     // Start is called before the first frame update
     void Start()
@@ -176,8 +176,13 @@ public class Player : MonoBehaviour
         // Check if the player should still be leaving footprints
         if ((footprintPrefab != null) && s_Grounded && s_HorizInput.magnitude > 0.01 && timeSincePaint < FootprintDuration)
         {
-            CreateFootprint();
+            // Additional check: Ensure the player's vertical velocity is near zero (not in mid-air)
+            if (Mathf.Abs(_rb.velocity.y) < 0.05f) 
+            {
+                CreateFootprint();
+            }
         }
+
 
         if (animator.GetCurrentAnimatorStateInfo(0).IsName("Idle 0") && !CameraMain.s_CutSceneActive && (s_InWater || isInPaint))
         {
@@ -449,15 +454,20 @@ public class Player : MonoBehaviour
                 sideOffset *= -1;
             }
 
-            Vector3 footprintPosition = transform.position + sideOffset;
-            // Adjust the Y-axis position if needed to ensure it's above ground
-            footprintPosition.y += 0.01f; // Slight raise to prevent z-fighting with the ground
+            // Raycast downwards from the player's position to find the exact ground position
+            RaycastHit hit;
+            if (Physics.Raycast(transform.position + sideOffset, Vector3.down, out hit, 1.0f))
+            {
+                // Use the hit point to place the footprint exactly on the ground
+                Vector3 footprintPosition = hit.point;
+                footprintPosition.y += 0.01f; // Slight raise to prevent z-fighting with the ground
 
-            // Adjust the rotation to be flat on the ground
-            Quaternion footprintRotation = Quaternion.Euler(90, transform.eulerAngles.y, 0);
+                // Adjust the rotation to be flat on the ground
+                Quaternion footprintRotation = Quaternion.FromToRotation(Vector3.up, hit.normal) * Quaternion.Euler(90, transform.eulerAngles.y, 0);
 
-            Instantiate(footprintPrefab, footprintPosition, footprintRotation);
-            lastFootprintPosition = transform.position;
+                Instantiate(footprintPrefab, footprintPosition, footprintRotation);
+                lastFootprintPosition = transform.position;
+            }
         }
     }
 }
