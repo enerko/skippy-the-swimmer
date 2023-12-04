@@ -35,6 +35,7 @@ public class Globals
         Player.s_IsAttacking = false;
         Player.s_CanMove = true;
         Player.s_InWater = false;
+        Player.s_HorizInput = Vector3.zero;
         
         CameraMain.s_CameraOverride = null;
         CameraMain.s_OverrideTransitioning = false;

@@ -6164,6 +6164,7 @@ MonoBehaviour:
   animator: {fileID: 5195937933487393393}
   plrRenderer: {fileID: 3199023722907509857}
   particles: {fileID: 3243932709141609104}
+  footprintPrefab: {fileID: 3256871018476858975, guid: f901afe5b6c3048f1a89caef771d194d, type: 3}
 --- !u!114 &6720244862066317785
 MonoBehaviour:
   m_ObjectHideFlags: 0
