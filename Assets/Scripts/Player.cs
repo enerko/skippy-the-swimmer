@@ -339,7 +339,6 @@ public class Player : MonoBehaviour
             if ((interact != null) && !interact.Activated)
             {
                 interact.Activate();
-                Debug.Log(other.gameObject);
             }
         }
 

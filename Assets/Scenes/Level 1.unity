@@ -10968,6 +10968,58 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -65152447019281691, guid: cb41b031468f0e744871cd62cc294858, type: 3}
+--- !u!114 &1125942935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125942929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4337421f7183c97458bd5d2c3f6f1d10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  promptText: Break
+  promptKeyController: 7
+  promptKeyKeyboard: 0
+--- !u!114 &1125942936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125942929}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 191152d205eaabe44a57dd4608ebea69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _activateSound: {fileID: 8300000, guid: 47282be09e0b7dd42b2daaf3018924fa, type: 3}
+  _dropsWater: 0
+  _puddle: {fileID: 7279655908207665868, guid: 87ada699a43776745b02a6d7cb8bf9ac, type: 3}
+  interactPrompt: {fileID: 1125942935}
+--- !u!135 &1125942937
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125942929}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.17
+  m_Center: {x: 0.00000001490116, y: 0.020863757, z: -0.00000002235174}
 --- !u!1001 &1130973076
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -20156,6 +20208,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8762881603979551566, guid: cb41b031468f0e744871cd62cc294858, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1125942931}
+    - targetCorrespondingSourceObject: {fileID: 8762881603979551566, guid: cb41b031468f0e744871cd62cc294858, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1125942936}
+    - targetCorrespondingSourceObject: {fileID: 8762881603979551566, guid: cb41b031468f0e744871cd62cc294858, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1125942935}
+    - targetCorrespondingSourceObject: {fileID: 8762881603979551566, guid: cb41b031468f0e744871cd62cc294858, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1125942937}
     - targetCorrespondingSourceObject: {fileID: 4582354922015083592, guid: cb41b031468f0e744871cd62cc294858, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1769490322}
