@@ -12,19 +12,12 @@ public class Globals
 
     // Load the given scene and reset the appropriate static vars
     public static void LoadScene(string sceneName, bool hideCursor, bool resetTimer, bool resetCutscene) {
-        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
-
         // Hide cursor
         Cursor.lockState = hideCursor ? CursorLockMode.Locked : CursorLockMode.None;
         Cursor.visible = !hideCursor;
 
         if (resetTimer)
             Timer.ResetTimer();
-
-        if (resetCutscene) {
-            CameraMain.s_CutScenePlayed = false;
-            CameraMain.s_CutSceneActive = false;
-        }
 
         // Reset the appropriate static vars
         PlayerHealth.s_Health = PlayerHealth.s_MaxHealth;
@@ -39,10 +32,17 @@ public class Globals
         
         CameraMain.s_CameraOverride = null;
         CameraMain.s_OverrideTransitioning = false;
-        CameraMain.s_CutScenePlayed = s_Restarted;
+        CameraMain.s_CutScenePlayed = s_Restarted;  // is overwritten
+
+        if (resetCutscene) {
+            CameraMain.s_CutScenePlayed = false;
+            CameraMain.s_CutSceneActive = false;
+        }
 
         Time.timeScale = 1f;
         s_GameIsPaused = false;
         s_CanPause = true;
+
+        SceneManager.LoadScene(sceneName, LoadSceneMode.Single);
     }
 }

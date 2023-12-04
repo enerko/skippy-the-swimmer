@@ -194,7 +194,6 @@ public class CameraMain : MonoBehaviour
             gameObject.GetComponent<Animator>().enabled = false;
         }
         Globals.s_Restarted = true;
-
     }
 
 }
