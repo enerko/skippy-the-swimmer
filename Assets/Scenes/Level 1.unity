@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.2669766, g: 0.59301186, b: 0.79907256, a: 1}
+  m_IndirectSpecularColor: {r: 0.26692784, g: 0.59301203, b: 0.7990748, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9084,6 +9084,14 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: b62eeae5c31ad094ea8d0cffc19b0e52, type: 2}
+    - target: {fileID: 7919328295043377328, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: lowHealth
+      value: 
+      objectReference: {fileID: 2100000, guid: b42b352f100c532439a7907c3952b3bd, type: 2}
+    - target: {fileID: 7919328295043377328, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
+      propertyPath: fullHealth
+      value: 
+      objectReference: {fileID: 2100000, guid: 7f18585771aedf743be466b6c4732b1a, type: 2}
     - target: {fileID: 7919328295043377328, guid: 65980d9571a3a5f4c97f2baef8560031, type: 3}
       propertyPath: footprintPrefab
       value: 

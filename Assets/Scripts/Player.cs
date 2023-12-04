@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
     public Animator animator;
     public Renderer plrRenderer;
     public ParticleSystem particles;
+    public Material fullHealth;
+    public Material lowHealth;
 
     private HealthBar _healthBar;
     private Quaternion _relativeRotation;
@@ -209,7 +211,7 @@ public class Player : MonoBehaviour
         Vector3 aimGoal = new Vector3(transform.InverseTransformDirection(_rb.velocity).x * 3, 0.7f + _rb.velocity.y / 2, 4.15f);
 
         // update player colour based on hp
-        // UpdatePlayerColor();
+        UpdatePlayerColor();
 
         // if moving only horizontally, Skippy should still look forward
         if (Mathf.Abs(s_HorizInput.z) <= 0.1)
@@ -414,16 +416,26 @@ public class Player : MonoBehaviour
     {
         if (plrRenderer != null && !PlayerPowerup.DoubleJumpEnabled)
         {
-            float healthFraction = PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
+            if  (PlayerHealth.s_Health == PlayerHealth.s_MaxHealth)
+            {
+                plrRenderer.material = fullHealth;
+                return;
+            }
+            else
+            {
+                plrRenderer.material = lowHealth;
+                _originalColor = plrRenderer.material.color;
+                float healthFraction = PlayerHealth.s_Health / PlayerHealth.s_MaxHealth;
 
-            // Calculate the grayscale version of the original color
-            float grayScale = (_originalColor.r + _originalColor.g + _originalColor.b) / 3;
-            Color grayColor = new Color(grayScale, grayScale, grayScale);
+                // Calculate the grayscale version of the original color
+                float grayScale = (_originalColor.r + _originalColor.g + _originalColor.b) / 3;
+                Color grayColor = new Color(grayScale, grayScale, grayScale);
 
-            // Blend the original color with the grayscale color based on health
-            Color currentColor = Color.Lerp(grayColor, _originalColor, healthFraction);
+                // Blend the original color with the grayscale color based on health
+                Color currentColor = Color.Lerp(grayColor, _originalColor, healthFraction);
 
-            plrRenderer.material.color = currentColor;
+                plrRenderer.material.color = currentColor;
+            }
         }
     }
     private void CreateFootprint()
