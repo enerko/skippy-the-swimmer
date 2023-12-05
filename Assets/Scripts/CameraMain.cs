@@ -128,7 +128,7 @@ public class CameraMain : MonoBehaviour
             // pan the camera depending on how the player is moving horizontally
             // only tilt if horizontal movement is detected
             float yAngle = (Player.s_HorizInput.x != 0) ?
-                currentAngles.y + Mathf.Sign(Player.s_HorizInput.x) * AutoRotateSpeed * Time.deltaTime
+                currentAngles.y + Player.s_HorizInput.x * AutoRotateSpeed * Time.deltaTime
                 : currentAngles.y;
             float xAngle = Mathf.LerpAngle(currentAngles.x, 15 + playerAngles.x, Time.deltaTime);  // pitch is smooth
             Vector3 newAngles = new Vector3(xAngle, yAngle, 0);
