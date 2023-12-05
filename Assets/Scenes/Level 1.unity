@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.26692784, g: 0.59301203, b: 0.7990748, a: 1}
+  m_IndirectSpecularColor: {r: 0.26691812, g: 0.59301096, b: 0.7990693, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -28766,6 +28766,7 @@ GameObject:
   - component: {fileID: 1720894985624450281}
   - component: {fileID: 8247044165568620132}
   - component: {fileID: 8247044165568620133}
+  - component: {fileID: 8247044165568620135}
   m_Layer: 2
   m_Name: skateboard1
   m_TagString: Untagged
@@ -31622,9 +31623,36 @@ MeshCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 5
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: -6562338181119611732, guid: 7050a20fdd7627640b9f6d84a537742b, type: 3}
+--- !u!54 &8247044165568620135
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5846997750028026895}
+  serializedVersion: 4
+  m_Mass: 10
+  m_Drag: 10
+  m_AngularDrag: 0.2
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &8270515507265433952
 Transform:
   m_ObjectHideFlags: 0
