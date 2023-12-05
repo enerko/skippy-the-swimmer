@@ -216,7 +216,7 @@ public class Player : MonoBehaviour
         Vector3 aimGoal = new Vector3(transform.InverseTransformDirection(_rb.velocity).x * 3, 0.7f + _rb.velocity.y / 2, 4.15f);
 
         // update player colour based on hp
-        UpdatePlayerColor();
+        // UpdatePlayerColor();
 
         // if moving only horizontally, Skippy should still look forward
         if (Mathf.Abs(s_HorizInput.z) <= 0.1)
