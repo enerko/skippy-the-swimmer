@@ -53,7 +53,6 @@ public class PlayerPowerup : MonoBehaviour
         _doubleJumpSource.enabled = false;
         _audioSource = GetComponents<AudioSource>()[0];
         _powerupEndingSource = GetComponents<AudioSource>()[1]; 
-        Debug.Log("AudioSource for Powerup Ending Sound Assigned: " + (_powerupEndingSource != null));
     }
     
     private void Update()
