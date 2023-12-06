@@ -2543,7 +2543,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2108002675293263420, guid: 0fa89f9e9f46b41b1b1d13c0d454594d, type: 3}
       propertyPath: _spawnsLiquid
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2721779395844538395, guid: 0fa89f9e9f46b41b1b1d13c0d454594d, type: 3}
       propertyPath: m_LocalScale.x
@@ -7141,7 +7141,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2108002675293263420, guid: 0fa89f9e9f46b41b1b1d13c0d454594d, type: 3}
       propertyPath: _spawnsLiquid
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2721779395844538395, guid: 0fa89f9e9f46b41b1b1d13c0d454594d, type: 3}
       propertyPath: m_LocalScale.x
@@ -12752,7 +12752,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1451838985452970436, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: description
-      value: One of the drawers look sus
+      value: One of the drawers looks sus
       objectReference: {fileID: 0}
     - target: {fileID: 3671903915491156176, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_Name
