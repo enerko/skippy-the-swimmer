@@ -13,14 +13,18 @@ public class PowerUpUI : MonoBehaviour
     private void Start()
     {
         slider.maxValue = PlayerPowerup.PowerUpDuration;
-
         doubleJumpLogo.enabled = false;
-
-       _prompt = gameObject.transform.Find("Prompt").gameObject;
+        _prompt = gameObject.transform.Find("Prompt").gameObject;
     }
 
     void Update()
     {
+        // Check if a conversation is active
+        if (Player.s_ConversationActive)
+        {
+            return; // Skip updating the timer when a conversation is active
+        }
+
         if (_time > 0)
         {
             _time -= Time.deltaTime;
@@ -37,8 +41,6 @@ public class PowerUpUI : MonoBehaviour
     {
         _time = PlayerPowerup.PowerUpDuration;
         
-
-        // Enable when the power-up becomes active
         if (!doubleJumpLogo.enabled)
         {
             _prompt.SetActive(true);

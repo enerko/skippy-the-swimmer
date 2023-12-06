@@ -26,10 +26,11 @@ public class PlayerPowerup : MonoBehaviour
     private static SkinnedMeshRenderer _skippyBody;
     private static Material _normalMaterial;
     private static Material _powerupMaterial;
+    private AudioSource _powerupEndingSource;
     
     void Awake()
     {
-        PlayerPowerup.powerupReceivedSound = _powerupReceivedSoundInstance;
+        powerupReceivedSound = _powerupReceivedSoundInstance;
     }
     
     private void Start() {
@@ -50,27 +51,49 @@ public class PlayerPowerup : MonoBehaviour
 
         _powerupBaseSource.enabled = false;
         _doubleJumpSource.enabled = false;
-        _audioSource = GetComponent<AudioSource>();
+        _audioSource = GetComponents<AudioSource>()[0];
+        _powerupEndingSource = GetComponents<AudioSource>()[1]; 
+        Debug.Log("AudioSource for Powerup Ending Sound Assigned: " + (_powerupEndingSource != null));
     }
     
     private void Update()
     {
+        if (Player.s_ConversationActive)
+        {
+            if (_endingSoundPlayed && _powerupEndingSource.isPlaying)
+            {
+                _powerupEndingSource.Pause(); // Pause the powerup ending sound
+            }
+            return;
+        }
+        else
+        {
+            if (_endingSoundPlayed && !_powerupEndingSource.isPlaying && _doubleJumpTimeLeft <= 5f)
+            {
+                _powerupEndingSource.UnPause(); // Resume the powerup ending sound
+            }
+        }
+
         if (_doubleJumpTimeLeft > 0)
         {
             _doubleJumpTimeLeft -= Time.deltaTime;
 
             if (_doubleJumpTimeLeft <= 5f && !_endingSoundPlayed)
             {
-                CameraMain.PlaySFX(powerupEndingSound);
+                // Play the powerup ending sound directly through the AudioSource
+                _powerupEndingSource.clip = powerupEndingSound;
+                _powerupEndingSource.Play();
                 _endingSoundPlayed = true;
             }
         }
         else if (DoubleJumpEnabled && _doubleJumpTimeLeft <= 0)
         {
             DeactivateDoubleJump();
-            // Do not reset _endingSoundPlayed here; it will be reset in EnableDoubleJump
         }
     }
+
+
+
 
     public static void EnableDoubleJump()
     {
