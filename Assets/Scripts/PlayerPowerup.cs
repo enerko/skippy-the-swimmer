@@ -14,7 +14,6 @@ public class PlayerPowerup : MonoBehaviour
     public AudioClip powerupEndingSound;
     public static AudioClip powerupReceivedSound;
     [SerializeField] private AudioClip _powerupReceivedSoundInstance;
-    private static AudioSource _audioSource;
     
     private static bool _endingSoundPlayed = false;
 
@@ -26,6 +25,7 @@ public class PlayerPowerup : MonoBehaviour
     private static SkinnedMeshRenderer _skippyBody;
     private static Material _normalMaterial;
     private static Material _powerupMaterial;
+    [SerializeField]
     private AudioSource _powerupEndingSource;
     
     void Awake()
@@ -51,8 +51,6 @@ public class PlayerPowerup : MonoBehaviour
 
         _powerupBaseSource.enabled = false;
         _doubleJumpSource.enabled = false;
-        _audioSource = GetComponents<AudioSource>()[0];
-        _powerupEndingSource = GetComponents<AudioSource>()[1]; 
     }
     
     private void Update()
