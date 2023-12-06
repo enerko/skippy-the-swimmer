@@ -8,7 +8,7 @@ public class Win : MonoBehaviour
 {
     void OnTriggerEnter(Collider other) {
         if (other.gameObject.tag == "Player") {
-            Globals.LoadScene("Ending", false, false, false);
+            Globals.LoadScene("Ending", true, false, false);
             Timer.s_Enabled = false;
         }
     }
