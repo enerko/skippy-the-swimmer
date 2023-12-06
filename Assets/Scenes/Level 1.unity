@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 93462346}
   - component: {fileID: 93462345}
   - component: {fileID: 93462344}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7585,7 +7585,7 @@ GameObject:
   - component: {fileID: 845891192}
   - component: {fileID: 845891191}
   - component: {fileID: 845891190}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12379,7 +12379,7 @@ GameObject:
   - component: {fileID: 1273355145}
   - component: {fileID: 1273355144}
   - component: {fileID: 1273355143}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21255,7 +21255,7 @@ GameObject:
   - component: {fileID: 2055358639}
   - component: {fileID: 2055358638}
   - component: {fileID: 2055358637}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
