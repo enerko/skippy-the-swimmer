@@ -20276,7 +20276,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1451838985452970436, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: description
-      value: Paint me like one of your french birds
+      value: Paint me like one of your French birds
       objectReference: {fileID: 0}
     - target: {fileID: 3671903915491156176, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_Name
