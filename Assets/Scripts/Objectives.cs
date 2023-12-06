@@ -13,8 +13,8 @@ public class Objectives : MonoBehaviour
     private RectTransform _rect;
     private Image _background;
 
-    private Color32 _grey = new Color32(60, 60, 60, 200);
-    private Color32 _green = new Color32(112, 255, 0, 200);
+    private Color32 _grey = new Color32(53, 81, 100, 200);
+    private Color32 _green = new Color32(126, 173, 136, 200);
     private float _hiddenPosY = 20;
     private float _showingPosY = -20;
 
