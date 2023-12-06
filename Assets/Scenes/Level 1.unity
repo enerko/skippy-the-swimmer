@@ -891,7 +891,7 @@ GameObject:
   - component: {fileID: 93462346}
   - component: {fileID: 93462345}
   - component: {fileID: 93462344}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1740,6 +1740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: candyOval_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2234193072172019490, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.208
@@ -2543,7 +2547,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2108002675293263420, guid: 0fa89f9e9f46b41b1b1d13c0d454594d, type: 3}
       propertyPath: _spawnsLiquid
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2721779395844538395, guid: 0fa89f9e9f46b41b1b1d13c0d454594d, type: 3}
       propertyPath: m_LocalScale.x
@@ -3139,6 +3143,10 @@ PrefabInstance:
     - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_Name
       value: candyOval_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2234193072172019490, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7145,7 +7153,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2108002675293263420, guid: 0fa89f9e9f46b41b1b1d13c0d454594d, type: 3}
       propertyPath: _spawnsLiquid
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2721779395844538395, guid: 0fa89f9e9f46b41b1b1d13c0d454594d, type: 3}
       propertyPath: m_LocalScale.x
@@ -7581,7 +7589,7 @@ GameObject:
   - component: {fileID: 845891192}
   - component: {fileID: 845891191}
   - component: {fileID: 845891190}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12375,7 +12383,7 @@ GameObject:
   - component: {fileID: 1273355145}
   - component: {fileID: 1273355144}
   - component: {fileID: 1273355143}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12756,7 +12764,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1451838985452970436, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: description
-      value: One of the drawers look sus
+      value: One of the drawers looks sus
       objectReference: {fileID: 0}
     - target: {fileID: 3671903915491156176, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_Name
@@ -20280,7 +20288,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1451838985452970436, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: description
-      value: Paint me like one of your french birds
+      value: Paint me like one of your French birds
       objectReference: {fileID: 0}
     - target: {fileID: 3671903915491156176, guid: de25e67926d86da49ab8c281bf93fa9b, type: 3}
       propertyPath: m_Name
@@ -21251,7 +21259,7 @@ GameObject:
   - component: {fileID: 2055358639}
   - component: {fileID: 2055358638}
   - component: {fileID: 2055358637}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: Leg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23199,6 +23207,10 @@ PrefabInstance:
     - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_Name
       value: candyOval
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2234193072172019490, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_LocalPosition.x

@@ -14,10 +14,10 @@ public class DebugHUDDisabler : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.H)) {
-            _canvas.enabled = !_canvas.enabled;
-        }
-    }
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.H)) {
+    //         _canvas.enabled = !_canvas.enabled;
+    //     }
+    // }
 }
