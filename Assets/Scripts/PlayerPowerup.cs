@@ -16,7 +16,7 @@ public class PlayerPowerup : MonoBehaviour
     [SerializeField] private AudioClip _powerupReceivedSoundInstance;
     private static AudioSource _audioSource;
     
-    private bool _endingSoundPlayed = false;
+    private static bool _endingSoundPlayed = false;
 
     private static PowerUpUI _doubleJumpUI;
 
@@ -59,17 +59,16 @@ public class PlayerPowerup : MonoBehaviour
         {
             _doubleJumpTimeLeft -= Time.deltaTime;
 
-            // Check if the powerup time is about to end and play the sound once
             if (_doubleJumpTimeLeft <= 5f && !_endingSoundPlayed)
             {
                 CameraMain.PlaySFX(powerupEndingSound);
-                _endingSoundPlayed = true; // Set the flag to true to prevent replaying the sound
+                _endingSoundPlayed = true;
             }
         }
         else if (DoubleJumpEnabled && _doubleJumpTimeLeft <= 0)
         {
             DeactivateDoubleJump();
-            _endingSoundPlayed = false; // Reset the flag for next time the powerup is activated
+            // Do not reset _endingSoundPlayed here; it will be reset in EnableDoubleJump
         }
     }
 
@@ -85,14 +84,17 @@ public class PlayerPowerup : MonoBehaviour
         }
         if (!_doubleJumpSource.isPlaying)
             _doubleJumpSource.Play();
-            
+        
         DoubleJumpEnabled = true;
 
         _doubleJumpUI?.Show();
         _doubleJumpTimeLeft = PowerUpDuration;
 
         _skippyBody.material = _powerupMaterial;
+
+        _endingSoundPlayed = false; // Reset the flag whenever the powerup is enabled or refreshed
     }
+
     
     private static void DeactivateDoubleJump()
     {
