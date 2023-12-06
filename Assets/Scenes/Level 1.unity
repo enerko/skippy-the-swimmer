@@ -1740,6 +1740,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: candyOval_2
       objectReference: {fileID: 0}
+    - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
+      propertyPath: m_Layer
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2234193072172019490, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.208
@@ -3139,6 +3143,10 @@ PrefabInstance:
     - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_Name
       value: candyOval_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2234193072172019490, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_LocalPosition.x
@@ -23195,6 +23203,10 @@ PrefabInstance:
     - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_Name
       value: candyOval
+      objectReference: {fileID: 0}
+    - target: {fileID: 1462159629088978328, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
+      propertyPath: m_Layer
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2234193072172019490, guid: 06097a8629bbdf14cbe6cea3631b1790, type: 3}
       propertyPath: m_LocalPosition.x
