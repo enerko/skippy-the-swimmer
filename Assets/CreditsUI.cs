@@ -12,6 +12,7 @@ public class CreditsUI : MonoBehaviour
     public GameObject title;
     public UnityEvent creditsEnd;
     private bool fin = false;
+    public AudioSource audioSource;
 
     public void StartCredits()
     {
@@ -39,21 +40,22 @@ public class CreditsUI : MonoBehaviour
     void Update()
     {
         if (!imageShown) return;
-        if (rc.localPosition.y > 1190)
+        if (rc.localPosition.y > 1080)
         {
             if (fin)
             {
                 return;
             }
-            else
+            else if(!audioSource.isPlaying)
             {
                 fin = true;
                 LoadMainMenu();
             }
-            
         }
-
-        rc.localPosition = new Vector3(rc.localPosition.x, rc.localPosition.y + 0.5f, rc.localPosition.z);
+        else
+        {
+            rc.localPosition = new Vector3(rc.localPosition.x, rc.localPosition.y + 0.5f, rc.localPosition.z);
+        }
     }
 
     public void LoadMainMenu()

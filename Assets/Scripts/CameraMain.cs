@@ -36,6 +36,7 @@ public class CameraMain : MonoBehaviour
     // hide objectives and checklist prompt
     // disbale input except escape
     public static bool s_CutSceneActive;
+    public static bool s_FinalCutSceneActive;
 
     // Start is called before the first frame update
     void Start()
@@ -53,11 +54,6 @@ public class CameraMain : MonoBehaviour
                 OnCutSceneEnd();
             }
         }
-    }
-
-    public void OnFinalCutsceneEnd()
-    {
-        enterCredits.Invoke();
     }
 
     public void PerformCameraRotate(InputValue inputValue)
@@ -97,7 +93,7 @@ public class CameraMain : MonoBehaviour
     {
         if (Globals.s_GameIsPaused || !isPlayerCamera) return;
 
-        if (s_CutSceneActive) return;
+        if (s_CutSceneActive || s_FinalCutSceneActive) return;
 
         // If camera angle is forced...
         // if (s_CameraOverride) {
@@ -185,15 +181,25 @@ public class CameraMain : MonoBehaviour
     {
         s_CutSceneActive = true;
     }
+    
 
     public void OnCutSceneEnd()
     {
         s_CutSceneActive = false;
         if (gameObject.GetComponent<Animator>())
         {
-            gameObject.GetComponent<Animator>().enabled = false;
+            gameObject.GetComponent<Animator>().runtimeAnimatorController = null;
         }
         Globals.s_Restarted = true;
     }
 
+    public void OnFinalCutSceneStart()
+    {
+        s_FinalCutSceneActive = true;
+    }
+
+    public void OnFinalCutSceneEnd()
+    {
+        enterCredits.Invoke();
+    }
 }
