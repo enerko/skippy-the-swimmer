@@ -8,40 +8,34 @@ using Unity.VisualScripting;
 
 public class HintManager : MonoBehaviour
 {
-    private Dictionary<string, bool> _checklist = new Dictionary<string, bool>();
+    private Dictionary<string, AchievementRowUI> _checklist = new Dictionary<string, AchievementRowUI>();
 
     private Image _background;
-    private TextMeshProUGUI _text;
+    private VerticalLayoutGroup _layoutGroup;
     private bool _pearlsSet = false;
 
+    public GameObject achievementRowPrefab;
     public GameObject prompt;
 
     void Start()
     {
         _background = gameObject.GetComponentInChildren<Image>();
-        _text = gameObject.GetComponentInChildren<TextMeshProUGUI>();
+        _layoutGroup = gameObject.GetComponentInChildren<VerticalLayoutGroup>();
 
         _background.enabled = false;
-        _text.enabled = false;
-
+        
         foreach (var obj in Object.FindObjectsOfType<Collectible>())
         {
-            _checklist[obj.GetComponent<Collectible>().description] = false;
             obj.ObjectCollectedEvent += UpdateChecklist;
+            GameObject row = Instantiate(achievementRowPrefab, _layoutGroup.transform);
+            row.transform.SetParent(_layoutGroup.transform);
+            AchievementRowUI rowUI = row.GetComponent<AchievementRowUI>();
+            rowUI.SetInitialValues(obj);
+            _checklist[obj.GetComponent<Collectible>().description] = rowUI;
         }
 
-        UpdateText();
-    }
+        _layoutGroup.gameObject.SetActive(false);
 
-    private void UpdateText()
-    {
-        string text = "Pearl Locations: <br><br>";
-        foreach (var description in _checklist.Keys)
-        {
-            text += _checklist[description] ? "[x]" : "[ ]";
-            text += " " + description + "<br><br>";
-        }
-        _text.text = text;
     }
 
     public void SetHints()
@@ -55,8 +49,7 @@ public class HintManager : MonoBehaviour
         Collectible pearl = obj.GetComponent<Collectible>();
         if (pearl)
         {
-            _checklist[pearl.description] = true;
-            UpdateText();
+            _checklist[pearl.description].Collected();
         }
         
     }
@@ -67,12 +60,12 @@ public class HintManager : MonoBehaviour
         if (inputValue.isPressed)
         {
             _background.enabled = true;
-            _text.enabled = true;
+            _layoutGroup.gameObject.SetActive(true);
         }
         else
         {
             _background.enabled = false;
-            _text.enabled = false;
+            _layoutGroup.gameObject.SetActive(false);
         }
     }
 }
