@@ -61,6 +61,7 @@ public class HintManager : MonoBehaviour
         {
             _background.enabled = true;
             _layoutGroup.gameObject.SetActive(true);
+            LayoutRebuilder.ForceRebuildLayoutImmediate(_layoutGroup.gameObject.transform as RectTransform);
         }
         else
         {

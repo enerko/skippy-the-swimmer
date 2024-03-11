@@ -36,8 +36,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 103.23435, y: 0}
-  m_SizeDelta: {x: 206.4687, y: 0}
+  m_AnchoredPosition: {x: 101.10472, y: 0}
+  m_SizeDelta: {x: 202.20944, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6122684209583004187
 CanvasRenderer:
@@ -94,8 +94,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 11
-  m_fontSizeBase: 11
+  m_fontSize: 10.5
+  m_fontSizeBase: 10.5
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -224,7 +224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding:
     m_Left: 0
-    m_Right: 0
+    m_Right: 5
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
@@ -250,6 +250,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: {fileID: 3574165176494893417}
   distance: {fileID: 6884005445131345192}
+  icon: {fileID: 5243120547348151599}
 --- !u!1 &5243120547348151599
 GameObject:
   m_ObjectHideFlags: 0
@@ -285,8 +286,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 235.50037, y: -8}
-  m_SizeDelta: {x: 13.751846, y: 16}
+  m_AnchoredPosition: {x: 232.32573, y: -5.505}
+  m_SizeDelta: {x: 12, y: 12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &480733101126750071
 CanvasRenderer:
@@ -309,14 +310,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.23181155, g: 0.6981132, b: 0.15477037, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: be438ca4bf18cb3469a624e7005abefb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 7edf1fb3e8cc41a44814853c137864e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -333,7 +334,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5243120547348151599}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
   m_Name: 

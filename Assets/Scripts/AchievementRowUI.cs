@@ -9,6 +9,7 @@ public class AchievementRowUI : MonoBehaviour
     private bool _collected = false;
     public TextMeshProUGUI description;
     public TextMeshProUGUI distance;
+    public GameObject icon;
 
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,7 @@ public class AchievementRowUI : MonoBehaviour
         description.text = "<s>" + text + "</s>";
         description.color = new Color32(89, 105, 140, 120);
         distance.text = "";
+        icon.SetActive(true);
         _collected = true;
     }
 
