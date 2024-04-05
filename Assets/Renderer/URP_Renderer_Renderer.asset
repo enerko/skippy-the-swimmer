@@ -328,7 +328,7 @@ MonoBehaviour:
     m_Bits: 4294967295
   m_TransparentLayerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 32
   m_DefaultStencilState:
     overrideStencilState: 0
     stencilReference: 0
@@ -524,6 +524,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 1
   passMaterial: {fileID: 2100000, guid: 2ce2454f73d8112448587091184e9e6d, type: 2}
-  injectionPoint: 550
+  injectionPoint: 450
   requirements: 4
   passIndex: 0
