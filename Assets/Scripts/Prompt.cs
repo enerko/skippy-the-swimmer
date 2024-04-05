@@ -26,7 +26,8 @@ public class Prompt : MonoBehaviour
         _promptTemplate = GameObject.Find("/Game UI/Prompt Template");
         _promptContainer = GameObject.Find("/Game UI/Prompt Container");
         _promptGui = CreatePrompt();
-        _promptGui.transform.SetParent(_promptContainer.transform);
+        _promptGui.transform.SetParent(_promptContainer.transform, false);
+        _promptContainer.transform.SetParent(_promptContainer.transform.parent, false);
     }
 
     // Update is called once per frame
