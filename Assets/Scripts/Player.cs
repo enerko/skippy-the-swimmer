@@ -134,12 +134,12 @@ public class Player : MonoBehaviour
     {
         if (s_ConversationActive || !s_CanMove || CameraMain.s_CutSceneActive) return;
 
-        if (PlayerHealth.s_Health <= 0)
-        {
-            CameraMain.PlaySFX(whipFail);
-            StartCoroutine(_healthBar.TailWhipUnavailable());
-            return;
-        }
+        //if (PlayerHealth.s_Health <= 0)
+        //{
+        //    CameraMain.PlaySFX(whipFail);
+        //    StartCoroutine(_healthBar.TailWhipUnavailable());
+        //    return;
+        //}
 
         Vector2 attackValue = inputValue.Get<Vector2>();
         if (attackValue.y > 0 && !s_IsAttacking)
