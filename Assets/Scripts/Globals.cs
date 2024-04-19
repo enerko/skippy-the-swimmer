@@ -9,6 +9,7 @@ public class Globals
     public static bool s_GameIsPaused = false;
     public static bool s_CanPause = true;  // sometimes dont allow pausing, e.g. fade out at end of tutorial
     public static bool s_Restarted = false;
+    public static bool s_Speedrun = false;
 
     // Load the given scene and reset the appropriate static vars
     public static void LoadScene(string sceneName, bool hideCursor, bool resetTimer, bool resetCutscene) {
@@ -34,12 +35,20 @@ public class Globals
         CameraMain.s_OverrideTransitioning = false;
         CameraMain.s_CutScenePlayed = s_Restarted;  // is overwritten
 
+        if (s_Speedrun)
+        {
+            CameraMain.s_CutScenePlayed = true;
+            s_Restarted = true;
+        }
+
         // start new game; reset cutscene flags
         if (resetCutscene) {
             CameraMain.s_CutScenePlayed = false;
             CameraMain.s_CutSceneActive = false;
             s_Restarted = false;
         }
+
+
 
         Time.timeScale = 1f;
         s_GameIsPaused = false;

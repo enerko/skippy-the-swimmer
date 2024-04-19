@@ -1562,6 +1562,10 @@ PrefabInstance:
       value: 130
       objectReference: {fileID: 0}
     - target: {fileID: 6813918604881196970, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
+      propertyPath: m_text
+      value: Speedrun
+      objectReference: {fileID: 0}
+    - target: {fileID: 6813918604881196970, guid: dc98b6d371fa61547b215786dd19143c, type: 3}
       propertyPath: m_fontSize
       value: 18
       objectReference: {fileID: 0}
@@ -2098,6 +2102,7 @@ MonoBehaviour:
   player: {fileID: 0}
   playerRB: {fileID: 0}
   isPlayerCamera: 0
+  DebugMode: 1
   enterCredits:
     m_PersistentCalls:
       m_Calls: []

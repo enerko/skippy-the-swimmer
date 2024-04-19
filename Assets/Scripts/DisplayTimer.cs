@@ -17,7 +17,10 @@ public class DisplayTimer : MonoBehaviour
 
     // Update visibility, this can be called externally to make this object active again
     public void UpdateVisibility() {
-        gameObject.SetActive(PlayerPrefs.GetFloat("Timer", 1) == 1);
+        bool setTimer = PlayerPrefs.GetFloat("Timer", 1) == 1;
+        gameObject.SetActive(setTimer);
+        Globals.s_Speedrun = setTimer;
+        Debug.Log(Globals.s_Speedrun);
     }
 
     public void HideTimer()
