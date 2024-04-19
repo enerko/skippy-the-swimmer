@@ -7725,6 +7725,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fa9f1bb4391762444bd7567108c280ae, type: 2}
     - target: {fileID: 7783928056205668719, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.54901963
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783928056205668719, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.41176474
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783928056205668719, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.34509805
+      objectReference: {fileID: 0}
+    - target: {fileID: 7783928056205668719, guid: d3b0b2bbe4347ed4db0568e12373b91d, type: 3}
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 4802995907200907400, guid: fa9f1bb4391762444bd7567108c280ae, type: 2}
